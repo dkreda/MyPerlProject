@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="DSU_Group" Platform="Linux">
+    <!--This UAF is implementation of Marimba ServerGroup DSU-->
+    <Install>
+      <Component Name="Config_LDAP_Deployments" ExecutionOrder="10"/>
+      <Component Name="Config_Oracle_Deployments" ExecutionOrder="10"/>
+      <Component Name="Config_MIPS_Deployments" ExecutionOrder="10"/>
+    </Install>
+  </UnitType>
+</SWIM>

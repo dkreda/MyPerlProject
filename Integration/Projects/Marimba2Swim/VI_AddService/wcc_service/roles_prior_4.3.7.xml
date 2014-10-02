@@ -1,0 +1,37 @@
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by gavraha (Comvers) -->
+<AAS>
+    <Roles>
+		<Role Name="system_administrator">
+                        <Desc>Role dedicated to the system administrator</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+				<Privilege Name="WIC_ManageProfile"/>
+				<Privilege Name="WIC_ViewMailbox"/>
+                       	</Privileges>
+		</Role>
+		<Role Name="system_service_administrator">
+                        <Desc>Role dedicated to the system service administrator</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+                                <Privilege Name="WIC_ManageProfile"/>
+                                <Privilege Name="WIC_ViewMailbox"/>
+			</Privileges>
+		</Role>
+		<Role Name="domain_service_administrator">
+                        <Desc>Role dedicated to the domain service administrator</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+                                <Privilege Name="WIC_ManageProfile"/>
+                                <Privilege Name="WIC_ViewMailbox"/>
+			</Privileges>
+		</Role>
+		<Role Name="customer_care_user">
+                        <Desc>Role dedicated to the customer care user</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+                                <Privilege Name="WIC_ManageProfile"/>
+                                <Privilege Name="WIC_ViewMailbox"/>
+                        </Privileges>
+                </Role>
+	</Roles>
+</AAS>

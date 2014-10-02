@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="service-kit-vi_suite_SecondMZunitIP" Version="4.8.1.0-03" Platform="Linux">
+    <Install>
+      <Copy ExecutionOrder="215609">
+        <Source>./scripts/balancer-cleanup.pl</Source>
+        <Target>/var/tmp/balancer-cleanup.pl</Target>
+      </Copy>
+      <SetParams ExecutionOrder="215012">
+        <ExecutionGroup>IC-IFS_CAS_Balancer_Farms</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="215612">
+        <ExecutionGroup>GEN_Customization</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="365012">
+        <ExecutionGroup>Babysitter-Critical_Apps_Conf</ExecutionGroup>
+      </SetParams>
+    </Install>
+    <Parameters>
+      <Parameter Name="CAS Farm" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{::units-CAS-ip},A,</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=JGLUE.SITE{Site_Number}.server{::units-CAS-index}"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CAS Farm greeting" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="0"/>
+            <Item Value="1"/>
+          </Enum>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=JGLUE.SITE{Site_Number}.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CAS Farm ping" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=JGLUE.SITE{Site_Number}.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CAS Farm port" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>9005</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=JGLUE.SITE{Site_Number}.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CAS Farm port2" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=JGLUE.SITE{Site_Number}.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CASMTA  Farm for WebInbox" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{::units-CAS-ip},A,</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=CASMTA.SITE{Site_Number}.server{::units-CAS-index}"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CASMTA  Farm port for WebInbox" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>50025</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=CASMTA.SITE{Site_Number}.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CASMTA Farm greeting for WebInbox" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="0"/>
+            <Item Value="1"/>
+          </Enum>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=CASMTA.SITE{Site_Number}.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CASMTA Farm ping for WebInbox" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=CASMTA.SITE{Site_Number}.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CASMTA Farm port2 for WebInbox" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=CASMTA.SITE{Site_Number}.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="DNS Forwarding Enabled - CAS" ExecutionGroup="GEN_Customization" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="Params.EnableForwarder"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="balancer-GSL IP list -Insert all IS4 GSL Ips separated by comma ,-ip" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=GSL.Multisite.~balancer~server"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="GSL  Farm greeting" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="0"/>
+            <Item Value="1"/>
+          </Enum>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=GSL.Multisite.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="GSL  Farm ping" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=GSL.Multisite.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="GSL  Farm port" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=GSL.Multisite.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="GSL  Farm port2" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=GSL.Multisite.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="balancer-MSU application IP list (Insert 2 to 4 Ips separated by comma ,)-ip" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MSU.SITE{Site_Number}.~balancer~server"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MSU  Farm greeting" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="0"/>
+            <Item Value="1"/>
+          </Enum>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MSU.SITE{Site_Number}.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MSU  Farm ping" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MSU.SITE{Site_Number}.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MSU  Farm port" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>8192</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MSU.SITE{Site_Number}.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MSU  Farm port2" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MSU.SITE{Site_Number}.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MTS.MZ Farm" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{::units-MTS-U-ip},A,</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MTS.MZ.SITE{Site_Number}.server{::units-MTS-U-index}"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MTS.MZ Farm greeting" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="0"/>
+            <Item Value="1"/>
+          </Enum>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MTS.MZ.SITE{Site_Number}.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MTS.MZ Farm ping" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MTS.MZ.SITE{Site_Number}.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MTS.MZ Farm port" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>18083</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MTS.MZ.SITE{Site_Number}.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MTS.MZ Farm port2" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=MTS.MZ.SITE{Site_Number}.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="NCILI  Farm" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{::units-CAS-ip},A,</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=NCILI.SITE{Site_Number}.server{::units-CAS-index}"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="NCILI  Farm greeting" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="0"/>
+            <Item Value="1"/>
+          </Enum>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=NCILI.SITE{Site_Number}.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="NCILI  Farm ping" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=NCILI.SITE{Site_Number}.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="NCILI  Farm port" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>60050</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=NCILI.SITE{Site_Number}.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="NCILI  Farm port2" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=NCILI.SITE{Site_Number}.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="IS4 Balancers  list" ExecutionGroup="GEN_Customization" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="Params.NormalBalancerList"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ProxyMTA  Farm" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{::units-PROXY-ip},A,</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=PROXYMTA.SITE{Site_Number}.server{::units-PROXY-index}"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ProxyMTA Farm greeting" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="0"/>
+            <Item Value="1"/>
+          </Enum>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=PROXYMTA.SITE{Site_Number}.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ProxyMTA Farm ping" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=PROXYMTA.SITE{Site_Number}.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ProxyMTA Farm port" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>50025</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=PROXYMTA.SITE{Site_Number}.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ProxyMTA Farm port2" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=PROXYMTA.SITE{Site_Number}.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="TcpEstablishTimeOut" ExecutionGroup="GEN_Customization" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1000</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="Params.TcpEstablishTimeOut"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="TCPTimeOutGreeting" ExecutionGroup="GEN_Customization" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1000</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="Params.TCPTimeOutGreeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="WCC Farm Server (for OSSP)" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{LBA IP},A,</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=WCC.SITE{Site_Number}.server1"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="WCC farm port2" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>8443</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=WCC.SITE{Site_Number}.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="WCC farm port" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>8000</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=WCC.SITE{Site_Number}.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="WCC farm ping" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=WCC.SITE{Site_Number}.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="WCC Farm greeting" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=WCC.SITE{Site_Number}.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="balancer-Profile Locator IP List (Active,Stanby)-ip" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=VI.Profile.Locator.~balancer~server"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="PL Farm Port" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>61800</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=VI.Profile.Locator.port"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="PL Farm Port2" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=VI.Profile.Locator.port2"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="PL Farm Greeting" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=VI.Profile.Locator.greeting"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="PL Farm Ping" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=VI.Profile.Locator.ping"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Balancer Polling Interval" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>6</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="Params.PollingInterval"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ProxyMTA  Farm Resilience" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>220</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=PROXYMTA.SITE{Site_Number}.AcceptedGreetings"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="CASMTA  Farm for WebInbox - Resilience" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>220</Value>
+        <Files>
+          <File Name="/usr/cti/conf/balancer/balancer.conf" Format="INI" ParameterPath="farm=CASMTA.SITE{Site_Number}.AcceptedGreetings"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - Balancer GracefulRestartUnitOnFailure" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/ApplicationsBalancerLINUX.xml" Format="XML" ParameterPath="/MAMDATA/Applications/ROW/LINUX/@GracefulRestartUnitOnFailure"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="::units-CAS-ip" Level="System" ExecutionGroup="IC-IFS_CAS_Balancer_Farms">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="LBA IP" Level="System" ExecutionGroup="IC-IFS_CAS_Balancer_Farms">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="::units-PROXY-ip" Level="System" ExecutionGroup="IC-IFS_CAS_Balancer_Farms">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="First MZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="::units-MTS-U-ip" Level="System" ExecutionGroup="IC-IFS_CAS_Balancer_Farms">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Second MZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Second DMZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="::units-CAS-index" Level="System" ExecutionGroup="IC-IFS_CAS_Balancer_Farms">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="First DMZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="::units-PROXY-index" Level="System" ExecutionGroup="IC-IFS_CAS_Balancer_Farms">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="::units-MTS-U-index" Level="System" ExecutionGroup="IC-IFS_CAS_Balancer_Farms">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Site_Number" Level="System" ExecutionGroup="IC-IFS_CAS_Balancer_Farms">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+    </Parameters>
+  </Component>
+</SWIM>

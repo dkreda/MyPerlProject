@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="service-kit-vi_suite_CAS" Version="4.8.1.0-03" Platform="Linux">
+    <Install>
+      <Execute ExecutionOrder="215621">
+        <Command>/var/tmp/cas_config.sh {Main_Domain} {Manager_Password} {CAS_Network_IP}</Command>
+      </Execute>
+      <Copy ExecutionOrder="215601" ChmodFlags="+x">
+        <Source>./scripts/cas_config.sh</Source>
+        <Target>/var/tmp/cas_config.sh</Target>
+      </Copy>
+      <Copy ExecutionOrder="215620">
+        <Source>./scripts/SetupConnectionPool.pl</Source>
+        <Target>/usr/cti/ServiceKit/SetupConnectionPool.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215430">
+        <Source>./scripts/FixHosts.pl</Source>
+        <Target>/usr/cti/ServiceKit/FixHosts.pl</Target>
+      </Copy>
+      <Execute ExecutionOrder="14971">
+        <Command>rpmfile=`rpm -qa | grep configuration-merger` ; if [ "$rpmfile" != "" ] ; then rpm -e $rpmfile ; fi </Command>
+      </Execute>
+      <Execute ExecutionOrder="15022">
+        <Command>rpm -iv /tmp/configuration-merger*.rpm</Command>
+      </Execute>
+      <Copy ExecutionOrder="15002" ChmodFlags="+x">
+        <Source>./bin/configuration-merger*.rpm</Source>
+        <Target>/tmp/</Target>
+      </Copy>
+      <Execute ExecutionOrder="215270">
+        <Command>if [ ! -e /etc/.version ] ; then echo "VI_Suite_General............{ComponentVersion}" &gt; /etc/.version ; fi </Command>
+      </Execute>
+      <Copy ExecutionOrder="215200">
+        <Source>./configuration/CasConf.csv</Source>
+        <Target>/usr/cti/conf/ServiceKit/CasConf.csv</Target>
+      </Copy>
+      <Execute ExecutionOrder="215240">
+        <Command>/usr/cti/ServiceKit/SetServices.pl -Services {.VVM},{.Direct Retrieval},{.WebInbox},{.WCC},{.WPM},{.Voice Open API},{.Direct Deposit},{.MTE} -ViVer {ComponentVersion}</Command>
+      </Execute>
+      <Copy ExecutionOrder="215220" ChmodFlags="+x">
+        <Source>./scripts/SetServices.pl</Source>
+        <Target>/usr/cti/ServiceKit/SetServices.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215200">
+        <Source>./scripts/bclean.pl</Source>
+        <Target>/usr/cti/ServiceKit/bclean.pl</Target>
+      </Copy>
+      <Execute ExecutionOrder="215230">
+        <Command>chmod +x /usr/cti/ServiceKit/bclean.pl </Command>
+      </Execute>
+      <Execute ExecutionOrder="215420">
+        <Command>/usr/cti/ServiceKit/SetInsightPlatform.pl -Platform {..Insight Platform} -NetDomain {IS4 Network Domain} -PL {Subscriber Locator Method}</Command>
+      </Execute>
+      <Copy ExecutionOrder="215400" ChmodFlags="+x">
+        <Source>./scripts/SetInsightPlatform.pl</Source>
+        <Target>/usr/cti/ServiceKit/SetInsightPlatform.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215400">
+        <Source>./configuration/CasPlatform.csv</Source>
+        <Target>/usr/cti/conf/ServiceKit/CasPlatform.csv</Target>
+      </Copy>
+      <Execute ExecutionOrder="215422">
+        <Command>chmod +x /usr/cti/ServiceKit/FixHosts.pl </Command>
+      </Execute>
+      <Copy ExecutionOrder="15000">
+        <Source>./configuration/HardwareConfig.ini</Source>
+        <Target>/usr/cti/conf/ServiceKit/HardwareConfig.ini</Target>
+      </Copy>
+      <Execute ExecutionOrder="215620">
+        <Command>/usr/cti/ServiceKit/HWConfig.pl -Password {Manager_Password}</Command>
+      </Execute>
+      <Copy ExecutionOrder="215600" ChmodFlags="+x">
+        <Source>./scripts/HWConfig.pl</Source>
+        <Target>/usr/cti/ServiceKit/HWConfig.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215402">
+        <Source>./configuration/sitebook_md_CAS_WIS_IS4_Only.xml</Source>
+        <Target>/usr/cti/conf/sitebook/sitebook_md_CAS.xml</Target>
+      </Copy>
+      <Copy ExecutionOrder="215201">
+        <Source>./configuration/ApplicationsMTA.xml</Source>
+        <Target>/usr/cti/conf/babysitter/ApplicationsMTA.xml</Target>
+      </Copy>
+      <Execute ExecutionOrder="215431">
+        <Command>/usr/cti/apps/CSPbase/csp_block_remote_ssh_login.pl -enable ; for user in ip23loguser mts imap4user genesis mtauser balancericuser webinbox ;do /usr/cti/apps/CSPbase/csp_block_remote_ssh_login.pl --user $user --add;done </Command>
+      </Execute>
+      <Execute ExecutionOrder="215465">
+        <Command>chown sbuser:sbuser /usr/cti/conf/sitebook/* </Command>
+      </Execute>
+      <Execute ExecutionOrder="215670">
+        <Command>sed -i "/trap2sink localhost public/d" /etc/snmp/snmpd.conf </Command>
+      </Execute>
+      <Execute ExecutionOrder="215571">
+        <Command>if [ -e /usr/cti/conf/mts/config.xml.old ]; then /bin/cp -rfp /usr/cti/conf/mts/config.xml.old /usr/cti/conf/mts/config.xml;fi </Command>
+      </Execute>
+      <Copy ExecutionOrder="215400">
+        <Source>./scripts/ChkInstallVer.pl</Source>
+        <Target>/usr/cti/ServiceKit/ChkInstallVer.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215400">
+        <Source>./configuration/VI4.6.map.csv</Source>
+        <Target>/usr/cti/conf/ServiceKit/VI4.6.map.csv</Target>
+      </Copy>
+      <Execute ExecutionOrder="215370">
+        <Command>rm -f /usr/cti/conf/ServiceKit/*.fcvl</Command>
+      </Execute>
+      <Execute ExecutionOrder="215420">
+        <Command>chmod +x /usr/cti/ServiceKit/*</Command>
+      </Execute>
+      <Copy ExecutionOrder="215400">
+        <Source>./../*.fcvl</Source>
+        <Target>/usr/cti/conf/ServiceKit/</Target>
+      </Copy>
+      <Execute ExecutionOrder="24971">
+        <Command>rpmfile=`rpm -qa | grep IS4_Common_Parameters_Customization` ; if [ "$rpmfile" != "" ] ; then rpm -e $rpmfile ; fi </Command>
+      </Execute>
+      <Execute ExecutionOrder="25022">
+        <Command>rpm -iv /tmp/IS4_Common_Parameters_Customization*.rpm</Command>
+      </Execute>
+      <Copy ExecutionOrder="25002" ChmodFlags="+x">
+        <Source>./bin/IS4_Common_Parameters_Customization*.rpm</Source>
+        <Target>/tmp/</Target>
+      </Copy>
+      <Copy ExecutionOrder="415000">
+        <Source>./configuration/SDC_VI.conf</Source>
+        <Target>/usr/cti/conf/SDC/SDC_VI.conf</Target>
+      </Copy>
+      <Execute ExecutionOrder="415030">
+        <Command>rpm -iv  rpm -qa | grep -i IS4_SDC || rpm -iv /tmp/IS4_SDC-1.0.1.0-01.i386.rpm</Command>
+      </Execute>
+      <Execute ExecutionOrder="415040">
+        <Command>chmod 755 /usr/cti/conf/SDC/* </Command>
+      </Execute>
+      <Copy ExecutionOrder="415000">
+        <Source>./bin/IS4_SDC-1.0.1.0-01.i386.rpm</Source>
+        <Target>/tmp/IS4_SDC-1.0.1.0-01.i386.rpm</Target>
+      </Copy>
+      <Execute ExecutionOrder="365021">
+        <Command>/var/tmp/updateBabysitterFiles.pl </Command>
+      </Execute>
+      <Copy ExecutionOrder="365001" ChmodFlags="+x">
+        <Source>./scripts/updateBabysitterFiles.pl</Source>
+        <Target>/var/tmp/updateBabysitterFiles.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215600">
+        <Source>./configuration/MTAConfig.txt</Source>
+        <Target>/var/tmp/MTAConfig.txt</Target>
+      </Copy>
+      <Execute ExecutionOrder="215675">
+        <Command>/var/tmp/ConfigMTA.pl -Answer /var/tmp/MTAConfig.txt -MTAPass {Manager_Password}</Command>
+      </Execute>
+      <Copy ExecutionOrder="215655" ChmodFlags="+x">
+        <Source>./scripts/ConfigMTA.pl</Source>
+        <Target>/var/tmp/ConfigMTA.pl</Target>
+      </Copy>
+      <SetParams ExecutionOrder="215412">
+        <ExecutionGroup>Platform_Config</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="215212">
+        <ExecutionGroup>Service_Config</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="215012">
+        <ExecutionGroup>IC-IFS_CAS_Balancer_Farms</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="215612">
+        <ExecutionGroup>GEN_Customization</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="315012">
+        <ExecutionGroup>MTS_Customization_Not_Per_HW</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="25012">
+        <ExecutionGroup>Platform_Install</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="365012">
+        <ExecutionGroup>Babysitter-Critical_Apps_Conf</ExecutionGroup>
+      </SetParams>
+    </Install>
+    <Parameters>
+      <Parameter Name="..Insight Platform" ExecutionGroup="Platform_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="insight3"/>
+            <Item Value="insight4"/>
+            <Item Value="hybrid"/>
+          </Enum>
+        </Restrictions>
+        <Value>insight3</Value>
+      </Parameter>
+      <Parameter Name=".Direct Deposit" ExecutionGroup="Service_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Value>No</Value>
+      </Parameter>
+      <Parameter Name=".Direct Retrieval" ExecutionGroup="Service_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Value>No</Value>
+      </Parameter>
+      <Parameter Name=".MTE" ExecutionGroup="Service_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Value>No</Value>
+      </Parameter>
+      <Parameter Name=".Voice Open API" ExecutionGroup="Service_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Value>No</Value>
+      </Parameter>
+      <Parameter Name=".VVM" ExecutionGroup="Service_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Value>No</Value>
+      </Parameter>
+      <Parameter Name=".WCC" ExecutionGroup="Service_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Value>No</Value>
+      </Parameter>
+      <Parameter Name=".WebInbox" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Value>No</Value>
+      </Parameter>
+      <Parameter Name=".WPM" ExecutionGroup="Service_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Value>No</Value>
+      </Parameter>
+      <Parameter Name="CheckAutorization" ExecutionGroup="GEN_Customization" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/aumsi/aumsi.conf" Format="INI" ParameterPath="HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Session\Vvm.CheckAuthorization"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ClientCapabilitiesFilter" ExecutionGroup="GEN_Customization" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/usr/cti/conf/aumsi/aumsi.conf" Format="INI" ParameterPath="HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Session\Vvm.ClientCapabilitiesFilter"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="IS4 Network Domain" ExecutionGroup="Service_Config" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value> {IS4 Network Domain}</Value>
+      </Parameter>
+      <Parameter Name="IsRegularLoginAllowed" ExecutionGroup="GEN_Customization" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/aumsi/aumsi.conf" Format="INI" ParameterPath="HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Listener\ProxyIMAPListener.IsRegularLoginAllowed"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="IsSingleDeviceMode" ExecutionGroup="GEN_Customization" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/aumsi/aumsi.conf" Format="INI" ParameterPath="HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Session\Vvm.IsSingleDeviceMode"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MTS Look Ahead" ExecutionGroup="MTS_Customization_Not_Per_HW" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/mts/config.xml" Format="XML" ParameterPath="/MTSParam/LookAhead"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MTS MaxQueue" ExecutionGroup="MTS_Customization_Not_Per_HW" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>100</Value>
+        <Files>
+          <File Name="/usr/cti/conf/mts/config.xml" Format="XML" ParameterPath="/MTSParam/MaxQueue"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="SNMPTrapActive-CAS" ExecutionGroup="GEN_Customization" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Parameters.SNMPTrapActive"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Insight4 System ID" ExecutionGroup="GEN_Customization" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/usr/cti/conf/genesis/JGlue/jglue/osa/osa/profile/ComPAS.properties" Format="KeyValue" ParameterPath="Jdbcpool.General.SystemId"/>
+          <File Name="/usr/cti/webinbox/WIS/conf/wis/osa_web/osa/profile/ComPAS.properties" Format="KeyValue" ParameterPath="Jdbcpool.General.SystemId"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="VvmAuthenticationFieldName" ExecutionGroup="GEN_Customization" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>VvmLogicalPassword</Value>
+        <Files>
+          <File Name="/usr/cti/conf/aumsi/aumsi.conf" Format="INI" ParameterPath="HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Session\Vvm.VvmAuthenticationFieldName"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="TRM_ID" ExecutionGroup="GEN_Customization" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/usr/cti/conf/webinbox/WIS/wis/webvi.xml" Format="XML" ParameterPath="/wis-configuration/wpmFeaturesConfiguration/createUser/TRMList"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MaxOutputFileLength" ExecutionGroup="MTS_Customization_Not_Per_HW" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>5000000</Value>
+        <Files>
+          <File Name="/usr/cti/conf/mts/config.xml" Format="XML" ParameterPath="/MTSParam/MaxOutputFileLength"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Subscriber Locator Method" ExecutionGroup="Platform_Install" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="PL" Display="&quot;Profile Locator&quot;"/>
+            <Item Value="GSL" Display="&quot;GSL Table&quot;"/>
+          </Enum>
+        </Restrictions>
+        <Description>Relevant Only if PVVM Platform is Insight4</Description>
+        <Files>
+          <File Name="/usr/cti/conf/common/PLcommon.properties" Format="KeyValue" ParameterPath="SubsLocationMethod"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Osa Init HostName" ExecutionGroup="IC-IFS_CAS_Balancer_Farms" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>VI.Profile.Locator</Value>
+        <Files>
+          <File Name="/usr/cti/conf/genesis/JGlue/jglue/osa/osa/gsl/JdsvInit.xml" Format="XML" ParameterPath="/attributes/attribute[@name=&quot;GslApi.ProfileLocator.ProfileLocatorHost&quot;]/@value"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="DNS cahch timeout" ExecutionGroup="Service_Config" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>0</Value>
+        <Description>Implementation od RQM-0-163-003</Description>
+        <Files>
+          <File Name="/usr/java/jre1.6/lib/security/java.security" Format="KeyValue" ParameterPath="networkaddress.cache.negative.ttl"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ESU_PASSWORD" ExecutionGroup="GEN_Customization" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Manager_Password" ExecutionGroup="GEN_Customization" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Babysitter - EnableGracefullShutDown" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Enable Graceful Shutdown"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - EnableBalancerNotify" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Enable Balancer Notify"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - BalancerIPOverride" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{First MZ unit IP},{Second MZ unit IP},{First DMZ unit IP},{Second DMZ unit IP}</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Balancer IP Override"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - SendAlarmOnBalancerFailure" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Send Alarm on Balancer Failure"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - BalancerACKTimeout" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>100</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Balancer ACK Timeout"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="First MZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Second MZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Second DMZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Main_Domain" Level="System" ExecutionGroup="GEN_Customization">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="First DMZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="CAS_Network_IP" Level="System" ExecutionGroup="GEN_Customization">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+    </Parameters>
+    <Groups>
+      <Group Name="Tmp Group" DefaultInstances="1" MaxOccur="1"/>
+    </Groups>
+  </Component>
+</SWIM>

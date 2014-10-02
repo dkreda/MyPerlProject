@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="PROXY" Platform="Linux">
+    <Install>
+      <Component Name="Balancer_PROXY" ExecutionOrder="152">
+<!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+<!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+      </Component>
+      <Component Name="VI_j2sdk_PROXY" ExecutionOrder="150">
+<!--This Component has Product Name JRE_Gen with ExecutionPhass 150-->
+      </Component>
+      <Component Name="um_utils_PROXY" ExecutionOrder="150">
+<!--This Component has Product Name UM_UTILS with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

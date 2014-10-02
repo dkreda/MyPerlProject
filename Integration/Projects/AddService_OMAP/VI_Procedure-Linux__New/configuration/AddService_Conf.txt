@@ -1,0 +1,173 @@
+###############################################################################
+#
+# Octpus Parameters manipulation configuration File
+#
+###############################################################################
+
+[Octopus.Parameters.Mapping]
+
+#DD=DDScdb,DDFtm,DDuser,DDaas,DDaas2,DDaas3,DDmgr1,DDmgr2
+VVmService=CommonVVM,VVMDD,VVMDR,VVMOnly,IMAP_Access,IMAP_Port
+MTE=MTEEnabled,AmteEnabled
+WebServices=Webuser,WebOnly,WCCOnly,Product
+
+
+
+[RealName.Parameters.Def]
+
+###############################################################################
+#
+# DD Service
+#
+###############################################################################
+
+## always=SMU,cmd://su - root -c "/var/tmp/Scdb_AddUnits.pl -SysName {SiteName} -{InstallType} -PVVM InSight4 -Service `echo "{MTEEnabled}:{Webuser}:{CommonVVM}" | perl -n -e '/^\d:/ and $Ser="MTE";/:\d+:/ and $Ser .= " WebInbox"; /:true/i and $Ser .= " VVM" ; print $Ser'` -UnitGroup /tmp/{SiteName}SiteBookUnitGroup.xml"
+always=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set EnableLoadControl 1
+always=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set MaxMassDepositThreadsWhenBusy 12
+always=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set MassDepositMQReleasedMsgs 12
+always=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set MassRcpts_threshold 20
+always=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set MassDepositDelayWhenBusy 500
+always=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set MassDepositDelayWhenNotBusy 200
+
+CommonVVM=OMU,cmd:///var/tmp/AddTaskToFTM.pl -Merge /var/tmp/VVM_FTMTask.xml -Dest /usr/cti/conf/ftm/ftmTasks.xml
+CommonVVM=DSU,cmd://su - oracle -c 'sqlplus / as sysdba @/tmp/add_vvm_user.sql'
+CommonVVM=OMU,cmd://cp -fp /tmp/users_VVM_app.xml /usr/cti/conf/AASInit/
+CommonVVM=OMU,cmd://chown root:aas /usr/cti/conf/AASInit/users_VVM_app.xml
+CommonVVM=OMU,cmd:///usr/cti/apps/aas/bin/loadFilesIgnoreConflicts.sh -u
+CommonVVM=OMU,cmd://cp -pf %$VVMxml% %$VVMxml%.Backup;/usr/cti/compas/bin/systemCustomizationTool.sh %$VVMxml% 
+VVMDD=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% access AUTHENTICATION ALLOW {DD_allowed_ip}
+VVMDD=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% access RELAY ALLOW {DD_allowed_ip}
+
+###############################################################################
+#
+# DR Service
+#
+###############################################################################
+
+VVMDR=VMASU,xml:///usr/cti/conf/nds/NDSconf.xml////XmlPst/ComverseTechnology/Nds/V3.1.0.0/MOServicesDetails/VVM/@ServiceEnabled
+IMAP_Access=VMASU,xml:///usr/cti/conf/nds/NDSconf.xml////XmlPst/ComverseTechnology/Nds/V3.1.0.0/Templates/VVM/ImapServerDetails/@ImapServerAddress
+IMAP_Port=VMASU,xml:///usr/cti/conf/nds/NDSconf.xml////XmlPst/ComverseTechnology/Nds/V3.1.0.0/Templates/VVM/ImapServerDetails/@ImapServerPort
+
+
+###############################################################################
+#
+# VVM Service
+#
+###############################################################################
+
+VVMOnly=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set Idextension 1
+VVMOnly=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set EnableNotifyClientId 1
+VVMOnly=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} set NotificationAllowedFolders 'Trash'
+VVMOnly=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set EnableNotificationForAllFolders 1
+VVMOnly=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} class add 4 STDFOLDERS={ClientType}
+VVMOnly=DSU,cmd://%$MgrCmd% -w %$MgrPassword% -s {MIPS_VIP} -p 4201 set IgnoreMquotaFolder 'Trash,Inbox'
+
+
+###############################################################################
+#
+# MTE Service
+#
+###############################################################################
+
+###Scdb_AddUnits.pl will run only once with all services in command. It is meant to avoid irrlevant unit to scdb which causes an error.
+#MTEEnabled=SMU,cmd://su - root -c "/var/tmp/Scdb_AddUnits.pl -SysName {SiteName} -{InstallType} -PVVM InSight4 -Service MTE -UnitGroup /tmp/{SiteName}SiteBookUnitGroup.xml"
+MTEEnabled=OMU,cmd:///var/tmp/AddTaskToFTM.pl -Merge /var/tmp/MTE_FTMTask.xml -Dest /usr/cti/conf/ftm/ftmTasks.xml
+MTEEnabled=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% remote domain add *.mte
+MTEEnabled=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% remote route mte clear
+MTEEnabled=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% remote route mte add Proxy-IC.`grep domain /etc/resolv.conf | awk '{print $2}'` PORT=50025 PREF=100
+MTEEnabled=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% access AUTHENTICATION ALLOW {mte_relay_allowed_ip}
+MTEEnabled=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% access RELAY ALLOW {mte_relay_allowed_ip}
+MTEEnabled=VMASU,cmd:////var/tmp/default.sh
+AmteEnabled=VMASU,xml:///usr/cti/conf/mr/common/ServiceLogic/ClassifiersParameters.xml////ServiceLogicConfiguration/ClassifiersParameters/AMTEEnabled/@value
+
+
+###############################################################################
+#
+# WebInbox Service
+#
+###############################################################################
+
+###Scdb_AddUnits.pl will run only once with all services in command. It is meant to avoid irrlevant unit to scdb which causes an error.
+#Webuser=SMU,cmd://su - root -c "/var/tmp/Scdb_AddUnits.pl -SysName {SiteName} -{InstallType} -PVVM InSight4 -Service WebInbox -UnitGroup /tmp/{SiteName}SiteBookUnitGroup.xml"
+Webuser=DSU,cmd://su - oracle -c 'sqlplus / as sysdba @/tmp/add_wic_user.sql'
+Webuser=OMU,cmd://cp -fp /tmp/roles_WIC_app.xml /usr/cti/conf/AASInit/
+Webuser=OMU,cmd://cp -fp /tmp/users_WIC_app.xml /usr/cti/conf/AASInit/
+Webuser=OMU,cmd:///usr/cti/apps/aas/bin/loadFilesIgnoreConflicts.sh -u
+Webuser=OMU,cmd://chown aas:aas /usr/cti/conf/AASInit/*
+Webuser=OMU,cmd:///usr/cti/apps/aas/bin/loadFilesIgnoreConflicts.sh -r
+WebOnly=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% domain add webinbox.com
+WebOnly=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% USER webinbox.com ADD rt45FggQx CPASS="inFG459k3"
+WebOnly=VMASU,cmd://%$MgrCmd% -w %$MgrPassword% set VerifyAuthenticOriginator 0
+WebOnly=OMU,cmd:///var/tmp/AddTaskToFTM.pl -Merge /var/tmp/WebInbox_FTMTask.xml -Dest /usr/cti/conf/ftm/ftmTasks.xml
+
+
+###############################################################################
+#
+# WCC Service
+#
+###############################################################################
+
+###   Webuser=DSU,cmd://su - oracle -c 'sqlplus / as sysdba @/tmp/add_wic_user.sql'
+
+WCCOnly=SMU,cmd://cp -fp /tmp/menu_wcc.xml %$PortalPath%
+Product=SMU,xml://%$PortalPath%menu_wcc.xml////Menu/@ProductName
+WCCOnly=OMU,cmd://cp -fp /tmp/roles_up_4.3.7.xml /usr/cti/conf/AASInit/
+WCCOnly=SMU,cmd://chown ossp:ossp %$PortalPath%menu_wcc.xml
+#WCCOnly=SMU,cmd://if [ `ps -ef | grep -i ossp |grep -v grep|wc -l` -ne 0 ]; then su - ossp -c "/usr/cti/apps/ossp/bin/restart.sh"; fi
+WCCOnly=OMU,cmd:///var/tmp/AddTaskToFTM.pl -Merge /var/tmp/WIC_FTMTask.xml -Dest /usr/cti/conf/ftm/ftmTasks.xml
+WCCOnly=OMU,cmd://cp -fp /tmp/privileges_wcc.xml /usr/cti/conf/AASInit/
+WCCOnly=OMU,cmd://chown aas:aas /usr/cti/conf/AASInit/privileges_wcc.xml
+
+[Octopus.Parameters.Def.WebServices]
+## WebInbox:WCC  =	Webuser,WebOnly,WCCOnly,Product
+Yes\:Yes=~1,1,1,{ProductVal}
+Yes\:No=~1,1,$NULL,$NULL
+No\:Yes=~1,$NULL,1,{ProductVal}
+Yes=!$NULL,$NULL,$NULL,$NULL
+
+[Octopus.Parameters.Def.DD]
+Yes=~1,1
+Yes=!$NULL,$NULL
+
+[Octopus.Parameters.Def.VVmService]
+###VVM:DR:DD =      DrEnable,DREna,IMAP_Access,IMAP_Port,VVMOnly
+####   VVM:DR:DD =CommonVVM,VVMDD,VVMDR,VVMOnly,IMAP_Access,IMAP_Port
+^Yes=~true,true,TRUE,true,{IMAPAccess},{IMAPPort}
+Yes\:Yes$=~true,true,TRUE,$NULL,{IMAPAccess},{IMAPPort} 
+Yes\:No$=~true,$NULL,TRUE,$NULL,{IMAPAccess},{IMAPPort}
+Yes$=~true,true,$NULL,$NULL,{IMAPAccess},{IMAPPort}
+Yes=!$NULL,$NULL,$NULL,$NULL,$NULL,$NULL                            
+
+
+[Octopus.Parameters.Def.MTE]
+## MTE:AMTE=MTEEnabled,AmteEnabled
+Yes\:(.+)=~1,$1
+Yes=!$NULL,$NULL
+
+[Macros]
+MgrCmd=/opt/criticalpath/global/bin/mgr
+MgrPassword=A25Trk7B43
+PortalPath=/usr/cti/conf/ossp-menu/
+VVMxml=/var/tmp/SysParamCustomization_VVM.xml
+
+
+[Values]
+###############################
+##	VVmService  -> VVM:DR 
+##
+###############################
+SiteName=#SiteName#
+InstallType=Embeded
+MIPS_VIP=#MIPS_VIP#
+VM-ASU_IP=#VM-ASU_IP#
+IMAPPort=#IMAP_Port#
+IMAPAccess=#IMAP_Access_IP#
+#### AMTEEnabled=#AMTEEnabled#
+ClientType=#ClientType#
+mte_relay_allowed_ip=#mte_relay_allowed_ip#
+DD_allowed_ip=#DD_allowed_ip#
+VVmService=#VVmService#
+MTE=#MTE#
+WebServices=#WebServices#
+ProductVal=#ProductVal#
+always=1111

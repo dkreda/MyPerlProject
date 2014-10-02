@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Config_SMU_Deployments" Version="First-Draft" Platform="Linux">
+    <!--This CAF File is implementation of /VI_Procedures/Add_Web_Inbox_Service/Deployments/Config_SMU.SMU_Config-->
+    <Install>
+      <Execute ExecutionOrder="1000">
+        <Command>grep "CAS_Group" /opt/CMVT/PMC/conf/_collection.xml &gt; /dev/null; if [ $? -eq 0 ]; then echo "Unit Type is already defined in the file - continuing"; else cat /opt/CMVT/PMC/conf/_collection.xml | sed /'&lt;\/PMC-Config&gt;'/d | sed /'&lt;\/collection&gt;'/d | sed /'&lt;\/Instance-list&gt;'/d &gt; /tmp/PMC_collection.tmp; echo '&lt;Instance active="Y" close_file_interval="PT15M" community="0A1hsInuB1LNY8ixfQbdrA==" default_interval="PT15M" group="CAS_Group" interval="PT15M" port="161"/&gt;' &gt;&gt; /tmp/PMC_collection.tmp; echo '&lt;/Instance-list&gt;' &gt;&gt; /tmp/PMC_collection.tmp; echo '&lt;/collection&gt;' &gt;&gt; /tmp/PMC_collection.tmp; echo '&lt;/PMC-Config&gt;' &gt;&gt; /tmp/PMC_collection.tmp; cp -f /tmp/PMC_collection.tmp /opt/CMVT/PMC/conf/_collection.xml; rm -f /tmp/PMC_collection.tmp; fi</Command>
+      </Execute>
+      <Execute ExecutionOrder="1005">
+        <Command>grep "Proxy_AU_Group" /opt/CMVT/PMC/conf/_collection.xml &gt; /dev/null; if [ $? -eq 0 ]; then echo "Unit Type is already defined in the file - continuing"; else cat /opt/CMVT/PMC/conf/_collection.xml | sed /'&lt;\/PMC-Config&gt;'/d | sed /'&lt;\/collection&gt;'/d | sed /'&lt;\/Instance-list&gt;'/d &gt; /tmp/PMC_collection.tmp; echo '&lt;Instance active="Y" close_file_interval="PT15M" community="0A1hsInuB1LNY8ixfQbdrA==" default_interval="PT15M" group="Proxy_AU_Group" interval="PT15M" port="161"/&gt;' &gt;&gt; /tmp/PMC_collection.tmp; echo '&lt;/Instance-list&gt;' &gt;&gt; /tmp/PMC_collection.tmp; echo '&lt;/collection&gt;' &gt;&gt; /tmp/PMC_collection.tmp; echo '&lt;/PMC-Config&gt;' &gt;&gt; /tmp/PMC_collection.tmp; cp -f /tmp/PMC_collection.tmp /opt/CMVT/PMC/conf/_collection.xml; rm -f /tmp/PMC_collection.tmp; fi</Command>
+      </Execute>
+    </Install>
+  </Component>
+</SWIM>

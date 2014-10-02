@@ -1,0 +1,3 @@
+Stam,MMG
+Text
+VVM

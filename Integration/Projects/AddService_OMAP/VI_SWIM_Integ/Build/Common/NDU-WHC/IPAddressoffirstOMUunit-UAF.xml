@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="Virtual" Platform="Linux">
+    <Install>
+      <Component Name="_IPAddressoffirstOMUunit">
+        <OnlyOn>
+          <UnitName>{IPAddressoffirstOMUunit}</UnitName>
+        </OnlyOn>
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

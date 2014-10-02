@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="MMG_AddService_VM-ASU" Version="5.0.0.0_02" Platform="Linux">
+    <Install>
+		<Copy ExecutionOrder="15001">
+			<Source>./scripts/VMASU-MMGConfig.txt</Source>
+			<Target>/tmp/MMGConfiguration.txt</Target>
+		</Copy>
+		<SetParams ExecutionOrder="15012">
+			<ExecutionGroup>Service definition</ExecutionGroup>
+		</SetParams>
+		<Copy ExecutionOrder="15020" ChmodFlags="+x">
+			<Source>./scripts/ConfigMTA.pl</Source>
+			<Target>/tmp/ConfigMTA.pl</Target>
+		</Copy>
+		<Execute ExecutionOrder="15040">
+			<Command>/tmp/ConfigMTA.pl -MTAPass {MIPS Password} -Answer /tmp/MMGConfiguration.txt -UnitType {UnitType}</Command>
+		</Execute>
+		<Copy ExecutionOrder="16000">
+			<Source>./scripts/VMASU-Resilience.txt</Source>
+			<Target>/tmp/MMGResilience.txt</Target>
+		</Copy>
+        <Execute ExecutionOrder="16020">
+			<Command>/tmp/ConfigMTA.pl -MTAPass {MIPS Password} -Answer /tmp/MMGResilience.txt -UnitType {UnitType}</Command>
+		</Execute>
+		<Execute ExecutionOrder="16030">
+			<Command>/usr/cti/babysitter/MamCMD restart vxv</Command>
+		</Execute>
+        <Execute ExecutionOrder="16040">
+			<Command>/usr/cti/babysitter/MamCMD restart mr</Command>
+		</Execute>
+		<Execute ExecutionOrder="16050">
+			<Command>sleep 120</Command>
+		</Execute>
+    </Install>
+    <Parameters>
+		<Parameter Name="MIPS Password" ExecutionGroup="Service definition" Level="System">
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+		</Parameter>
+		<Parameter Name="VMASU - MR Service - V2TXT" ExecutionGroup="Service definition" Level="UnitType" Display="false">
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+			<Value>true</Value>
+			<Files>
+				<File Name="/usr/cti/conf/mr/common/ServiceLogic/ClassifiersParameters.xml" Format="XML" ParameterPath="/ServiceLogicConfiguration/ClassifiersParameters/VoiceWriterServiceEnabled/@value"/>
+			</Files>
+		</Parameter>
+		<Parameter Name="VMASU - MR Service - VM2MMS" ExecutionGroup="Service definition" Level="UnitType" Display="false">
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+			<Value>true</Value>
+			<Files>
+				<File Name="/usr/cti/conf/mr/common/ServiceLogic/ClassifiersParameters.xml" Format="XML" ParameterPath="/ServiceLogicConfiguration/ClassifiersParameters/VM2MMSAutomaticServiceEnabled/@value"/>
+			</Files>
+		</Parameter>
+		<Parameter Name="VMASU - VxV Service" ExecutionGroup="Service definition" Level="UnitType" Display="false">
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+			<Value>true</Value>
+			<Files>
+				<File Name="/usr/cti/conf/vxv/app/vxv.properties" Format="KeyValue" ParameterPath="VoiceWriterServiceEnabled"/>
+			</Files>
+		</Parameter>
+    </Parameters>
+  </Component>
+</SWIM>	

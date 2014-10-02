@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+	<Component Platform="Linux" Name="ProfileDefinition" Version="Private-STF01">
+		<Install>
+			<Execute ExecutionOrder="100">
+				<Command>rpm -iv /tmp/ProfileDefinition_WHC*.rpm</Command>
+			</Execute>
+			<Execute ExecutionOrder="110">
+				<Command>dos2unix /tmp/ProfDef.csv</Command>
+			</Execute>
+			<Execute ExecutionOrder="120">
+				<Command> /tmp/InstallProfiles.pl -Conf /tmp/ProfDef.csv -Services {Call Screening} {Smart Call} {Black White list}</Command>
+			</Execute>
+			<Copy ExecutionOrder="10">
+				<Source>./configuration/ProfDef.csv</Source>
+				<Target>/tmp/ProfDef.csv</Target>
+			</Copy>
+			<Copy ExecutionOrder="10" ChmodFlags="+x">
+				<Source>./scripts/InstallProfiles.pl</Source>
+				<Target>/tmp/InstallProfiles.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="10">
+				<Source>./bin/i386/*.rpm</Source>
+				<Target>/tmp</Target>
+			</Copy>
+			<SetParams ExecutionOrder="50">
+				<ExecutionGroup>ServiceConfig</ExecutionGroup>
+			</SetParams>
+		</Install>
+		<Parameters>
+			<Parameter Name="Black White list" Level="System" ExecutionGroup="ServiceConfig">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Smart Call" Level="System" ExecutionGroup="ServiceConfig">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Call Screening" Level="System" ExecutionGroup="ServiceConfig">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

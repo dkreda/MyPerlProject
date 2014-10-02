@@ -1,0 +1,35 @@
+[UAF]
+Unit_Type
+[SAF]
+Babysitter - BalancerIPOverride
+CCM Address
+Converged Msg Domain
+Converged Msg Ips
+Delivery Method Multi Value
+Delivery_Method_Email
+Delivery_Method_MailBox
+Engine Regular Mail Account
+Engine Return Mail account,Engine Return Mail account OnMMG
+First DMZ unit IP
+First MZ unit IP
+FromAddress
+IS4 Balancers list
+IS4 Main Domain
+Manager_Password
+MMSC URL
+MZ Balancers IP List
+Network Domain
+Proxy Balancer List
+PVVMPlatform,PVVMPlatfom
+Second DMZ unit IP
+Second MZ unit IP
+Service Activated
+Service_Mode_VM2MMS
+Service_Mode_Voice2Text
+ServiceActivated
+SMSC IP,SMSC IP NdmVal
+SMSDeliveryReportInd,SMSDeliveryReportInd OnMMG
+SMU A Physical IP
+SMU B Physical IP
+SMU_VIP
+

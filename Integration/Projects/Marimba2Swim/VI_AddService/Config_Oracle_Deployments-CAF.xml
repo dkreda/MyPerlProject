@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Config_Oracle_Deployments" Version="First-Draft" Platform="Linux">
+    <!--This CAF File is implementation of /VI_Procedures/Add_Web_Inbox_Service/Deployments/Config_Oracle.Oracle_TG-->
+    <Install>
+      <Execute ExecutionOrder="1000">
+        <Command>echo "spool /var/tmp/cre_WIC_APP_USER.log" &gt; /tmp/add_wic_user.sql; echo "create user WIC_APP_USER identified by Wb12_f21 DEFAULT TABLESPACE t_users TEMPORARY TABLESPACE t_temp;" &gt;&gt; /tmp/add_wic_user.sql; echo "GRANT create session to WIC_APP_USER;" &gt;&gt; /tmp/add_wic_user.sql; echo "GRANT DYN_PROF_ACCESS to WIC_APP_USER;" &gt;&gt; /tmp/add_wic_user.sql; echo "GRANT DSV_READ_ONLY_ACCESS to WIC_APP_USER;" &gt;&gt; /tmp/add_wic_user.sql; echo "GRANT GSL_RO_ACCESS to WIC_APP_USER;" &gt;&gt; /tmp/add_wic_user.sql; echo "GRANT ITCP_RO_ACCESS to WIC_APP_USER;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.DYNAMIC_PROFILE FOR DYN_PROF_OWNER.DYNAMIC_PROFILE;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.GSL_ITEMS FOR gsl_owner.GSL_ITEMS;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.GSL_SETS FOR gsl_owner.GSL_SETS;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.GSL_SUBSCRIBER_KEYS FOR gsl_owner.GSL_SUBSCRIBER_KEYS;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.SERVICES FOR gsl_owner.SERVICES;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.SERVICE_DOMAINS FOR gsl_owner.SERVICE_DOMAINS;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.GSL_GROUPS FOR gsl_owner.GSL_GROUPS;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.ENUM_GSL FOR gsl_owner.ENUM_GSL;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.SYS_PARAMS_GSL FOR gsl_owner.SYS_PARAMS_GSL;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.GSL_PKG_V1 FOR gsl_owner.GSL_PKG_V1;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.DSV_SHORTCUTS FOR VERSION_USER.DSV_SHORTCUTS;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.DSV_MAPPING FOR VERSION_USER.DSV_MAPPING;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.RESOLVER_COS_TYPES FOR VERSION_USER.RESOLVER_COS_TYPES;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.DSV_TABLES FOR VERSION_USER.DSV_TABLES;" &gt;&gt; /tmp/add_wic_user.sql; echo "CREATE OR REPLACE SYNONYM WIC_APP_USER.SUBS_ITCP FOR ITCP_OWNER.SUBS_ITCP;" &gt;&gt; /tmp/add_wic_user.sql; echo "commit;" &gt;&gt; /tmp/add_wic_user.sql; echo "spool off;" &gt;&gt; /tmp/add_wic_user.sql; echo "exit;" &gt;&gt; /tmp/add_wic_user.sql; chmod 777 /tmp/add_wic_user.sql</Command>
+      </Execute>
+      <Execute ExecutionOrder="1005">
+        <Command>su - root -c 'hagrp -state oracle1 | grep ONLINE; if [ $? -ne 0 ]; then echo "Oracle is not online exiting !!!"; exit 1; fi'</Command>
+      </Execute>
+      <Execute ExecutionOrder="1010">
+        <Command>su - root -c "hagrp -state oracle1 | grep ONLINE | grep `hostname`; if [ $? -eq 0 ]; then su - oracle -c 'sqlplus / as sysdba @/tmp/add_wic_user.sql'; fi"</Command>
+      </Execute>
+    </Install>
+  </Component>
+</SWIM>

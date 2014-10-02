@@ -1,0 +1,410 @@
+**************************************************************************
+* Start Octopus2Swim.pl                                                  *
+* at  10/01/2013 23:08:23                                                *
+**************************************************************************
+Octopus2Swim.pl Input Parameters:
+	-DefaultDir           = /tmp
+	-SearchLevel          = 2
+	-LogFile              = Stam.txt
+	-File                 = D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI
+	-Map                  = Octopu2Twim.csv
+Info	Reading File Octopu2Twim.csv
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer.mdb"
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xd69594)
+ExeName , Depends , ProductName
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xd69594)
+ExeName , Depends , ProductName
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xd69594)
+ExeName , Depends , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd602e4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , Param4 , ProductName
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer_FirstMZunitIP-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer_CAS-CAF.xml have been Created
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer_SecondMZunitIP-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer_NDU-CAF.xml have been Created
+Info  - UAFFile NDU-IS3_Group-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer_SecondDMZunitIP-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer_FirstDMZunitIP-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Balancer-IC-4.4.3.0-02/Balancer_MMSGW-CAF.xml have been Created
+Info  - UAFFile MMSGW-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Genesis-4.8.0.0-01/Genesis.mdb"
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Genesis-4.8.0.0-01/Genesis_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Genesis-4.8.0.0-01/Genesis_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IMAP4Proxy-4.8.0.0-01/Aumsi.mdb"
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IMAP4Proxy-4.8.0.0-01/Aumsi_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IMAP4Proxy-4.8.0.0-01/Aumsi_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IMAP4Proxy-4.8.0.0-01/Aumsi_MMSGW-CAF.xml have been Created
+Info  - UAFFile MMSGW-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IMAP4Proxy-4.8.0.0-01/Aumsi4Vvm.mdb"
+Warnning - no Pages found for this table
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IMAP4Proxy-4.8.0.0-01/Aumsi4Vvm_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IP23Log-4.5.1.0-01/UM23LOG.mdb"
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xd606d4)
+ExeName , Depends , ProductName
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xd606d4)
+ExeName , Depends , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe272a4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xea0544)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Error - Table Uninstall not exist / found at D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IP23Log-4.5.1.0-01/UM23LOG.mdb
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IP23Log-4.5.1.0-01/UM23LOG_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IP23Log-4.5.1.0-01/UM23LOG_NDU-CAF.xml have been Created
+Info  - UAFFile NDU-IS3_Group-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/IP23Log-4.5.1.0-01/UM23LOG_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/MTS-3.1.1.3-04/MTS.mdb"
+Warnning - no Pages found for this table
+Warning - Parameters List table is empty.
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/MTS-3.1.1.3-04/MTS_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/MTS-3.1.1.3-04/MTS_NDU-CAF.xml have been Created
+Info  - UAFFile NDU-IS3_Group-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/MTS-3.1.1.3-04/MTS_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/MTS-3.1.1.3-04/MTS_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/MTS-3.1.1.3-04/MTS_MMSGW-CAF.xml have been Created
+Info  - UAFFile MMSGW-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Octopus-IC-2.7.0.0-8/octopus-ic.mdb"
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xd69f34)
+ExeName , Depends , ProductName
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xd69f34)
+ExeName , Depends , ProductName
+Error - Table Uninstall not exist / found at D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Octopus-IC-2.7.0.0-8/octopus-ic.mdb
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Octopus-IC-2.7.0.0-8/octopus-ic_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Octopus-IC-2.7.0.0-8/octopus-ic_NDU-CAF.xml have been Created
+Info  - UAFFile NDU-IS3_Group-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Octopus-IC-2.7.0.0-8/octopus-ic_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Octopus-IC-2.7.0.0-8/octopus-ic_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Plugins-4.8.0.0-02/MTA_Plugin.mdb"
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xeaa1bc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xeaa1bc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xeaa1bc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xeaa1bc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xeaa1bc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xeaa1bc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xeaa1bc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Warning - The Field range do not exists at Row Table ! HASH(0xd69db4)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , IsPassword , Range , SaveAsUTF8 , ForceInUpgrade , Description , Name , ProductName
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Plugins-4.8.0.0-02/MTA_Plugin_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Plugins-4.8.0.0-02/MTA_Plugin_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite.mdb"
+Error - Table Uninstall not exist / found at D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite.mdb
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite_FirstMZunitIP-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite_CAS-CAF.xml have been Created
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite_SecondMZunitIP-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite_SecondDMZunitIP-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/Service-Kit-VI_Suite-4.8.0.0-04/service-kit-vi_suite_FirstDMZunitIP-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/UMUtils-IC-4.4.0.0-04/um_utils.mdb"
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xd69754)
+ExeName , Depends , ProductName
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/UMUtils-IC-4.4.0.0-04/um_utils_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/UMUtils-IC-4.4.0.0-04/um_utils_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/UMUtils-IC-4.4.0.0-04/um_utils_MMSGW-CAF.xml have been Created
+Info  - UAFFile MMSGW-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_AUDIT-1.3.0.0-02/VI_Audit.mdb"
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xe8e7cc)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ForceInUpgrade , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd6a274)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , InstallationTypeFilter , IsPassword , SaveAsUTF8 , Description , Name , ProductName , ForceInUpgrade
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd6a274)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , InstallationTypeFilter , IsPassword , SaveAsUTF8 , Description , Name , ProductName , ForceInUpgrade
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd6a274)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , InstallationTypeFilter , IsPassword , SaveAsUTF8 , Description , Name , ProductName , ForceInUpgrade
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd6a274)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , InstallationTypeFilter , IsPassword , SaveAsUTF8 , Description , Name , ProductName , ForceInUpgrade
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd6a274)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , InstallationTypeFilter , IsPassword , SaveAsUTF8 , Description , Name , ProductName , ForceInUpgrade
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd6a274)
+IsDefaultLiteral , InstallationValue , Platform , IsRangeWithColumns , TreeLevel , range , ParameterPath , IsParameterValueNumeric , Use , ReadOnly , Default , InstallationTypeFilter , IsPassword , SaveAsUTF8 , Description , Name , ProductName , ForceInUpgrade
+Warnning - no Pages found for this table
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_AUDIT-1.3.0.0-02/VI_Audit_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_AUDIT-1.3.0.0-02/VI_Audit_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_AUDIT-1.3.0.0-02/VI_Audit_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_AUDIT-1.3.0.0-02/VI_Audit_MMSGW-CAF.xml have been Created
+Info  - UAFFile MMSGW-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Babysitter-1.2.0.0-01/Babysitter.mdb"
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xecefb4)
+ExeName , Depends , ProductName
+Warning - The Field InstallationPhaseNumber do not exists at Row Table ! HASH(0xecefb4)
+ExeName , Depends , ProductName
+Error - Table Uninstall not exist / found at D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Babysitter-1.2.0.0-01/Babysitter.mdb
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Babysitter-1.2.0.0-01/Babysitter_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Babysitter-1.2.0.0-01/Babysitter_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Babysitter-1.2.0.0-01/Babysitter_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_CSP_BASE-1.3.0.0-03/CSPbase.mdb"
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd697d4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd697d4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd697d4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd697d4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd697d4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ProductName
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd697d4)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , CriticalErrorMode , Param1 , ExecutionOrder , ProductName
+Warnning - no Pages found for this table
+Warning - Parameters List table is empty.
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd738ac)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , InstallationTypeFilter , Param1 , ExecutionOrder , ProductName
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_CSP_BASE-1.3.0.0-03/CSPbase_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_CSP_BASE-1.3.0.0-03/CSPbase_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_CSP_BASE-1.3.0.0-03/CSPbase_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_CSP_BASE_Customization-1.2.0.0-01/VI_CSP-Base_Customization.mdb"
+Warnning - no Pages found for this table
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_CSP_BASE_Customization-1.2.0.0-01/VI_CSP-Base_Customization_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_CSP_BASE_Customization-1.2.0.0-01/VI_CSP-Base_Customization_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_CSP_BASE_Customization-1.2.0.0-01/VI_CSP-Base_Customization_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_End-Point-1.1.0.0-02/vi_end_point.mdb"
+Warnning - no Pages found for this table
+Warning - Parameters List table is empty.
+Error - Table Uninstall not exist / found at D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_End-Point-1.1.0.0-02/vi_end_point.mdb
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_End-Point-1.1.0.0-02/vi_end_point_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_End-Point-1.1.0.0-02/vi_end_point_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_End-Point-1.1.0.0-02/vi_end_point_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_HKIT-1.3.0.0-03/Linux_Hkit.mdb"
+Warning - The Field UnitTypeFilter do not exists at Row Table ! HASH(0xd7311c)
+Param2 , InstallSerial , Platform , Param3 , PauseAfter , OperationType , Param1 , ExecutionOrder , ProductName
+Warnning - no Pages found for this table
+Warning - Parameters List table is empty.
+Error - Table Uninstall not exist / found at D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_HKIT-1.3.0.0-03/Linux_Hkit.mdb
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_HKIT-1.3.0.0-03/Linux_Hkit_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_HKIT-1.3.0.0-03/Linux_Hkit_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_J2SDK-1.3.0.0-04/VI_j2sdk.mdb"
+Warnning - no Pages found for this table
+Warning - Parameters List table is empty.
+Error - Table Uninstall not exist / found at D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_J2SDK-1.3.0.0-04/VI_j2sdk.mdb
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_J2SDK-1.3.0.0-04/VI_j2sdk_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_J2SDK-1.3.0.0-04/VI_j2sdk_WIS-CAF.xml have been Created
+Info  - UAFFile depractaed-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_J2SDK-1.3.0.0-04/VI_j2sdk_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_J2SDK-1.3.0.0-04/VI_j2sdk_NDU-CAF.xml have been Created
+Info  - UAFFile NDU-IS3_Group-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_J2SDK-1.3.0.0-04/VI_j2sdk_MTS-U-CAF.xml have been Created
+Info  - UAFFile MTS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_J2SDK-1.3.0.0-04/VI_j2sdk_MMSGW-CAF.xml have been Created
+Info  - UAFFile MMSGW-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_MTA-1.3.0.0-02/vi_mta.mdb"
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_MTA-1.3.0.0-02/vi_mta_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_MTA-1.3.0.0-02/vi_mta_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Sitebook-3.0.1.0-01/VI_SiteBook.mdb"
+Warnning - no Pages found for this table
+Warning - Parameters List table is empty.
+Warnning - no Pages found for this table
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Sitebook-3.0.1.0-01/VI_SiteBook_NDU-CAF.xml have been Created
+Info  - UAFFile NDU-IS3_Group-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Sitebook-3.0.1.0-01/VI_SiteBook_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Sitebook-3.0.1.0-01/VI_SiteBook_MMSGW-CAF.xml have been Created
+Info  - UAFFile MMSGW-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Tomcat-1.3.1.0-01/Tomcat_Octopus.mdb"
+Warnning - no Pages found for this table
+Warning - Parameters List table is empty.
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Tomcat-1.3.1.0-01/Tomcat_Octopus_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Tomcat-1.3.1.0-01/Tomcat_Octopus_PROXY-CAF.xml have been Created
+Info  - UAFFile PROXY-UAF.xml have been UpDated
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/VI_Tomcat-1.3.1.0-01/Tomcat_Octopus_All-CAF.xml have been Created
+Info  - UAFFile MAMLinux-UAF.xml have been UpDated
+Info  - Start analyze "D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/WIC-4.8.0.0-01/WebInbox.mdb"
+Info  - CafFile D:\Documents and Settings\dkreda\My Documents\Integration\Projects\MMG-SWIM\CD01_MMG_VI/WIC-4.8.0.0-01/WebInbox_CAS-CAF.xml have been Created
+Info  - UAFFile CAS-UAF.xml have been UpDated
+Finish Successfully :-)

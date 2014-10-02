@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<Test>
+	<Params>
+		<attributes>
+			<attribute name="Stam" value="O.K"/>
+			<attribute name="Jdsv.GlobalDefinitions.ProfileDataStructures" value="Jdsv"/>
+		</attributes>
+	</Params>
+</Test>

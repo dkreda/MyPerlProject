@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Config_VMASU_Deployments" Version="First-Draft" Platform="Linux">
+    <!--This CAF File is implementation of /VI_Procedures/Add_Web_Inbox_Service/Deployments/Config_VMASU.VMASU_TG-->
+    <Install>
+      <Execute ExecutionOrder="1000">
+        <Command>su - mrelay -c "/opt/criticalpath/global/bin/mgr -w A25Trk7B43 domain add webinbox.com"; su - mrelay -c "/opt/criticalpath/global/bin/mgr -w A25Trk7B43 USER webinbox.com ADD rt45FggQx CPASS=inFG459k3"; su - mrelay -c "/opt/criticalpath/global/bin/mgr -w A25Trk7B43 set VerifyAuthenticOriginator 0"</Command>
+      </Execute>
+    </Install>
+  </Component>
+</SWIM>

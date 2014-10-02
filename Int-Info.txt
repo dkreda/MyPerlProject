@@ -1,0 +1,3747 @@
+MR Configuration:
+
+su - mrelay
+
+configure Maildomain:
+/usr/cti/conf/mr/common/Common/Adress.xml ( Local )
+
+cd $MR_CONFIG_PATH/
+
+vi MMSConfiguration.xml
+
+
+to configure debug mode:
+
+.
+.
+.
+<Logger>
+.
+.
+.
+	<root value="debug"/>
+	
+	
+Log Help:
+to find which type the subscriber
+classification - (external - not system user
+		  local  - 
+		  tag - IS3
+		  outdial - )
+	
+
+Isotrace:
+
+/opt/criticalpath/global/bin/isotrace -d smtp:2
+Save automatic to file :
+su - mtauser -c "/opt/criticalpath/global/bin/isotrace -d smtp:2 -n -f <filename1>" 
+
+IF isotrace is stuck !!!!!!!!:
+1. ps -ef | grep -i isot
+2. kill all isotrace process
+3. ipcs -s     show all semaphors in the pc
+4. ipcrm sem <semid>   remove the semaphors ( remove root semaphors )
+5. delete the files:
+    /tmp/isotrace.shmem 
+    /tmp/writers
+    /tmp/ring
+    
+
+MTA configuration file:
+/etc/nplex/smtp/settings/.data
+
+Answer File
+MTA_SMTPAccessRelayAlwaysAllowIP - The subnet of Data network ( MIPS Network ) - subnet mask
+MTA_SMTPAccessRelayDenyIP	 - The subnet of Proxy network ( if any ) subnet-mask ( don't forget the - )
+				   or leave it empty.
+
+MTA configuration :
+/opt/criticalpath/global/bin/
+./mgr -w A25Trk7B43 <commands>
+
+input DIR : /var/cti/msg/mr/private/GWDir
+output DIR: /var/cti/msg/mr/private/MailDir
+
+
+to install MIPS MTA  delete /opt/criticalpath
+                            /etc/nplex
+
+
+Send SMTP Mail:
+telnet 50025
+Ehlo
+mail from:<user@domain>
+rcpt to:<user@domain>
+Data
+// send file
+\Enter
+.
+\Enter
+
+
+
+MIPS
+*******************************
+Logs Dir: /opt/MIPS/logs
+
+/opt/criticalpath/global/bin/isotrace -d smtp:2 ( SMTP Trace )
+/opt/criticalpath/global/bin/isotrace -d ims:2  ( SNAP Traces )
+
+configutring the port 
+./mgr -w A25Trk7B43 set SMTPRelayPort 50025
+
+configuring Notification mask:
+./mgr -w A25Trk7B43 DOMAIN ADD <domain_name> "NOTIFY=DomNotif,49811,nds"
+
+
+read password : b67XgR6X3n
+write password: A25Trk7B43
+
+Mamgement Password: MT#adm_iN
+
+Path of user mailbox:
+./mgr -w A25Trk7B43 domain  show  tc.vas.omnitel.it
+DEFAULT-USER-DIR = base dir 
+FORMAT =  show the location %d/%7F/%200R/%200R/%L@%D  - 7F number of file systems 
+
+
+show user :
+./mgr -w A25Trk7B43 USER <domain name> LIST
+
+How to determine Quata Units / Type
+----------------------------------------
+ls –l  /opt/criticalpath/global/media
+/opt/criticalpath/global/bin/mgr –w A25Trk7B43 media list
+/opt/criticalpath/global/bin/mgr –w A25Trk7B43 media show <mediatype>
+
+
+Add Admin user
+----------------------
+1. mgr -w A25Trk7B43 user <maindomain> add <username> cpass=<password> mailbox=/opt/criticalpath/global/mboxes/<maindomain>
+2. mgr -w A25Trk7B43 domain administrator <maindimain> add <username> GAM=1536
+
+mbmon command (it is actually, part of 4.0.7 TC):
+/opt/criticalpath/global/bin/mgr -w A25Trk7B43 -p 4203 PROCESS user@domain
+
+Configuration Commans:
+mgr -w A25Trk7B43 -p 4201 notify server list
+	
+PORTS !!!:
+4200 - smtp managment port
+4201 - ims management port
+4203 - mbmon managemnt port
+
+
+authenticate syntax  using prt
+-----------------------------
+a0 AUTHENTICATE <subnum>@<domain> <imappassword f143> <subnum>@<domain>
+
+sent IMAP session:
+------------------------------
+telnet <MipsIP> 50143
+
+Trying 0.0.0.0...
+
+Connected to 0.
+
+Escape character is '^]'.
+
+* OK IMAP4 server ready (Multi Media IP Store)
+
+log login <User>@<maildomain> 1
+
+log OK login successful
+
+a append "inbox" "30-Aug-2004 07:08:00 +0300" {1521}
+
++ Ready
+
+Response time: 0.000765085220336914 sec
+
+Received: from vladi (10.10.10.10) by cmd1.comverse.com (MIPS Email
+
+        id 41CE7DAD00008EE0 for vladi@shulman.test; 30, 8 2004 07:0
+
+From: "Vladimir Shveidel" <v@mme.xx>
+
+To: "v" <v@mme.xx>
+
+Subject: f1
+
+Date: 30, 8 2004 07:08:00 +0300
+
+MIME-Version: 1.0
+
+Content-Type: text/plain;
+
+        charset="iso-8859-1"
+
+Content-Transfer-Encoding: 7bit
+
+X-Priority: 3
+
+X-MSMail-Priority: Normal
+
+X-Unsent: 1
+
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2919.6700
+
+ 
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+7890123456789012345678
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+1234567890123456789012345678901234567890123456789012345678901234567
+
+789012345678901234567890
+
+789012345678901234567890
+
+789012345678901234567890
+
+78901234567890
+
+Received: a OK [APPENDUID 1188399989 4] APPEND complete
+
+Response time: 0.109195947647095 sec
+
+a logout
+
+Received: * BYE disconnecting
+
+Response time: 0.000805854797363281 seca OK [APPENDUID 1183591435 7] APPEND complete
+
+ 
+
+ 
+
+/opt/criticalpath/global/bin/mgr -w A25Trk7B43 -p 4203 process 83050000006@cogs.com
+
+
+How to verify which MIPS class is used for Smith Micro.
+--------------------------------------------------------
+login using ssh to omu-au and run the following commands:
+_executeXdsv=<XDSVRequests><XDSVRequest BypassResolver='true' Command='retrieve' EntityName='SL' ExecutionPhase='1' ID='1' Host='profile1'> <Scope Key='CnsDomainId' Type='DOMAIN'> <Value>0</Value> <Scope Key='CnsServiceName' Type='SERVICE'> <Value>EMS</Value> </Scope> </Scope> <Filter> <Term Condition='equal' Name='cnsServiceLevelName'> <Value>Mips-Smith-Micro</Value> </Term> </Filter> <Attributes> <Attribute Name='cnsServiceLevelID'/> </Attributes> </XDSVRequest></XDSVRequests>
+
+
+****************************************
+Compas
+****************************************
+Provisioning SSS 4.0.7   DOC-0-032-087
+		 4.0.9.  DOC-0-039-625	
+
+GSL Configuration - https://<omu-IP>:51452/gsl/Controller
+
+compas manager: https://<omu-IP>:51449/compas/management
+
+stop compas !!!!!!
+
+(omu_au21@compas)~> stopcompas
+(omu_au21@compas)~> ps -ef | grep -i java
+
+Configure debug level:
+/usr/cti/conf/compas/commons/parameters.xml
+/usr/cti/conf/compas/jdsv/parameters.xml
+Paramer name : priority
+
+configuring create statistics:
+file /usr/cti/conf/compas/shared/parameters.xml
+Parameter name :
+EnableStatistics set to Enabled
+
+mail account : /usr/cti/conf/compas/common/parameters.xml
+
+Configure National/International Number:
+file - /usr/cti/conf/compas/common/parameters.xml
+<Name>InternetUserNameFormat</Name>
+...
+<Value>
+      <Item Value="National"/>
+</Value>
+
+
+PhoneNumber: /usr/cti/conf/compas/shared/parameters.xml
+<Name>TelephoneNumberFormat</Name>
+...
+<Value>
+     <Item Value="International"/>
+</Value>
+
+Cuntry code in LDAP : /comverse/configuration/system configuration/services[General service]@cnsCountryCode
+General/AreaCodeCutPrefix
+
+admindb Password:  /usr/cti/conf/compas/localsettings/parameters.xml
+
+to set debug mode: fron io ( su - compas     io ) :
+_setLoggerLevel=debug
+
+Activity Default value: ( Dorment or Active ). - /usr/cti/conf/compas/common/parameters.xml
+
+	
+How to retrive Xsd File: 
+
+<Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <Request>
+  <Header>
+       <Command>Retrieve</Command>
+       <EntityIdentifiers>
+            <Identifier Type="EntityName" Value="Subscriber"/>
+            <Identifier Type="SystemName" Value="migr"/>
+       </EntityIdentifiers>
+       <EntityName>Schema</EntityName>
+  </Header>
+ </Request>
+</Provisioning>
+
+Retrive schema of service level
+<Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <Request>
+  <Header>
+       <Command>Retrieve</Command>
+       <EntityIdentifiers>
+            <Identifier Type="EntityName" Value="ServiceLevel"/>
+            <Identifier Type="ServiceName" Value="Notification"/>
+            <Identifier Type="SystemName" Value="dr"/>
+<!--            <Identifier Type="ServiceLevelName" Value="migr"/> -->
+       </EntityIdentifiers>
+       <EntityName>Schema</EntityName>
+  </Header>
+ </Request>
+</Provisioning>
+
+
+List of commands: \\il-tlv-dimeweb\View\405886091\commandformat_268998107.txt
+
+Start check Inactive Time:
+---------------------------------
+provisioning command:
+<Provisioning>
+	<Request>
+		<Header>
+			<Command>Start</Command>
+			<EntityName>ActiveToDormant</EntityName>
+		</Header>
+	</Request>
+</Provisioning>
+
+
+change subscriber status
+-------------------------------------
+<Provisioning>
+	<Request>
+		<Header>
+			<Command>Modify</Command>
+			<EntityName>Subscriber</EntityName>
+			<EntityIdentifiers>
+				<Identifier Value="internalsId"/>
+			</EntityIdentifiers>
+		</Header>
+		<Data>
+			<Subscriber>
+				<ActivityStatus>Dormant</ActivityStatus>
+			</Subscriber>
+		</Data>
+	</Request>
+</Provisioning>
+
+
+
+
+
+Retrive Subscriber:
+------------------------------------------
+<Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Request>
+        <Header>
+            <Command>Retrieve</Command>
+            <EntityIdentifiers>
+                <Identifier Value="66111111"/>
+            </EntityIdentifiers>
+      <EntityName>Subscriber</EntityName>
+        </Header>
+    </Request>
+</Provisioning>
+
+Create Subscriber
+----------------------------------
+<Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Request>
+        <Header>
+            <Command>Create</Command>
+            <EntityIdentifiers>
+                <Identifier Value="66111111"/>
+            </EntityIdentifiers>
+      <EntityName>Subscriber</EntityName>
+        </Header>
+<Data>
+  			<Subscriber>
+				<SubscriberDomainName>Default domain</SubscriberDomainName>
+				<SystemName>sysname</SystemName>
+			</Subscriber>
+  		</Data>
+
+    </Request>
+</Provisioning>
+
+
+COS Setup 
+-----------------------------------------------------------------
+   <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+       <Request>
+          <Header>
+              <Command>Create</Command>
+              <EntityIdentifiers>
+                  <Identifier Type="CosName" Value="Basic Profile 1"/>
+              </EntityIdentifiers>
+              <EntityName>COS</EntityName>
+          </Header>
+          <Data>
+              <COS>
+                 <ServiceLevels>
+  			<ServiceLevel>
+  				<ServiceName>General</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>EMS</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>Notification</ServiceName>
+  				<ServiceLevelName>Basic</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>Voicemail</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+                 </ServiceLevels>
+              </COS>
+          </Data>
+      </Request>
+   </Provisioning>
+-----------------------------------------------------------------------------------
+  <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+       <Request>
+          <Header>
+              <Command>Create</Command>
+              <EntityIdentifiers>
+                  <Identifier Type="CosName" Value="Basic Profile 2"/>
+              </EntityIdentifiers>
+              <EntityName>COS</EntityName>
+          </Header>
+          <Data>
+              <COS>
+                 <ServiceLevels>
+  			<ServiceLevel>
+  				<ServiceName>General</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>EMS</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>Notification</ServiceName>
+  				<ServiceLevelName>Group Basic</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>Voicemail</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+                 </ServiceLevels>
+              </COS>
+          </Data>
+      </Request>
+   </Provisioning>
+-------------------------------------------------------------------------------------
+  <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+       <Request>
+          <Header>
+              <Command>Create</Command>
+              <EntityIdentifiers>
+                  <Identifier Type="CosName" Value="Basic Profile 3"/>
+              </EntityIdentifiers>
+              <EntityName>COS</EntityName>
+          </Header>
+          <Data>
+              <COS>
+                 <ServiceLevels>
+  			<ServiceLevel>
+  				<ServiceName>General</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>EMS</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>Notification</ServiceName>
+  				<ServiceLevelName>Group Enlarge</ServiceLevelName>
+  			</ServiceLevel>
+  			<ServiceLevel>
+  				<ServiceName>Voicemail</ServiceName>
+  				<ServiceLevelName>Default</ServiceLevelName>
+  			</ServiceLevel>
+                 </ServiceLevels>
+              </COS>
+          </Data>
+      </Request>
+   </Provisioning>
+   
+    <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <Request>
+             <Header>
+                 <Command>Create</Command>
+                 <EntityIdentifiers>
+                     <Identifier Type="CosName" Value="Basic Profile 4"/>
+                 </EntityIdentifiers>
+                 <EntityName>COS</EntityName>
+             </Header>
+             <Data>
+                 <COS>
+                    <ServiceLevels>
+     			<ServiceLevel>
+     				<ServiceName>General</ServiceName>
+     				<ServiceLevelName>Default</ServiceLevelName>
+     			</ServiceLevel>
+     			<ServiceLevel>
+     				<ServiceName>EMS</ServiceName>
+     				<ServiceLevelName>Default</ServiceLevelName>
+     			</ServiceLevel>
+     			<ServiceLevel>
+     				<ServiceName>Notification</ServiceName>
+     				<ServiceLevelName>Maxibox</ServiceLevelName>
+     			</ServiceLevel>
+     			<ServiceLevel>
+     				<ServiceName>Voicemail</ServiceName>
+     				<ServiceLevelName>Default</ServiceLevelName>
+     			</ServiceLevel>
+                    </ServiceLevels>
+                 </COS>
+             </Data>
+         </Request>
+   </Provisioning>
+   
+    <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <Request>
+             <Header>
+                 <Command>Create</Command>
+                 <EntityIdentifiers>
+                     <Identifier Type="CosName" Value="Group Basic Profile 1"/>
+                 </EntityIdentifiers>
+                 <EntityName>COS</EntityName>
+             </Header>
+             <Data>
+                 <COS>
+                    <ServiceLevels>
+     			<ServiceLevel>
+     				<ServiceName>General</ServiceName>
+     				<ServiceLevelName>Default</ServiceLevelName>
+     			</ServiceLevel>
+     			<ServiceLevel>
+     				<ServiceName>EMS</ServiceName>
+     				<ServiceLevelName>Default</ServiceLevelName>
+     			</ServiceLevel>
+     			<ServiceLevel>
+     				<ServiceName>Notification</ServiceName>
+     				<ServiceLevelName>Basic</ServiceLevelName>
+     			</ServiceLevel>
+     			<ServiceLevel>
+     				<ServiceName>Voicemail</ServiceName>
+     				<ServiceLevelName>Default</ServiceLevelName>
+     			</ServiceLevel>
+                    </ServiceLevels>
+                 </COS>
+             </Data>
+         </Request>
+   </Provisioning>
+   
+       <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+             <Request>
+                <Header>
+                    <Command>Create</Command>
+                    <EntityIdentifiers>
+                        <Identifier Type="CosName" Value="Group Basic Profile 1"/>
+                    </EntityIdentifiers>
+                    <EntityName>COS</EntityName>
+                </Header>
+                <Data>
+                    <COS>
+                       <ServiceLevels>
+        			<ServiceLevel>
+        				<ServiceName>General</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>EMS</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>Notification</ServiceName>
+        				<ServiceLevelName>Basic</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>Voicemail</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+                       </ServiceLevels>
+                    </COS>
+                </Data>
+            </Request>
+   </Provisioning>
+   
+       <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+             <Request>
+                <Header>
+                    <Command>Create</Command>
+                    <EntityIdentifiers>
+                        <Identifier Type="CosName" Value="Group Basic Profile 2"/>
+                    </EntityIdentifiers>
+                    <EntityName>COS</EntityName>
+                </Header>
+                <Data>
+                    <COS>
+                       <ServiceLevels>
+        			<ServiceLevel>
+        				<ServiceName>General</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>EMS</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>Notification</ServiceName>
+        				<ServiceLevelName>Group Basic</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>Voicemail</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+                       </ServiceLevels>
+                    </COS>
+                </Data>
+            </Request>
+   </Provisioning>
+   
+   <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+             <Request>
+                <Header>
+                    <Command>Create</Command>
+                    <EntityIdentifiers>
+                        <Identifier Type="CosName" Value="Group Enlarge Profile 1"/>
+                    </EntityIdentifiers>
+                    <EntityName>COS</EntityName>
+                </Header>
+                <Data>
+                    <COS>
+                       <ServiceLevels>
+        			<ServiceLevel>
+        				<ServiceName>General</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>EMS</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>Notification</ServiceName>
+        				<ServiceLevelName>Basic</ServiceLevelName>
+        			</ServiceLevel>
+        			<ServiceLevel>
+        				<ServiceName>Voicemail</ServiceName>
+        				<ServiceLevelName>Default</ServiceLevelName>
+        			</ServiceLevel>
+                       </ServiceLevels>
+                    </COS>
+                </Data>
+            </Request>
+   </Provisioning>
+   
+      <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <Request>
+                   <Header>
+                       <Command>Create</Command>
+                       <EntityIdentifiers>
+                           <Identifier Type="CosName" Value="Group Enlarge Profile 2"/>
+                       </EntityIdentifiers>
+                       <EntityName>COS</EntityName>
+                   </Header>
+                   <Data>
+                       <COS>
+                          <ServiceLevels>
+           			<ServiceLevel>
+           				<ServiceName>General</ServiceName>
+           				<ServiceLevelName>Default</ServiceLevelName>
+           			</ServiceLevel>
+           			<ServiceLevel>
+           				<ServiceName>EMS</ServiceName>
+           				<ServiceLevelName>Default</ServiceLevelName>
+           			</ServiceLevel>
+           			<ServiceLevel>
+           				<ServiceName>Notification</ServiceName>
+           				<ServiceLevelName>Group Basic</ServiceLevelName>
+           			</ServiceLevel>
+           			<ServiceLevel>
+           				<ServiceName>Voicemail</ServiceName>
+           				<ServiceLevelName>Default</ServiceLevelName>
+           			</ServiceLevel>
+                          </ServiceLevels>
+                       </COS>
+                   </Data>
+               </Request>
+   </Provisioning>
+   
+         <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                   <Request>
+                      <Header>
+                          <Command>Create</Command>
+                          <EntityIdentifiers>
+                              <Identifier Type="CosName" Value="Maxibox Profile 1"/>
+                          </EntityIdentifiers>
+                          <EntityName>COS</EntityName>
+                      </Header>
+                      <Data>
+                          <COS>
+                             <ServiceLevels>
+              			<ServiceLevel>
+              				<ServiceName>General</ServiceName>
+              				<ServiceLevelName>Default</ServiceLevelName>
+              			</ServiceLevel>
+              			<ServiceLevel>
+              				<ServiceName>EMS</ServiceName>
+              				<ServiceLevelName>Default</ServiceLevelName>
+              			</ServiceLevel>
+              			<ServiceLevel>
+              				<ServiceName>Notification</ServiceName>
+              				<ServiceLevelName>Basic</ServiceLevelName>
+              			</ServiceLevel>
+              			<ServiceLevel>
+              				<ServiceName>Voicemail</ServiceName>
+              				<ServiceLevelName>Default</ServiceLevelName>
+              			</ServiceLevel>
+                             </ServiceLevels>
+                          </COS>
+                      </Data>
+                  </Request>
+   </Provisioning>
+   
+   
+         <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                   <Request>
+                      <Header>
+                          <Command>Create</Command>
+                          <EntityIdentifiers>
+                              <Identifier Type="CosName" Value="Maxibox Profile 2"/>
+                          </EntityIdentifiers>
+                          <EntityName>COS</EntityName>
+                      </Header>
+                      <Data>
+                          <COS>
+                             <ServiceLevels>
+              			<ServiceLevel>
+              				<ServiceName>General</ServiceName>
+              				<ServiceLevelName>Default</ServiceLevelName>
+              			</ServiceLevel>
+              			<ServiceLevel>
+              				<ServiceName>EMS</ServiceName>
+              				<ServiceLevelName>Default</ServiceLevelName>
+              			</ServiceLevel>
+              			<ServiceLevel>
+              				<ServiceName>Notification</ServiceName>
+              				<ServiceLevelName>Group Basic</ServiceLevelName>
+              			</ServiceLevel>
+              			<ServiceLevel>
+              				<ServiceName>Voicemail</ServiceName>
+              				<ServiceLevelName>Default</ServiceLevelName>
+              			</ServiceLevel>
+                             </ServiceLevels>
+                          </COS>
+                      </Data>
+                  </Request>
+   </Provisioning>
+-------------------------------------------------------------------------------------------------------
+
+Service setup
+------------------------------------------------------
+ <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <Request>
+         <Header>
+             <Command>Modify</Command>
+		<EntityIdentifiers>
+			<Identifier Type="ServiceName" Value="Notification"/>
+			<Identifier Type="ServiceLevelName" Value="Group Basic"/>
+		</EntityIdentifiers>
+		<EntityName>ServiceLevel</EntityName>
+	</Header>
+        <Data>
+            <ServiceLevel>
+                <NotifRules>
+                	<NotifRule Action="Update">
+				<Id>1</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                </NotifRules>
+            </ServiceLevel>
+        </Data>
+    </Request>
+ </Provisioning>
+
+
+ <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <Request>
+         <Header>
+             <Command>Modify</Command>
+		<EntityIdentifiers>
+			<Identifier Type="ServiceName" Value="Notification"/>
+			<Identifier Type="ServiceLevelName" Value="Group Enlarge"/>
+		</EntityIdentifiers>
+		<EntityName>ServiceLevel</EntityName>
+	</Header>
+        <Data>
+            <ServiceLevel>
+                <NotifRules>
+                	<NotifRule Action="Update">
+				<Id>2</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>3</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>4</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>5</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>6</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                </NotifRules>
+            </ServiceLevel>
+        </Data>
+    </Request>
+ </Provisioning>
+
+
+ <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <Request>
+         <Header>
+             <Command>Modify</Command>
+		<EntityIdentifiers>
+			<Identifier Type="ServiceName" Value="Notification"/>
+			<Identifier Type="ServiceLevelName" Value="Maxibox"/>
+		</EntityIdentifiers>
+		<EntityName>ServiceLevel</EntityName>
+	</Header>
+        <Data>
+            <ServiceLevel>
+                <NotifRules>
+                	<NotifRule Action="Update">
+				<Id>1</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>2</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>3</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>4</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>5</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>6</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                </NotifRules>
+            </ServiceLevel>
+        </Data>
+    </Request>
+ </Provisioning>
+----------------------------------------------------------------------------------------------------------------
+
+
+ <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <Request>
+         <Header>
+             <Command>Modify</Command>
+		<EntityIdentifiers>
+			<Identifier Type="ServiceName" Value="Notification"/>
+			<Identifier Type="ServiceLevelName" Value="Group Basic"/>
+		</EntityIdentifiers>
+		<EntityName>ServiceLevel</EntityName>
+	</Header>
+        <Data>
+            <ServiceLevel>
+                <NotifRules>
+                	<NotifRule Action="Update">
+				<Id>1</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                </NotifRules>
+            </ServiceLevel>
+        </Data>
+    </Request>
+ </Provisioning>
+
+
+ <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <Request>
+         <Header>
+             <Command>Modify</Command>
+		<EntityIdentifiers>
+			<Identifier Type="ServiceName" Value="Notification"/>
+			<Identifier Type="ServiceLevelName" Value="Group Enlarge"/>
+		</EntityIdentifiers>
+		<EntityName>ServiceLevel</EntityName>
+	</Header>
+        <Data>
+            <ServiceLevel>
+                <NotifRules>
+                	<NotifRule Action="Update">
+				<Id>2</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>3</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>4</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>5</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>6</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                </NotifRules>
+            </ServiceLevel>
+        </Data>
+    </Request>
+ </Provisioning>
+
+
+ <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+     <Request>
+         <Header>
+             <Command>Modify</Command>
+		<EntityIdentifiers>
+			<Identifier Type="ServiceName" Value="Notification"/>
+			<Identifier Type="ServiceLevelName" Value="Maxibox"/>
+		</EntityIdentifiers>
+		<EntityName>ServiceLevel</EntityName>
+	</Header>
+        <Data>
+            <ServiceLevel>
+                <NotifRules>
+                	<NotifRule Action="Update">
+				<Id>1</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>2</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>3</Id>
+				<NotifMethod>Text</NotifMethod>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>4</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>5</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                	<NotifRule Action="Update">
+				<Id>6</Id>
+				<NotifRuleOn>false</NotifRuleOn>
+                	</NotifRule>
+                </NotifRules>
+            </ServiceLevel>
+        </Data>
+    </Request>
+ </Provisioning>
+ 
+Creat Subscriber - with Greeting ( new format URL Link )
+------------------------------------------------------------------
+  <Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Request>
+		<Header>
+			<Command>Create</Command>
+			<EntityIdentifiers>
+				<Identifier Type="TelephoneNumber" Value="995511"/>
+			</EntityIdentifiers>
+		</Header>
+		<Data>
+			<Subscriber>
+				<MailingLists>
+					<MailingList>
+						<Id>1</Id>
+						<Entries>
+							<Value>3333333333</Value>
+							<Value>4444444444</Value>
+						</Entries>
+						<VoiceData>http://DSUHTTP1.sys100.comverse.com:80/VS/1/testVD.txt</VoiceData>
+						<FileExtension>wav</FileExtension>
+					</MailingList>
+				</MailingLists>
+				<Greetings>
+					<Greeting>
+						<Type>Personal</Type>
+						<VoiceData>http://DSUHTTP1.sys100.comverse.com:80/VS/1/testVD.txt</VoiceData>
+						<FileExtension>wav</FileExtension>
+					</Greeting>
+				</Greetings>				
+			</Subscriber>
+		</Data>
+	</Request>
+</Provisioning>
+
+ 
+--------------------------------------------------------------------------------------------------------------
+
+_getCosesInactivityTimeLimit - this request should get respomce :
+
+<Provisioning>
+	<Response>
+		<ActiveToDormant>
+			<Cos>
+				<Id/>
+				<Name/>
+				<InactivityTimeLimit/>
+			</Cos>
+			<Cos>
+				<Id/>
+				<Name/>
+				<InactivityTimeLimit/>
+			</Cos>
+		</ActiveToDormant>
+	</Response>
+</Provisioning>
+
+
+Create SubScriber Flow:
+1. get the Allocation method from "GSL_GROUP" (Auto_allocation_logic)
+1.1 The enum description is table "ENUM_GSL"
+2. for numbering plan method check the field Num_Plan_Rangs in table "GSL_GROUP"
+2.1 if no Numbering range found set in the default set define in field default_gsl_set_id in "GSL_GROUP"  Table
+
+Numbering Plan:
+-----------------
+to determine the load sharing betwean groups ( systems )
+define the fields in table - SYS_PARAMS_GSL:
+AUTO_ALLOCATION_LOGIC - should be 2 for numbering plan
+
+to determine numbering plan inside the group ( load on sets ):
+change in the table GSL_GROUPS the column AUTO_ALOCATION_LOGIC. Note - this value should be the same as GSL_SETS.IN_LOAD_SHARE
+
+
+-----------------------------------
+Compas SNAP configuration
+-----------------------------------
+
+configuration Files:
+/usr/cti/conf/compas/cpe/parametrs.xml  ( to enable the PA SNAP ).
+ComponentsList->Parameter->Name"Productcomponents"->Item"GenericSnap" = value = 1 (1 enable 0 desable"
+
+/usr/cti/conf/compas/GenericSnap/parametrs.xml 
+
+Password method configuration
+----------------------------------------------
+file : /usr/cti/conf/compas/common/parameters.xml; fields:
+TuiPasswordEncryptionMethod
+InternetPasswordEncryptionMethod
+MAPasswordEncyptionFormat
+
+
+Trouble shuting 
+---------------------------------------
+when deposite greetings and we get an exception
+2010-02-22 11:35:55,070 ERROR [Thread-350] [fs.init.VoiceFileServerURLCreatorSingleton] {generateURL} Caught Exception
+java.lang.IllegalArgumentException: n must be positive
+
+
+Problem is in the FileServerStructure.txt:
+> cat FileServerStructure.txt
+FileSystemPrefix=VS
+FromFileSystem=1
+ToFileSystem=0
+NumberOfFolders=100
+NumberOfLevels=2
+Need to change the ToFileSystem to be 1 – this is a known bug
+
+
+***********************************************************************************************
+SPM Agent
+***********************************************************************************************
+
+Start SpmAgent:
+su - spmagent
+or cd to /usr/cti/spmagent/homedir/spmagent
+./start
+
+from STF 10
+/usr/cti/spmagent/bin/SunOS/rStart.sh
+
+process name /usr/local/java/bin/java -DCOMPAS_TYPE=SpmAgent -DOS_TYPE=SunOS -DComPA
+
+Logs:
+
+su - spmagent
+
+ cd $TOMCAT_LOG/
+
+or cd /var/log/tomcat/spmagent/
+
+set log level:
+open file shared/ssfShared.xml
+change Tag  <Logger-SpmAgent>
+remove resource group :
+scswitch -n -j spm-app
+scrgadm -r 	-j spm-app
+
+
+install :   Bin on A ./Install Both AddaResourse on B 
+
+ports:
+http: 51445  / 52445
+https: 51449 / 52449
+
+***************************************************************************
+PC Profile counters
+***********************************
+
+
+Installing PC on Clustered Node:
+Pkgadd –d PC_1.0.0.0_Build02
+
+Here the Installation will create ProfileCounters Resource Group. And pc-app resource is added to the Resource Group.
+And the cluster will run the PC automatically.
+Check, whether the installation is successful or not by issuing this command.
+
+Scstat | grep ProfileCounters
+
+On one node, ProfileCounters Resource Group will be online, and for other node it is offline.
+If you want to stop the PC, to change the parameter values in the config file, then issue the following command.
+
+Scswitch –z –g <<ResourceGroup>> –h <<secondary node name>>.
+
+Eg: scswitch –z –g ProfileCounters –h DSU1b
+
+This will make the node2 online and node1 offline.
+Then make the required changes in PCConfig.xml located at /usr/cti/conf/pc on node1.
+After making changes, issue the below command:
+
+Scswitch –z –g <<ResourceGroup>> –h <<primary node name>>.
+
+Eg: Scswitch –z –g ProfileCounters –h DSU1a
+
+
+check if PC is ruuning: 
+/usr/cti/pc/scripts/monitor.sh
+
+configuration:
+/usr/cti/conf/pc/PCConfig.xml
+/usr/cti/conf/pc/counters.xml
+/usr/cti/conf/pc/log_config.xml    => Change the Log level.
+
+
+Logs:
+/var/cti/logs/pc/profilecounters.log
+
+
+
+***************************************************************************
+DC - Data Consistency 
+***************************************************************************
+
+Update password ( for sftp in DC application )
+i.	Go to /usr/cti/dc/bin directory
+ii.	Execute following command 
+iii.	java Cripto <New Password value>
+update SFTP_PASSWORD section in DC configuration file
+
+configuration file:
+usr/cti/conf/dc/Dataconsistency.properties 
+
+DC Stop Process
+1.	Run /usr/cti/dc/bin/DCGracefulShutDown.sh for grace full shutdown. 
+2.	For Non-Graceful /usr/cti/dc/bin/stop.sh for immediate kill (i.e. kill -9)
+
+
+Logers:
+/usr/cti/dc/logs/catalina.out
+/usr/cti/dc/logs/localhost_log.*
+/var/cti/logs/dc/*
+
+
+
+****************************************************************************
+		LVS   Linux Virtual Server
+****************************************************************************
+
+configuration file: /etc/syconfig/ha/lvs.cf
+
+log : /var/log/messages
+
+Lvs - For VI !!!!
+----------------------------------------------------------------------------
+Manager Tool ( cd before use ): /usr/cti/apps/LVS/lvs-config.pl
+def File 
+Update Ips in configuration file: cd /opt/LVS ;./lvs-install.pl -d
+
+check LVS Utility:
+ipvsadm -l
+
+/usr/cti/apps/LVS/lvs-config.pl
+
+**************************************
+Marimba
+**************************************
+
+IMPORT !!!
+
+./runchannel http://MarimbaTX:5282/Marimba/Current/SDMCmd -login admin -importDM /tmp/deploy/  /InSight_4_06
+
+EXPORT !!!
+./runchannel http://MarimbaTX:5282/Marimba/Current/SDMCmd -login admin -exportDM /nohistory /tmp/deploy/ /Insight_4_07_0/
+
+Update Macros:
+from SDM machine (SMU)
+/usr/local/Marimba/Tuner/bin/load_macros.sh
+
+Replace TXroot procedure:
+
+1.  /etc/cns/scripts/Marimba/preremove
+2.  cd /usr/local/marimba_content_holder
+3.  backup txroot
+4.  tar xvf /cdrom/cdrom0/txroot.tar
+5.  /etc/cns/scripts/Marimba/postinstall
+
+
+untar txroot: 
+run post install
+
+Procedure:
+Stop the transmitter on the DSU (should be through the cluster - you can run the preremove script under /etc/cns/scripts/Marimba/, this will remove the resource from the cluster and stop it. If you are not using the cluster, should be manual on the online node - /usr/cti/marimba_content_holder/Tuner/bin/stop)
+Verify that the process has stopped - ps -ef | grep -i tuner - verify that the tuner under /usr/cti is not running on any of the nodes
+On the online node, go to /usr/cti/marimba_content_holder/Tuner/.marimba/ - you should see a soft link to the location of the real txroot folder - /usr/local/marimba_content_holder. Verify that the soft link exists.
+Go to the real location of the txroot - /usr/local/marimba_content_holder
+There should be a txroot folder inside. Rename it to txroot.orig
+Copy the new txroot from the DVD to this location. It's a tar file.
+Open the tar file - tar xvf <new txroot name>
+Once it is done, you should see a new txroot folder inside the /usr/local/marimba_content_holder library
+On the online node, bring the transmitter back up (through cluster - you can run the postinstall script under /etc/cns/scripts/Marimba/ and this will register the transmitter to the cluster again and also start it)
+The transmitter should come up with the new txroot view. To verify it, using explorer go to http://<MarimbaTX-logical-ip>:5282 and see that you now have a view of all channels under Application folder
+
+
+Marimba password
+****************************************
+Cld1Ply-7
+
+\\Rd-filer1\cmInsight4\Versions\Marimba_End_point\3.0.0.0\STF02\Kit\Linux\Endpoint
+
+Scanning Procedure:
+1. make sure the Transmitter is configure correctly on each machine !!!
+
+
+connect to Marimba database (SMU):
+sqlplus inventory/inventory@openview
+
+stop/start Marimba at Insight 4.2 (Solaris)
+/opt/csm/EP/Tuner/bin/start/stop
+
+Marimba RDD ( Installation Etc )
+-----------------------------------------------------------------
+DOC-0-084-810
+
+Tuners Workspaces on Machines
+·	SDM– /usr/local/Marimba/Tuner/
+·	Transmitter – /usr/cti/marimba_content_holder/Tuner/
+·	Central Transmitter – /usr/cti/marimba_central_tx/Tuner/
+·	Shadow Transmitter - /usr/cti/marimba_shadow/Tuner
+·	Agent - /opt/csm/EP/
+·	Central Agent - /opt/Central_Marimba/Tuner/
+·	Reverse Proxy (if installed) - /opt/MarimbaRvrsPrxy/Tuner/
+
+
+
+*************************************************
+WSA 
+*************************************************
+WSA configuration file:
+/usr/cti/conf/WSA/wsa-conf.xml
+/usr/cti/conf/WSA/application.xml
+/usr/cti/conf/WSA/admin/site-config/insight4/OMAP_Admin.conf
+
+
+connection :
+https://<omuip>:51452/wsa
+user : super
+password : oSprtl8&
+ 
+*********************************************************************
+SMU
+*********************************************************************
+After any change in MCS HD location do:
+devfsadm -Cv
+verify the Changes with format
+
+
+Veritas Commands:
+show Status:
+hastatus -sum
+
+Start Groups
+hastart
+
+Veritas Logs :
+/var/VRTSvcs/log/engine_A.log
+
+Link to commands:
+http://eval.symantec.com/downloads/edu/qrg_vcs.pdf
+
+
+*************************************************************
+ISO mount ( how to use iso file ) ( Linux , Solaries, LMD )
+*************************************************************
+lofiadm -a iso_filename /dev/lofi/1 
+mount -F hsfs -o ro /dev/lofi/1 directory_name
+
+ls -l directoty_name
+
+
+mount point for NFS Boot
+---------------------------------------------
+NFS IP 10.115.243.147
+LMD 1.2.0.0 Build 1
+/work13/InSight4A/MD/LMD_AS3.0_1.2.0.0_B1
+
+LMD 1.1.0.0
+/work13/InSight4A/3.7.3
+
+LMD 3.8.0.1
+/work17/SW_Kit_Platform/Linux/Linux_AS3.0_3.8.0.1-b01
+
+
+burn Image to PC-Card use dd.exe utility
+dd if=imagfile of=\\.\PhysicalDrive1      ( see document PC-Card_Creation-dd.doc (Mydocuments\tecnicl\Boot)
+
+*************************************************
+DSV
+*************************************************
+logs location:
+/var/tmp/cti/logs/nds.fcgi_logs/GemTrace_Default_0.txt
+/var/tmp/cti/logs/nds.fcgi_logs/DSVTrace_0.txt
+ /var/tmp/cti/logs/java_logs/*
+
+update registery:
+source /.IFSenv.sh
+reg2gdbm -reg /usr/cti/conf/Dirsvc_InSight4.reg  -update
+
+Registery :
+/usr/cti/conf/persist_storage.gdbm
+
+Mappming Table:
+VERSION_USER.DSV_MAPPING
+
+open / close traces:
+D:\download\Share\Kits\DSV\CloseResolverTrace.reg1.txt 
+D:\download\Share\Kits\DSV\OpenResolverTrace.reg1.txt
+
+Analayze DSV:
+/usr/cti/dirsvc/DsvEnvAnalyst
+/usr/cti/swift-dsv/DsvEnvAnalyst
+
+open logs for JDSV
+-----------------------
+Vi /usr/cti/conf/vxv/osa.log4j.properties
+
+log4j.rootCategory=DEBUG, vxv, errorLog, sysLogLocal4
+log4j.logger.comverse.compas=DEBUG
+
+
+*************************************************
+SSF / CCM
+*************************************************
+SSF DOC ID : DOC-0-029-127
+
+application connection:
+http://<ssf ip>:7401/configuration/Frameset.jsp
+http://<omu ip>:57401/configuration/Frameset.jsp
+https://10.106.92.142:57401/configuration/Framset.jsp
+
+save configuration of CMDB:
+http://<SSF-IP-Address>:7401/configuration/importCmdb
+
+Upload configuration Linux:
+/usr/cti/OSS-CM_Utils/OSS-CM_Utils/bin/Common/confListMaker.sh /var/tmp/lst.txt
+/usr/cti/OSS-CM_Utils/OSS-CM_Utils/bin/Common/load2SSF.sh super  Aa1234 <FARM_NAME> 
+/usr/cti/OSS-CM_Utils/OSS-CM_Utils/bin/Common/load2SSF.sh Super  oSprtl8& <FARM_NAME>
+
+
+Solaris ????
+ /usr/cti/OSS-CM_Utils/OSS-CM_Utils/bin/Common/confListMaker.sh
+ 
+start SSF: user ssf_user
+cd  /usr/cti/ssf/domains/ImodeDomain/
+		./wl_service start
+		
+configuration :
+/usr/cti/ssf/domains/ImodeDomain/app_config/imode_config_integ.xml
+
+
+ 
+******************************************************************************
+SCDB
+****************************************************************************** 
+
+to create and deploy Unitgroup/CMDB files: 
+run from smu as scdb_user - 
+/usr/cti/scdb/bin/runFileGenerator.sh /usr/cti/conf/scdb/FileGeneratorConf.xml %SYSDOMAIN% %SYSNAME%
+
+SCDB - Utility
+-----------------------
+RDD - DOC-0-070-693 "cm_scdb_util_1.0.0.0_rdd.doc"
+DOC-0-103-144
+
+
+******************************************************************************
+NTP Client
+******************************************************************************
+deamond: ntpd
+linux start ntpd : service ntpd start
+solaris start ntpd : /usr/lib/inet/xntpd -a -c /etc/inet/ntp.conf.cluster
+check the status:
+ntpq -p
+configuration file: /etc/ntp.conf
+
+To synchronyze time with server -
+ntpdate -u
+
+if the date is not synchronize - 
+check the line at /etc/ntp.conf:
+restrict default notrust notrap
+
+*******************************************************************************
+Portal
+*******************************************************************************
+Url: https://<smu-ip>:50032/ossp
+4.2 => http://smu-ip:50461/ossp
+Migr Portal IP - https://10.106.92.17:50032/ossp
+
+Central IP - https://10.106.93.39:50032/ossp
+
+start/stop
+
+/opt/CMVT/OSSP/bin/startup.sh
+/opt/CMVT/OSSP/bin/shutdown.sh
+
+user: Super
+password: oSprtl8&
+
+portal links:
+/opt/CMVT/OSSP/site-config/insight407Master/subject.xml
+/opt/CMVT/OSSP/site-config/master/subject.xml
+
+catalina log:
+/opt/CMVT/OSSP/logs/catalina.out
+portal log:
+/opt/CMVT/OSSP/ossp-log/ossp.log
+
+log level:
+/opt/CMVT/OSSP/cifs/log_config.xml 
+change the root tag.
+AdmninDB
+---------
+oracle user: oss_admin_user  / t498dk5
+Update AdminDB:
+delete tables:
+DELETE FROM AUTH_GROUP_AUTH;
+DELETE FROM EXT_TOOL_EXT_PROF;
+DELETE FROM EXTERNAL_PROFILE_AUTH_GROUP;
+DELETE FROM EXTERNAL_TOOL;
+DELETE FROM OMAP_PROFILE_AUTH_GROUP;
+DELETE FROM EXTERNAL_PROFILE;
+DELETE FROM AUTH;
+DELETE FROM OMAP_USER_SITE;
+DELETE FROM OMAP_USER;
+DELETE FROM OMAP_PROFILE;
+DELETE FROM AUTH_GROUP;
+COMMIT;
+
+
+*****************************************************************************
+HP - Open View 
+****************************************************************************
+first time login: 
+user : opc_adm
+password: OpC_adm
+25pah@nADM
+
+*******************************************************************************
+campign Manager
+*******************************************************************************
+URL : https://10.106.92.89/cm-webapp/
+
+user: adm
+password:  admadm
+
+log files:
+application Logs: /u102/cmwebapp/cmwebapp.log
+
+configuration:
+/u01/applications/cmwebapp/
+
+To enable Infontainment:
+configure at the proxy-au:
+/usr/cti/conf/proxy/proxy.conf: ../UMPRX/1.1.0.0/40025/PlugIns/SocketWraper]
+HostName=Ip or host name of MR/MTA
+Port=50025
+
+../UMPRX/1.1.0.0/50025/PlugIns/SocketWraper]
+HostName=IP or hostname of CampaignManager
+Port=25
+
+
+*****************************************************************
+Mediation 
+**********************************
+
+Main drop files path:
+
+/export/home/vmssftp/
+Activity log:
+/export/home/vmssftp/activitylogs/VMSxx
+
+statistics:
+/export/home/vmssftp/sam/CMxx
+/export/home/vmssftp/sam/ISISxx
+/export/home/vmssftp/sam/MEDxx
+/export/home/vmssftp/sam/VMSxx
+
+cdr:
+/export/home/vmssftp/cdr/x
+
+
+output Dir:
+/u103/medmuf/transfer/sam/MED01/
+
+
+configuration Counters:
+/u01/applications/medmetrica/config
+
+aplication Start/stop
+/u01/applications/
+
+
+******************************************************************************************
+NDS
+******************************************************************************************
+pdr - 4.0.9.0 DOC-0-037-870
+
+apache configuration file:  /etc/httpd/conf/httpd.conf
+nds configuration ( include in httpd.conf ) : /etc/httpd/conf.d/nds_httpd.conf
+
+Start /Stop apache ( NDS Manualy )
+apachectl start
+apachectl stop
+
+apache / NDS logs:
+/usr/cti/nds/bin
+/var/cti/cores/nds
+
+Configuring Load Sharing at SMGpst.xml:
+.../SMG_LoadSharing_configuration:
+add SMG_LoadSharing_Record:
+at this record add:
+     SMG_LS_APP_NAME ( attribute )
+     SMG_LS_Target ( Element )
+
+ReadReceipt / CLI2ME Notification SNAP 
+Destination / caller id "Disposition-Notification-To"
+
+UserLog
+-------------------------------------------------------------------------------------------------------
+Starting from version 4.3.3.0 STF 02, NDS includes the ability to log request handling for specific users.
+
+It allows for easier debugging and testing on shared machines, as each user has an individual log file that contains only his requests.
+
+Here are the instructions to set up this feature:
+
+ 
+
+1) In    /usr/cti/conf/vxv/osa/common/UserLogging.xml , add the user you wish to log. 
+
+            The format for adding users is: 
+
+<user>
+
+                <mailbox-id>User@comverse.com</mailbox-id> 
+
+                            <log-level>DEBUG</log-level>
+
+</user>
+
+            (NOTE: even though it's called mailbox-id, the possible fields for identifying users are: EmailAddress, TelephoneNumber, Uid)
+
+            So a different field example would be:
+
+<user>
+
+                <mailbox-id>972364559102</mailbox-id> 
+
+                            <log-level>ERROR</log-level>
+
+</user>
+
+ 
+
+2) In     /usr/cti/conf/nds/NDSconf.xml , change LocalUserLogsEnabled to "1". Optional: You may change the directory in which Local User Logs will be saved by modifying the path in LocalUserLogsDir (The default being /var/cti/logs/nds ).
+
+ 
+
+3) The configuration should refresh after a few moments and any subsequent request that belongs to the desired user will be logged to a separate file as well as to the OwnerlessTrace.trc ( The filename is decided by the field that is used to identify the user, so for the examples above, the result log files would be User@comverse.com.trc or 972364559102.trc)
+
+ 
+
+This feature is available for HLRS, SMG and SRH as well. (Using their own configuration xml files but the same UserLogging.xml)
+
+
+
+
+
+*** Configure MWI Notification to SIP phone:
+    ----------------------------------------
+1. configure SIP_Srerver in NDSconf.xml : name="Sca"  port="????"
+2. configure rule at NotifRules MWI:MainPhone
+
+SMG Debug Level log 65534
+SNAP Simulator: http://<ndsip>:58910/NDS.html
+http://10.106.207.215:58910/SnapSim.html
+
+1. NDM_ALIVE_ACK_TIME_OUT                ==> 15
+ 2. NDM_ALIVE_MSG_INTERVAL                ==> 60
+ 3. NDM_BILLING_DCS_CLASS                 ==> N 
+ 4. NDM_BILLING_PROTOCOL_ID               ==>  65
+ 5. NDM_BILLING_REPLACE_FLAG              ==>  N
+ 6. NDM_CLI2ME_SERVICE_ID                 ==> SMSMittente
+ 7. NDM_CLI2ME_VALIDITY_PERIOD            ==> 2
+ 8. NDM_CLIP_SMSC_PREFIX_LEN              ==> 11
+ 9. NDM_CONNECT_RETRY_DELAY               ==> 10
+10. NDM_CONNECT_TIMEOUT                   ==> 10
+11. NDM_DEBUG_LEVEL                       ==> 0 
+12. NDM_DEST_NPI_VALUE                    ==> 1
+13. NDM_DEST_TON_VALUE                    ==> 1
+14. NDM_ENABLE_KEEP_ALIVE                 ==> N
+15. NDM_ENABLE_SMS0                       ==> Y
+16. NDM_ENABLE_SMS_FWD_REACH              ==> Y
+17. NDM_ENABLE_TEXT_MANIP                 ==> Y
+18. NDM_FWD_REACH_ERROR_CODES             ==>  
+19. NDM_HANDSET_CLIENT_CLASS_ID_BREW      ==> ab12345
+20. NDM_HANDSET_CLIENT_DELIMITER          ==> >;
+21. NDM_HANDSET_CLIENT_OP_CODE            ==> WC
+22. NDM_HANDSET_CLIENT_PREFIX_BREW        ==> BREW://
+23. NDM_HANDSET_CLIENT_SERIAL_NUMBER      ==> sn=[X]:[Y];
+24. NDM_IS_RELATIVE_SPLIT_DELAY           ==> N
+25. NDM_KEEP_ALIVE_RETRIES                ==> 10
+26. NDM_LINK_NUMBER                       ==> 1
+27. NDM_LONG_SMS_SPLIT                    ==> N
+28. NDM_MAX_MSGS_IN_DB                    ==> 10000
+29. NDM_MAX_SMS_SPLIT                     ==> 5
+30. NDM_MSG_INFO_DELIMITER                ==> ~
+31. NDM_PORT_OFFSET                       ==> 0
+32. NDM_PRIORITY_LEVEL                    ==> 0
+33. NDM_READ_DB_DELAY_MILLISC             ==> 25
+34. NDM_READ_RECEIPT_SERVICE_ID           ==>  Read_Receipt
+35. NDM_READ_RECEIPT_VALIDITY_PERIOD      ==> 2
+36. NDM_SMSC_HEADER_TEMPLATE              ==> [X]/[Y]
+37. NDM_SMSC_NEWLINE_DELIMITER            ==> ~
+38. NDM_SMS_SPLIT_DELAY                   ==> 2
+39. NDM_SOURCE_NPI_VALUE                  ==> 1
+40. NDM_SOURCE_TON_VALUE                  ==> 1
+41. NDM_SYSTEM_ID                         ==> vmetest1
+42. NDM_SYSTEM_TYPE                       ==>  
+43. NDM_TCP_IP_MAIN                       ==> 10.129.202.202
+44. NDM_TCP_IP_SECOND                     ==>  
+45. NDM_TCP_LOCAL_IP                      ==>  
+46. NDM_TCP_LOCAL_PORT                    ==>  
+47. NDM_TCP_MSG_SEND_TIMEOUT              ==> 5000
+48. NDM_TCP_PORT_MAIN                     ==> 9999
+49. NDM_TCP_PORT_SECOND                   ==>  
+50. NDM_TCP_READ_INTERVAL                 ==> 0
+51. NDM_TRSLD_LOST_TRACK_MSGS_CRTCL_PRCNT ==> 60
+52. NDM_TRSLD_LOST_TRACK_MSGS_MAJOR_PRCNT ==> 40
+53. NDM_TRSLD_LOST_TRACK_MSGS_MINOR_PRCNT ==> 20
+54. NDM_TRSLD_NACK_MSGS_FROM_SMSC_CRTCL_PRCNT ==> 60
+55. NDM_TRSLD_NACK_MSGS_FROM_SMSC_MAJOR_PRCNT ==> 40
+56. NDM_TRSLD_NACK_MSGS_FROM_SMSC_MINOR_PRCNT ==> 20
+57. NDM_TRY_TO_RETREIVE_DB_SEC            ==> 10
+58. NDM_UCS2_TRANS_BIG_ENDIAN             ==> Y
+59. NDM_UCS2_TRANS_BOM_IN_CLIP            ==> N
+60. NDM_UCS2_TRANS_BOM_PER_CLIP           ==> N
+61. NDM_UCS2_TRANS_PERMITTED              ==> N
+62. NDM_UCS2_TRANS_WITH_BOM               ==> N
+63. NDM_USER_PASSWORD                     ==> vmeTEST1
+
+
+*******************************************************************************
+SMG special configuration
+*******************************************************************************
+SMPP ndm configuration
+-------------------------------------
+SMPP_TCP/Feature_Enable attributes:
+
+
+*********************************************************************************************
+FTM 
+*********************************************************************************************
+
+Oracle user: FTM_OWNER/FTM_OWNER
+
+to update Tasks Table in DB change the chksam value in FTM_PARAMS table:
+update "FTM_PARAMS" set 
+"TASKS_FILE_CHECKSUM" = 111, 
+"TASKS_LAST_MODIFIED" = to_date( '01/01/03','DD/MM/YY'), 
+"GROUPS_FILE_CHECKSUM" = 1111, 
+"GROUPS_LAST_MODIFIED" = to_date( '01/01/03','DD/MM/YY') ;
+
+
+***********************************************************************
+Schedular SRD
+***********************************************************************
+
+Installation. - On Both Machine ( 2 Kits ).
+uninstall SRD ( Solaris )
+1. remove resiurce group: pkgrm schedulerCluster
+2. remove SRD: pkgrm SRD  ( all DSUs )
+
+
+****************************************************************************************
+DSU
+****************************************************************************************
+
+IP List for Vips file:
+/etc/cns/params/InsightIPs
+
+change to single mode :
+boot -sx
+
+Cluster Logs:
+/var/adm/messages
+
+DtatServer configuration File ( 4.0.7.1 ):
+/etc/cns/params/large/services.2install 
+/etc/cns/params
+
+installation log:
+/var/adm/ComverseInstall.log
+
+to check Resource cluster properties:
+scrgadm -pvv -j resource 
+or
+scrgadm -pvv -g group
+
+shutdown cluster: /etc/cns/scripts/DR/cluster_offline.ksh
+
+
+
+LRPs
+====================================================================
+1. clean up operation: operation that is done after upgrade stage is finished and unused resources should be removed from DSU.
+This is a "point on no return", where the original Manager.xml configuration file is erased along with all  the unused prompts.
+This is a very risky operation and an AI that was raised in order to avoid erasing of necessary other resources on DSU we decided that the script shall get as input only the system id of the base directory in which the resources were installed, the rest of the path will be hard coded in the script, so in worse case resources that will be erased will be under the system -id of the installation point.
+[Langer Ruby]  for the cleanup proccess , I discussed w/ofer that this proccess should be done with a non-root user that can only remove the files that is under
+Its ownership.   From what we saw during the PI,  the script was able to delete the root directory of DSU, and this is to risky to permitt such activity on a live system.
+Ofer - please let us know what the final solution for this is going to be , and let's check it again in PI lab before implementing into the kit .
+
+
+2.Another issue that we discussed was the parameters send to the script that is responsible of changing the pointing of VM-ASU's to the resources on DSU:changeRemoteManagerLocation.sh 
+The scripts should get the parameter "normal" if we are not in upgrade mode anymore, and the parameter "upgrade" when entering to upgrade mode.
+This means that the script should be "manually" activated twice - one when entering upgrade mode and one when exiting upgrade mode ,and each time it shall get the correct parameter. This scripts changes configuration file on the VM-ASU that causes the reloading of the resources again from DSU.
+We discussed the necessity of the script and the need to send parameters to that script and as for now we didn’t see any other solution that will take place instead of the script or its input.
+[Langer Ruby]  Orly - during either upgrade or installation ,we can only give the parameter to the script once .  
+The upgrade proccess is per unit that runs independently. 
+There CANOT be any dependencies between units during upgrade proccess .
+Therefore , the script can not get a parameter twice during an upgrade proccess . 
+
+Need to think how the kit can "know" that it's in upgrade mode , by the commands that are given to the RPM and once this operation is done 
+Needs to know to return to the original behaviour.
+
+
+ 
+
+3. The get_params.sh scripts needs to be located under /usr/sbin/ and not under /etc/cns/scripts/integ_utils/ as planed.
+[Langer Ruby]  
+Please add to your kit a postinstall script with softlink to the integ_utils folder . All scripts from integ_utils are kept there .
+
+
+In addition here are the scripts and main commands that we used :
+
+
+1 .For adding pkg:
+
+cd PKG_DIR; pkgadd -n -d PKG_NAME-a admin -r
+response all
+
+
+For example:
+
+cd /tmp/orly/scratch ; pkgadd -n -d LRP-A-fr_4.0.0.0_Build3.3 -a admin -r
+response all
+
+2. For removing pkg:Only done if the entire Locale with all its versions is needed to be removed
+
+pkgrm -n -a ADMIN_DIR/admin LRP-A-fr
+
+For example:
+pkgrm -n -a /tmp/orly/upgrade/admin LRP-A-fr
+
+3.Installation mode is change in answer file under:Change the parameter according to the installation mode before starting the installaion of the group of pakages that are needed to be installed in that mode
+
+/var/tmp/CI_NAME
+
+For example:
+
+/var/tmp/APP-VM-LRPS/APP-VM-LRPS_answer_file
+
+The mode shall be:scratch/upgrade
+
+4.The installation base dir is in the response file:
+
+For example:
+BASEDIR=/data/http1/VS/1/resources/103
+
+5. The get_params.sh shall be under :
+/usr/sbin/get_params.sh 
+
+6.The cleanUp script is under:is activated when upgrade mode is over and all vxv's are looking at manager.upgrade.xml
+
+/etc/cns/scripts/lrp/lrpClaenUp.sh and it gets the base dir as parameter ,
+For example:
+/data/http1/VS/1/resources/103
+
+7. The changeRemoteManagerLocation.sh is under /usr/cti/vxv/scripts/lrp:activated once after installing the group of pakcages that are needed to be instaled for upgrade and once after upgrade mode is over
+It gers normal/upgrade parameters as values.
+
+Its in VM-ASU and changes the com.comverse.nivr.resource.ResourceManagerLocation.xml parameter of Manager location
+
+
+
+**********************************************************************************************
+EMC
+************************************************************************************************
+Navisfare login : http://emcip
+user: comverse
+password: comverse
+
+emc cli agent on dsu - Start/Stop
+/etc/init.d/agent stop
+/etc/init.d/agent start
+
+SUN Gateway - McDATA
+---------------------
+
+FCS - Fiber Optic switch
+------------------------
+login:
+http://FCSip
+user: Administrator
+password: password
+
+
+*****************************************************************************************
+LDAP 
+*****************************************************************************************
+
+uninstall LDAP:
+dos2unix INSIGHT4_ds_uninstall.ini INSIGHT4_ds_uninstall.ini
+/var/tmp/DS_install.ksh  -i INSIGHT4_ds_uninstall.ini
+
+if it fails check the last kit uninstalled - pkgrm KIT
+and rerun /var/tmp/DS_install.ksh  -i INSIGHT4_ds_uninstall.ini
+installation log : DS_install.log ( on /var/tmp ).
+
+./ldapmodify -ac -p 50389 -D "cn=dirmanager" -w Manager1dir
+dn: ou=gds,o=comverse
+objectclass: organizationalunit
+
+adding new entry ou=gds,o=comverse
+
+/ldap/v5.2/shared/bin/ldapmodify -D "cn="${DS_USER} -w ${DS_LOGIN} -p ${PORT} -a -c -f /${DS_BASE_DIR}/admin/create/schema/delete_suf fixes.ldif 
+
+
+
+LDap Logs:
+------------
+/ldap/v5.2/slapd-PROFILE1b/logs/
+/ldap/v5.2/slapd-PROFILE1a/logs/
+
+check if LDAp is runnig:
+------------------------
+ps -ef | grep ns-slapd
+
+downgrade label:
+----------------------
+${DS_ADMIN_CREATE}/config/schema_upgrade.ksh DOWNGRADE ${PREVIOUS_LABEL}
+
+
+**************************************************************************************
+VxV
+**************************************************************************************
+cd /usr/cti/vxv/weblogic/bin/linux; ./stopWebLogicAs
+VxVUser
+
+open Logs:
+-----------
+/usr/cti/conf/vxv/archtecture/ScopLogging.properties
+DEFAULT = value for all nul values.
+
+/usr/cti/conf/vxv/osa.log4j.properties
+log4j.rootCategory=DEBUG, vxv, errorLog, sysLogLocal4
+log4j.logger.comverse.compas=DEBUG
+
+weblogic logs: /var/cti/logs/bea/...
+
+Changing Default Content type (Codec Saving at Mips)
+-------------------------------
+4.1.x file : /usr/cti/conf/vxv/architecture/AudioContentTypeMappings.properties
+4.2.x file : /usr/cti/conf/vxv/osa/util/AudioContentTypeMappings.properties
+parameter defaultContentTypeAudio
+Port 59123
+Insight 4.2
+------------------------
+SystemId - file: /usr/cti/conf/vxv/osa/profile/ComPAS.properties
+
+
+Weblogic Mamangemnt (Console):
+---------------------------------------------------------
+http://<cas/vxv IP>:7000/console
+
+user:Admn2AS
+password: EJsec6DM
+
+to get the open page:
+wget --spider -O /dev/null http://10.106.50.170:7000/console
+
+
+***************************************************************************************
+ORACLE 
+***************************************************************************************
+
+connect as db Admin:
+./sqlplus "/as sysdba"
+
+SELECT table_name FROM all_tables; 	
+
+select username from dba_users ;
+
+/oracle/admin/create/fallbackSchema.ksh
+
+necessary files for oracle /oracle/:
+.aliases
+.cronenv
+.cshrc
+
+
+Solaris control:
+lsnrctl <command start/stop/status/help  etc>
+update synonyms and grants:
+
+GRANT DYN_PROF_ACCESS TO SPM_APP_USER;
+GRANT DYN_PROF_ACCESS to NDS_APP_USER;
+GRANT DYN_PROF_ACCESS to VXV_APP_USER;
+GRANT DYN_PROF_ACCESS to SPM_AGENT_APP_USER;
+GRANT DYN_PROF_ACCESS to MXA_APP_USER;
+GRANT DYN_PROF_RO_ACCESS to DC_APP_USER;
+
+CREATE OR REPLACE SYNONYM SPM_APP_USER.DYNAMIC_PROFILE FOR  DYN_PROF_OWNER.DYNAMIC_PROFILE;
+CREATE OR REPLACE SYNONYM SPM_APP_USER.DYNAMIC_PROFILE FOR  DYN_PROF_OWNER.DYNAMIC_PROFILE;
+CREATE OR REPLACE SYNONYM NDS_APP_USER.DYNAMIC_PROFILE FOR  DYN_PROF_OWNER.DYNAMIC_PROFILE;
+CREATE OR REPLACE SYNONYM DC_APP_USER.DYNAMIC_PROFILE FOR  DYN_PROF_OWNER.DYNAMIC_PROFILE ;
+CREATE OR REPLACE SYNONYM VXV_APP_USER.DYNAMIC_PROFILE FOR  DYN_PROF_OWNER.DYNAMIC_PROFILE;
+CREATE OR REPLACE SYNONYM SPM_AGENT_APP_USER.DYNAMIC_PROFILE FOR  DYN_PROF_OWNER.DYNAMIC_PROFILE;
+CREATE OR REPLACE SYNONYM MXA_APP_USER.DYNAMIC_PROFILE FOR  DYN_PROF_OWNER.DYNAMIC_PROFILE;
+
+Update Date field : insert into table_name.field  to_date((<string>, '<format>') ;
+where the <format> :
+ 
+MM	Numeric month (e.g., 07)	   
+MON	Abbreviated month name (e.g., JUL)	   
+MONTH	Full month name (e.g., JULY)	   
+DD	Day of month (e.g., 24)	   
+DY	Abbreviated name of day (e.g., FRI)	   
+YYYY	4-digit year (e.g., 1998)	   
+YY	Last 2 digits of the year (e.g., 98)	   
+RR	Like YY, but the two digits are ``rounded'' to a year in the range 1950 to 2049. Thus, 06 is considered 2006 instead of 1906, for example. 	   
+AM (or PM)	Meridian indicator	   
+HH	Hour of day (1-12)	   
+HH24	Hour of day (0-23)	   
+MI	Minute (0-59)	   
+SS	Second (0-59)	 
+
+
+To start a sysdba session under Windows (9iAS): sqlplus "/as sysdba" 
+To list all tables in current schema: 		SELECT table_name FROM user_tables; 
+or, all tables current user has access to: 	SELECT table_name FROM all_tables; 
+To list all schemas: 				SELECT username FROM all_users ORDER BY username; 
+To turn pause on: 				SET PAUSE ON; 
+To list top n rows of a table in order: 	SELECT * FROM (SELECT * FROM t ORDER BY c) WHERE ROWNUM <= n; 
+Show current database: 				SELECT * FROM global_name; 
+Use database: 					CONNECT schema/password@tnsname; 
+Show who I am: 					SHOW USER; 
+Describe table: 				DESC tablename; 
+Set display rows: 				SET PAGESIZE 66; 
+Read field constraints: 			SELECT constraint_name,search_condition FROM user_constraints WHERE table_name='tablename'; 
+Copy table from foreign host to here: 		COPY FROM user@tnsname CREATE tablename USING SELECT * FROM tablename; 
+Start SQLPLUS without login: 			SQLPLUS /NOLOG 
+Change a user's password: 			ALTER USER user IDENTIFIED BY password; 
+Unlock an account 				ALTER USER user ACCOUNT UNLOCK; 
+
+Update number of sessions
+1. Edit file /oracle/admin/create/ODS_config.txt
+      SESSIONS=1430
+2. run  /oracle/admin/create/PKG/INSIGHT4/INSIGHT4_change_config.ksh SESSIONS
+
+GSL Search ,.....
+----------------
+
+SELECT table_name , Owner FROM all_tables WHERE table_name like 'GSL%' ; 
+select * from GSL_OWNER.GSL_GROUPS ;
+select GSL_GROUP_ID,GSL_GROUP_NAME,COSHOSTNAME from GSL_OWNER.GSL_GROUPS ;
+SELECT table_name FROM user_tables where table_name like '%APP%';
+
+Logs:
+---------------------------
+/data/oracle_data1/ODS/trace/alert_ODS.log
+
+
+***************************************************************************************
+TCP dump
+***************************************************************************************
+tcpdump -w filename.cap -s 0 "host <NDS IP>"
+solaris
+tcpdump -s 1500 -v -i "qfe2" -w /tmp/vw_sms.cap -f "port 50025"
+
+****************************************************************************************
+Documentations
+****************************************************************************************
+[1.] Notification SRD	DOC-0-024-249
+[2.] SSDD	DOC-0-025-928
+[3.] IS4 Main SRD	DOC-0-023-943
+[4.] Outcall SOAP IDD	DOC-0-025-928
+[5.] RMR SysRD 	DOC-0-025-921
+[6.] RMR XML & XSD	Clear Case
+[7.] Message format IDD	DOC-0-026-879
+[8.] SNAP IDD	R&D
+[9.] LDAP Schema	DOC-0-024-596
+[10.] Oracle schema	R&D
+[11.] Call Forwarding IDD	DOC-0-012-386
+[12.] Telephony Access SSS	DOC-0-025-402
+[13.] SMG IDD	R&D
+[14.] SMPP Extension 	
+
+DOC-0-032-511	mesagging SSS 4.0.7
+
+
+4.0.7 PDRs
+
+DOC-0-032-983 InSight 4.0.7 SSDD
+DOC-0-032-126 CLI2Me PDR
+DOC-0-032-323 SMS Voice Receipt PDR
+DOC-0-032-486 IS407 Platform PDR
+DOC-0-030-945 PDR - Dynamic Mailbox Management
+DOC-0-030-933 WHC & slam down PDR
+DOC-0-032-175 VFIT Ubiquitous access CBA
+DOC-0-032-487 IS407 DRP PDR
+DOC-0-033-574 InSight 4.0.7 - Main SRD
+DOC-0-033-469 InSight 4.0.7 - Customization Guide
+DOC-0-032-854 System selection based on numbering plan VF IT - PDR
+DOC-0-032-214 Omnitel Architecture PDR
+
+
+******************************************************************************
+Solaris
+******************************************************************************
+pakges directory /var/sadm/pkg
+
+packges conetents:
+/var/sadm/install/contents
+
+add new interface:
+ifconfig intname  plumb
+
+ifconfig  intname  unplumb
+
+automatic mount points ( at start up ) : /etc/vfstab
+
+clean dns client cash
+/etc/init.d/nscd stop/start
+lsof - find which proces use which resource
+
+named 
+----------------
+configuration : /etc/named.conf
+/var/named/chroot/etc/named.conf
+logs 
+
+restart named
+--------------------
+/etc/init.d/named stop
+/etc/init.d/named start
+
+
+
+crontab logs
+-------------------
+/var/cron/log
+
+********************************************************************************
+SMSC convertor ( on OMU )
+********************************************************************************
+
+
+conf.txt configuration:
+SCRIPTDIR=path of scripts to run 
+PAIRSCNF=pairs.conf
+INDIR=/var/cti/db/sam/collected  - input dir where ftm put files from SMSC
+OUTDIR=/var/cti/db/sam/collected - output dir where file are ready to send to mediatior.
+LOGDIR=/root/ARIN/convtool
+PREFIX=SMSC-RAWSTAT
+
+*******************************************************************
+SMSC Server !!!
+******************************************************************
+see RDD Document "RDD ISMSC"
+configuration parametrs see section 2.1.1.2
+and section 3.9.2.	Instructions for Scratch Installation
+paragraph - Configuring sfe.files.config 1
+user : smsc
+
+Monitor :  mml
+
+or ps -u smsc :
+check sfe_main, nip_ei , 
+
+Start :  smsc control start
+stop  :  smsc control stop
+status:  smsc control status
+
+smsc -inst 1 send_sm -target 0664600191 -text "just test"
+
+configuration file ( for statistics ):
+/home/smsc/site/config/sfe.config
+/home/smsc/sfe.3.0.301/config/status.config
+
+Parameters:
+Number of sfes ( should be 2 but temporary change to 1 ):
+number_of_sfes - file 
+
+logs - /home/smsc/site/trace/...
+
+
+Omap configuration:
+see RDD "RDD OMAP"
+section 4.8.3.2.	Detailed Upgrade Instructions
+Security SSH Setup:
+ ( do this on both smsc and omap )
+ 
+
+*****************************************************************
+Omnitet VF TestBad
+*****************************************************************
+
+Remote desktop connection to: IT-MIL-OPS
+username: ftpguest
+password: ftpguest
+ 
+Remote desktop connection to: 10.128.254.3
+username: Administrator
+password: Administrator
+ 
+System1:
+OMU IP: 10.130.157.146/147
+VM-ASU IP: 10.130.157.156/157
+
+communication:
+Internet : 10.128.249.xxx 
+system:   10.130.157.xxx
+default gatway: 10.128.249.241
+Browzer: proxy - 10.128.148.240:3128
+user: www
+passwoerd: squiddy
+
+connection to comverse via 10.128.148.1
+
+\\it-mil-teat99  10.140.72.133
+
+Connection to comverse 2:
+connect via Remote desktop to 10.128.254.3
+user: Administrator
+password:   (no password)
+domain:
+open remote desktop to 10.128.148.1
+user:   ftpguest
+password: ftpguest
+domain: ( local computer )
+
+connect to site from comverse:
+remote desktop connect to  \\it-mil-test99  10.140.72.133
+then connect \\INSIGHT    10.130.157.141  or 10.128.254.3
+OR connect to MAU !! : 
+
+
+connection From Outsideroom:
+Ip: 10.128.254.x
+gateway: 10.128.254.241
+Browzer: proxy - 10.128.148.240:3128
+user: www
+passwoerd: squiddy
+
+
+connection from Comverse Office :
+Remote Connect:
+10.140.72.75 IL-MIL-OPS
+user:  support
+password: comverse
+domain:  local
+then - remote connect 10.128.254.3
+
+
+Modem Connection:
+Connection to VF IT:
+modem connection - 
++390241242452
+
+user : CMVras
+password: sec3#4$5
+
+you can accees via ssh to system
+
+Names:
+System       System Name             System Domain 
+ 
+TCPOP01    Pop                         tc.vas.omnitel.it
+TCNVM01    Active Core 1               tc.vas.omnitel.it
+TCNVM02    Active Core 2               tc.vas.omnitel.it
+
+mail domain: tc.vas.omnitel.it
+
+
+TUI access: 
+subscriber access 42020
+guest acc  : 34720xxxxxxx   xxxxxxxxx = subscriber without 3 prefix numnber ( 347 )
+		  1234567
+for example subscriber 347-9600501  guest access 34720-9600501	
+common access 3472020210
+
+*********************************************
+ByTel
+***************************************************
+connectoin !!!!!!!!!!!!!!!!
+https://secure.logmein.com/go.asp?page=home
+Username: comversebytel@yahoo.com
+Password:  bytel1
+
+Then go to "My computers" and double click on "Bytel1" entry.
+
+When prompted to provide the secure code sitch to "other" and then:
+Username: aaaaaaaaaa
+Password:  bbbbbbbbbb
+
+
+access to IL-TLV-AAVIAD3.comverse.com
+
+external Config - 10.127.160.xxx < 128  255.255.255.128 gw 10.127.160.126  dns 10.127.180.47
+
+internal config - 172.29.152.xxx > 170  255.255.255.192 gw 172.29.152.190
+
+
+Redundent:
+
+DSU1a - 172.29.152.68 
+exist -  VERSION:  1.0.0.0-03
+
+
+dsu1b -  172.29.152.71
+
+
+smu1a - 172.29.152.137
+smu1b - 172.29.152.139
+
+mail domain : vmsngtest.fr
+
+
+
+CMS
+****************************
+
+call flows DOC-0-031-767 ( Telephony Access SSS ).
+
+shutdown:
+service vsunitstartd stop
+or MamCMD -stopall
+
+check Kits :
+whatkit.sh
+
+USD Case open:
+------------------------------
+Category :  NGVM.PVVM-deploy.CMS..System Integration
+Team	 :  HD
+
+How To open Debug Rules on cms
+------------------------------
+edit the file DebugRules.dat
+
+execute: 
+
+debuglogadmin
+menu:
+5
+0
+
+
+to start Debug level log :  debuglogadmin -n
+
+statistic configuration in file /usr/cti/conf/cms/Statistics.cfg :
+StatisticsEnabled = 1
+CollectionInterval=15
+FileRetentionSizeKb=1
+FileRetentionTime=1
+FileRetentionRecCnt=1
+
+Logs:
+-------------------------
+Folder /var/cti/logs/cms/
+
+telemon.log - show the status of trunks and channels ( every period time ).
+DebugLog_x.log - PFP, TAPI, Telemon, Line Card, Signaling ( include PFC messages ) Debug information
+main_log.xxx.clog - inflection log
+
+/var/cti/logs/maa/maaxx_yyy.current.logger  - Maa Logs
+/var/cti/logs/sca_sip/Today/*  - Sip Logs
+
+
+Open/Change Debug Level:
+File inflection.cfg - parameter DEBUG_DEFAULT_LEVEL  ( 0 - 10 4 Warning 10 full DEBUG )
+
+set Fax Enable at CMS
+---------------------------------------------
+/usr/cti/cms/scripts/setup_fax_config.sh yes
+restart process at CMS
+
+After running host_config or when running post_istallation please run the following command on the CMS. 
+Do not forget to change the values that marked in green.
+
+netconfig  --bootproto=static –ip=<mng IP>  --netmask=<mng netmask> --hostname=’hostname’.mif    --device=eth2
+
+After that create a file /etc/sysconfig/network-scripts/route-eth2 and add static route to the interface.
+
+Analyze NIC Card   ethtool  ..........
+
+Restart CMS:
+service vsunitstartd restart
+
+urlruls: /usr/cti/conf/cms/inflection.cfg
+
+utilities:
+** pciscan  - scan and show all additional CMS HW:
+             Bus Slot NMS ID Name
+	     --- ---- ------ -------------------
+	       2   14 0x6000 CG_6000C
+	     --- ---- ------ -------------------
+	     There were 1 NMS PCI board(s) detected
+	     
+** burnall - save all configuration in the NMS card flash
+
+** oamsys - start the board, usage:
+#> oamsys -f /usr/cti/conf/cms/board_config.cfg
+
+** boardinf - gives information about the board
+
+Shutdown CMS :
+service vsunitstartd stop
+or MamCMD -stopall
+
+check which Kits installed:
+whatkit.sh
+
+Board commands:
+pciscan -  list of boards found on the rack ( and on which slot ).
+showclks - show CMS clock configuration ( clock mode should be slave )
+boardinf - gives information about the board
+trunkmon - show Trunk ( E1 ) status
+burnall - save firmware on board.
+
+
+NMS Board commands:
+oamcfg -  manage and config NMS Board ( OAM db ). Type oamcfg -h for more help
+oamsys -f  configurationfile             /usr/cti/conf/cms/board_config.cfg
+nmsabout  - show all nms services installed on CMS
+
+Get card status and configuration utility: /opt/nms/bin
+cg6kcon
+>help
+>eth
+>...
+
+
+NIM2 commands:
+/usr/cti/nim2/bin/pgs_api_get_board_config - get board configuration
+/usr/cti/nims/scripts/create_ram_fs.csh
+cd /usr/cti/nim2/bin
+./pgs_host_hi 0
+7 -> 6
+
+ Trunk 0: Ok
+ Trunk 1: Fail - LOS LFA
+ Trunk 2: Fail - LOS LFA
+ Trunk 3: Ok
+ Trunk 4: Fail -
+ Trunk 5: Fail -
+ Trunk 6: Fail -
+ Trunk 7: Fail -
+
+
+configuration :
+--------------
+ISDN:
+FrameType  E1
+Stackvariant EURO
+
+MAA Configuration:
+File /usr/cti/conf/maa/hosts:
+List of trm hosts - trmn  #
+Mmu ( local maa IP ) mmun_x  # n mmu ID x trm ID
+
+
+File /usr/cti/conf/maa/System_Parameters.xml
+Tag Unit-Informatin/trm-id (id configured in hosts )
+Tag Unit-Informatin/mmu_id ( id configured in hosts mmu )
+
+File /usr/cti/conf/maa/sites
+Site1 3logA TRMn: mmun 0
+
+MMU-GW:
+Platform - Insight4
+Signaling - SS7
+Service   - DTMF
+CCS - none there is no need for CCS there is CCS simulator inside MMU-GW
+Codec - SBC
+Port mmu-GW: 240
+Number of boards = 2, port per board 120
+Trunk type - E1 
+
+Video Configuration:
+SCA Configuration: /usr/cti/conf/sca_h323/sca_config.xml
+<gk_ip_addr>ip of GateKeeper
+<registration_alias_e164>phone number ( like end point number )
+<registeration_alias_h323id>string - name aliac
+<e164>prefix of service !!!
+
+/usr/cti/conf/cms/PFP.cfg :
+UrlDLLpath = /usr/cti/cms/lib/libCUrlBaseSap.so
+
+
+In CMS RDD sec 10.5.3 Video OutDial Configuration - config the prefix to add for each OUTDIAL
+
+
+MACROS
+CMS_VideoCodec - h263
+CMS_AudioCodecForVideo  -  amr
+
+Port configuration file:
+/usr/cti/conf/cms/ASR_IP_config_file.txt
+The file configure each timeslot on each trunk.
+
+Card configuration:
+/usr/cti/conf/cms/board_config.cfg
+NMS - 
+/opt/nms/cg/cfg/cg.cfg
+
+
+
+SIP port 5060
+tcpdump -xX port 5060
+
+
+Signaling Extraction configuration
+------------------------------------------
+file: /usr/cti/conf/nim2/HW_Config.xml
+IPAddres - 	IP
+DefaultGatway - IP
+file: /usr/cti/conf/cms/cms_platform.cfg
+CMS_SignalingExtractionEnabled 	-> YES
+CMS_TrunkId_1_LinkID_1_NTTS		-> 16
+
+file: /usr/cti/conf/cms/ASR_IP_Confile_file.txt
+trunk 3 - all signal=1, In/Out=0
+**Run /usr/cti/cms/scripts/cms_install_setup.sh -config
+logs: /var/cti/logs/cms/cms_install_setup.log
+
+./update_nim2_configuration.csh trunk_type=E1
+ ./update_nim2_configuration.csh boards=1
+ ./update_nim2_configuration.csh lines=64
+ ./update_nim2_configuration.csh trunks=4
+ ./update_nim2_configuration.csh line_code=HDB3
+ ./update_nim2_configuration.csh frame_type=CEPT
+ ./nim2_check_config.sh
+
+
+file: /usr/cti/conf/nim2/GPP_DSP_Config.xml
+<lineFraming>E1_DOUBLE_FRAME</lineFraming>
+**Run /usr/cti/nim2/scripts/create_ram_fs.csh
+23/12/2007 19:32
+
+file: /usr/cti/conf/cms/telephony.cfg
+SignalingExtractionEnabled = YES
+TrunkId_1_NTTS = 16
+
+file: /usr/cti/conf/cms/tapi_trunk.cfg
+TrunkID -> 0
+SIG=16 ( the time slote which the siganl pass ).
+
+at CCS
+E1 Trunk - file db.C7.mtp.201.pri
+T1 Trunk - file db.A7.mtp.201.pri
+
+Trunk 1 carries 1 signaling link
+CRTE-SLK:SLK=LNK0,LSET=LSET0,SLC=0,SPEED=64K,PORT=0,CHANNEL=2;
+
+configure CMS to work with simulator:
+1. edit /etc/hosts:  <IP Address of simulator>  IsupCeA/B
+
+
+Post Install CMS
+--------------------
+1. For NMS Cared ( Scratch install only ):
+	- burnall
+	- oamsys -f /usr/cti/conf/cms/board_config.cfg
+	
+
+cms-sip - Lika Kerp 8904
+
+
+configure Numbering plan 
+---------------------------
+at VXV !!!  /usr/cti/conf/vxv/ccxml/CCXML.properties
+	field ProductionMode = false
+at CMS !!! /usr/ct/conf/cms/inflection.cfg 
+	filed
+
+
+-------------------------------------------------------
+Limitation
+=============
+at cms 3.6.40.5  SIP the codec can be only G711 - alaw
+-------------------------------------------------------
+
+how to change codec:
+1. /usr/cti/conf/cms/vxml.cfg
+VXML_DEFAULT_RECORD_FORMAT= ( valid values  alaw, mulaw, sbc, g729edtx )
+
+2. /usr/cti/conf/cms/inflection.cfg
+VXML_FALLBACK_RECORD_FORMAT = ( valid values  alaw, mulaw, sbc, g729edtx )
+
+********************************************************
+CCS
+********************************************************
+user omni ( login as root su - omni )
+check link is up: 
+
+mml
+
+displ-slk;
+
+
+--- SIGNALLING LINKS -- 
+
+Name    Nbr  LSet       LSet SLC Port Chan Speed      ADPC     State   Status
+             Name       Nbr
+
+LNK0      1  PBX          1   3    0    2  64000  4115(0x1013)  ACTIVE   iFbolraP    <- F meaning the sig link is Fault. Should be inbolraP (normal ) 
+
+
+logs
+-----
+$ logdw
+
+
+list files - DFls
+print file - DFcat
+
+System Counters:
+************************************
+check if proces up
+ ps -ef | grep -i GatherStats.sh
+ 
+ 
+ 
+ 
+ [1]		SSS for Insight 4.0.7	DIME - DOC-0-031-133	Olga E.	1.D
+[2]		Routing Rules Conf Menus	DIME - DOC-0-032-781	Ausam S.	1.A
+
+
+
+
+
+
+**************************************************************************
+CleanUp 
+**************************************************************************
+configuration - /etc/cns/params/Gen_FileCleanup.conf
+script - /etc/cns/scripts/Gen_FileCleanup.pl 
+
+
+
+****************************************************************************************
+DR - Disaster Recovery 4.0.7.1  Omnitel
+****************************************************************************************
+Prerequisites:
+MirrorView - on EMC ( verification ?)
+Pkg Ins407-DR on DSU: verification - pkginfo -l Ins407-DR | grep -i status
+Pkg DSinsDR02 on DSU: verification - pkginfo | grep DSinsDR02
+Sun Gatway
+
+
+****************************************************************************************
+
+Special configuration
+****************************************************************************************
+
+Replication :
+
+1) Local Compas :
+
+   a) MADefaultAddressDomain   /usr/cti/conf/compas/common/parameters.xml
+   b) Local sys id  /usr/cti/conf/compas/localsettings/local.properties
+   c) Change sysid on WSA 
+         su - wsauser
+         vi /usr/cti/conf/WSA/application.xml
+				change <gsl-group-id>101</gsl-group-id>
+				/usr/cti/babysitter/MamCMD stop WSA
+				/usr/cti/babysitter/MamCMD start WSA
+				
+   d) Registry file: vi /tmp/my_reg;
+   
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\DsvSchema\3.0.0.0\Data Sources\DS]
+"LocalSystemID"="101"
+
+   stop Balancer : /usr/cti/babysitter/MamCMD shutdown
+   update registry: reg2gdbm -reg /tmp/my_reg -update 
+   start Babysitter : /usr/cti/babysitter/Babysitter
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+============================================================================================================
+Change registry on all units with system id 101
+1) source /.IFSenv.sh
+2) exportRegistry -reg /tmp/my_reg
+3) vi /tmp/my_reg , find SystemI and change with 101 value
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\DsvSchema\3.0.0.0\Data Sources\DS]
+"LocalSystemID"="101"
+
+4)  cd /usr/cti/
+5) vi my_reg (create a new file with new line only
+6) stop Balancer : /usr/cti/babysitter/MamCMD shutdown
+7) update registry: reg2gdbm -reg my_reg -update 
+8) start Babysitter : /usr/cti/babysitter/Babysitter
+
+==============================================================================================================
+BALANCER:
+
+1) BALANCER MASTER :
+
+   
+EnableMultipleSite=1    
+ProxyBalancerList=10.106.93.78     #Slave IP 
+NormalBalancerList=10.106.92.19
+BalancerType=Normal                #Master
+EnableReceivedRequestAuth=0
+EnableSentRequestAuth=0
+PrimaryDNS=10.106.92.19 
+SecondaryDNS=10.106.93.78
+    
+2) BALANCER SLAVE :
+
+EnableMultipleSite=1
+ProxyBalancerList=10.106.93.78     /Slave balancer
+NormalBalancerList=10.106.92.19    /Master balancer
+BalancerType=Proxy
+
+PrimaryDNS=10.106.92.19 
+SecondaryDNS=10.106.93.78
+
+EnableReceivedRequestAuth=0
+EnableSentRequestAuth=0
+
+3) Balancer HOST - SLAVE:
+
+DELETE gds.master and gsl.amster from slave balancer hosts 
+Restart the slave and master balancer
+
+4) TEST:
+check ping to gds and gsl masters 
+
+==================================================================================================
+
+
+MIPS:
+ADD slave e-mail domain to master e-mal domain
+
+on master site:
+global update domain_name
+global update
+
+on slave site:
+- reinstall mips
+- domain list (localy)
+- global domain list
+- domain add domain_list dsa=MIPS
+- global domain list
+- domain list
+
+
+===================================================================================================
+DSU -  
+
+
+1) HOSTS: (on both mashines):database ?
+change /etc/hosts from Provisioning-GSL to ProvisioningGSL with ip of gds.master
+example : 10.106.92.52    Provisioning-GSL ProvisioningGSL
+
+check from both mashines: sqlplus spm_app_user/J5_W18fk@ProvisioningGSL
+select * from global_name;
+must be ODS.ODS_SYS100
+
+2)Change GLOBAL.name on both DB
+
+Verify a unique database GLOBAL_NAME on both units;
+  select * from global_name;
+
+on master mast be :ODS.ODS_SYS100
+on slave : ODS.ODS_SYS101
+on slave# 2 : ODS.ODS_SYS102
+
+     to change the names :
+     sqlplus /
+     alter database rename GLOBAL_NAME to ODS.ODS_SYS101;
+     commit;
+
+
+
+
+3) Change on both mashines TNS names:
+
+ su - oracle
+ vi /oracle.local/tnsadmin/tnsnames.ora
+
+ODS-SYS100=
+  (DESCRIPTION=
+     (ADDRESS=(PROTOCOL=TCP)(HOST=ODS.prov.comverse.com)(PORT=1521))
+     (CONNECT_DATA=(SERVICE_NAME=ODS))
+  )
+
+ODS-SYS101=
+  (DESCRIPTION=
+     (ADDRESS=(PROTOCOL=TCP)(HOST=ODS.si4.comverse.com)(PORT=1521))
+     (CONNECT_DATA=(SERVICE_NAME=ODS))
+  )
+
+ODS-SYS102=
+  (DESCRIPTION=
+     (ADDRESS=(PROTOCOL=TCP)(HOST=ODS.is405.comverse.com)(PORT=1521))
+     (CONNECT_DATA=(SERVICE_NAME=ODS))
+  )
+
+
+==========================================================================================================
+ 
+ 
+GSL GUI
+https://10.106.92.21:51452/gsl/Controller
+or
+https://10.170.71.237:51452/wsa/Controller
+
+
+1)Create new System domain  
+
+
+2) Create new resources under : SPM,VXV,TAG,MIPS,Profile,HTTP,DC(data consistency),spmagent
+if balancer can not resolve the DNS ,put the system names in compas unit under /etc/hosts
+  
+  
+3)Create new Resource group
+  enter max subs number
+
+====================================================================================================
+=================================================================================================================
+ 
+Slave DB
+   
+1)On Slave DB : 
+    change GSL_Group_id to 101
+
+insert into GSL_SETS (GSL_SET_ID, GSL_SET_NAME, GSL_GROUP_ID, NUM_PLAN_RANGES, SUBSCRIBER_COUNTER, 
+IN_LOAD_SHARE, MAX_SUBSCRIBERS) values (1,'eli',101,null,1,1,500000)
+
+
+==========================================================================================
+
+Master DataBase
+
+
+1) Change GSL_Group_id from 1 to 101 in Database of new Created group
+   Create a new group with new id (for exapmle 102)
+   GSL.Groups.Default_gsl_setid to 1 in group 101 
+   
+2) Change  GSL_Set GSL_GROUP_ID 
+ 
+3) change GSL_ITEMS (if needed)
+   
+ Example : SERVICE_DOMAINS,GSL_ITEMS,SERVICES
+
+GSL_SET_ID	SERVICE_ID	SVCDOMAIN_ID
+2	   					7							40
+2							12						34  vxv
+2							11						33  spm
+2							16						43  spmagent
+2							1							36  mips
+2							14						41
+2							3							45
+2							15						44
+2							13						35 
+============================================================================================================
+
+
+=======================================================================================================
+on local DSU:
+
+1) change sysid of spmaget (DSU) :
+   su - spmagent
+   vi /usr/cti/conf/spmagent/localsettings/local.properties
+   enter new sysid
+   restart spm clusetr
+
+2) DC
+
+vi /data/data_cons/conf/Dataconsistency.properties
+SYSTEM_ID=100
+
+===================================================================================
+on DSU (master,slaves)
+
+vi /var/tmp/replication.config -> MASTER,SLAVE
+
+INSTALL the package
+
+
+
+
+===============================================================
+Mlog - exists on Master system only
+if master system exists you do not need reistall the replication package
+slave system is originator of data copingg from master to slave (uses Mlog table fr
+
+
+MAU Password 
+============
+Login
+user:     Administrator
+password: SGrp2@3#4
+user cmvtsecadmin
+PcaAdmin
+RemHost4$
+
+Octopus login:
+user:       Administrator
+password:   cns1!2@3#
+
+change Axeda Service name:
+from command line
+sc config AxedaGateway DisplayName= SPU
+
+Install info
+--------------------
+/usr/cti/conf/octopus/.installinfo.xml
+
+
+****************************************************************************
+Microsoft Network configuration
+*****************************************************************************
+save configuration
+netsh interface dump > filename
+
+restore configuration
+netsh -f filename
+
+
+********************************************************************************
+Access Engine ( AE ) Client
+********************************************************************************
+Configuration:
+1. Left Window - Ext Tab
+2. Ext Column - the place on the Phtsical Matrix
+3. right click on one of the Ext - Active Activate the line phone
+4. Extention = E1 configuration : Line = Dynamic ( Time Slote Dynamic )
+                                  SUT id = ANY
+                                  Protocol = VOS7
+                                  
+   set SS7 Parameters : DN = Destination Number
+                        CLI = Caller ID Number
+                        CLI_r = Caller ID Restriction 0 = no 1 = yes
+                        CLI_NAD = International / National Mode 3= National 4= international.
+                        
+
+
+
+
+
+
+system:
+
+check resours vs Process
+
+pfiles / lsof                                  
+
+
+DOC-0-034-573 NumPlan
+
+Guest Access ( With Preconnection )- 
+
+
+************************************************************
+Omnitel Problems !!!
+************************************************************
+
+ndm Type MamSLA
+error return from SMSC - 2 menas message too long !!!
+
+
+
+installation Logfile:
+/var/adm/ComverseInstall.log
+
+
+****************************************************************************************
+TIRs - Clear quest
+****************************************************************************************
+LDAP Kits - Product="SWP" Customer="GA" Service=kitname
+
+****************************************************
+Linux
+****************************************************
+security attributes:
+list attributs: lsattr file
+change attr : chattr -i file
+
+check XML file:   xmlwf  filename
+
+How to fix the RPM db in the Linux server
+-----------------------------------------
+rm -f /var/lib/rpm/__db* 
+
+rpm -vv --rebuilddb
+
+curl Utility 
+------------
+The package is at /usr/share/service-cd/curl-7.10.6-8.rhel3.i386.rpm.
+send files over HTTP/FTP etc
+
+
+
+named
+-----------------------------------
+configuration: /usr/cti/named-configurator/named.conf
+		/var/named/chroot/etc/named.conf
+
+Find out which Interface ( NIC ) is active on bond
+----------------------------------------------------
+less /proc/net/bonding/bond0
+
+switch slave interface at bond:
+/sbin/ifenslave --change-active bond1 \${eth}"
+
+
+************************************************************
+TCM
+************************************************************
+start tcm simulator
+http://omuip:51446/tcm/run.jsp
+
+How to configur TCM Responce values
+-----------------------------------
+define at the desire application ( VxV etc) the configuration-set-id
+at the selected configuration-set-id set the adapter-id = BM-offline-emulation
+at the adaptors/adaptor - "BM-offline-emulation" 
+at the adaptor-arguments - set the file name /usr/cti/conf/tcm/bmconf.xml
+
+file bmconf.xml:
+
+
+
+Hardware
+*********************************************
+DPM2 Bios Password: Akg1!2@3#4 
+Lengly Bios Password:	Be125
+
+*****************************************************
+TAG
+*****************************************************
+configuration: 
+Ruls to manipulate subscriber ID 
+/usr/cti/conf/vmifs/TranslPlan.conf 
+
+ENABLED_TRANSLATE_ID=Y in 	
+/usr/cti/conf/adrm/LibHiaParam.xml
+/usr/cti/conf/adrm/commonParam.xml
+
+Loggers configuration
+/usr/cti/adrm/cmd/set_debug_levels.pl – script that open/close all loggers
+
+Configuration File	Logger Name		Process
+----------------------------------------------------------
+AdrmLogger.xml 		AdrmLogger.log 		Adrm
+DmpLogConfig.xml	trm_dmp_output.log	AdrmDmp
+DnetLogConfig.xml 	DnetLogger.log 		dvtnet
+mcLogConfig.xml 	ImcLogger.log 		AdrmImc
+
+
+Conversion configuration:
+/usr/cti/conf/adrm/MSRL_CREATE_SUB.xml
+/usr/cti/conf/adrm/SRL_CREATE_SUB.xml
+/usr/cti/conf/mxa/HIA2prof.xml
+/usr/cti/conf/mxa/prof2HIA.xml
+
+
+****************************************************************
+Insight 3  ( Trilog
+****************************************************************
+login via ssh to TRM
+Provisionong :  su - om 
+		exit to system 
+		trm_cpa_inter
+
+verify which TRM is active:    /opt/LGTOaam51/comverse/bin/HAtools status
+MSU Admin : /opt/LGTOaam51/comverse/bin/HAadmin
+
+$ trm_adr_test
+Register (y/n) ? y
+register...
+Currently in long ID mode.
+
+view all hosts ( from trm):
+coonet via ssh to trm  ( root )
+ypcat hosts
+
+SRL command: from trm:
+--------------------------
+ssh to trm
+su - om
+exit to OS
+start_mass_srl
+srl <id> target_msu=<is4_sys_id> target_trm=<adrm_id>
+
+
+ADRM Request from MSU:
+telnet msu 8192
+ADRS 200 CLI <sub>
+
+
+ADRS 280 CLI 123412341
+
+
+
+MAA screens allow you to:
+• See busy & free LI connections
+• See “stuck” sessions
+• Check which MSUs this MAA sees
+To access MAA screens:
+• Log into the CMS as root
+• Type su – mmu_ng
+• Type cd /var/cti/db/maa
+• Type echo allowaccess>telnet_access
+• You have 30 seconds to start (from another host) a telnet session by typing:
+telnet <cms_ip_address> 10100
+• Continue as you would on an MMU or MSU (super DUPER)
+
+
+
+Add CMS to Insight 3:
+at TRM:
+Key		operation
+Insert 	-> 	Insert Mode
+Shift F6 ->	Enter Record Value
+Home	->	Find
+ 
+add to hosts
+from Mainmenu:
+ System configuration -> Media Definition Table
+
+
+at MSU:
+add to /hosts
+add to /sites
+
+
+How to Trace MSU log:
+------------------------
+su - <msuid_trmid>    Example msu7_86
+cd noa/local/log
+tail -f  msuid_trmid.current.logger
+
+
+Trm/Informix DB Check
+---------------------------
+echo "select '@@' ,ftt_field_val_desc  from ftt_field_trans where ftt_field_name='IMAGE_TYPE'" | dbaccess trm_db
+
+
+************************************************
+ Function for the ADR table                    *
+************************************************
+i: Init
+n: Create New table (but do NOT load)
+c: Create and load table 
+h: Table header display
+a: Add
+u: Dump a cell
+U: Dump a cell in unl format
+f: Find a record
+l: List all table
+d: Delete one record
+e: Erase all table
+
+B: Functions for ACID table
+ME: Mass load from file by Externals (full ADR entry data needed)
+MI: Mass load from file by Internals
+MS: Mass Save to File
+MR: Mass load (Restore) from file (binary content)
+MB: Mass save (Backup) to file (binary content)
+AS: TRM$ADR Subscriber Request
+AD: TRM$ADR Dbox MMU List Request
+AR: TRM$ADR new ADR_REQUEST
+x. Exit
+==> AR
+Enter number of IDs (up to 5)  to query (0 to quit) : 1 
+Enter ID 1 : 528545674
+Number of times to send message [1] : 1
+sending...
+receiving...
+Received ADR_ANSWER from app_id 135 in TRM 207 for 1 IDs
+ mode 5 msu_http_transfer_support 0 telephony accesss  1 video access 0 
+
+========== ID 1 ============
+External ID   :|528545674|   ID source :2
+Internal ID   :|43809422|   ID Type :22
+Service Level:1  Access Rights:1  Language ID:1  Password:|NOPASS|
+Group: 1 IMG number: 1 Group Status 1 
+Defined on 1 units
+On unit 1
+!TRM-S-NORMAL , normal completion %s
+press Enter to continue
+
+
+**********************************************************************
+how to execute swpconfig ( host_config) again
+**********************************************************************
+
+Remove 
+/var/lock/subsys/firstconf
+
+Change to YES
+/etc/sysconfig/firstconf
+
+run -  swpconfig start (incase the swpconfig command is no found...run /etc/rc.d/init.d/swpconfig start
+
+
+*****************************************************************
+O V O   SMU (OPC)
+*****************************************************************
+connect with x-server - ( connection using openssh ).
+user: opc_adm
+password: 25pah@nADM
+
+
+************************************************************************
+X-Lite
+************************************************************************
+SIP Account Settings ...
+tab account:
+	fill domain
+	proxy address - cms IP
+	uncheck "Register with domain"
+	
+to add DN ( destination user ):
+Add contact ...
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ ******************************************************************************
+ troubleshooting
+ ******************************************************************************
+ 
+ Create New subscriber But don't get any users at MIPS
+ ------------------------------------------------------
+ 1. Check Dormantenabled parametr at compas ( ../shared/parameters.xml )
+ 2. if ALL 3 parameters are falls then no mailbox will be open:
+ 	1. FaxMessageEnable
+ 	2. ECCMessageEnable
+ 	3. VoiceMessageEnable
+ 	
+ 	
+ 	
+*******************************************************************************
+WIS
+*******************************************************************************
+Configuration:
+/usr/cti/conf/webinbox/WIS/wis/webvi.xml
+
+WIS log settings are configured in:
+• /usr/cti/conf/webinbox/WIS/wis/log4j.xml
+The Log file for WIS is:
+• /var/cti/logs/webinbox/WIS/webinbox.log
+WIS activity Log file:
+• var/cti/logs/webinbox/WIS/WIS-activity-wis<WIS_ID>.xml
+
+
+***********************************************************************************
+CAS VI
+***********************************************************************************
+SuperUserPwd=010215000315050B134C47300FAFE27F2BE15494F7A8059994D15CDAC419EAB5
+
+
+Disable Authentication Login: edit /usr/cti/conf/aumsi/aumsi.conf :
+IsRegularLoginAllowed= 1 - for plan text
+		       0  -  for MD5 encrypted authentication Only !
+		       
+		       
+List of Handset type ( Device Type ) Enum
+--------------------------------------------
+file : /usr/cti/conf/aumsi/aumsi.conf
+key : [HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Session\VvmDeviceMapping]		       
+		       
+===================================================================================
+MTA Plugin  ( at CAS )
+===================================================================================		       
+1. Methods: /etc/nplex/imfa/filters/MTA_Plugin/Types/<no>/.data
+Type - scenario (Direct Deposit, Mass Deposit, VVM )
+Rules = ( how the scenario was selected ... ).
+
+2. Types/<no>/Actions/<no>  - list of actions
+
+
+increase the log size of aumsi ( aumsi.conf)
+---------------------------------------
+Under the […\Debug] section add the following parameter:
+
+MaxNumOfLines
+
+The default value in case it does not exist (like now) is 1000. you can increase it.
+
+Another parameter you can add and increase
+
+MaxFileIndex
+
+It controls the number of files to be created. If it does not exist (like now), the current default is 20.
+
+
+
+Genesis
+-----------------------------------------------------------------------------------
+MTS Configuration (define the MTS Farm name):
+/usr/cti/conf/genesis/JGlue/xcoder/xcoders.xml:         <property name="mtsServerAddress" value="mts.site1"/>
+
+
+APIs
+-----------------
+http://casIP:9005/ProfileManager/ProfileManager
+
+
+Activity Logs:  at VI Services CAS VI CAS
+---------------------------------------------------------------------
+Al folder: /usr/cti/genesis/JGlue/al/
+there should be link to /var/cti/logs/al/...
+
+Aumsi Enable desable Activitylog parameter: 
+file - /usr/cti/conf/aumsi/aumsi.conf
+for each service / application id - [HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Session\Vvm]
+or [HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Session\DirectRetrieval]
+parameter - GenerateALAndStatistics
+
+
+plugin Enable desable Activity log:
+for each Type at .data file
+parametr name - GenerateALAndStatistics
+
+
+to enable desable specific AL Counter:
+at files /usr/cti/conf/genesis/JGlue/jglue/osa-services/osa/action/Activity.xml
+/usr/cti/conf/genesis/JGlue/jglue/osa-services/osa/action/Statistic.xml
+		       
+***********************************************************************************
+Proxy - IC 
+***********************************************************************************
+MTE configuration:
+open Counters at Proxy - file /usr/cti/conf/plugins/plugins.conf
+	MTEcounters -> true
+	
+activity Logs folder /var/cti/logs/vi_oss/
+to configure disable/enable activity at any Type - see at CAS
+
+
+Aumsi Listner configuration:
+------------------------------------------------
+file aumsi.conf
+
+SupportedProtocols=ProxyIMAPListener;ProxyIMAPTLS;ProxyIMAPSSL;ProxyWEBListener;ProxyWEBSSLListener;ProxyWEB_ADMIN_Listener
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\SessionTableManager]
+LogicalSessionMaxIdleTime (Minutes)=7
+KeyType (SourceIP, SeesionID, Cookie)=SourceIP
+CookieName=WebInbox
+SessionIDName=wissessionid
+
+
+secured/plain mode shall be supported according to configuration. default = secured
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Listener\ProxyWEBListener]
+PortNumber=8000
+ServerPortNumber=8000
+MaxNumOfConnections=1000
+MaxNumOfHalfOpenConnections=100
+IsSilentLogin=1
+SessionType (1-POP3, 2-IMAP4)=4
+ClientCommandTimeout (seconds)=180
+ClientTimeoutToFirstCommand (seconds)=180
+IsRegularLoginAllowed=0
+ServerFarmName=CAS.HTTP.SITE1
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Listener\ProxyWEB_ADMIN_Listener]
+PortNumber=8007
+ServerPortNumber=8000
+MaxNumOfConnections=1000
+MaxNumOfHalfOpenConnections=100
+IsSilentLogin=1
+SessionType (1-POP3, 2-IMAP4)=5
+ClientCommandTimeout (seconds)=180
+ClientTimeoutToFirstCommand (seconds)=180
+IsRegularLoginAllowed=0
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Listener\ProxyWEBSSLListener]
+PortNumber=8443
+ServerPortNumber=8443
+MaxNumOfConnections=1000
+MaxNumOfHalfOpenConnections=100
+IsSilentLogin=1
+SessionType (1-POP3, 2-IMAP4)=4
+ClientCommandTimeout (seconds)=180
+ClientTimeoutToFirstCommand (seconds)=180
+IsRegularLoginAllowed=0
+ServerFarmName=CAS.HTTP.SITE1
+
+
+SessionType Enum:
+4 = Http ( or https )
+5 = Admin Tool
+3 = IMap3
+
+	
+***********************************************************************************
+Insight 4.2  - Reference	
+***********************************************************************************
+ssh login:
+	user:		admin
+	password:	aDm4cu2t
+	
+to enable root ssh login : su - 
+start.rootsshlogin
+
+how to verify which Insight version installed !!
+run the following on DSU !
+[root@dsu1a /]# histme
+Installed InSight releases on this machine
+==========================================
+InSight Release............4.4.0.0-05.4 18_12_2011_15:03:59
+
+
+
+Or 
+[root@dsu1a /]# version
+InSight Release............4.4.0.0-05.4
+
+
+
+
+
+***************************************************************************************
+CSP ( RH- 5.1 )
+***************************************************************************************
+install log files - /var/log/csp
+
+CSP Base Logs
+---------------------------
+Administration Utilities Log File Description
+The administration utilities log files are named 
+Administration-Utilities.latest.log and Administration-Utilities.<ddmmyyyy>.log, 
+where <ddmmyyyy> is the datestamp. 
+The log files are located in the /var/cti/logs/CSPbase/Administration-Utilities/ directory.
+
+
+MTS
+*********************************************
+open debug levels logs at MTS
+/usr/cti/conf/mts/config.xml
+<LogLevel>3</LogLevel> ### 3 - Max  1- Min
+
+
+File copier (Backup)
+*******************************************************
+at new CSP (CSP Base)
+running script: /usr/cti/apps/CSPbase/csp_filecopier_local.pl
+/etc/csp/config/Administration-Utilities/<Copier List name>.list
+
+/var/csp/File-Copier/<name>.list
+
+
+
+File Cleanup
+*************************************************
+CSpBase: How to use the the utility ( see DOC DOC-0-119-019... CSPBase4.0.1.0 service )
+filecleanup.xml
+/usr/cti/conf/CSPbase/Administration-Utilities/filecleanup.xml
+
+**********************************************************************
+*  Merge tool by VI Team
+***********************************************************************
+usage:  runConfigurationMerger.sh  <csv file name> [<log file name>]
+
+csv - content format:
+Column 1 "file type": value - xml,ini,properties
+
+column 2 "file path": 
+
+column 3 "key":
+
+column 4 "value":
+
+Column 5 "Overwrite":
+
+Column 6 "Answer File":
+
+Column 7 "Token to replace":
+
+Column 8 "Backup":
+
+Column 9 "Add property":
+
+**********************************************************************
+*   Babysitter
+**********************************************************************
+CookBook - DOC-0-022-609
+
+
+
+SSH Slow Login !
+-------------------------
+change at /etc/ssh/sshd_config ; GSSAPIAuthentication no
+RDD - DOC-0-040-119
+
+************************************************************************
+* Blade Installation ( HP or IBM )
+************************************************************************
+Firmware:    \\rd-filer1\hw\Components\Intel-based_Servers\IBM_Blade_Center\HT\Drivers\AMM\ibm_fw_amm_bpet46c_anyos_noarch.zip
+Config file: \\rd-filer1\hw\Components\Intel-based_Servers\IBM_Blade_Center\HT\AMM_configuration
+Documantation:
+RDD - 
+
+
+
+*********************************************************************
+How to get Hardware Type !!!
+**********************************************************************
+if you have csp install !!! - version
+or /usr/cti/apps/CSPbase/csp_scanner.pl --machine_type [--ignore]
+
+to get the Hardware CODE ( this is not the same format as csp_scanner )
+for intel (Blade/Mulines/LANGLEY/VMWare)    /usr/sbin/dmidecode | grep "Product Name"
+for DPMs: /usr/cti/lib/CSPbase/RTE/scanner/radisys_id - you will get Code Number. greater than 100
+
+
+
+
+************************************************************************
+Voice2Text Simultors
+************************************************************************
+Remember that you must have JVM of Java 1.6 installed in the machine the you run the simulator.
+
+For MMSC Simulator use:
+You can copy simulator directory MMSCSimulator_1.1.0.0 from: \\gis\SW_Kit_MMSGW\Simulators\MMSC_Simulator\ 
+You should simply copy and use it. 
+
+For Speech 2 Text simulator:
+You can copy simulator directory Speech2TextSimulator_2.0.0.1 from: 
+\\gis\SW_Kit_MMSGW\Simulators\SpeechEngine_Simulator\2.0.0.1
+You should simply copy and use it. 
+
+
+*****************************************************************
+CookBooks Cook Book List
+*****************************************************************
+DOC-0-015-765 - Babysitter 3.2.0.0 Cookbook for developers
+DOC-0-022-609 - Babysitter-IC 3.3.0.0 Cookbook for developers
+DOC-0-088-856 - babysitter-ic 4.1.0.0_cookbook
+DOC-0-022-999 - Octopus Kit Creation Cookbook
+DOC-0-059-569 - CSP Base Service Manual
+DOC-0-094-533 - CSP Base Service Manual
+DOC-0-119-019 - CSP Base Service Manual
+CAF cookbook: DOC-0-116-300 , DOC-0-123-847 (1.5.0.0)
+SAF+UAF cookbook: DOC-0-116-302 , DOC-0-123-849 (1.5.0.0)
+
+DOC-0-049-081 - Profile Definition - Cookbook 
+
+
+Load Reports
+-----------------------
+LR 		- Load Runner (Pass/Fail).
+Notification	- SMS Simulators Counters (Pass = 99.99% of LR Heats)
+Availability	- Process status (Pass 100% on )
+
+
+
+
+VMWare Login
+--------------------------------------------------------------------------
+**************************************************************************
+10.106.131.10
+ebengam
+insight4
+
+SiteBook
+---------------------------------------------
+Url
+https://<smu IP>:55500/sitebook/index.jsp
+
+
+NCP
+***********************************************
+Files \\10.106.207.253\public\root
+
+
+VW - VoiceWriter VM2MMS Insight3 Provisioning:
+*****************************************************
+c 972345345349 f198=Y f199=copy f603=972345345349 f611=IMAGE f610=101 f5=11
+
+AAS
+*************************************************
+url login:
+https://AAS:50451/aas
+https://omuip:50451/aas
+
+WCC
+*********************************************************
+https://10.106.152.57:8443/webvi/loginPageAction.do?appName=wcc&platform=Insight4
+https://proxyip:8443/webvi/loginPageAction.do?appName=wcc&platform=Insight4
+
+VMAPI
+*****************************************************************************************
+Simulator URL:
+https://<cas/proxyip>:8443/webvi/tester.do
+to enable Simulator:
+File /usr/cti/conf/webinbox/WIS/wis/struts-config.xml
+<!--uncomment this to enabled REST/wadl tester-->
+                <action forward="/WEB-INF/html/VmOpenApiTester.html" path="/tester">
+                                  <set-property property="secure" value="true"/>
+                </action>
+
+SWIM
+**************************************************************************
+password: J6_W18fk
+URL: https://<IP>:55100/swim
+Kit Location:
+\\Rd-filer1\cminsight4\Versions\SWIM\1.5.0.0\Private
+\\Rd-filer1\cminsight4\Versions\SWIM\1.4.1.1
+
+
+First Look / FirstLook Tool
+*********************************************************
+func => 1,
+common => 1,
+errorlevel => 1,
+symptom => 1,
+
+usingssh => #CODE, usingssh  user (to login) - imediat prompt will appear ask for password - Run only if $run_common is SMU - means optional The password is saved at hash password{default:user}
+
+info => #CODE, info string - print string to output ....
+
+define => #CODE, ...     define var val -- Note Last overite the value !!!
+
+setenv => 1, setenv Envarionment=Val - set environment variables before running command ( remote Command )
+
+tell => #CODE, tell string  - print string to the screen ( not to output )
+
+reset => #CODE, reset argname - clear the argument values if argument is "outfix" clears the file too ( arguments of one of the code ...)
+
+outfix => #CODE, outfix filename (part of the name) - change the output file the value "TEMP" can be used for temporary file that may be cleared
+
+host => 1, host list of hosts - define on which hots cmds ,files or scripts will run
+
+files => #CODE, files directory 
+	       filename
+	       .... end - may be multi lines
+
+cmds => #CODE, cmds 
+		shell commands - > if environment should be set set it with setenv
+	       end
+
+script => #CODE, script shell commands ( as script )
+		more script commands
+		end            to set environment befor script - use setenv
+
+prompt => #CODE, ...     prompt var  String  (this will prompt for user value)
+
+fails => #CODE, update last "extract" name with fails values !
+extract => 1, extract string - defines parameter name to save fails or parse file
+xlabel => 1, xlabel regexp - define regexpresion of label to find in file
+xvalue => #CODE >>> parse outfix file for label use last "xlabel" and "extract"
+
+
+
+
+Build Server
+============================================================================
+IP - 10.106.50.165  (Rel5)
+Login - root/comverse
+
+IP - 10.119.48.92  (Rel6)
+Login - root/comverse
+
+
+
+
+
+Java Exceptions:
+-----------------------------------------
+java.lang.UnsupportedClassVersionError: com/flash/deployer/DeploymentSorter : Unsupported major.minor version 51.0
+This means the Java (JVM) not match the class version (the compiled java version and running java version not match)
+
+
+
+Yum - DVD /CD Example of  rhel_dvd.repo
+----------------------------
+[rhel-dvd]
+name=Red Hat Enterprise Linux $releasever - $basearch - DVD
+baseurl=file:///mnt/Server/
+enabled=1
+gpgcheck=1
+gpgkey=file:///mnt/RPM-GPG-KEY-redhat-release
+
+
+
+
+ClearCase  CC Clear Case
+-----------------------------------
+ClearCase machine:
+Ilccase01
+user Root
+password ClearCase@2
+
+adding a user to clearcase linux env:
+adduser nameofuser
+smbpasswd –a nameofuser
+vi /etc/passwd change group number to 666 (ccuser group)
+vi /etc/samba/username.map Unixusername = NTusername 
+
+
+Git Issues:
+----------------------------
+Repository url format:
+git@github.com:<FullPathRepository>.git
+for  dkreda/game-of-life
+git@github.com:dkreda/game-of-life.git
+
+
+Jenkins Issues
+-------------------
+Home directory: ~/.jenkins/
+Start Jenkins stand alone:
+java -jar /usr/lib/jenkins/jenkins.war
+
+Environmant Variables:
+-----------------------------
+JENKINS_HOME - set jenkis home directory.
+
+for tomcat environment:
+Tomcat, you could create a file called jenkins.xml in the $CATALINA_BASE/
+conf/localhost directory:
+<Context docBase="../jenkins.war">
+<Environment name="JENKINS_HOME" type="java.lang.String"
+value="/data/jenkins" override="true"/>
+</Context>
+
+setting up the repository for jenkins:
+#> wget -O /etc/yum.repos.d/jenkins.repo http://jenkins-ci.org/redhat/jenkins.repo
+#> rpm --import                          http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+
+sut down gracefully when Jenkins run stand alone (Winstone servlet)
+wget http://localhost:8080/exit
+
+configuration:
+/etc/sysconfig/jenkins

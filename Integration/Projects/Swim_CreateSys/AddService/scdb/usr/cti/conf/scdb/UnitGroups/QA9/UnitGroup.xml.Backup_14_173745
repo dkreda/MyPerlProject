@@ -1,0 +1,284 @@
+<UnitGroup>
+   <Identification>
+      <ComponentName>scdb</ComponentName>
+      <FileFormatVersion>1.0</FileFormatVersion>
+      <ComponentRelease>6.1.1.0</ComponentRelease>
+      <ComponentBuild>02</ComponentBuild>
+   </Identification>
+   <Physical GroupName='CMS_HMP_Group'>
+      <UnitInstance DataIp='10.106.174.22' Hostname='cms-sip1.QA9.is433.com' MngIp='10.106.174.22' Mngname='cms-sip1.QA9.is433.com' UnitName='cms-sip1'>
+         <Connection Hostname='cms-sip1.QA9.is433.com' IP='10.106.174.22' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='VM_ASU_Group'>
+      <UnitInstance DataIp='10.106.174.38' Hostname='vm-asu1.QA9.is433.com' MngIp='10.106.174.38' Mngname='vm-asu1.QA9.is433.com' UnitName='vm-asu1'>
+         <Connection Hostname='vm-asu1.QA9.is433.com' IP='10.106.174.38' Type='Data'/>
+      </UnitInstance>
+      <UnitInstance DataIp='10.106.174.39' Hostname='vm-asu2.QA9.is433.com' MngIp='10.106.174.39' Mngname='vm-asu2.QA9.is433.com' UnitName='vm-asu2'>
+         <Connection Hostname='vm-asu2.QA9.is433.com' IP='10.106.174.39' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='DSU_Group'>
+      <UnitInstance DataIp='10.106.174.40' Hostname='dsu1.QA9.is433.com' MngIp='10.106.174.40' Mngname='dsu1.QA9.is433.com' UnitName='dsu1'>
+         <Connection Hostname='dsu1.QA9.is433.com' IP='10.106.174.40' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='SMU_Group'>
+      <UnitInstance DataIp='10.106.174.37' Hostname='smu1a.QA9.is433.com' MngIp='10.106.174.37' Mngname='smu1a.QA9.is433.com' UnitName='smu1a'>
+         <Connection Hostname='smu1a.QA9.is433.com' IP='10.106.174.37' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='MAU_Group'>
+      <UnitInstance DataIp='10.106.67.164' Hostname='mau1.QA9.is433.com' MngIp='10.106.67.164' Mngname='mau1.QA9.is433.com' UnitName='mau1'>
+         <Connection Hostname='mau1.QA9.is433.com' IP='10.106.67.164' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='OMU_Group'>
+      <UnitInstance DataIp='10.106.174.23' Hostname='omu-au1.QA9.is433.com' MngIp='10.106.174.23' Mngname='omu-au1.QA9.is433.com' UnitName='omu-au1'>
+         <Connection Hostname='omu-au1.QA9.is433.com' IP='10.106.174.23' Type='Data'/>
+      </UnitInstance>
+      <UnitInstance DataIp='10.106.174.29' Hostname='omu-au2.QA9.is433.com' MngIp='10.106.174.29' Mngname='omu-au2.QA9.is433.com' UnitName='omu-au2'>
+         <Connection Hostname='omu-au2.QA9.is433.com' IP='10.106.174.29' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='IBM-BC_Group'>
+      <UnitInstance DataIp='10.106.69.10' Hostname='ibm-bc1.QA9.is433.com' MngIp='10.106.69.10' Mngname='ibm-bc1.QA9.is433.com' UnitName='ibm-bc1'>
+         <Connection Hostname='ibm-bc1.QA9.is433.com' IP='10.106.69.10' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Logical>
+      <Application ApplicationLabel='Process Control' ApplicationName='MAM.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Auditd' ApplicationName='Auditd.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+         <UnitInstance AppIP='10.106.174.40' Appname='dsu1' DataIp='10.106.174.40' Hostname='dsu1' MngIp='10.106.174.40' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.174.37' Appname='smu1a' DataIp='10.106.174.37' Hostname='smu1a' MngIp='10.106.174.37' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='CMS-HMP_Platform.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+      </Application>
+      <Application ApplicationLabel='Media Server' ApplicationName='CMS.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+      </Application>
+      <Application ApplicationLabel='SCA' ApplicationName='SCA.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='CMSTG1.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+      </Application>
+      <Application ApplicationLabel='Media Access Adaptor' ApplicationName='MAA.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+      </Application>
+      <Application ApplicationLabel='NMS line card' ApplicationName='NMS.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+      </Application>
+      <Application ApplicationLabel='Pegasus line card' ApplicationName='Pegasus.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+      </Application>
+      <Application ApplicationLabel='CCM Agent' ApplicationName='ccm-agent.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.22' Appname='cms-sip1' DataIp='10.106.174.22' Hostname='cms-sip1' MngIp='10.106.174.22' Mngname='cms-sip1' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip1'/>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+         <UnitInstance AppIP='10.106.174.40' Appname='dsu1' DataIp='10.106.174.40' Hostname='dsu1' MngIp='10.106.174.40' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.174.37' Appname='smu1a' DataIp='10.106.174.37' Hostname='smu1a' MngIp='10.106.174.37' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Rules and Restrictions' ApplicationName='RMR.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Message Relay' ApplicationName='MR.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='MTA' ApplicationName='MTA.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='MTS' ApplicationName='MTS.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='VM-ASU_Platform.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='IVE-APP VoiceXML VoiceMail' ApplicationName='VxV.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Notification Server' ApplicationName='NDS.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='SMS Gateway' ApplicationName='SMG.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='HLR Service' ApplicationName='HLRS.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Notification Scheduling' ApplicationName='SRH.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.38' Appname='vm-asu1' DataIp='10.106.174.38' Hostname='vm-asu1' MngIp='10.106.174.38' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.174.39' Appname='vm-asu2' DataIp='10.106.174.39' Hostname='vm-asu2' MngIp='10.106.174.39' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='DSU_Platform.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.40' Appname='dsu1' DataIp='10.106.174.40' Hostname='dsu1' MngIp='10.106.174.40' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+      </Application>
+      <Application ApplicationLabel='DDS' ApplicationName='DDS.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.40' Appname='dsu1' DataIp='10.106.174.40' Hostname='dsu1' MngIp='10.106.174.40' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='SMU_Platform.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.37' Appname='smu1a' DataIp='10.106.174.37' Hostname='smu1a' MngIp='10.106.174.37' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='PM' ApplicationName='PM.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.37' Appname='smu1a' DataIp='10.106.174.37' Hostname='smu1a' MngIp='10.106.174.37' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='NTPSERVER1.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.37' Appname='smu1a' DataIp='10.106.174.37' Hostname='smu1a' MngIp='10.106.174.37' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='MAU_Platform.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.67.164' Appname='mau1' DataIp='10.106.67.164' Hostname='mau1' MngIp='10.106.67.164' Mngname='mau1' ParentGroup='mau' Precedence='Primary' UnitName='mau1'/>
+      </Application>
+      <Application ApplicationLabel='Provisioning Mediator' ApplicationName='SPM.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Web Service Administration' ApplicationName='WSA.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Linux Virtual Server' ApplicationName='LVS.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='OMU_Platform.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='File Transfer Mediator' ApplicationName='FTM.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Transaction Charging Mediator' ApplicationName='TCM.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='TCM Adapter' ApplicationName='TCMAdapter.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='TCMMANAGER.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='TCMSERVER.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='AAS' ApplicationName='AAS.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.174.29' Appname='omu-au2' DataIp='10.106.174.29' Hostname='omu-au2' MngIp='10.106.174.29' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='PMT' ApplicationName='PMT.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Load Balancer' ApplicationName='Balancer-IC.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='CCM' ApplicationName='CCM.QA9.is433.com'>
+         <UnitInstance AppIP='10.106.174.23' Appname='omu-au1' DataIp='10.106.174.23' Hostname='omu-au1' MngIp='10.106.174.23' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+   </Logical>
+   <Virtual>
+      <Vapplication ApplicationLabel='MIPS1' ApplicationName='MIPS1.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.43'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Oracle' ApplicationName='ODS.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.44'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='AASDB.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.44'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Profile1' ApplicationName='PROFILE1.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.44'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='GSL.MASTER' ApplicationName='GSL.MASTER'>
+         <VUnitInstance VirtualIp='10.106.174.44'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='GSL.SECONDARY' ApplicationName='GSL.SECONDARY'>
+         <VUnitInstance VirtualIp='10.106.174.44'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='DSUSFTP' ApplicationName='DSUSFTP.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.42'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='BACKUPSERVER' ApplicationName='BACKUPSERVER.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.67.158'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='DSUHTTP1' ApplicationName='DSUHTTP1.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.41'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='ProfileCounter' ApplicationName='ProfileCounter.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.41'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SRD' ApplicationName='SRD.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.47'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SPMAgent' ApplicationName='SPMAgent.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.46'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Data Consistency' ApplicationName='data_const.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.44'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='UBR' ApplicationName='UBR.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.47'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='ProfileLocator' ApplicationName='ProfileLocator.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.63'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='OSS-Portal' ApplicationName='OSS-Portal.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SNMP Status UI' ApplicationName='SUI.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='System Configuration' ApplicationName='SCDB.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Comverse SNMP Agent' ApplicationName='CMA.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='ICC' ApplicationName='Core_SPI.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='SNMPMANAGER.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='MARIMBASDM.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SiteBook' ApplicationName='SiteBook.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='MARIMBATX' ApplicationName='MARIMBATX.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='SYSLOGSERVER.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='admin_vip_smu' ApplicationName='admin_vip_smu.QA9.is433.com'>
+         <VUnitInstance VirtualIp='10.106.174.37'/>
+      </Vapplication>
+   </Virtual>
+</UnitGroup>

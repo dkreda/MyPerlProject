@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Provisioning>
+  <ProfileDefinition Name="WHC" Version="4.0.0.0">
+    <Entities>
+      <Entity>
+        <Name>Subscriber</Name>
+        <DsvEntityName>SUB</DsvEntityName>
+        <Fields>
+          <Field>
+            <Name>WhoCalledMsgAggregationEnabled</Name>
+            <DsvName>CnsMsgAggregationEnabled</DsvName>
+            <DbName>SUBSCRIBERS.MSG_AGGREGATION_ENABLED</DbName>
+            <DisplayName>Who Called Msg Aggregation Enabled</DisplayName>
+            <Description>Determines whether the notification messages all caller are aggregated or not.</Description>
+            <XsdValidation>
+              <Type>xs:nonNegativeInteger</Type>
+              <MinOcc>0</MinOcc>
+              <MaxOcc>1</MaxOcc>
+              <Nillable>true</Nillable>
+              <MinVal>0</MinVal>
+              <MaxVal>3</MaxVal>
+            </XsdValidation>
+            <SubscriberBehavioralInfo>
+              <ServiceName>WHC</ServiceName>
+              <ResolvedLevels>
+                <DomainDefaults/>
+                <ServiceLevel/>
+                <SystemDefaults>
+                  <XsdValidation>
+                    <Nillable>false</Nillable>
+                  </XsdValidation>
+                  <DefaultValue>0</DefaultValue>
+                </SystemDefaults>
+              </ResolvedLevels>
+            </SubscriberBehavioralInfo>
+            <DbData>
+              <DbType>Number</DbType>
+              <DbLength>1</DbLength>
+            </DbData>
+          </Field>
+          <Field>
+            <Name>NfmSilentEnabled</Name>
+            <DsvName>CnsNfmSilentEnabled</DsvName>
+            <DbName>SUBSCRIBERS.NFM_SILENT_ENABLED</DbName>
+            <DisplayName>NFM Silent Hours Enabled</DisplayName>
+            <Description>Determines if NFM silent hours is enabled.</Description>
+            <XsdValidation>
+              <Type>xs:boolean</Type>
+              <MinOcc>0</MinOcc>
+              <MaxOcc>1</MaxOcc>
+              <Nillable>true</Nillable>
+            </XsdValidation>
+            <SubscriberBehavioralInfo>
+              <ServiceName>WHC</ServiceName>
+              <ResolvedLevels>
+                <DomainDefaults/>
+                <ServiceLevel/>
+                <SystemDefaults>
+                  <XsdValidation>
+                    <Nillable>false</Nillable>
+                  </XsdValidation>
+                  <DefaultValue>0</DefaultValue>
+                </SystemDefaults>
+              </ResolvedLevels>
+            </SubscriberBehavioralInfo>
+            <DbData>
+              <DbType>Number</DbType>
+              <DbLength>1</DbLength>
+            </DbData>
+          </Field>
+          <Field>
+            <Name>NotifyMeBusyEnabled</Name>
+            <DsvName>CnsNFMBusyEnabled</DsvName>
+            <DbName>SUBSCRIBERS.NFM_BUSY_ENABLED</DbName>
+            <DisplayName>NFM Busy Enabled</DisplayName>
+            <Description>Determines if NFM busy is enabled.</Description>
+            <XsdValidation>
+              <Type>xs:boolean</Type>
+              <MinOcc>0</MinOcc>
+              <MaxOcc>1</MaxOcc>
+              <Nillable>true</Nillable>
+            </XsdValidation>
+            <SubscriberBehavioralInfo>
+              <ServiceName>WHC</ServiceName>
+              <ResolvedLevels>
+                <DomainDefaults/>
+                <ServiceLevel/>
+                <SystemDefaults>
+                  <XsdValidation>
+                    <Nillable>false</Nillable>
+                  </XsdValidation>
+                  <DefaultValue>0</DefaultValue>
+                </SystemDefaults>
+              </ResolvedLevels>
+            </SubscriberBehavioralInfo>
+            <DbData>
+              <DbType>Number</DbType>
+              <DbLength>1</DbLength>
+            </DbData>
+          </Field>
+        </Fields>
+      </Entity>
+    </Entities>
+  </ProfileDefinition>
+</Provisioning>

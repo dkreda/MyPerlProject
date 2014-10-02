@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM>
+	<UnitType Name="OMU_Group" Platform="Linux">
+		<Install>
+			<Component Name="AddService_OMU" ExecutionOrder="150">
+				<!--This Component has Product Name FTM Update with ExecutionPhass 150-->
+				<!--This Component has Product Name Balancer Update with ExecutionPhass 150-->
+			</Component>
+			<Component Name="AddService_IS3BalancersListIP">
+				<OnlyOn>
+					<UnitName>IS3BalancersListIP</UnitName>
+				</OnlyOn>
+			</Component>
+			<Component Name="CCM_01" ExecutionOrder="190">
+				<!--This Component has Product Name CCM Server  Configuration with ExecutionPhass 190-->
+			</Component>
+			<Component Name="ProfileDefinition_Compas" ExecutionOrder="100"/>
+		</Install>
+	</UnitType>
+</SWIM>

@@ -1,0 +1,16 @@
+puts "\nJust for test\n\n"
+set timeout 10
+spawn ssh "admin@$argv"
+expect "assword:"
+send "aDm4cu2t\r"
+expect "\\$"
+puts "\n\nexpect: $expect_out(0,string)\nreseived  $expect_out(buffer)\n\n"
+send "su -\r"
+expect "assword:"
+send "Adm1Cmv4$\r"
+puts "\n\nLogin as root\n"
+puts "expect:  $expect_out(0,string)\nreseived: $expect_out(buffer)\n\n"
+expect "#"
+send "echo This is remote echo\r"
+send "ls -l | tail -5\r"
+expect eof

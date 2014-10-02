@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+	<Component Platform="Linux" Name="AddUnits_ToSCDB" Version="1.0.0.0" Type="Procedure">
+		<Install>
+			<Copy ExecutionOrder="10">
+				<Source>./config/ScdbTemplates/*.xml</Source>
+				<Target>/tmp/ScdbTemplate</Target>
+			</Copy>
+			<Copy ExecutionOrder="10" ChmodFlags="+x">
+				<Source>./scripts/Scdb_AddUnits.pl</Source>
+				<Target>/tmp/Scdb_AddUnits.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="10">
+				<Source>./config/ServiceMap.csv</Source>
+				<Target>/tmp/ServiceMap.csv</Target>
+			</Copy>
+			<Copy ExecutionOrder="10">
+				<Source>{SystemDirectory}/../{SWIM System Name}/UnitGroup.xml</Source>
+				<Target>/tmp/UnitGroup.xml</Target>
+			</Copy>
+			<Copy ExecutionOrder="10">
+				<Source>./config/ServiceConf.txt</Source>
+				<Target>/tmp/ServiceConf.txt</Target>
+			</Copy>
+			<Copy ExecutionOrder="10" ChmodFlags="+x">
+				<Source>./scripts/OctParamsManipulation.pl</Source>
+				<Target>/tmp/OctParamsManipulation.pl</Target>
+			</Copy>
+			<Execute ExecutionOrder="20">
+				<Command>/tmp/Scdb_AddUnits.pl -Map /tmp/ServiceMap.csv -Type {Install Type} -PVVM {PVVM Type} -Service "file:/tmp/ScdbServiceConf.txt" -UnitGroup /tmp/UnitGroup.xml -SysName {System Name} </Command>
+			</Execute>
+			<SetParams ExecutionOrder="15">
+				<ExecutionGroup>SCDBParams</ExecutionGroup>
+			</SetParams>
+			<Execute ExecutionOrder="20">
+				<Command>/tmp/OctParamsManipulation.pl -Unit All -Conf /tmp/ServiceConf.txt</Command>
+			</Execute>
+			<Execute ExecutionOrder="5">
+				<Command>mkdir -p /tmp/ScdbTemplate</Command>
+			</Execute>
+			<Execute ExecutionOrder="17">
+				<Command>dos2unix /tmp/ServiceMap.csv</Command>
+			</Execute>
+		</Install>
+		<Parameters>
+			<Parameter Name="Install Type" Level="System" ExecutionGroup="SCDBParams">
+			    <Description>Installation type regarding issues of : Activity Logs and Statistics, Alarms </Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="MainSite" Display="Main Site"/>
+						<Item Value="NonMain" Display="Non Main Site"/>
+						<Item Value="DCSite" Display="Data Center Site"/>
+						<Item Value="Embeded" Display="Embedded"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="PVVM Type" Level="System" ExecutionGroup="SCDBParams">
+				<Description>PVVM (Insight) Version</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="insight3" Display="InSight3 / Trilogue"/>
+						<Item Value="insight4" Display="InSight4"/>
+						<Item Value="insight5" Display="Insight5 (InSight4 Ver5.0.0.0)"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="System Name" Level="System" ExecutionGroup="SCDBParams">
+				<Description>PVVM System Name</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="MMG Services Enabled" Level="System" ExecutionGroup="SCDBParams">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Values.MMGEnabled" Name="/tmp/ServiceConf.txt" Format="INI"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="WhoCalled Services Enabled" Level="System" ExecutionGroup="SCDBParams">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Values.WHCEnabled" Name="/tmp/ServiceConf.txt" Format="INI"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="VM2MMS Services Enabled" Level="System" ExecutionGroup="SCDBParams">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Values.VM2MMSEnbaled" Name="/tmp/ServiceConf.txt" Format="INI"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="VVM Services Enabled" Level="System" ExecutionGroup="SCDBParams">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Values.VVMEnabled" Name="/tmp/ServiceConf.txt" Format="INI"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="WebInbox Services Enabled" Level="System" ExecutionGroup="SCDBParams">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Values.WebInboxEnabled" Name="/tmp/ServiceConf.txt" Format="INI"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="MTE Services Enabled" Level="System" ExecutionGroup="SCDBParams">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Values.MTEEnabled" Name="/tmp/ServiceConf.txt" Format="INI"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SWIM System Name" Level="System" ExecutionGroup="SCDBParams">
+				<Description>System Name as was defined in SWIM for the installation of the Service's Units (MMG Units / VI Units / WHC Units)</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

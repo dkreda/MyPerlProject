@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Config_MIPS_Deployments" Version="First-Draft" Platform="Linux">
+    <!--This CAF File is implementation of /VI_Procedures/Add_VVM_Service/Deployments/Config_MIPS.MIPS_TG-->
+    <Install>
+      <Execute ExecutionOrder="1000">
+        <Command>/opt/criticalpath/global/bin/mgr -w A25Trk7B43 -p 4201 set Idextension 1</Command>
+      </Execute>
+      <Execute ExecutionOrder="1005">
+        <Command>/opt/criticalpath/global/bin/mgr -w A25Trk7B43 -p 4201 set EnableNotifyClientId 1</Command>
+      </Execute>
+      <Execute ExecutionOrder="1010">
+        <Command>/opt/criticalpath/global/bin/mgr -w A25Trk7B43 set NotificationAllowedFolders 'Trash'</Command>
+      </Execute>
+      <Execute ExecutionOrder="1015">
+        <Command>/opt/criticalpath/global/bin/mgr -w A25Trk7B43 -p 4201 set EnableNotificationForAllFolders 1</Command>
+      </Execute>
+      <Execute ExecutionOrder="1020">
+        <Command>if [ "VVM" = "VVM" ]; then /opt/criticalpath/global/bin/mgr -w A25Trk7B43 class add 4 STDFOLDERS=Greetings; else if [ "VVM" = "IPHONE" ]; then /opt/criticalpath/global/bin/mgr -w A25Trk7B43 class add 4 STDFOLDERS=Trash,Greetings; else echo "wrong type entered"; exit 1; fi; fi</Command>
+      </Execute>
+      <Execute ExecutionOrder="1025">
+        <Command>/opt/criticalpath/global/bin/mgr -w A25Trk7B43 -p 4201 set IgnoreMquotaFolder 'Trash,Inbox'</Command>
+      </Execute>
+    </Install>
+  </Component>
+</SWIM>

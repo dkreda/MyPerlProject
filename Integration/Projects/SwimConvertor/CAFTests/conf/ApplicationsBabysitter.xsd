@@ -1,0 +1,101 @@
+<xsd:schema xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+
+ <xsd:element name='LINUX'>
+  <xsd:complexType>
+   <xsd:attribute name='Executable' type='xsd:string' use='required'/>
+   <xsd:attribute name='CommandLine' type='xsd:string' use='required'/>
+   <xsd:attribute name='LaunchingScript' type='xsd:string' use='required'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='MonitorByCMD'>
+  <xsd:complexType/>
+ </xsd:element>
+
+ <xsd:element name='IntervalMinutes' type='xsd:string'>
+ </xsd:element>
+
+ <xsd:element name='FolderToMonitor' type='xsd:string'>
+ </xsd:element>
+
+ <xsd:element name='MaxAgeHours' type='xsd:string'>
+ </xsd:element>
+
+ <xsd:element name='MaxNumberOfFiles' type='xsd:string'>
+ </xsd:element>
+
+ <xsd:element name='MaxSizeKb' type='xsd:string'>
+ </xsd:element>
+
+ <xsd:element name='WarningSizePercent' type='xsd:string'>
+ </xsd:element>
+
+ <xsd:element name='CleanupSizePercent' type='xsd:string'>
+ </xsd:element>
+
+ <xsd:element name='TRACE_DELETION'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='IntervalMinutes'/>
+    <xsd:element ref='FolderToMonitor'/>
+    <xsd:element ref='MaxAgeHours'/>
+    <xsd:element ref='MaxNumberOfFiles'/>
+    <xsd:element ref='MaxSizeKb'/>
+    <xsd:element ref='WarningSizePercent'/>
+    <xsd:element ref='CleanupSizePercent'/>
+   </xsd:sequence>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='ROW'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='LINUX'/>
+    <xsd:element ref='MonitorByCMD'/>
+    <xsd:element ref='TRACE_DELETION'/>
+   </xsd:sequence>
+   <xsd:attribute name='Name' type='xsd:string' use='required'/>
+   <xsd:attribute name='PhaseNumber' type='xsd:string' use='required'/>
+   <xsd:attribute name='MemWarningLevel' type='xsd:string' use='required'/>
+   <xsd:attribute name='MemTerminateLevel' type='xsd:string' use='required'/>
+   <xsd:attribute name='Service' type='xsd:string'/>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Applications'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='ROW'/>
+   </xsd:sequence>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='Babsrv'>
+  <xsd:complexType/>
+ </xsd:element>
+
+ <xsd:element name='All'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='Babsrv'/>
+   </xsd:sequence>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='AppInUnitType'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='All'/>
+   </xsd:sequence>
+  </xsd:complexType>
+ </xsd:element>
+
+ <xsd:element name='MAMDATA'>
+  <xsd:complexType>
+   <xsd:sequence>
+    <xsd:element ref='Applications'/>
+    <xsd:element ref='AppInUnitType'/>
+   </xsd:sequence>
+  </xsd:complexType>
+ </xsd:element>
+</xsd:schema>

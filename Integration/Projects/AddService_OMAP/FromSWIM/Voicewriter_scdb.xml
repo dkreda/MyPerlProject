@@ -1,0 +1,61 @@
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by gavraha (Comvers) -->
+<SCDB xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <Identification>
+      <ComponentName>scdb</ComponentName>
+      <FileFormatVersion>2.0</FileFormatVersion>
+      <ComponentRelease>5.6.1.0</ComponentRelease>
+      <ComponentBuild>02</ComponentBuild>
+   </Identification>
+   <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Spark_color.gif' inventoryMask='N/A' objectClass='System' objectDescription='InSight4' objectId='9001' objectLabel='InSight4' objectName='System' objectType='System'>
+      <SystemRoot CIRNumber='' CustomerName='' ManualInactive='0' SystemDomain='comverse.com' SystemLabel='' SystemName='ActualSystemName' SystemType='LocalSystem'>
+         <Product InstallDate='' ProductName='MMG' ProductRelease='4.5.0.0'/>
+      </SystemRoot>
+      <Application ApplicationLabel='System Parameters' ApplicationName='Common'/>
+      <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Voice-Access.gif' inventoryMask='N/A' objectClass='Layer' objectDescription='IP_Access_Layer' objectId='9090' objectLabel='IP_Access' objectName='IP_Access_Layer' objectType='Logical'>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Proxy N+1 Group' objectId='9091' objectLabel='Proxy_AU_Group' objectName='Proxy_AU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='proxy-au%' objectClass='Unit_Type' objectDescription='Proxy_AU_Unit' objectId='9092' objectLabel='Unit:$UnitName' objectName='Proxy_AU_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='PROXY_AU_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='Null Proxy' ApplicationLevel='Farm' ApplicationName='null.site1' ConnectionType='Data' FQDNConcat=''/>
+               <Application ApplicationLabel='PROXY OSS' ApplicationLevel='Farm' ApplicationName='PROXYOSS.SITE1' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10' SetCommunity='pIuSg2Fv6v+p1y48Imakiw=='/>
+            </Object>
+         </Object>
+      </Object>
+      <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Application.gif' inventoryMask='N/A' objectClass='Layer' objectDescription='Application Layer' objectId='9190' objectLabel='Applications' objectName='Application_Layer' objectType='Logical'>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectId='9191' objectLabel='MMSGW_Group' objectName='MMSGW_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='mmsgw%' objectClass='Unit_Type' objectDescription='MMSGW _Unit' objectId='9192' objectLabel='Unit:$UnitName' objectName='MMSGW_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='MMSGW_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='MMS Gateway VW MTA' ApplicationLevel='Farm' ApplicationName='MMSGW.MTA' ConnectionType='Data' FQDNConcat=''/>
+			   <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10' SetCommunity='pIuSg2Fv6v+p1y48Imakiw=='/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectId='9290' objectLabel='NDU-WHC-MMG_Group' objectName='NDU-WHC-MMG_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='ndu%' objectClass='Unit_Type' objectDescription='NDU-WHC-MMG_Unit' objectId='9291' objectLabel='Unit:$UnitName' objectName='NDU-WHC-MMG_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='NDU-WHC-MMG_Platform' ConnectionType='Data'/>
+			   <Application ApplicationLabel='NDU-WHC-MMG' ApplicationLevel='Farm' ApplicationName='CC.NDU_MMG' ConnectionType='Data' FQDNConcat=''/>
+			   <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10' SetCommunity='pIuSg2Fv6v+p1y48Imakiw=='/>
+            </Object>
+         </Object>
+		  <Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/4th.gif" inventoryMask="N/A" objectClass="Unit_Group" objectDescription="Linux N+1 Group" objectId="9390" objectLabel="MTS_Group" objectName="MTS_Group" objectType="Logical">
+				<Object ObjectCardinality="Multiple" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Linux.gif" inventoryMask="mts%" objectClass="Unit_Type" objectDescription="MTS _Unit" objectId="9391" objectLabel="Unit:$UnitName" objectName="MTS_Unit" objectType="Physical">
+					<Application ApplicationLabel="Process Control" ApplicationLevel="Farm" ApplicationName="MAM" ConnectionType="Data"/>
+					<Application ApplicationLabel="Platform Configuration" ApplicationLevel="Farm" ApplicationName="MTS_Platform" ConnectionType="Data"/>
+					<EMS EMSName="SUI-ElementStatus-Linux" URLTarget=''/>
+					<EMS EMSName="SUI-ProcessControl" URLTarget=''/>
+					<AgentHeartbeat AgentCommunity="8y7pE4xnXwhnAJNuyc3j2w==" AgentEnable="1" AgentName="MAM" AgentOID="1.3.6.1.4.1.5271.2.2.1.2.1.0" AgentPort="161" PollingIntervalSec="600" PollingRetries="3" PollingTimeoutSec="10" SetCommunity="pIuSg2Fv6v+p1y48Imakiw=="/>
+				</Object>
+		</Object>
+	  </Object>
+   </Object>
+</SCDB>

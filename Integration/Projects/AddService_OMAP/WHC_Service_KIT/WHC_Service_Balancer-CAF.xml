@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+	<Component Name="WHC_Service_Balancer" Version="4.4.4.0" Platform="Linux">
+		<Install>
+			<Execute ExecutionOrder="14970">
+				<Command>echo &gt; /var/tmp/hosts</Command>
+			</Execute>
+			<Execute ExecutionOrder="14971">
+				<Command>/var/tmp/balancer-cleanup.pl </Command>
+			</Execute>
+			<Execute ExecutionOrder="15050">
+				<Command>usermod -G balancericuser admin </Command>
+			</Execute>
+			<Execute ExecutionOrder="15031">
+				<Command>/var/tmp/babysitter_xml.sh enable ApplicationsBalancerLINUX.xml</Command>
+			</Execute>
+			<Execute ExecutionOrder="15050">
+				<Command>chmod -R ug+rw /usr/cti/conf/balancer </Command>
+			</Execute>
+			<Execute ExecutionOrder="15040">
+				<Command>/tmp/OctParamsManipulation.pl -Conf /tmp/PVVMConf.txt -Unit {LocalIP}</Command>
+			</Execute>
+			<Copy ExecutionOrder="14951" ChmodFlags="+x">
+				<Source>./scripts/balancer-cleanup.pl</Source>
+				<Target>/var/tmp/balancer-cleanup.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000" ChmodFlags="+x">
+				<Source>./scripts/remove_balancer_farms.pl</Source>
+				<Target>/var/tmp/remove_balancer_farms.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./config/InputApplicationList.xml</Source>
+				<Target>/usr/cti/conf/balancer/InputApplicationList.xml</Target>
+			</Copy>
+			<Copy ExecutionOrder="15001" ChmodFlags="+x">
+				<Source>./scripts/babysitter_xml.sh</Source>
+				<Target>/var/tmp/babysitter_xml.sh</Target>
+			</Copy>
+			<Copy ExecutionOrder="15030" ChmodFlags="+x">
+				<Source>./scripts/create_balancer_farm.pl</Source>
+				<Target>/var/tmp/create_balancer_farm.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./config/PVVMConf.txt</Source>
+				<Target>/tmp/PVVMConf.txt</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000" ChmodFlags="+x">
+				<Source>./scripts/OctParamsManipulation.pl</Source>
+				<Target>/tmp/OctParamsManipulation.pl</Target>
+			</Copy>
+			<SetParams ExecutionOrder="15012">
+				<ExecutionGroup>WHC_Balancer_Config</ExecutionGroup>
+			</SetParams>
+		</Install>
+		<Parameters>
+			<Parameter Name="NDU Hosts List" ExecutionGroup="WHC_Balancer_Config" Level="System">
+				<Value>[UnitGroup.xml:string-join(//Physical[@GroupName="NDU-WHC_Group"]/UnitInstance/@DataIp,',')]</Value>
+				<Description>List of all NDU-WHC Machines</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/tmp/PVVMConf.txt" Format="Text" ParameterPath="#TokenNDUList#"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="OMU Hosts Lists" ExecutionGroup="WHC_Balancer_Config" Level="UnitType">
+				<Description>OMU's IPs seperated with coma (exampl: 1.2.3.4,2.3.4.5 or 2.2.2.2)</Description>
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>([\d\.]+[,]?)+</Pattern>
+				</Restrictions>
+				<Files>
+					<File Name="/tmp/PVVMConf.txt" Format="Text" ParameterPath="#TokenOMUList#"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="AASDB VIP" ExecutionGroup="WHC_Balancer_Config" Level="System">
+				<Description>Oracle VIP - This IP is Relevant for ODS_Calls, Profile, AASDB etc</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#TokenOracleVIP#" Name="/tmp/PVVMConf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SMU_VIP" ExecutionGroup="WHC_Balancer_Config" Level="System">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#TokenSMUVIP#" Name="/tmp/PVVMConf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="CMS Unit List" ExecutionGroup="WHC_Balancer_Config" Level="System">
+				<Value>None</Value>
+				<Description>List of SS7 CMS Unts (IP Seperated with comma Ip1,Ip2 etc)</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#TokenCMSList#" Name="/tmp/PVVMConf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Local Balancer List" ExecutionGroup="WHC_Balancer_Config" Level="System">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#BalancerList#" Name="/tmp/PVVMConf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="DNS Domain Name" ExecutionGroup="WHC_Balancer_Config" Level="System">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#TokenNetDomain#" Name="/tmp/PVVMConf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Unit Filter" ExecutionGroup="WHC_Balancer_Config" Level="Unit" Display="false">
+				<Value>{LocalIP}</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#TokenNDUUnit#" Name="/tmp/PVVMConf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="System ID" ExecutionGroup="WHC_Balancer_Config" Level="System">
+				<Value>100</Value>
+				<Restrictions>
+					<Type>Number</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#TokenSysID#" Name="/tmp/PVVMConf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Physical SMU IP List" ExecutionGroup="WHC_Balancer_Config" Level="System">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#TokenSMUList#" Name="/tmp/PVVMConf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

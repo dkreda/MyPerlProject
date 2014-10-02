@@ -1,0 +1,26 @@
+[UAF]
+Unit_Type
+[SAF]
+Babysitter - BalancerIPOverride
+Converged Msg Domain
+Converged Msg Ips
+Delivery Method Multi value enabled,Delivery Method Multi Value
+Delivery Method - Email Enabled,Delivery_Method_Email
+Delivery Method - MailBox Enabled,Delivery_Method_MailBox
+Engine Regular Mail Account
+Engine Return Mail account,Engine Return Mail account Sys
+FromAddress
+Insight Type
+Manager_Password
+MMSC URL
+MZ Balancers IP List
+Network Domain
+Proxy Balancer List
+System Platform Type,PVVMPlatform
+Service Activated
+Service - Voice to MMS Mode,Service_Mode_VM2MMS
+Service - Voice to Text Mode,Service_Mode_Voice2Text
+ServiceActivated
+SMSC IP,SMSC IP Sys
+SMS Delivery Report Enabled,SMSDeliveryReportInd,SMSDeliveryReportInd Sys
+TRM_ID

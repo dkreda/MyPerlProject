@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<root>
+  <Transfer>
+    <Connection>
+      <HostOrGroupName>MMSGW.site1</HostOrGroupName>
+    </Connection>
+    <Operation type="GET">
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/mmsgw</RemotePath>
+        <Include>.+\.AL\..+[0-9]</Include>
+      </FileSpecification>
+    </Operation>
+  </Transfer>
+</root>

@@ -1,0 +1,7 @@
+Par=654
+Dud #Yoly#
+host "Tufi #Message#" Fug
+Haim Par #Yoly#
+Stam name= #Message#
+host=#Message#
+

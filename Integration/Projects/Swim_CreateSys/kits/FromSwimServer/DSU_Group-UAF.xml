@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\MYDOCU~1\Integration\Projects\SwimConvertor\CAFTests\UAF.xsd">
+  <UnitType Name="DSU_Group" Platform="Linux">
+    <Install>
+      <Component Name="ProfileDefinition" ExecutionOrder="150">
+<!--This Component has Product Name WHC_Kits_Copy_To_DSU with ExecutionPhass 150-->
+      </Component>
+      <Component Name="Whc_DBKits" ExecutionOrder="180">
+<!--This Component has Product Name WHC_DB_KIT_EXECUTE with ExecutionPhass 170-->
+<!--This Component has Product Name WHC_DB_KIT_PKG_Installation with ExecutionPhass 160-->
+<!--This Component has Product Name WHC_Kits_Copy_To_DSU with ExecutionPhass 150-->
+<!--This Component has Product Name Additional_packages_install with ExecutionPhass 180-->
+      </Component>
+<!-- Not to be installed by Amir ..... 
+			<Component Name="ProvCompasDBSchema" ExecutionOrder="160"></Component><Component Name="ProvComProfDBSchema" ExecutionOrder="160"></Component><Component Name="ProvGslDBSchema" ExecutionOrder="160"></Component><Component Name="ProvDBPrivileges" ExecutionOrder="160"></Component>
+			-->
+    </Install>
+  </UnitType>
+</SWIM>

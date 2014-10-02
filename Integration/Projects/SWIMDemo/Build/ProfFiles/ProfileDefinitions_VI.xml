@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Provisioning>
+  <ProfileDefinition Name="ProfileDefinitions_VI.xml" Version="1.0.0.0">
+    <Entities>
+      <Entity>
+        <Name>Unknown</Name>
+        <DsvEntityName>New</DsvEntityName>
+        <Fields>
+          <Field>
+            <Name>cnsVVMClientType</Name>
+            <DsvName>cnsVVMClientType</DsvName>
+            <DbData>
+              <DbType>Varchar2</DbType>
+              <DbLength>Y</DbLength>
+            </DbData>
+            <XsdValidation>
+              <Nillable>false</Nillable>
+            </XsdValidation>
+            <DbName>SUBSCRIBERS.VVM_CLIENT_TYPE</DbName>
+          </Field>
+          <Field>
+            <Name>cnsVVMProtocolVersion</Name>
+            <DsvName>cnsVVMProtocolVersion</DsvName>
+            <DbData>
+              <DbType>Varchar2</DbType>
+              <DbLength>Y</DbLength>
+            </DbData>
+            <XsdValidation>
+              <Nillable>false</Nillable>
+            </XsdValidation>
+            <DbName>SUBSCRIBERS.VVM_PROTOCOL_VERSION</DbName>
+          </Field>
+        </Fields>
+      </Entity>
+    </Entities>
+  </ProfileDefinition>
+</Provisioning>

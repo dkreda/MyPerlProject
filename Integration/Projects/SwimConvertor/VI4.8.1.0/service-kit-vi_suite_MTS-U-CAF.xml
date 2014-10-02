@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="service-kit-vi_suite_MTS-U" Version="4.8.1.0-03" Platform="Linux">
+    <Install>
+      <Copy ExecutionOrder="215430">
+        <Source>./scripts/FixHosts.pl</Source>
+        <Target>/usr/cti/ServiceKit/FixHosts.pl</Target>
+      </Copy>
+      <Execute ExecutionOrder="14971">
+        <Command>rpmfile=`rpm -qa | grep configuration-merger` ; if [ "$rpmfile" != "" ] ; then rpm -e $rpmfile ; fi </Command>
+      </Execute>
+      <Execute ExecutionOrder="15022">
+        <Command>rpm -iv /tmp/configuration-merger*.rpm</Command>
+      </Execute>
+      <Copy ExecutionOrder="15002" ChmodFlags="+x">
+        <Source>./bin/configuration-merger*.rpm</Source>
+        <Target>/tmp/</Target>
+      </Copy>
+      <Execute ExecutionOrder="215420">
+        <Command>/usr/cti/ServiceKit/SetInsightPlatform.pl -Platform {..Insight Platform} -NetDomain {IS4 Network Domain} -PL {Subscriber Locator Method}</Command>
+      </Execute>
+      <Copy ExecutionOrder="215400" ChmodFlags="+x">
+        <Source>./scripts/SetInsightPlatform.pl</Source>
+        <Target>/usr/cti/ServiceKit/SetInsightPlatform.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215400">
+        <Source>./configuration/CasPlatform.csv</Source>
+        <Target>/usr/cti/conf/ServiceKit/CasPlatform.csv</Target>
+      </Copy>
+      <Execute ExecutionOrder="215422">
+        <Command>chmod +x /usr/cti/ServiceKit/FixHosts.pl </Command>
+      </Execute>
+      <Copy ExecutionOrder="15000">
+        <Source>./configuration/HardwareConfig.ini</Source>
+        <Target>/usr/cti/conf/ServiceKit/HardwareConfig.ini</Target>
+      </Copy>
+      <Execute ExecutionOrder="215620">
+        <Command>/usr/cti/ServiceKit/HWConfig.pl -Password {Manager_Password}</Command>
+      </Execute>
+      <Copy ExecutionOrder="215600" ChmodFlags="+x">
+        <Source>./scripts/HWConfig.pl</Source>
+        <Target>/usr/cti/ServiceKit/HWConfig.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215402">
+        <Source>./configuration/sitebook_md_MTS_IS4_Only.xml</Source>
+        <Target>/usr/cti/conf/sitebook/sitebook_md_MTS.xml</Target>
+      </Copy>
+      <Execute ExecutionOrder="215431">
+        <Command>/usr/cti/apps/CSPbase/csp_block_remote_ssh_login.pl -enable ; for user in ip23loguser mts imap4user genesis mtauser balancericuser webinbox ;do /usr/cti/apps/CSPbase/csp_block_remote_ssh_login.pl --user $user --add;done </Command>
+      </Execute>
+      <Execute ExecutionOrder="215465">
+        <Command>chown sbuser:sbuser /usr/cti/conf/sitebook/* </Command>
+      </Execute>
+      <Execute ExecutionOrder="215670">
+        <Command>sed -i "/trap2sink localhost public/d" /etc/snmp/snmpd.conf </Command>
+      </Execute>
+      <Execute ExecutionOrder="215571">
+        <Command>if [ -e /usr/cti/conf/mts/config.xml.old ]; then /bin/cp -rfp /usr/cti/conf/mts/config.xml.old /usr/cti/conf/mts/config.xml;fi </Command>
+      </Execute>
+      <Copy ExecutionOrder="215400">
+        <Source>./scripts/ChkInstallVer.pl</Source>
+        <Target>/usr/cti/ServiceKit/ChkInstallVer.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="215400">
+        <Source>./configuration/VI4.6.map.csv</Source>
+        <Target>/usr/cti/conf/ServiceKit/VI4.6.map.csv</Target>
+      </Copy>
+      <Execute ExecutionOrder="215370">
+        <Command>rm -f /usr/cti/conf/ServiceKit/*.fcvl</Command>
+      </Execute>
+      <Execute ExecutionOrder="215420">
+        <Command>chmod +x /usr/cti/ServiceKit/*</Command>
+      </Execute>
+      <Copy ExecutionOrder="215400">
+        <Source>./../*.fcvl</Source>
+        <Target>/usr/cti/conf/ServiceKit/</Target>
+      </Copy>
+      <Copy ExecutionOrder="415000">
+        <Source>./configuration/SDC_VI.conf</Source>
+        <Target>/usr/cti/conf/SDC/SDC_VI.conf</Target>
+      </Copy>
+      <Execute ExecutionOrder="415030">
+        <Command>rpm -iv  rpm -qa | grep -i IS4_SDC || rpm -iv /tmp/IS4_SDC-1.0.1.0-01.i386.rpm</Command>
+      </Execute>
+      <Execute ExecutionOrder="415040">
+        <Command>chmod 755 /usr/cti/conf/SDC/* </Command>
+      </Execute>
+      <Copy ExecutionOrder="415000">
+        <Source>./bin/IS4_SDC-1.0.1.0-01.i386.rpm</Source>
+        <Target>/tmp/IS4_SDC-1.0.1.0-01.i386.rpm</Target>
+      </Copy>
+      <Execute ExecutionOrder="365021">
+        <Command>/var/tmp/updateBabysitterFiles.pl </Command>
+      </Execute>
+      <Copy ExecutionOrder="365001" ChmodFlags="+x">
+        <Source>./scripts/updateBabysitterFiles.pl</Source>
+        <Target>/var/tmp/updateBabysitterFiles.pl</Target>
+      </Copy>
+      <SetParams ExecutionOrder="215412">
+        <ExecutionGroup>Platform_Config</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="315012">
+        <ExecutionGroup>MTS_Customization_Not_Per_HW</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="215612">
+        <ExecutionGroup>GEN_Customization</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="365012">
+        <ExecutionGroup>Babysitter-Critical_Apps_Conf</ExecutionGroup>
+      </SetParams>
+    </Install>
+    <Parameters>
+      <Parameter Name="..Insight Platform" ExecutionGroup="Platform_Config" Level="UnitType">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="insight3"/>
+            <Item Value="insight4"/>
+            <Item Value="hybrid"/>
+          </Enum>
+        </Restrictions>
+        <Value>insight3</Value>
+      </Parameter>
+      <Parameter Name="MTS Look Ahead" ExecutionGroup="MTS_Customization_Not_Per_HW" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/mts/config.xml" Format="XML" ParameterPath="/MTSParam/LookAhead"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MTS MaxQueue" ExecutionGroup="MTS_Customization_Not_Per_HW" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>100</Value>
+        <Files>
+          <File Name="/usr/cti/conf/mts/config.xml" Format="XML" ParameterPath="/MTSParam/MaxQueue"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="MaxOutputFileLength" ExecutionGroup="MTS_Customization_Not_Per_HW" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>5000000</Value>
+        <Files>
+          <File Name="/usr/cti/conf/mts/config.xml" Format="XML" ParameterPath="/MTSParam/MaxOutputFileLength"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ESU_PASSWORD" ExecutionGroup="GEN_Customization" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Manager_Password" ExecutionGroup="GEN_Customization" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Babysitter - EnableGracefullShutDown" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Enable Graceful Shutdown"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - EnableBalancerNotify" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Enable Balancer Notify"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - BalancerIPOverride" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{First MZ unit IP},{Second MZ unit IP},{First DMZ unit IP},{Second DMZ unit IP}</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Balancer IP Override"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - SendAlarmOnBalancerFailure" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Send Alarm on Balancer Failure"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Babysitter - BalancerACKTimeout" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>100</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Balancer ACK Timeout"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Second MZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Second DMZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="IS4 Network Domain" Level="System" ExecutionGroup="Platform_Config">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="First DMZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Subscriber Locator Method" Level="System" ExecutionGroup="Platform_Config">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="First MZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+    </Parameters>
+    <Groups>
+      <Group Name="Tmp Group" DefaultInstances="1" MaxOccur="1"/>
+    </Groups>
+  </Component>
+</SWIM>

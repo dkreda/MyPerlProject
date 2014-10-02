@@ -1,0 +1,31 @@
+
+## [Octopus.Parameters.Mapping]
+Sample=Net,Bruto,Complex
+
+[Octopus.Parameters.Def.Sample]
+http:..((\d+\.){3}\d+)=~$1,$2 %$ReCurse1%,{Param1}
+100=<*0.83-83,Booo,%7
+12=>+2,{Param1}*1+3*({Test}-100),Baam
+50=!+1,room,table
+
+[RealName.Parameters.Def]
+Param1=Stam,cmd://echo "This is plain text (%$ReCurse1%) + {Param1} Parameter {Google Face}+ {Test} Parameter + {Yofi Tofi{Param1} +\{Test}"
+#Net=Stam,txt://%$ComFileName%//[s ]Par
+Net=Stam,txt://tmp/gigi//[s ]Par
+#Bruto=Stam,txt://%$ComFileName%//[r#Yoly#]
+#Param1=Stam,txt://%$ComFileName%//[r#Message#]host
+#Param2=Stam,txt://%$ComFileName%//[s-]Stam
+## TestPa=Stam,xml://%$ComFileName%////Tasks/Host[Name="Yofi"]/@MngIP
+## TestPa=Stam,xml://%$ComFileName%////Install/Component/MyVal
+##TestPa=Stam,xml://%$ComFileName%////Install/Component[@Name="ProfileDefinition_MMG"]/@ExecutionOrder
+## NextVa=Stam,ini://%$ComFileName%/[SecName]Goom
+### UnitTe=%$UnitName%,txt://%$ComFileName%//[s=]Foo
+
+[Macros]
+## ComFileName=/usr/cti/Example/of/very/long/file/path/which/may/cause/erros
+ComFileName=Stam.txt
+UnitName=Stam
+Recus2=Start\,%$UnitName%
+ReCurse1=Next %$Recus2%
+
+## [Values]

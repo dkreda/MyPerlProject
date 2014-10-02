@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AAS>
+	<Roles>
+        <Role Name="wic_app">
+			<Desc>Applicative role for WPM and WCC VI Suite applications</Desc>
+			<ReadOnly>false</ReadOnly>
+			<Privileges>
+				<Privilege Name="GetSystemsList"/>
+				<Privilege Name="GetDomainsList"/>
+				<Privilege Name="GetUserProfile"/>
+				<Privilege Name="WIC_ManageProfile"/>
+				<Privilege Name="OSSP_VI_WIC"/>
+				<Privilege Name="WIC_ViewMailbox"/>
+				<Privilege Name="WIC_ViewProfile"/>
+				<Privilege Name="WIC_GetUserProfile"/>
+				<Privilege Name="WIC_ModifyProfile"/>
+				<Privilege Name="WIC_CreateProfile"/>
+				<Privilege Name="WIC_DeleteProfile"/>
+				<Privilege Name="BlockSubscriber"/>
+				<Privilege Name="UnBlockSubscriber"/>
+				<Privilege Name="ModifySubscriber"/>
+				<Privilege Name="RetrieveSubscriber"/>
+				<Privilege Name="CreateSubscriber"/>
+				<Privilege Name="DeleteSubscriber"/>
+			</Privileges>
+		</Role>
+	</Roles>
+</AAS>

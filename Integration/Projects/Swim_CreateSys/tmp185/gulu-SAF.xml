@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<SWIM>
+  <System>
+    <Install>
+      <UnitType Name="VM_ASU_Group"/>
+      <UnitType Name="DSU_Group"/>
+      <UnitType Name="SMU_Group"/>
+      <UnitType Name="OMU_Group"/>
+    </Install>
+    <Dependencies>
+	<Component UnitName="*" Name="ProfileDefinition_Compas">
+	<DependsOn>
+	<Component UnitName="dsu*" Name="VIProfileDefinition"/>
+	</DependsOn>
+	</Component>
+    </Dependencies>
+    <Parameters>
+      <Alias DisplayName="AMTE Enabled">
+        <Value>true</Value>
+        <Description>AMTE Enabled</Description>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="true"/>
+            <Item Value="false"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name="AMTE Enabled" ComponentName="Config_DSU_Deployments"/>
+        <Parameter Name="AMTE Enabled" ComponentName="Config_VMASU_Deployments"/>
+        <Parameter Name="AMTE Enabled" ComponentName="Config_SMU_Deployments"/>
+        <Parameter Name="AMTE Enabled" ComponentName="Config_OMU_Deployments"/>
+      </Alias>
+      <Alias DisplayName="MIPS VIP">
+        <Value>[UnitGroup.xml://Vapplication[@ApplicationLabel="MIPS1"]/VUnitInstance/@VirtualIp]</Value>
+        <Description>MIPS VIP</Description>
+        <Restrictions>
+          <Type>String</Type>
+          <Pattern>(\d+\.){3}\d+</Pattern>
+        </Restrictions>
+        <Parameter Name="MIPS VIP" ComponentName="Config_DSU_Deployments"/>
+	<Parameter Name="MIPS VIP" ComponentName="Config_VMASU_Deployments"/>
+      </Alias>
+      <Alias DisplayName=".Direct Deposit">
+        <Value>No</Value>
+        <Description>Direct Deposit</Description>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".Direct Deposit" ComponentName="Config_DSU_Deployments"/>
+        <Parameter Name=".Direct Deposit" ComponentName="Config_OMU_Deployments"/>
+        <Parameter Name=".Direct Deposit" ComponentName="Config_VMASU_Deployments"/>
+        <Parameter Name=".Direct Deposit" ComponentName="Config_SMU_Deployments"/>
+      </Alias>
+      <Alias DisplayName=".Direct Retrieval">
+        <Value>No</Value>
+        <Description>Direct Retrieval</Description>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".Direct Retrieval" ComponentName="Config_DSU_Deployments"/>
+        <Parameter Name=".Direct Retrieval" ComponentName="Config_OMU_Deployments"/>
+        <Parameter Name=".Direct Retrieval" ComponentName="Config_VMASU_Deployments"/>
+        <Parameter Name=".Direct Retrieval" ComponentName="Config_SMU_Deployments"/>
+      </Alias>
+      <Alias DisplayName=".MTE">
+        <Value>No</Value>
+        <Description>MTE</Description>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".MTE" ComponentName="Config_DSU_Deployments"/>
+        <Parameter Name=".MTE" ComponentName="Config_OMU_Deployments"/>
+        <Parameter Name=".MTE" ComponentName="Config_VMASU_Deployments"/>
+        <Parameter Name=".MTE" ComponentName="Config_SMU_Deployments"/>
+      </Alias>
+      <Alias DisplayName=".VVM">
+        <Value>No</Value>
+        <Description>VVM</Description>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".VVM" ComponentName="Config_DSU_Deployments"/>
+        <Parameter Name=".VVM" ComponentName="Config_OMU_Deployments"/>
+        <Parameter Name=".VVM" ComponentName="Config_VMASU_Deployments"/>
+        <Parameter Name=".VVM" ComponentName="Config_SMU_Deployments"/>
+      </Alias>
+      <Alias DisplayName=".WCC">
+        <Value>No</Value>
+        <Description>WCC</Description>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".WCC" ComponentName="Config_DSU_Deployments"/>
+        <Parameter Name=".WCC" ComponentName="Config_OMU_Deployments"/>
+        <Parameter Name=".WCC" ComponentName="Config_VMASU_Deployments"/>
+        <Parameter Name=".WCC" ComponentName="Config_SMU_Deployments"/>
+      </Alias>
+      <Alias DisplayName=".WebInbox">
+        <Value>No</Value>
+        <Description>WebInbox</Description>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".WebInbox" ComponentName="Config_DSU_Deployments"/>
+        <Parameter Name=".WebInbox" ComponentName="Config_OMU_Deployments"/>
+        <Parameter Name=".WebInbox" ComponentName="Config_VMASU_Deployments"/>
+        <Parameter Name=".WebInbox" ComponentName="Config_SMU_Deployments"/>
+      </Alias>
+      <Parameter Name="DD_allowed_ip" ComponentName="Config_VMASU_Deployments" Display="true"/>
+      <Parameter Name="mte_relay_allowed_ip" ComponentName="Config_VMASU_Deployments" Display="true"/>
+      <Parameter Name="Site Name" ComponentName="Config_SMU_Deployments" Display="true">
+        <Value>1-VI_Suite</Value>
+      </Parameter>
+      <Parameter Name="System Name" ComponentName="Config_SMU_Deployments" Display="true">
+        <Value>1-VI_Suite</Value>
+      </Parameter>
+      <Parameter Name="PVVM System Name" ComponentName="VIProfileDefinition" Display="false">
+        <Value>Kuterman</Value>
+      </Parameter>
+    </Parameters>
+  </System>
+</SWIM>

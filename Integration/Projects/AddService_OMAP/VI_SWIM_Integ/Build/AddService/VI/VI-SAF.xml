@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM>
+	<System>
+		<Install>
+			<UnitType Name="VM_ASU_Group"/>
+			<UnitType Name="DSU_Group"/>
+			<UnitType Name="SMU_Group"/>
+			<UnitType Name="OMU_Group"/>
+			<UnitType Name="LVU_Group"/>
+		</Install>
+		<Dependencies>
+			<Component UnitName="*" Name="ProfileDefinition_Compas">
+				<DependsOn>
+					<Component UnitName="dsu*" Name="VIProfileDefinition"/>
+				</DependsOn>
+			</Component>
+			<Component UnitName="*" Name="UpdateTopology">
+				<DependsOn>
+					<Component UnitName="smu*" Name="AddUnits_ToSCDB"/>
+				</DependsOn>
+			</Component>
+		</Dependencies>
+		<Parameters>
+			<Alias DisplayName="AMTE Enabled">
+				<Value>true</Value>
+				<Description>AMTE Enabled</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="true"/>
+						<Item Value="false"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="AMTE Enabled" ComponentName="Config_DSU_Deployments"/>
+				<Parameter Name="AMTE Enabled" ComponentName="Config_VMASU_Deployments"/>
+				<Parameter Name="AMTE Enabled" ComponentName="Config_SMU_Deployments"/>
+				<Parameter Name="AMTE Enabled" ComponentName="Config_OMU_Deployments"/>
+			</Alias>
+			<Alias DisplayName="MIPS VIP">
+				<Value>[UnitGroup.xml://Vapplication[@ApplicationLabel="MIPS1"]/VUnitInstance/@VirtualIp]</Value>
+				<Description>MIPS VIP</Description>
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>(\d+\.){3}\d+</Pattern>
+				</Restrictions>
+				<Parameter Name="MIPS VIP" ComponentName="Config_DSU_Deployments"/>
+				<Parameter Name="MIPS VIP" ComponentName="Config_VMASU_Deployments"/>
+			</Alias>
+			<Alias DisplayName=".Direct Deposit">
+				<Value>No</Value>
+				<Description>Direct Deposit</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".Direct Deposit" ComponentName="Config_DSU_Deployments"/>
+				<Parameter Name=".Direct Deposit" ComponentName="Config_OMU_Deployments"/>
+				<Parameter Name=".Direct Deposit" ComponentName="Config_VMASU_Deployments"/>
+				<Parameter Name=".Direct Deposit" ComponentName="Config_SMU_Deployments"/>
+			</Alias>
+			<Alias DisplayName=".Direct Retrieval">
+				<Value>No</Value>
+				<Description>Direct Retrieval</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".Direct Retrieval" ComponentName="Config_DSU_Deployments"/>
+				<Parameter Name=".Direct Retrieval" ComponentName="Config_OMU_Deployments"/>
+				<Parameter Name=".Direct Retrieval" ComponentName="Config_VMASU_Deployments"/>
+				<Parameter Name=".Direct Retrieval" ComponentName="Config_SMU_Deployments"/>
+			</Alias>
+			<Alias DisplayName=".MTE">
+				<Value>No</Value>
+				<Description>MTE</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".MTE" ComponentName="Config_DSU_Deployments"/>
+				<Parameter Name=".MTE" ComponentName="Config_OMU_Deployments"/>
+				<Parameter Name=".MTE" ComponentName="Config_VMASU_Deployments"/>
+				<Parameter Name=".MTE" ComponentName="Config_SMU_Deployments"/>
+			</Alias>
+			<Alias DisplayName=".VVM">
+				<Value>No</Value>
+				<Description>VVM</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".VVM" ComponentName="Config_DSU_Deployments"/>
+				<Parameter Name=".VVM" ComponentName="Config_OMU_Deployments"/>
+				<Parameter Name=".VVM" ComponentName="Config_VMASU_Deployments"/>
+				<Parameter Name=".VVM" ComponentName="Config_SMU_Deployments"/>
+			</Alias>
+			<Alias DisplayName=".WCC">
+				<Value>No</Value>
+				<Description>WCC</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".WCC" ComponentName="Config_DSU_Deployments"/>
+				<Parameter Name=".WCC" ComponentName="Config_OMU_Deployments"/>
+				<Parameter Name=".WCC" ComponentName="Config_VMASU_Deployments"/>
+				<Parameter Name=".WCC" ComponentName="Config_SMU_Deployments"/>
+			</Alias>
+			<Alias DisplayName=".WebInbox">
+				<Value>No</Value>
+				<Description>WebInbox</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".WebInbox" ComponentName="Config_DSU_Deployments"/>
+				<Parameter Name=".WebInbox" ComponentName="Config_OMU_Deployments"/>
+				<Parameter Name=".WebInbox" ComponentName="Config_VMASU_Deployments"/>
+				<Parameter Name=".WebInbox" ComponentName="Config_SMU_Deployments"/>
+			</Alias>
+			<Parameter Name="DD_allowed_ip" ComponentName="Config_VMASU_Deployments" Display="true"/>
+			<Parameter Name="mte_relay_allowed_ip" ComponentName="Config_VMASU_Deployments" Display="true"/>
+			<Alias DisplayName="PVVM System Name">
+				<Value>Will be assign later .....</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="PVVM System Name" ComponentName="VIProfileDefinition"/>
+				<Parameter Name="PVVM System Name" ComponentName="ProfileDefinition_MMG"/>
+				<Parameter Name="Site Name" ComponentName="Config_SMU_Deployments"/>
+				<Parameter Name="PVVM System Name" ComponentName="WHC_ProfileDefinition"/>
+				<Parameter Name="System Name" ComponentName="AddUnits_ToSCDB"/>
+				<Parameter Name="System Name" ComponentName="UpdateTopology"/>
+			</Alias>
+			<Parameter Name="Install Type" ComponentName="AddUnits_ToSCDB" Display="false">
+				<Value>Embeded</Value>
+			</Parameter>
+			<Parameter Name="PVVM Type" ComponentName="AddUnits_ToSCDB" Display="true">
+				<Value>insight5</Value>
+			</Parameter>
+			<Parameter Name="MMG Services Enable" ComponentName="AddUnits_ToSCDB" Display="false">
+				<Value>No</Value>
+			</Parameter>
+			<Parameter Name="WhoCalled Services Enable" ComponentName="AddUnits_ToSCDB" Display="false">
+				<Value>No</Value>
+			</Parameter>
+			<Parameter Name="VM2MMS Services Enable" ComponentName="AddUnits_ToSCDB" Display="false">
+				<Value>No</Value>
+			</Parameter>
+			<Parameter Name="SWIM System Name" ComponentName="AddUnits_ToSCDB" Display="true">
+				<Value>NotReady Yet ....</Value>
+			</Parameter>
+			<Parameter Name="ICC Enabled" ComponentName="UpdateTopology" Display="true">
+				<Value>Yes</Value>
+			</Parameter>
+			<Parameter Name="Balancer Enable" ComponentName="UpdateTopology" Display="false">
+				<Value>Yes</Value>
+			</Parameter>
+			<Parameter Name="SiteBook Enabled" ComponentName="UpdateTopology" Display="true">
+				<Value>Yes</Value>
+			</Parameter>
+			<Parameter Name="CCM Enabled" ComponentName="UpdateTopology" Display="true">
+				<Value>Yes</Value>
+			</Parameter>
+			<Parameter Name="Log Viewer Enabled" ComponentName="UpdateTopology" Display="true">
+				<Value>Yes</Value>
+			</Parameter>
+			<Parameter Name="Performanc Monitor Enabled" ComponentName="UpdateTopology" Display="false">
+				<Value>$NULL</Value>
+			</Parameter>
+			<Parameter Name="Balancers IP Lists" ComponentName="UpdateTopology" Display="true">
+				<Value>[UnitGroup.xml:string-join(//Application[@ApplicationLabel="Load Balancer"]/UnitInstance/@AppIP,",")]</Value>
+			</Parameter>
+			<Parameter Name="PMT IP Lists" ComponentName="UpdateTopology" Display="false">
+				<Value>Ignore</Value>
+			</Parameter>
+			<Parameter Name="CCM IP Lists" ComponentName="UpdateTopology" Display="true">
+				<Value>[UnitGroup.xml:string-join(//Application[@ApplicationLabel="CCM"]/UnitInstance/@AppIP,",")]</Value>
+			</Parameter>
+			<Parameter Name="System Name" ComponentName="Config_SMU_Deployments">
+				<Value>Test</Value>
+			</Parameter>
+		</Parameters>
+	</System>
+</SWIM>

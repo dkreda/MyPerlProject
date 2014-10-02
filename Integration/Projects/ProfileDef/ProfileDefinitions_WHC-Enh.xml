@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Provisioning>
+	<ProfileDefinition Name="WHC" Version="4.0.0.0">
+		<Entities>
+			<Entity>
+				<Name>Subscriber</Name>
+				<DsvEntityName>SUB</DsvEntityName>
+				<Fields>
+					<Field>
+						<Name>NotifyMeINEnabled</Name>
+						<DsvName>CnsNotifyMeINEnabled</DsvName>
+						<DbName>SUBSCRIBERS.NFM_IN_ENABLED</DbName>
+						<DisplayName>Notify Me IN Enabled</DisplayName>
+						<Description>Determines if Notify Me service is enabled over Intelligent Networks.</Description>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>VMEnabled</Name>
+						<DsvName>CnsVMEnabled</DsvName>
+						<DbName>SUBSCRIBERS.VM_ENABLED</DbName>
+						<DisplayName>Voice Mail Enabled</DisplayName>
+						<Description>Determines if Voice Mail is enabled.</Description>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>SubscriberSiteName</Name>
+						<DsvName>CnsSubscriberSiteName</DsvName>
+						<DbName>SUBSCRIBERS.WHC_SITE_NAME</DbName>
+						<DisplayName>Site Name</DisplayName>
+						<Description>Specifies the subscriber's site name.</Description>
+						<XsdValidation>
+							<Type>xs:string</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+					</Field>
+					<Field>
+						<Name>QuickMessageEnabled</Name>
+						<DsvName>CnsQuickMessageEnabled</DsvName>
+						<DbName>SUBSCRIBERS.QUICK_MESSAGE_ENABLED</DbName>
+						<DisplayName>Quick Message Enabled</DisplayName>
+						<Description>Determines if Quick Message service is enabled.</Description>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>WhoCalledForPowerOffEnabled</Name>
+						<DsvName>CnsWhoCalledForPowerOffEnabled</DsvName>
+						<DbName>SUBSCRIBERS.WHC_POWER_OFF_ENABLED</DbName>
+						<DisplayName>Who Called for Power Off enabled</DisplayName>
+						<Description>Determines if Who Called for Power Off is enabled.</Description>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+				</Fields>
+			</Entity>
+		</Entities>
+	</ProfileDefinition>
+</Provisioning>

@@ -1,0 +1,24 @@
+###############################################################################
+#
+# Octpus Parameters manipulation configuration File
+#
+####################################################################
+
+[Octopus.Parameters.Mapping]
+IsBalancer=Network,TTL,PollingIntervalCounter,NumFailuresBeforeStatus,GreatingEnabled
+
+[RealName.Parameters.Def]
+
+Network=OMU,xml://%$InputApplication%////InputApplicationList/Application[@ApplicationName="van.site1"]/@Network
+TTL=OMU,xml://%$InputApplication%////InputApplicationList/Application[@ApplicationName="van.site1"]/@TTL
+PollingIntervalCounter=OMU,xml://%$InputApplication%////InputApplicationList/Application[@ApplicationName="van.site1"]/@PollingIntervalCounter
+NumFailuresBeforeStatus=OMU,xml://%$InputApplication%////InputApplicationList/Application[@ApplicationName="van.site1"]/@NumFailuresBeforeStatus
+GreatingEnabled=OMU,xml://%$InputApplication%////InputApplicationList/Application[@ApplicationName="van.site1"]/ConnectivityCheck[@Type="Port"]/Port[@PortNumber="8911"]/Greeting/@GreatingEnabled
+
+[Octopus.Parameters.Def.IsBalancer]
+Yes=~Data,0,6,1,No
+N.*=~$NULL,$NULL,$NULL,$NULL,$NULL
+
+[Macros]
+InputApplication=/usr/cti/conf/balancer/InputApplicationList.xml
+[Values]

@@ -1,0 +1,21 @@
+i pkginfo=pkginfo
+i postinstall=postinstall
+d none /var/cti/data/swim/kits
+d none /var/cti/data/swim/kits/CreateSystem
+d none /var/cti/data/swim/kits/CreateSystem/NDU-WHC
+d none /var/cti/data/swim/kits/CreateSystem/MMG
+d none /var/cti/data/swim/kits/CreateSystem/VI
+d none /var/cti/data/swim/systems
+d none /var/cti/data/swim/systems/SwimManger
+f none CreateSystem/createSystem-CAF.xml=Common/createSystem-CAF.xml 0644 swim swim
+f none CreateSystem/BuildSwimSystem.pl=Common/BuildSwimSystem.pl 0755 swim swim
+f none CreateSystem/Octopu2Twim.csv=Common/Octopu2Twim.csv 0755 swim swim
+f none CreateSystem/NDU-WHC/NDU-UAF.xml=Common/NDU-WHC/NDU-UAF.xml 0644 swim swim
+f none CreateSystem/NDU-WHC/AddWhcServic-SAF.xml=Common/NDU-WHC/AddWhcServic-SAF.xml 0644 swim swim
+f none CreateSystem/NDU-WHC/DSU_Group-UAF.xml=Common/NDU-WHC/DSU_Group-UAF.xml 0644 swim swim
+f none CreateSystem/NDU-WHC/OMU_Group-UAF.xml=Common/NDU-WHC/OMU_Group-UAF.xml 0644 swim swim
+f none CreateSystem/NDU-WHC/SMU_Group-UAF.xml=Common/NDU-WHC/SMU_Group-UAF.xml 0644 swim swim
+f none CreateSystem/NDU-WHC/VM_ASU_Group-UAF.xml=Common/NDU-WHC/VM_ASU_Group-UAF.xml 0644 swim swim
+f none CreateSystem/NDU-WHC/LVU_Group-UAF.xml=Common/NDU-WHC/LVU_Group-UAF.xml 0644 swim swim
+f none /var/cti/data/swim/systems/SwimManger/UnitGroup.xml=Common/UnitGroup.xml 0644 swim swim
+f none /var/cti/data/swim/systems/SwimManger/SwimManager-UAF.xml=Common/SwimManager-UAF.xml 0644 swim swim

@@ -1,0 +1,11 @@
+<SystemList>
+   <Identification>
+      <ComponentName>scdb</ComponentName>
+      <FileFormatVersion>1.0</FileFormatVersion>
+      <ComponentRelease>6.1.1.0</ComponentRelease>
+      <ComponentBuild>05</ComponentBuild>
+   </Identification>
+   <SystemRoot CIRNumber='' CustomerName='' ManualInactive='0' SystemDomain='comverse.com' SystemLabel='devlinux' SystemName='devlinux' SystemType='LocalSystem'>
+      <Product InstallDate='' ProductName='Voice' ProductRelease='5.0.0.0'/>
+   </SystemRoot>
+</SystemList>

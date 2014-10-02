@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SCDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Identification>
+		<ComponentName>scdb</ComponentName>
+		<FileFormatVersion>2.0</FileFormatVersion>
+		<ComponentRelease>5.5.0.0</ComponentRelease>
+		<ComponentBuild>05</ComponentBuild>
+	</Identification>
+	<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Spark_color.gif" inventoryMask="N/A" objectClass="System" objectDescription="InSight4" objectId="1" objectLabel="InSight4" objectName="System" objectType="System">
+		<SystemRoot CIRNumber="" CustomerName="" ManualInactive="0" SystemDomain="comverse.com" SystemLabel="" SystemName="sys100" SystemType="LocalSystem">
+			<Product InstallDate="" ProductName="WHC" ProductRelease="4.5.0.0"/>
+		</SystemRoot>
+		<Application ApplicationLabel="System Parameters" ApplicationName="Common"/>
+		<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Application.gif" inventoryMask="N/A" objectClass="Layer" objectDescription="Application Layer" objectId="130" objectLabel="Applications" objectName="Application_Layer" objectType="Logical">
+			<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/4th.gif" inventoryMask="N/A" objectClass="Unit_Group" objectDescription="Linux N+1 Group" objectId="149" objectLabel="NDU-WHC_Group" objectName="NDU-WHC_Group" objectType="Logical">
+				<Object ObjectCardinality="Multiple" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Linux.gif" inventoryMask="ndu%" objectClass="Unit_Type" objectDescription="NDU-WHC_Unit" objectId="150" objectLabel="Unit:$UnitName" objectName="NDU-WHC_Unit" objectType="Physical">
+					<Application ApplicationLabel="Process Control" ApplicationLevel="Farm" ApplicationName="MAM" ConnectionType="Data"/>
+					<Application ApplicationLabel="Platform Configuration" ApplicationLevel="Farm" ApplicationName="NDU-WHC_Platform" ConnectionType="Data"/>
+					<Application ApplicationLabel="NDS-WHC.SITE1" ApplicationLevel="Farm" ApplicationName="NDS-WHC.SITE1" ConnectionType="Data" FQDNConcat=""/>
+					<Application ApplicationLabel="VAN" ApplicationLevel="Farm" ApplicationName="ndsvan.site1" ConnectionType="Data" FQDNConcat=""/>
+					<Application ApplicationLabel="CCM Agent" ApplicationLevel="Farm" ApplicationName="ccm-agent" ConnectionType="Data"/>
+					<EMS EMSName="SUI-ElementStatus-Linux" URLTarget=""/>
+					<EMS EMSName="SUI-ProcessControl" URLTarget=""/>
+					<AgentHeartbeat AgentCommunity="8y7pE4xnXwhnAJNuyc3j2w==" AgentEnable="1" AgentName="MAM" AgentOID="1.3.6.1.4.1.5271.2.2.1.2.1.0" AgentPort="161" PollingIntervalSec="600" PollingRetries="3" PollingTimeoutSec="10" SetCommunity="pIuSg2Fv6v+p1y48Imakiw=="/>
+				</Object>
+			</Object>
+		</Object>
+		<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Data-store.gif" inventoryMask="N/A" objectClass="Layer" objectDescription="..." objectId="160" objectLabel="DataStore_Layer" objectName="DataStore_Layer" objectType="Logical">
+			<Object ObjectCardinality="Single" display="1" iconURL="/opt/OV/www/htdocs/ito_op/images/database.32.gif" inventoryMask="N/A" objectClass="Unit_Group" objectDescription="Unix Machine Group" objectId="161" objectLabel="DSU_Cluster" objectName="DSU_Group" objectType="Logical">
+				<Object ObjectCardinality="Multiple" display="1" iconURL="/opt/CMVT/ICC/xml/icons/DSU.gif" inventoryMask="dsu%" objectClass="Unit_Type" objectDescription="Data Server Unit" objectId="162" objectLabel="Unit:$UnitName" objectName="DSU_Unit" objectType="Physical">
+					<Application ApplicationLabel="Platform Configuration" ApplicationLevel="Farm" ApplicationName="DSU_Platform" ConnectionType="Data"/>
+					<Application ApplicationLevel="N/A" ApplicationName="ODS_CALLS" ConnectionType="Virtual" VirtualIp="1.1.1.1"/>
+				</Object>
+			</Object>
+		</Object>
+		<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Spark_color.gif" inventoryMask="N/A" objectClass="System" objectDescription="InSight4" objectId="100" objectLabel="InSight4" objectName="System" objectType="System">
+			<SystemRoot CIRNumber="" CustomerName="" ManualInactive="0" SystemDomain="comverse.com" SystemLabel="" SystemName="ActualSystemName2" SystemType="LocalSystem">
+         		</SystemRoot>
+		</Object>
+	</Object>
+</SCDB>

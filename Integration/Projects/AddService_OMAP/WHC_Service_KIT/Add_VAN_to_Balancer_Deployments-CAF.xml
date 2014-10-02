@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+	<Component Name="Add_VAN_to_Balancer_Deployments" Version="First-Draft" Platform="Linux">
+		<!--This CAF File is implementation of /Add_WHC_Service/Deployments/Add_VAN_to_Balancer.Add_VAN_to_Balancer-->
+		<Install>
+			<Execute ExecutionOrder="10">
+				<Command>/tmp/OctParamsManipulation.pl -Conf /tmp/OMUConf.txt -Unit OMU -IsBalancer `/tmp/AmIBalancer.pl`</Command>
+			</Execute>
+			<Copy ChmodFlags="+x" ExecutionOrder="5">
+				<Source>./scripts/AmIBalancer.pl</Source>
+				<Target>/tmp/AmIBalancer.pl</Target>
+			</Copy>
+			<Copy ChmodFlags="+x" ExecutionOrder="5">
+				<Source>./scripts/OctParamsManipulation.pl</Source>
+				<Target>/tmp/OctParamsManipulation.pl</Target>
+			</Copy>
+			<Copy ChmodFlags="" ExecutionOrder="5">
+				<Source>./config/OMUConf.txt</Source>
+				<Target>/tmp/OMUConf.txt</Target>
+			</Copy>
+		</Install>
+	</Component>
+</SWIM>

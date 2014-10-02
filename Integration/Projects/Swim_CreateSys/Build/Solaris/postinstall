@@ -1,0 +1,8 @@
+#!/bin/sh
+
+HOSTNAME=`hostname`
+HOSTIP=`nslookup $HOSTNAME | perl -n -e '/Address/i and /([\d\.]+)/ and print $1'`
+UNITFILE=/var/cti/data/swim/systems/SwimManger/UnitGroup.xml
+perl -pi -e 's/UnitName=".+?"/UnitName="$ARGV[1]"/;' -e 's/Ip=".+?"/Ip="$ARGV[0]"/' $UNITFILE $HOSTIP $HOSTNAME 2> /tmp/InstallPkg.log || cat /tmp/InstallPkg.log
+rm -f /tmp/InstallPkg.log
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="PROXY" Platform="Linux">
+    <Install>
+      <Component Name="MMG_ServiceKit_ProxyBalancerList">
+        <OnlyOn>
+          <UnitName>Balancer</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="MMG_ServiceKit_PROXY" ExecutionOrder="1150">
+<!--This Component has Product Name SK_System with ExecutionPhass 900-->
+<!--This Component has Product Name SK_SystemAndMTS with ExecutionPhass 900-->
+<!--This Component has Product Name SK_Proxy with ExecutionPhass 850-->
+<!--This Component has Product Name Fix_PSG00609812 with ExecutionPhass 260-->
+<!--This Component has Product Name Proxy_Farms with ExecutionPhass 650-->
+<!--This Component has Product Name Restart_Babysitter with ExecutionPhass 1150-->
+<!--This Component has Product Name IS4_SDC with ExecutionPhass 950-->
+      </Component>
+      <Component Name="VI_SiteBook_PROXY" ExecutionOrder="150">
+<!--This Component has Product Name SiteBook MetaData Files with ExecutionPhass 150-->
+<!--This Component has Product Name SiteBook User with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

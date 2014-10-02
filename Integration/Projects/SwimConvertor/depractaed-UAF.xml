@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="depractaed" Platform="Ignore">
+    <Install>
+      <Component Name="service-kit-vi_suite_WIS" ExecutionOrder="150">
+        <!--This Component has Product Name Maintanenc_Product with ExecutionPhass 150-->
+        <!--This Component has Product Name Maintanenc_Product with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

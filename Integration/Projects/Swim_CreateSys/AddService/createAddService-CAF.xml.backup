@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+  <Component Platform="Linux" Name="createAddService" Version="1.0.0.0" Type="Procedure">
+    <Parameters>
+      <Parameter Name="Service Type" Level="System" ExecutionGroup="Stam">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="MMG" Display="MMG Services"/>
+            <Item Value="VI" Display="VI Suite Services"/>
+            <Item Value="NDU-WHC" Display="Who Called"/>
+          </Enum>
+        </Restrictions>
+        <File Name="/tmp/Stam.txt" Format="KeyValue"/>
+        <ParameterPath>SysType</ParameterPath>
+      </Parameter>
+      <Parameter Name="PVVM System" Level="System" ExecutionGroup="Stam">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="IS4"/>
+            <Item Value="New Sys"/>
+            <Item Value="Klizma"/>
+          </Enum>
+        </Restrictions>
+        <File Format="KeyValue" Name="/tmp/Stam.txt"/>
+        <ParameterPath>PVVM</ParameterPath>
+      </Parameter>
+      <Parameter Name="SWIM SystemName" Level="System" ExecutionGroup="Stam">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="cc"/>
+          </Enum>
+        </Restrictions>
+        <File Name="/tmp/Stam.txt" Format="KeyValue"/>
+        <ParameterPath>SysName</ParameterPath>
+      </Parameter>
+    </Parameters>
+    <Install>
+      <Execute ExecutionOrder="1">
+        <Command>&gt; /tmp/Stam.txt</Command>
+      </Execute>
+      <Execute ExecutionOrder="20">
+        <Command>/var/cti/data/swim/kits/CreateSystem/BuildSwimSystem.pl -Conf /tmp/Stam.txt -Map /var/cti/data/swim/kits/CreateSystem/Octopu2Twim.csv -LogFile - /tmp/SwimLog_BuildSwimSys.log</Command>
+      </Execute>
+      <SetParams ExecutionOrder="10">
+        <ExecutionGroup>Stam</ExecutionGroup>
+      </SetParams>
+    </Install>
+    <Upgrade>
+      <Execute>
+        <Command>Update Params</Command>
+      </Execute>
+    </Upgrade>
+  </Component>
+</SWIM>

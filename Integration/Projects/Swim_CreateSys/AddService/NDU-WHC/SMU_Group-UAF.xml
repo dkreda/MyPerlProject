@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="SMU_Group" Platform="Linux">
+    <Install>
+      <Component Name="WHC_Service_SMU" ExecutionOrder="150">
+        <!--This Component has Product Name WHC_SCDB_Config with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

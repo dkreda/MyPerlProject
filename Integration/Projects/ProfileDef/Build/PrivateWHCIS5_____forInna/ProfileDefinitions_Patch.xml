@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ProfileDefinition LoadingPriority="10" Name="Patch" Version="0.0.0.0-0">
+		<Entities>
+			<Entity>
+				<Name>Subscriber</Name>
+				<DsvEntityName>SUB</DsvEntityName>
+				<KeyField>InternalSubscriberId</KeyField>
+				<SqlDefinition>
+					<Tables>
+						<Table>
+							<Name>SUBSCRIBERS</Name>
+							<Type>Main</Type>
+							<Key>SUBSCRIBER_ID</Key>
+						</Table>
+					</Tables>
+				</SqlDefinition>
+				<Fields>
+					<Field>
+						<Name>NFMOn</Name>
+						<DsvName>cnsNFMOn</DsvName>
+						<DbName>SUBSCRIBERS.NFM_On</DbName>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>General</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+									<DefaultValue>0</DefaultValue>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+						<DisplayName>NFM On</DisplayName>
+						<Description>Whether NFM is currently active (by the user)</Description>
+						<SubGroupName>Advanced Features</SubGroupName>
+						<DbData>
+							<DbType>Number</DbType>
+							<DbLength>1</DbLength>
+						</DbData>
+					</Field>
+					<Field>
+						<Name>NFMEnabled</Name>
+						<DsvName>cnsNFMEnabled</DsvName>
+						<DbName>SUBSCRIBERS.NFM_Enabled</DbName>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>General</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+									<DefaultValue>1</DefaultValue>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+						<DisplayName>NFM Enabled</DisplayName>
+						<Description>Determines whether Notify me feature is enabledn</Description>
+						<SubGroupName>Advanced Features</SubGroupName>
+						<DbData>
+							<DbType>Number</DbType>
+							<DbLength>1</DbLength>
+						</DbData>
+					</Field>
+					<!--  These Parameters should be move to ProfileDefinitions_WHC.xml -->
+					<Field>
+						<Name>NfmBWListEnabled</Name>
+						<Description>This parameter determines if B party is permitted to manage a personal list.</Description>
+						<DsvName>CnsNfmBWListEnabled</DsvName>
+						<DbName>SUBSCRIBERS.NFM_BW_LIST_ENABLED</DbName>
+						<DbData>
+							<DbType>Number</DbType>
+							<DbLength>1</DbLength>
+						</DbData>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<DisplayName>Notify Me Black White List Enabled</DisplayName>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+									<DefaultValue>0</DefaultValue>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+						<SubGroupName>NFM BW List</SubGroupName>
+					</Field>
+					<Field>
+						<Name>NfmBWListType</Name>
+						<Description>Defines the subscriber's black white list for Notify Me (Black -all accept provisioned subs will not receive NFM, White -only provisioned subs will receive NFM, None -no list (and no need to load such a list))</Description>
+						<DsvName>CnsNfmBWListType</DsvName>
+						<DbName>SUBSCRIBERS.NFM_BW_LIST_TYPE</DbName>
+						<DbData>
+							<DbType>Number</DbType>
+							<DbLength>1</DbLength>
+						</DbData>
+						<XsdValidation>
+							<Type>xs:integer</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+							<MinVal>0</MinVal>
+							<MaxVal>2</MaxVal>
+						</XsdValidation>
+						<DisplayName>Notify Me Black and white List typee</DisplayName>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+									<DefaultValue>0</DefaultValue>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+						<SubGroupName>NFM BW List</SubGroupName>
+					</Field>
+				</Fields>
+			</Entity>
+		</Entities>
+	</ProfileDefinition>
+</Provisioning>

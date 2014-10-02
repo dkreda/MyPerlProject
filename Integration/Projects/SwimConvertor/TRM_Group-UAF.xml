@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="TRM_Group" Platform="Linux">
+    <Install>
+      <Component Name="service-kit-vi_suite_TRM" ExecutionOrder="150">
+        <!--This Component has Product Name TRM_AL_FTM_Config with ExecutionPhass 150-->
+        <!--This Component has Product Name TRM_Tal_FTM_Config with ExecutionPhass 150-->
+        <!--This Component has Product Name TRM_AL_FTM_Config with ExecutionPhass 150-->
+        <!--This Component has Product Name TRM_Tal_FTM_Config with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

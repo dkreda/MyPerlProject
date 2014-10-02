@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Component Name="Reboot" Version="5.0.0.0-01" Platform="Linux" Type="Procedure">
+		<Install>
+			<Reboot/>
+		</Install>
+	</Component>
+</SWIM>

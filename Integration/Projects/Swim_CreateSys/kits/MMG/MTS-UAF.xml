@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="MTS" Platform="Linux">
+    <Install>
+<!--      <Component Name="MMG_CSP-Base_Customization_MTS-U" ExecutionOrder="152">  -->
+<!--This Component has Product Name CC_CSP-Base_Customization_2 with ExecutionPhass 152-->
+<!--This Component has Product Name CC_CSP-Base_Customization_1 with ExecutionPhass 150-->
+<!--      </Component>  -->
+      <Component Name="MMG_ServiceKit_MTS-U" ExecutionOrder="950">
+<!--This Component has Product Name SK_SystemAndMTS with ExecutionPhass 900-->
+<!--This Component has Product Name SK_MTS with ExecutionPhass 850-->
+<!--This Component has Product Name IS4_SDC with ExecutionPhass 950-->
+      </Component>
+<!--      <Component Name="VI_Audit" ExecutionOrder="4990"> -->
+<!--This Component has Product Name swp-CSPbase-Services with ExecutionPhass 4990-->
+<!--This Component has Product Name enable_disable_traceability with ExecutionPhass 170-->
+<!--      </Component>  -->
+<!--      <Component Name="Babysitter" ExecutionOrder="150">  -->
+<!--This Component has Product Name Babysitter with ExecutionPhass 150-->
+<!--      </Component>   -->
+      <Component Name="CCMAgent" ExecutionOrder="210">
+<!--This Component has Product Name CCM Agent  Installation with ExecutionPhass 210-->
+      </Component>
+<!--      <Component Name="CSPbase" ExecutionOrder="70">  -->
+<!--This Component has Product Name CSPbase_post with ExecutionPhass 70-->
+<!--This Component has Product Name CSPbase with ExecutionPhass 60-->
+<!--      </Component> -->
+<!--      <Component Name="Linux_Hkit" ExecutionOrder="150">  -->
+<!--This Component has Product Name SEC_AS5_HKIT with ExecutionPhass 150-->
+<!--      </Component> -->
+<!--      <Component Name="VI_j2sdk_MTS-U" ExecutionOrder="100">  -->
+<!--This Component has Product Name JRE_Gen_32bits with ExecutionPhass 100-->
+<!--      </Component>  -->
+      <Component Name="VI_SiteBook_MTS-U" ExecutionOrder="150">
+<!--This Component has Product Name SiteBook MetaData Files with ExecutionPhass 150-->
+<!--This Component has Product Name SiteBook User with ExecutionPhass 150-->
+      </Component>
+    </Install>
+    <Parameters/>
+  </UnitType>
+</SWIM>

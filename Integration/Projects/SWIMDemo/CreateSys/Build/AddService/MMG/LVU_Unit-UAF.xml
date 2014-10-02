@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="LVU_Unit" Platform="Linux">
+    <Install>
+      <Component Name="LogViewer_LVU" ExecutionOrder="190">
+        <!--This Component has Product Name LVU Server  Rebuild with ExecutionPhass 190-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

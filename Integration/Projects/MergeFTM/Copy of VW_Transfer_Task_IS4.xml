@@ -1,0 +1,393 @@
+<root>
+
+
+	<Transfer>
+				<!-- Transfer of MMSGW Activity Log Files to FTM -->
+				<Connection>
+						<HostOrGroupName>MMSGW.site1</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="GET">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H60M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/var/cti/al/mmsgw</RemotePath>
+								<Include>.+\.AL\..+[0-9]</Include>
+								<Source action="Delete"/>
+								<Destination action="Keep"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of MMSGW Statistics Files to FTM -->
+				<Connection>
+						<HostOrGroupName>MMSGW.site1</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="GET">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H60M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/var/cti/al/mmsgw</RemotePath>
+								<Include>.+\.stat\..+[0-9]$</Include>
+								<Source action="Delete"/>
+								<Destination action="Rename" suffix=".done"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of NDU-WHC Activity Logs Files to FTM -->
+				<Connection>
+						<HostOrGroupName>CC.NDU</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="GET">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H60M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/var/cti/al/whc</RemotePath>
+								<Include>.+_Activity_.+\.AL[0-9].+</Include>
+								<Source action="Delete"/>
+								<Destination action="Keep"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of NDU-WHC-NDS Statistics Files to FTM -->
+				<Connection>
+						<HostOrGroupName>CC.NDU</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="GET">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H60M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/var/cti/al/whcnds/</RemotePath>
+								<Include>.+\.stat\..+[0-9]$</Include>
+								<Source action="Delete"/>
+								<Destination action="Rename" suffix=".done"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of NDU-WHC-SMG Statistics Files to FTM -->
+				<Connection>
+						<HostOrGroupName>CC.NDU</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="GET">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H60M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/var/cti/al/whcsmg/</RemotePath>
+								<Include>.+\.stat\..+[0-9]$</Include>
+								<Source action="Delete"/>
+								<Destination action="Rename" suffix=".done"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of NDU-WHC-VAN Statistics Files to FTM -->
+				<Connection>
+						<HostOrGroupName>CC.NDU</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="GET">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H60M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/var/cti/al/whcvan/</RemotePath>
+								<Include>.+\.stat\..+[0-9]$</Include>
+								<Source action="Delete"/>
+								<Destination action="Rename" suffix=".done"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of MMSGW Activity Logs Files to DSU Repository -->
+				<Connection>
+						<HostOrGroupName>DsuSftp</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="PUT">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H15M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/data/act_logs1/AllDomains</RemotePath>
+								<Include>MMSGW.+\.AL\.+[0-9].+</Include>
+								<Source action="Delete"/>
+								<Destination action="Keep"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>Y</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="N"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of NDU-WHC Activity Logs Files to DSU Repository -->
+				<Connection>
+						<HostOrGroupName>DsuSftp</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="PUT">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H15M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/data/act_logs1/AllDomains</RemotePath>
+								<Include>.+_Activity_.+\.AL[0-9].+</Include>
+								<Source action="Delete"/>
+								<Destination action="Keep"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>Y</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="N"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of MMSGW|NDU-WHC Statistics Files to DSU Repository -->
+				<Connection>
+						<HostOrGroupName>DsuSftp</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="PUT">
+						<StartTime>2006-01-01T06:00:00</StartTime>
+						<RepeatInterval>PT0H15M</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/var/cti/db/ftm/</LocalPath>
+								<RemotePath>/data/stat1/AllDomains</RemotePath>
+								<Include>(MMSGW|WHCNDS|WHCSMG|WHCVAN).+\.stat\..+[0-9].done$</Include>
+								<Source action="Delete"/>
+								<Destination action="Keep"/>
+								<IfExist action="Skip"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H05M</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>3</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>10</MaxIntervals>
+								<Alarm enable="N"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	
+	
+</root>

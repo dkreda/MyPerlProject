@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="DSU_Group" Platform="Linux">
+    <Install>
+      <Component Name="AddService_01" ExecutionOrder="150">
+        <!--This Component has Product Name Service definition with ExecutionPhass 150-->
+        <MyVal>Doom</MyVal>
+      </Component>
+      <Component Name="ProfileDefinition_MMG" ExecutionOrder="Doom">
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

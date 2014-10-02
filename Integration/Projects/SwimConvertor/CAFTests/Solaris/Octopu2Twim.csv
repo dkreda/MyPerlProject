@@ -1,0 +1,17 @@
+Octopus Unit Type,GroupName at UnitGroup,Platform / Operation System
+CAS,CAS,Linux
+PROXY,PROXY,Linux
+DSU,DSU_Group,SunOS
+SMU,SMU_Group,SunOS
+MAU,unknoown,Ignore
+WIS,depractaed,Ignore
+All,MAMLinux,Linux
+ALL,AllLinux,Linux
+NDU,NDU-WHC_Group,Linux
+DSU_A,DSU_Group,SunOS
+DSU_B,DSU_Group,SunOS
+VM-ASU,Vm-Asu,Linux
+OMU,OMU,Linux
+MMSGW,MMSGW,Linux
+MTS-U,MTS,Linux
+CMS,CMS,Linux

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="service-kit-vi_suite_WIS" Version="4.8.1.0-03" Platform="Ignore">
+    <Install/>
+  </Component>
+</SWIM>

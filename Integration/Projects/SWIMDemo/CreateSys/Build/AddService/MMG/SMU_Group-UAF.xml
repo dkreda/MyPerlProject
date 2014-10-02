@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="SMU_Group" Platform="Linux">
+    <Install>
+      <Component Name="AddService_02" ExecutionOrder="250">
+        <!--This Component has Product Name PMC Configration with ExecutionPhass 250-->
+        <!--This Component has Product Name SCDB Update with ExecutionPhass 150-->
+      </Component>
+      <Component Name="CCM_01" ExecutionOrder="190">
+        <!--This Component has Product Name SiteBook Server Configuration with ExecutionPhass 190-->
+      </Component>
+      <Component Name="SiteBook_SMU_B_SMU_VIP">
+        <OnlyOn>
+          <UnitName>SMU_VIP</UnitName>
+        </OnlyOn>
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

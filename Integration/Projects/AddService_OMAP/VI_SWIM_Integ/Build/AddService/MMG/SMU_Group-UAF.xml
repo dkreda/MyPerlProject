@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="SMU_Group" Platform="Linux">
+    <Install>
+      <Component Name="AddUnits_ToSCDB" ExecutionOrder="200"/>
+      <Component Name="UpdateTopology" ExecutionOrder="250"/>
+    </Install>
+    <Parameters>
+      <Parameter Name="RunUnit" ComponentName="UpdateTopology" Display="false">
+        <Value>SMU</Value>
+      </Parameter>
+    </Parameters>
+  </UnitType>
+</SWIM>

@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<OSSP>
+	<Menu ServiceName="Voice" ProductName="Voice" DisplayOrder="2">
+		<Category Name="Administration" DisplayOrder="1">
+			<SubCategory Name="Administration">
+				<SSOLink Name="GSL Console" DisplayOrder="1">
+					<Description>Enables you to create and modify Global Subscriber Locator (GSL) tables in a distributed Voice network using the GSL GUI</Description>
+					<URL>https://maint-admin-vip:50446/gsl/Controller</URL>
+					<Privilege>GslLogin</Privilege>
+					<ApplicationName>WSA</ApplicationName>
+				</SSOLink>
+				<SSOLink Name="Prompt Manipulation Tool" DisplayOrder="2">
+					<Description>Enables you to upload, change, and delete prompts on a live Voice application file server, using the Prompt Manipulation Tool (PMT)</Description>
+					<URL>https://maint-admin-vip:50446/PMT/pages/ValidateToken.do</URL>
+					<Privilege>Prompt Manipulation Tool</Privilege>
+					<ApplicationName>PMT</ApplicationName>
+				</SSOLink>
+				<FormLink Name="Voice Services Installation" DisplayOrder="3">
+					<Description>Enables you to automatically distribute and install software and files to Voice system units using the Comverse Software Manager (CSM) GUI</Description>
+					<URL>https://maint-admin-vip:50446/csf/startup/logon.form</URL>
+					<Privilege>Software Installation</Privilege>
+					<HttpMethod>GET</HttpMethod>
+					<Parameters>
+						<UserNameParameter>
+							<Name>username</Name>
+							<Value>admin</Value>
+						</UserNameParameter>
+						<PasswordParameter>
+							<Name>password</Name>
+							<Value>QmYgcbTliJxr1bhnTs/3oHdsrzT6LVZzOJWqubmlArA=</Value>
+						</PasswordParameter>
+						<Parameter>
+							<Name>session.noise</Name>
+							<Value>3xIzUTarSWsPldVjGo4PZ2ow13T9wyUr</Value>
+						</Parameter>
+						<Parameter>
+							<Name>next</Name>
+							<Value>http://MarimbaSDM:8000/index.html</Value>
+						</Parameter>
+						<Parameter>
+							<Name>fail</Name>
+							<Value>/csf/startup/login-request.html</Value>
+						</Parameter>
+						<Parameter>
+							<Name>failedLogin</Name>
+							<Value>false</Value>
+						</Parameter>
+						<Parameter>
+							<Name>timeOut</Name>
+							<Value>false</Value>
+						</Parameter>
+					</Parameters>
+				</FormLink>
+				<FormLink Name="Inventory Management" DisplayOrder="4">
+					<Description>Enables you to generate system inventory reports detailing the hardware and software used in Voice units, using the Comverse Software Manager (CSM) GUI</Description>
+					<URL>https://maint-admin-vip:50446/shell/info/getting_started.jsp/j_security_check</URL>
+					<Privilege>Inventory Management</Privilege>
+					<HttpMethod>POST</HttpMethod>
+					<Parameters>
+						<UserNameParameter>
+							<Name>j_username</Name>
+							<Value>admin</Value>
+						</UserNameParameter>
+						<PasswordParameter>
+							<Name>j_password</Name>
+							<Value>GL/Gd3jkVecnKNnFnrQ/iQ==</Value>
+						</PasswordParameter>
+					</Parameters>
+				</FormLink>
+				<SSOLink Name="Portal" DisplayOrder="5">
+					<Description>Enables you to monitor and compare updates to units in a Comverse network using the SiteBook GUI</Description>
+					<URL>Error</URL>
+					<Privilege>OSSP_HUB_SiteBook</Privilege>
+					<ApplicationName>SiteBook</ApplicationName>
+				</SSOLink>
+			</SubCategory>
+		</Category>
+		<Category Name="Provisioning" DisplayOrder="2">
+			<SubCategory Name="Provisioning">
+				<SSOLink Name="Subscriber Provisioning Admin" DisplayOrder="1">
+					<Description>Enables you to provision services to Voice subscribers using the Web Service Administration (WSA) GUI</Description>
+					<URL>https://maint-admin-vip:50446/wsa/Controller</URL>
+					<Privilege>OSSP_HUB_WebProvisioning</Privilege>
+					<ApplicationName>WSA</ApplicationName>
+				</SSOLink>
+				<SSOLink Name="SPM Console" DisplayOrder="2">
+					<Description>Enables you to send Voice provisioning commands using the Service Provisioning Mediator (SPM) GUI</Description>
+					<URL>https://maint-admin-vip:50446/compas/management/</URL>
+					<Privilege>OSSP_HUB_SPMWebUI</Privilege>
+					<ApplicationName>compas</ApplicationName>
+				</SSOLink>
+			</SubCategory>
+		</Category>
+		<Category Name="Operation" DisplayOrder="3">
+			<SubCategory Name="Operation">
+				<FormLink Name="Voice Log Viewer" DisplayOrder="1">
+					<Description>Enables you to view Voice service activity logs</Description>
+					<URL>https://maint-admin-vip:50446/logeye/security/auth/loginAction.jsp</URL>
+					<Privilege>Log Viewer</Privilege>
+					<HttpMethod>POST</HttpMethod>
+					<Parameters>
+						<UserNameParameter>
+							<Name>username</Name>
+							<Value>lvu_srv_user</Value>
+						</UserNameParameter>
+						<PasswordParameter>
+							<Name>password</Name>
+							<Value>bXZP7p+oadilCo+kO0sa9w==</Value>
+						</PasswordParameter>
+						<Parameter>
+							<Name>successURL</Name>
+							<Value>root.html</Value>
+						</Parameter>
+					</Parameters>
+				</FormLink>
+				<SSOLink Name="Voice Services Performance Manager" DisplayOrder="2">
+					<Description>Enables you to interactively track the online performance status and statistics of different managed Voice service entities</Description>
+					<URL>https://maint-admin-vip:50446/pm/</URL>
+					<Privilege>OSSP_HUB_PM</Privilege>
+					<ApplicationName>PM</ApplicationName>
+				</SSOLink>
+				<!--FormLink Name="Reports" DisplayOrder="3">
+					<Description>Enables you to generate and view the Voice services system reports using the Business Objects Reports GUI</Description>
+					<URL>https://maint-admin-vip:50446/businessobjects/enterprise115/autologin.jsp</URL>
+					<Privilege>OSSP_HUB_BO</Privilege>
+					<HttpMethod>POST</HttpMethod>
+					<Parameters>
+						<UserNameParameter>
+							<Name>user</Name>
+							<Value>repuser</Value>
+						</UserNameParameter>
+						<PasswordParameter>
+							<Name>password</Name>
+							<Value>upXWn03Qjgull57vXUvPBQ==</Value>
+						</PasswordParameter>
+					</Parameters>
+			</FormLink-->
+				<SimpleLink Name="Light Reports" DisplayOrder="4">
+					<Description>Enables you to open the Light Reports file location</Description>
+					<URL>https://maint-admin-vip:50446/LightRep/</URL>
+					<Privilege>Business Objects</Privilege>
+				</SimpleLink>
+			</SubCategory>
+		</Category>
+		<Category Name="Maintenance" DisplayOrder="4">
+			<SubCategory Name="Maintenance" DisplayOrder="1">
+				<RDPLink Name="MIPS Management GUI" DisplayOrder="1">
+					<Description>Enables you to view and modify Multimedia IP Store (MIPS) configuration settings using the MIPS Management Center GUI</Description>
+					<Privilege>MTA EMS</Privilege>
+					<ApplicationName>mips.cmd</ApplicationName>
+				</RDPLink>
+				<SSOLink Name="CCS Management UI - Unit A" DisplayOrder="2">
+					<Description>Enables you to view and modify CCS configuration and perform CCS maintenance operations on Unit A, using the CCS WEB UI</Description>
+					<URL>https://maint-admin-vip:50446/ccs1a/LOGIN</URL>
+					<Privilege>OSSP_SignalingConfMaint</Privilege>
+					<ApplicationName>CCS</ApplicationName>
+				</SSOLink>
+				<SSOLink Name="CCS Management UI - Unit B" DisplayOrder="3">
+					<Description>Enables you to view and modify CCS configuration and perform CCS maintenance operations on Unit B, using the CCS WEB UI</Description>
+					<URL>https://maint-admin-vip:50446/ccs1b/LOGIN</URL>
+					<Privilege>OSSP_SignalingConfMaint</Privilege>
+					<ApplicationName>CCS</ApplicationName>
+				</SSOLink>
+				<!-- <RDPLink Name="OnGuard GUI Console" DisplayOrder="4">
+					<Description>Enables you to access the OnGuard GUI Management Console</Description>
+					<Privilege>Oracle EMS OnGuard</Privilege>
+					<ApplicationName>OnGuard.cmd</ApplicationName>
+				</RDPLink>  -->
+			</SubCategory>
+		</Category>
+	</Menu>
+</OSSP>

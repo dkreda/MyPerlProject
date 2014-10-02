@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM>
+	<Component Name="MMG_LogViewer_LVU" Version="5.0.0.0_02" Platform="Linux">
+		<Install>
+			<Execute ExecutionOrder="19021">
+				<Command>cp -p /usr/cti/conf/lgw/scdb_Al_Builder.conf /usr/cti/conf/lgw/scdb_Al_Builder.conf.beforeMMGAddService </Command>
+			</Execute>
+			<Execute ExecutionOrder="19022">
+				<Command>sh -c "if [ ! -f /usr/cti/conf/lgw/Template_WHC-MMG.xml ] ; then cp -p /usr/cti/conf/lgw/Template_WHC.xml /usr/cti/conf/lgw/Template_WHC-MMG.xml; fi"</Command>
+			</Execute>
+			<Execute ExecutionOrder="19023">
+				<Command> (grep "NDU-WHC-MMG" /usr/cti/conf/lgw/Template_WHC-MMG.xml; Result=$?; if [ $Result -ne 0 ]; then sed -i 's/NDU-WHC/NDU-WHC-MMG/g' /usr/cti/conf/lgw/Template_WHC-MMG.xml; fi) </Command>
+			</Execute>
+			<Execute ExecutionOrder="19024">
+				<Command>(grep "NDU-WHC-MMG_Unit" /usr/cti/conf/lgw/scdb_Al_Builder.conf; Result=$?; if [ $Result -ne 0 ]; then  echo "NDU-WHC-MMG_Unit|NDU-WHC-MMG|ndu|Template_WHC-MMG.xml" &gt;&gt; /usr/cti/conf/lgw/scdb_Al_Builder.conf; fi) </Command>
+			</Execute>
+		</Install>
+	</Component>
+</SWIM>

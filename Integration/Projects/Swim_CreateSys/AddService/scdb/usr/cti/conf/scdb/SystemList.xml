@@ -1,0 +1,11 @@
+<SystemList>
+   <Identification>
+      <ComponentName>scdb</ComponentName>
+      <FileFormatVersion>1.0</FileFormatVersion>
+      <ComponentRelease>6.1.1.0</ComponentRelease>
+      <ComponentBuild>02</ComponentBuild>
+   </Identification>
+   <SystemRoot CIRNumber='' CustomerName='' ManualInactive='0' SystemDomain='is433.com' SystemLabel='QA9' SystemName='QA9' SystemType='LocalSystem'>
+      <Product InstallDate='' ProductName='Voice' ProductRelease='4.3.7.0'/>
+   </SystemRoot>
+</SystemList>

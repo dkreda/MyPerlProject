@@ -1,0 +1,522 @@
+**************************************************************************
+* Start HttpTest.pl                                                      *
+* at The current date is: Mon 04/08/2013 
+Enter the new date: (mm-dd-yy)  *
+**************************************************************************
+HttpTest.pl Input Parameters:
+	-LogFile              = -,Stam.txt
+	-Url                  = https://cns-ap.comverse.com:44301/OA_HTML/US/ICXINDEX.htm
+Info - Retreives https://cns-ap.comverse.com:44301/OA_HTML/US/ICXINDEX.htm ...
+
+-
+<!-- $Header: ICXINDEX.htm 115.12 2001/09/05 20:56:19 pkm ship      $ -->
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<HTML DIR="LTR"> 
+<head>
+   <meta http-equiv="Content-Type" content="text/html">
+   <meta http-equiv="Pragma" content="no-cache">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (WinNT; U) [Netscape]">
+   <title>Oracle Applications Login</title>
+<!-- 	$Header: ICXINDEX.htm 115.11 2001/09/05 20:56:19 pkm ship      $		-->
+<script LANGUAGE="JavaScript">
+
+function logon_submit()
+        {
+        if (document.Logon1.i_1.value== ""){
+                alert("Please Enter User Name");
+                document.Logon1.i_1.focus();
+        }
+        else if (document.Logon2.i_2.value== ""){
+                alert("Please Enter the Password");
+                document.Logon2.i_2.focus();
+        }else{
+                document.Logon0.i_1.value = document.Logon1.i_1.value;
+                document.Logon0.i_2.value = document.Logon2.i_2.value;
+                document.Logon0.home_url.value = location.href;
+                document.Logon0.submit();
+        }
+        };
+
+URL = window.location.href;
+if (URL.indexOf('http:')> -1) { 
+//document.write('http');
+newURL=URL.substr(URL.indexOf('http:')+7,URL.length)
+newURL='https://'+newURL.substr(0,newURL.indexOf(':')+1)+'443'+newURL.substr(newURL.indexOf('/')-2,newURL.length)
+window.location=newURL;
+}
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+
+<TABLE  height=99%>
+
+<TR>
+
+<TD>
+
+<TABLE  BORDER=1>
+
+<TR>
+
+<TD>
+
+<table>
+
+  <tr>
+
+  <td>
+
+  &nbsp;<p>&nbsp;&nbsp; <b>
+	<span style="font-size:16.0pt;font-family:Verdana;color:#3399CC">
+        Welcome to Oracle Applications </span>
+	<span style="font-size:12.0pt;font-family:Verdana;color:#3399CC">(11.5.10)&nbsp;&nbsp;&nbsp; </span></b>
+	</p>
+	<p align="center"><b>
+
+<FORM NAME="Logon0" ACTION="/pls/prod11i/oraclemypage.home" METHOD="POST" TARGET="_top"> 
+
+<INPUT TYPE="hidden" NAME="i_1" VALUE="">
+<INPUT TYPE="hidden" NAME="i_2" VALUE="">
+<INPUT TYPE="hidden" NAME="rmode" VALUE="2">
+<!-- home_url set in logon_submit() -->
+<INPUT TYPE="hidden" NAME="home_url" VALUE="">
+<INPUT TYPE="hidden" NAME="i_direct" VALUE="">
+<script>
+URL = window.location.href;
+//document.write(URL);
+if (URL.indexOf('https:')> -1) { 
+//document.write('https');
+Instance="prod11i";
+newURL=URL.substr(URL.indexOf('https:')+8,URL.length)
+newURL='http://'+newURL.substr(0,newURL.indexOf(':')+1)+'80'+newURL.substr(newURL.indexOf('/')-2,3)+"pls/"+Instance+"/oraclemypage.home";
+document.Logon0.i_direct.value=newURL;
+}
+document.write('<span style="font-size:10.0pt;font-family:Verdana;color:#3399CC">You are about to login to ' +
+ Instance.substr(0,Instance.indexOf('11i')).toUpperCase() +
+ Instance.substr(Instance.indexOf('11i')).toLowerCase() + ":");
+</script>
+
+<p>&nbsp;</p>
+
+</FORM>
+ 
+  </td>
+
+  <tr>
+
+  <td height="83">
+
+  <div align="center">
+
+  <table>
+
+    <tr>
+
+    <td width="30">
+
+    &nbsp;</td>
+
+    <td align=right>
+
+    <div align="center">
+
+    <table>
+
+      <tr>
+ 
+      <td align=right>User Name</td>
+
+<FORM NAME=Logon1 ACTION="javascript:document.Logon2.i_2.focus();" METHOD="POST">
+<TD><INPUT TYPE="text" NAME="i_1" VALUE="" SIZE="30" MAXLENGTH="100"></TD>
+</FORM>
+
+      </tr>
+
+      <tr>
+
+      <td ALIGN=RIGHT>
+		<p align="left">Password</td>
+
+<FORM NAME=Logon2 ACTION="javascript:logon_submit();" METHOD="POST">
+<TD><INPUT TYPE="password" NAME="i_2" VALUE="" SIZE="30" MAXLENGTH="30"></TD>
+</FORM>
+
+      </tr>
+
+      <tr>
+
+      <TD> &nbsp </TD>
+
+      <TD>
+<TABLE border=0 cellpadding=0 cellspacing=0 align=center>
+<TR><TD height=22 rowspan=3><A href="javascript:logon_submit()" onMouseOver="window.status='Connect';return true"><IMG src="/OA_MEDIA/FNDJLFRL.gif" alt="" height=22 width=15 border=0></A></TD>
+<TD height=1 bgcolor=#FFFFFF><IMG src="/OA_MEDIA/FNDINVDT.gif" alt="" height=1 width=1></TD>
+<TD height=22 rowspan=3><A href="javascript:logon_submit()" onMouseOver="window.status='Connect';return true"><IMG src="/OA_MEDIA/FNDJLFRR.gif" alt="" height=22 width=15 border=0></A></TD></TR>
+<TD height=20 align=center valign=center bgcolor=#cccccc nowrap><A href="javascript:logon_submit()" style="text-decoration:none" onMouseOver="window.status='Connect';return true"><FONT size=2 face="Arial,Helvetica,Geneva"  color=000000>Connect</FONT></A></TD></TR>
+<TR><TD height=1 bgcolor=000000><IMG src="/OA_MEDIA/FNDINVDT.gif" alt="" width=1 height=1></TD></TR>
+</TABLE>
+      </TD>
+
+      </tr>
+
+      </table>
+
+    </div>
+
+    </td>
+     <td> &nbsp;</td>
+
+    </tr>
+
+    </table>
+
+    </div>
+
+    </td>
+
+    </tr>
+
+<TR><TD align=right valign="bottom">
+
+  <img SRC="/COMVERSE_LOGO.gif" alt="Welcome to Oracle Applications" align="left"><p>
+<!--  <A HREF="/OA_CGI/cpass" target="_top">Change password</A> -->
+  </TD></TR>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</center>
+
+<SCRIPT LANGUAGE="JavaScript">document.Logon1.i_1.focus();</SCRIPT>
+
+</body>
+
+</html>
+--
+Script:
+<script LANGUAGE="JavaScript">
+
+function logon_submit()
+        {
+        if (document.Logon1.i_1.value== ""){
+                alert("Please Enter User Name");
+                document.Logon1.i_1.focus();
+        }
+        else if (document.Logon2.i_2.value== ""){
+                alert("Please Enter the Password");
+                document.Logon2.i_2.focus();
+        }else{
+                document.Logon0.i_1.value = document.Logon1.i_1.value;
+                document.Logon0.i_2.value = document.Logon2.i_2.value;
+                document.Logon0.home_url.value = location.href;
+                document.Logon0.submit();
+        }
+        };
+
+URL = window.location.href;
+if (URL.indexOf('http:')> -1) { 
+//document.write('http');
+newURL=URL.substr(URL.indexOf('http:')+7,URL.length)
+newURL='https://'+newURL.substr(0,newURL.indexOf(':')+1)+'443'+newURL.substr(newURL.indexOf('/')-2,newURL.length)
+window.location=newURL;
+}
+</script>
+	>===<
+Script:
+<script>
+URL = window.location.href;
+//document.write(URL);
+if (URL.indexOf('https:')> -1) { 
+//document.write('https');
+Instance="prod11i";
+newURL=URL.substr(URL.indexOf('https:')+8,URL.length)
+newURL='http://'+newURL.substr(0,newURL.indexOf(':')+1)+'80'+newURL.substr(newURL.indexOf('/')-2,3)+"pls/"+Instance+"/oraclemypage.home";
+document.Logon0.i_direct.value=newURL;
+}
+document.write('<span style="font-size:10.0pt;font-family:Verdana;color:#3399CC">You are about to login to ' +
+ Instance.substr(0,Instance.indexOf('11i')).toUpperCase() +
+ Instance.substr(Instance.indexOf('11i')).toLowerCase() + ":");
+</script>
+	>===<
+Script:
+<SCRIPT LANGUAGE="JavaScript">document.Logon1.i_1.focus();</SCRIPT>
+	>===<
+--==--
+===========================================================
+Finish Successfully :-)
+**************************************************************************
+* Start HttpTest.pl                                                      *
+* at The current date is: Mon 04/08/2013 
+Enter the new date: (mm-dd-yy)  *
+**************************************************************************
+HttpTest.pl Input Parameters:
+	-LogFile              = -,Stam.txt
+	-Url                  = https://cns-ap.comverse.com:44301/OA_HTML/US/ICXINDEX.htm
+Info - Retreives https://cns-ap.comverse.com:44301/OA_HTML/US/ICXINDEX.htm ...
+
+-
+<!-- $Header: ICXINDEX.htm 115.12 2001/09/05 20:56:19 pkm ship      $ -->
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<HTML DIR="LTR"> 
+<head>
+   <meta http-equiv="Content-Type" content="text/html">
+   <meta http-equiv="Pragma" content="no-cache">
+   <meta name="GENERATOR" content="Mozilla/4.51 [en] (WinNT; U) [Netscape]">
+   <title>Oracle Applications Login</title>
+<!-- 	$Header: ICXINDEX.htm 115.11 2001/09/05 20:56:19 pkm ship      $		-->
+<script LANGUAGE="JavaScript">
+
+function logon_submit()
+        {
+        if (document.Logon1.i_1.value== ""){
+                alert("Please Enter User Name");
+                document.Logon1.i_1.focus();
+        }
+        else if (document.Logon2.i_2.value== ""){
+                alert("Please Enter the Password");
+                document.Logon2.i_2.focus();
+        }else{
+                document.Logon0.i_1.value = document.Logon1.i_1.value;
+                document.Logon0.i_2.value = document.Logon2.i_2.value;
+                document.Logon0.home_url.value = location.href;
+                document.Logon0.submit();
+        }
+        };
+
+URL = window.location.href;
+if (URL.indexOf('http:')> -1) { 
+//document.write('http');
+newURL=URL.substr(URL.indexOf('http:')+7,URL.length)
+newURL='https://'+newURL.substr(0,newURL.indexOf(':')+1)+'443'+newURL.substr(newURL.indexOf('/')-2,newURL.length)
+window.location=newURL;
+}
+</script>
+
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+
+<TABLE  height=99%>
+
+<TR>
+
+<TD>
+
+<TABLE  BORDER=1>
+
+<TR>
+
+<TD>
+
+<table>
+
+  <tr>
+
+  <td>
+
+  &nbsp;<p>&nbsp;&nbsp; <b>
+	<span style="font-size:16.0pt;font-family:Verdana;color:#3399CC">
+        Welcome to Oracle Applications </span>
+	<span style="font-size:12.0pt;font-family:Verdana;color:#3399CC">(11.5.10)&nbsp;&nbsp;&nbsp; </span></b>
+	</p>
+	<p align="center"><b>
+
+<FORM NAME="Logon0" ACTION="/pls/prod11i/oraclemypage.home" METHOD="POST" TARGET="_top"> 
+
+<INPUT TYPE="hidden" NAME="i_1" VALUE="">
+<INPUT TYPE="hidden" NAME="i_2" VALUE="">
+<INPUT TYPE="hidden" NAME="rmode" VALUE="2">
+<!-- home_url set in logon_submit() -->
+<INPUT TYPE="hidden" NAME="home_url" VALUE="">
+<INPUT TYPE="hidden" NAME="i_direct" VALUE="">
+<script>
+URL = window.location.href;
+//document.write(URL);
+if (URL.indexOf('https:')> -1) { 
+//document.write('https');
+Instance="prod11i";
+newURL=URL.substr(URL.indexOf('https:')+8,URL.length)
+newURL='http://'+newURL.substr(0,newURL.indexOf(':')+1)+'80'+newURL.substr(newURL.indexOf('/')-2,3)+"pls/"+Instance+"/oraclemypage.home";
+document.Logon0.i_direct.value=newURL;
+}
+document.write('<span style="font-size:10.0pt;font-family:Verdana;color:#3399CC">You are about to login to ' +
+ Instance.substr(0,Instance.indexOf('11i')).toUpperCase() +
+ Instance.substr(Instance.indexOf('11i')).toLowerCase() + ":");
+</script>
+
+<p>&nbsp;</p>
+
+</FORM>
+ 
+  </td>
+
+  <tr>
+
+  <td height="83">
+
+  <div align="center">
+
+  <table>
+
+    <tr>
+
+    <td width="30">
+
+    &nbsp;</td>
+
+    <td align=right>
+
+    <div align="center">
+
+    <table>
+
+      <tr>
+ 
+      <td align=right>User Name</td>
+
+<FORM NAME=Logon1 ACTION="javascript:document.Logon2.i_2.focus();" METHOD="POST">
+<TD><INPUT TYPE="text" NAME="i_1" VALUE="" SIZE="30" MAXLENGTH="100"></TD>
+</FORM>
+
+      </tr>
+
+      <tr>
+
+      <td ALIGN=RIGHT>
+		<p align="left">Password</td>
+
+<FORM NAME=Logon2 ACTION="javascript:logon_submit();" METHOD="POST">
+<TD><INPUT TYPE="password" NAME="i_2" VALUE="" SIZE="30" MAXLENGTH="30"></TD>
+</FORM>
+
+      </tr>
+
+      <tr>
+
+      <TD> &nbsp </TD>
+
+      <TD>
+<TABLE border=0 cellpadding=0 cellspacing=0 align=center>
+<TR><TD height=22 rowspan=3><A href="javascript:logon_submit()" onMouseOver="window.status='Connect';return true"><IMG src="/OA_MEDIA/FNDJLFRL.gif" alt="" height=22 width=15 border=0></A></TD>
+<TD height=1 bgcolor=#FFFFFF><IMG src="/OA_MEDIA/FNDINVDT.gif" alt="" height=1 width=1></TD>
+<TD height=22 rowspan=3><A href="javascript:logon_submit()" onMouseOver="window.status='Connect';return true"><IMG src="/OA_MEDIA/FNDJLFRR.gif" alt="" height=22 width=15 border=0></A></TD></TR>
+<TD height=20 align=center valign=center bgcolor=#cccccc nowrap><A href="javascript:logon_submit()" style="text-decoration:none" onMouseOver="window.status='Connect';return true"><FONT size=2 face="Arial,Helvetica,Geneva"  color=000000>Connect</FONT></A></TD></TR>
+<TR><TD height=1 bgcolor=000000><IMG src="/OA_MEDIA/FNDINVDT.gif" alt="" width=1 height=1></TD></TR>
+</TABLE>
+      </TD>
+
+      </tr>
+
+      </table>
+
+    </div>
+
+    </td>
+     <td> &nbsp;</td>
+
+    </tr>
+
+    </table>
+
+    </div>
+
+    </td>
+
+    </tr>
+
+<TR><TD align=right valign="bottom">
+
+  <img SRC="/COMVERSE_LOGO.gif" alt="Welcome to Oracle Applications" align="left"><p>
+<!--  <A HREF="/OA_CGI/cpass" target="_top">Change password</A> -->
+  </TD></TR>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</center>
+
+<SCRIPT LANGUAGE="JavaScript">document.Logon1.i_1.focus();</SCRIPT>
+
+</body>
+
+</html>
+--
+Script:
+<script LANGUAGE="JavaScript">
+
+function logon_submit()
+        {
+        if (document.Logon1.i_1.value== ""){
+                alert("Please Enter User Name");
+                document.Logon1.i_1.focus();
+        }
+        else if (document.Logon2.i_2.value== ""){
+                alert("Please Enter the Password");
+                document.Logon2.i_2.focus();
+        }else{
+                document.Logon0.i_1.value = document.Logon1.i_1.value;
+                document.Logon0.i_2.value = document.Logon2.i_2.value;
+                document.Logon0.home_url.value = location.href;
+                document.Logon0.submit();
+        }
+        };
+
+URL = window.location.href;
+if (URL.indexOf('http:')> -1) { 
+//document.write('http');
+newURL=URL.substr(URL.indexOf('http:')+7,URL.length)
+newURL='https://'+newURL.substr(0,newURL.indexOf(':')+1)+'443'+newURL.substr(newURL.indexOf('/')-2,newURL.length)
+window.location=newURL;
+}
+</script>
+	>===<
+Script:
+<script>
+URL = window.location.href;
+//document.write(URL);
+if (URL.indexOf('https:')> -1) { 
+//document.write('https');
+Instance="prod11i";
+newURL=URL.substr(URL.indexOf('https:')+8,URL.length)
+newURL='http://'+newURL.substr(0,newURL.indexOf(':')+1)+'80'+newURL.substr(newURL.indexOf('/')-2,3)+"pls/"+Instance+"/oraclemypage.home";
+document.Logon0.i_direct.value=newURL;
+}
+document.write('<span style="font-size:10.0pt;font-family:Verdana;color:#3399CC">You are about to login to ' +
+ Instance.substr(0,Instance.indexOf('11i')).toUpperCase() +
+ Instance.substr(Instance.indexOf('11i')).toLowerCase() + ":");
+</script>
+	>===<
+Script:
+<SCRIPT LANGUAGE="JavaScript">document.Logon1.i_1.focus();</SCRIPT>
+	>===<
+--==--
+===========================================================
+Finish Successfully :-)

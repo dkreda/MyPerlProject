@@ -1,0 +1,14 @@
+<OSSP>
+	<Menu ServiceName="Voice">
+		<Category Name="Provisioning">
+			<SubCategory Name="Provisioning">
+				<SSOLink Name="WCC" DisplayOrder="3">
+					<Description>Web Customer Care (WCC) service enables authorized Administrator to do subscriber manipulations</Description>
+					<URL>https://WCC.SITE1:8443/webvi/loginAction.do?appName=wcc&amp;platform=Insight4</URL>
+					<Privilege>OSSP_VI_WIC</Privilege>
+					<ApplicationName>WCC</ApplicationName>
+				</SSOLink>
+			</SubCategory>
+		</Category>
+	</Menu>
+</OSSP>

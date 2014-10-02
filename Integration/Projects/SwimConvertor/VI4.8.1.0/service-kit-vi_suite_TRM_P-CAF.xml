@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="service-kit-vi_suite_TRM_P" Version="4.8.1.0-03" Platform="Linux">
+    <Install>
+      <Copy ExecutionOrder="15001">
+        <Source>./configuration/New_Tal_Task.xml</Source>
+        <Target>/var/tmp/New_Tal_Task.xml</Target>
+      </Copy>
+      <Copy ExecutionOrder="15001">
+        <Source>./configuration/New_AL_Task.xml</Source>
+        <Target>/var/tmp/New_AL_Task.xml</Target>
+      </Copy>
+      <Copy ExecutionOrder="15001">
+        <Source>./configuration/cas_unit.xml</Source>
+        <Target>/var/tmp/cas_unit.xml</Target>
+      </Copy>
+      <Execute ExecutionOrder="15022">
+        <Command>/var/tmp/TAL_ftm_tasks_unit.pl </Command>
+      </Execute>
+      <Copy ExecutionOrder="15002" ChmodFlags="+x">
+        <Source>./scripts/TAL_ftm_tasks_unit.pl</Source>
+        <Target>/var/tmp/TAL_ftm_tasks_unit.pl</Target>
+      </Copy>
+      <Execute ExecutionOrder="15022">
+        <Command>/var/tmp/update_ftm_for_TAL.pl </Command>
+      </Execute>
+      <Copy ExecutionOrder="15002" ChmodFlags="+x">
+        <Source>./scripts/update_ftm_for_TAL.pl</Source>
+        <Target>/var/tmp/update_ftm_for_TAL.pl</Target>
+      </Copy>
+      <Execute ExecutionOrder="15022">
+        <Command>/var/tmp/update_ftm_for_AL.pl </Command>
+      </Execute>
+      <Copy ExecutionOrder="15002" ChmodFlags="+x">
+        <Source>./scripts/update_ftm_for_AL.pl</Source>
+        <Target>/var/tmp/update_ftm_for_AL.pl</Target>
+      </Copy>
+      <Execute ExecutionOrder="15022">
+        <Command>/var/tmp/cas_ftm_tasks_unit.pl </Command>
+      </Execute>
+      <Copy ExecutionOrder="15002" ChmodFlags="+x">
+        <Source>./scripts/cas_ftm_tasks_unit.pl</Source>
+        <Target>/var/tmp/cas_ftm_tasks_unit.pl</Target>
+      </Copy>
+      <SetParams ExecutionOrder="15012">
+        <ExecutionGroup>TRM_AL_FTM_Config</ExecutionGroup>
+        <ExecutionGroup>TRM_Tal_FTM_Config</ExecutionGroup>
+      </SetParams>
+    </Install>
+    <Parameters>
+      <Parameter Name="::units-CAS-ip" ExecutionGroup="TRM_AL_FTM_Config" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/etc/hosts" Format="KeyValue" ParameterPath="cas{::units-CAS-index}"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="::units-CAS-ip" ExecutionGroup="TRM_Tal_FTM_Config" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Files>
+          <File Name="/etc/hosts" Format="KeyValue" ParameterPath="cas{::units-CAS-index}"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="::units-CAS-index" Level="System" ExecutionGroup="TRM_Tal_FTM_Config">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+    </Parameters>
+  </Component>
+</SWIM>

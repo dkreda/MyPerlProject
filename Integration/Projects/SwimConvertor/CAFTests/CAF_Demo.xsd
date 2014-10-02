@@ -1,0 +1,725 @@
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="SWIM">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Component">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="Install" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Defines installation instructions for the component.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:choice maxOccurs="unbounded">
+										<xs:element ref="Copy" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="Execute" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="MergeXML" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="Reboot" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="SetParams" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="CopyFromManager" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="CopyToManager" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="DumpOperationInfo" minOccurs="0"/>
+										<xs:element ref="UpdateInventory" minOccurs="0"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Uninstall" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Defines uninstallation instructions for the component.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:choice maxOccurs="unbounded">
+										<xs:element ref="Copy" minOccurs="0"/>
+										<xs:element ref="Execute" minOccurs="0"/>
+										<xs:element ref="MergeXML" minOccurs="0"/>
+										<xs:element ref="Reboot" minOccurs="0"/>
+										<xs:element ref="SetParams" minOccurs="0"/>
+										<xs:element ref="CopyToManager" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="CopyFromManager" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="DumpOperationInfo" minOccurs="0"/>
+										<xs:element ref="UpdateInventory" minOccurs="0"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Upgrade" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Defines upgrade instructions for the component.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:choice maxOccurs="unbounded">
+										<xs:element ref="Copy" minOccurs="0"/>
+										<xs:element ref="Execute" minOccurs="0"/>
+										<xs:element ref="MergeXML" minOccurs="0"/>
+										<xs:element ref="Reboot" minOccurs="0"/>
+										<xs:element ref="SetParams" minOccurs="0"/>
+										<xs:element ref="CopyToManager" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="CopyFromManager" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="DumpOperationInfo" minOccurs="0"/>
+										<xs:element ref="UpdateInventory" minOccurs="0"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Rollback" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Defines rollback (downgrade) instructions for the component.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:choice maxOccurs="unbounded">
+										<xs:element ref="Copy" minOccurs="0"/>
+										<xs:element ref="Execute" minOccurs="0"/>
+										<xs:element ref="MergeXML" minOccurs="0"/>
+										<xs:element ref="Reboot" minOccurs="0"/>
+										<xs:element ref="SetParams" minOccurs="0"/>
+										<xs:element ref="CopyToManager" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="CopyFromManager" minOccurs="0" maxOccurs="unbounded"/>
+										<xs:element ref="DumpOperationInfo" minOccurs="0"/>
+										<xs:element ref="UpdateInventory" minOccurs="0" maxOccurs="unbounded"/>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Parameters" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="Parameter" maxOccurs="unbounded">
+											<xs:annotation>
+												<xs:documentation>Definition of a parameter. Shall be repeated for each parameter.</xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Groups" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Parameters dynamic groups definition</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="Group" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:all>
+						<xs:attribute name="UpgradeSupportedVersion">
+							<xs:annotation>
+								<xs:documentation>A Regular Expression that determines all versions that this release can be upgarded from.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="Name" use="required">
+							<xs:annotation>
+								<xs:documentation>Formal name of the component. The name defined here is the name that will be used in other unit/system assembly files to refer to this component. The component name must be the same as the file prefix.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:pattern value="(\S.*\S)|(\S*)"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="Version" type="xs:string" use="required">
+							<xs:annotation>
+								<xs:documentation>Version of the component. This version is used to compare with the inventory version.</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="Platform" use="required">
+							<xs:annotation>
+								<xs:documentation>The platform this component will be installed on.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Linux"/>
+									<xs:enumeration value="SunOS"/>
+									<xs:enumeration value="AIX"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="SequentialExecution" type="xs:boolean" default="false">
+							<xs:annotation>
+								<xs:documentation>Determines whether this component should be installed sequentially on each machine or may be installed in parallel on different machines. If the attribute is set to true, thsi component will be installed only once in each machine during the operation (no parallel installation of this component will be applied).</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Copy">
+		<xs:annotation>
+			
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Source" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Full file name and path</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Target" type="xs:string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Full file name and path.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:all>
+			<xs:attribute name="ChmodFlags" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>what permission to set the file after the copy.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="Overwrite" type="xs:boolean" default="true">
+				<xs:annotation>
+					<xs:documentation>to overwrite or not.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Execute">
+		<xs:annotation>
+			<xs:documentation>Execute a command.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element name="Command">
+					<xs:annotation>
+						<xs:documentation>Any valid command or script</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ExpectedExitCode" type="xs:integer" default="0" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>The exit code that signal a success. Any other code is considered as failure.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UpdateInventory">
+		<xs:annotation>
+			<xs:documentation>SwimAgent will update the inventory</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="ComponentName">
+					<xs:annotation>
+						<xs:documentation>Component name to update in inventory. </xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="ComponentVersion" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Component version to update in inventory. </xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Operation">
+					<xs:annotation>
+						<xs:documentation>Operation (Install/Upgrade/Rollback/Uninstall) that was performed to the component.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+							<xs:enumeration value="Install"/>
+							<xs:enumeration value="Upgrade"/>
+							<xs:enumeration value="Rollback"/>
+							<xs:enumeration value="Uninstall"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DumpOperationInfo">
+		<xs:annotation>
+			<xs:documentation>SWIM will generate a dump of all parameters and values...</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Target">
+					<xs:annotation>
+						<xs:documentation>File name and absolute path on the remote units’ storage define where the dump file should be saved on the target unit.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+			<xs:attribute name="ChmodFlags" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Specify what permission to set to the file after the copy is completed. Value can be any legal chmod syntax, i.e. "a -rwx", "ug=rx", "+r,-x,ug+w", "o664", "755", "-R u+rwX,g-rwx,o-rwx",  etc.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Parameter">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Description" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Description of the parameter. Used for help on the GUI.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Files" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Define multiple files</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="File" maxOccurs="unbounded">
+								<xs:annotation>
+									<xs:documentation>The full file path. If the file element is missing, the parameter will be considered as a virtual parameter.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:attribute name="Name" use="required">
+										<xs:annotation>
+											<xs:documentation>Path and name of the file where the parameter is located.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:minLength value="1"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="Format" use="required">
+										<xs:annotation>
+											<xs:documentation>Specify the type of the parameter's file.</xs:documentation>
+										</xs:annotation>
+										<xs:simpleType>
+											<xs:restriction base="xs:string">
+												<xs:enumeration value="XML"/>
+												<xs:enumeration value="INI"/>
+												<xs:enumeration value="Properties"/>
+												<xs:enumeration value="Text"/>
+												<xs:enumeration value="KeyValue"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:attribute>
+									<xs:attribute name="ParameterPath" use="required">
+										<xs:annotation>
+											<xs:documentation>Path to the parameter. Relevant to real parameters only. Depend on the file format.
+1. For "XML" - XPath. 
+2. For "Properties" - parameter name.
+3. For "INI" - GroupName.ParameterName.
+4. For "Text" - The string in the text file that will be replaced.</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Value" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>default value to assigned to the parameter</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:attribute name="Name" use="required">
+							<xs:annotation>
+								<xs:documentation>Path and name of the file where the parameter is located.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="Format" use="required">
+							<xs:annotation>
+								<xs:documentation>Specify the type of the parameter's file.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="XML"/>
+									<xs:enumeration value="INI"/>
+									<xs:enumeration value="Properties"/>
+									<xs:enumeration value="Text"/>
+									<xs:enumeration value="KeyValue"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="ParameterPath">
+							<xs:annotation>
+								<xs:documentation>Path to the parameter. Relevant to real parameters only. Depend on the file format.
+1. For "XML" - XPath. 
+2. For "Properties" - parameter name.
+3. For "INI" - GroupName.ParameterName.
+4. For "Text" - The string in the text file that will be replaced.</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				
+				<xs:element name="Restrictions">
+					<xs:annotation>
+						<xs:documentation>Define the validation rules and the format of the parameter's value.
+If not specified, the “Value” tag assumed to be “String”
+</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="Type">
+								<xs:annotation>
+									<xs:documentation>Type of the parameter.</xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="1"/>
+										<xs:enumeration value="Number"/>
+										<xs:enumeration value="String"/>
+										<xs:enumeration value="Password"/>
+										<xs:enumeration value="Enum"/>
+										<xs:enumeration value="Boolean"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="MinVal" type="xs:integer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Relevant only if Type = “Number”.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MaxVal" type="xs:integer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Relevant only if Type = “Number”.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MinLength" type="xs:integer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Valid only if Type = “String”.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="MaxLength" type="xs:integer" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Valid only if Type = “String”.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Pattern" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Any valid regular expression. </xs:documentation>
+								</xs:annotation>
+								<xs:simpleType>
+									<xs:restriction base="xs:string">
+										<xs:minLength value="1"/>
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="Enum" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Valid only if Type = “Enum”. Define the list of names and the corresponding values for these names.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Item" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="Display" type="xs:string">
+													<xs:annotation>
+														<xs:documentation>The name which will be displayed in the WUI</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="Value" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Mandatory" type="xs:boolean" default="false" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Determines whether the parameter value is mandatory or not.</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
+			<xs:attribute name="Name" use="required">
+				<xs:annotation>
+					<xs:documentation>The parameter's name.This name will be also displayed in the WUI</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ExecutionGroup">
+				<xs:annotation>
+					<xs:documentation>In case there is a need to set multiple parameters  in one step,</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Level" use="required">
+				<xs:annotation>
+					<xs:documentation>Parameter level. Relevant to real parameters only (not virtual).</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="System"/>
+						<xs:enumeration value="UnitType"/>
+						<xs:enumeration value="Unit"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Display" type="xs:boolean" default="true">
+				<xs:annotation>
+					<xs:documentation>Determine if the parameter will be displayable on the GUI.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="Overwrite" type="xs:boolean" default="false">
+				<xs:annotation>
+					<xs:documentation>Relevant to real parameters only. Specify whether to overwrite</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="DisplayName">
+				<xs:annotation>
+					<xs:documentation>displayed in the GUI (used if a different name than the original)</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="GroupName">
+				<xs:annotation>
+					<xs:documentation>The name of the dymanic group which this parameter assigned to.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MergeXML">
+		<xs:annotation>
+			<xs:documentation>Merge xml sub tree to xml file at a specific location within the file.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Source">
+					<xs:annotation>
+						<xs:documentation>The sub tree source file. Full file name and path, absolute or relative to the component home folder.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Target">
+					<xs:annotation>
+						<xs:documentation>The file to merge into. File name and absolute path on the remote units’ storage where the xml located.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Xpath">
+					<xs:annotation>
+						<xs:documentation>XPath expression to point to the location with in the target file that the merge will be performed.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="IfExists" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Instruct SWIM what to do if the xml sub tree already exist in the target file.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="Append"/>
+							<xs:enumeration value="Ignore"/>
+							<xs:enumeration value="Overwrite"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:all>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SetParams">
+		<xs:annotation>
+			<xs:documentation>Set a group of parameters or a single parameter.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="ExecutionGroup" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Instruct the SetParam what parameter group to set. See the “ExecutionGroup” attribute in the parameter definition. Either ExecutionGroup or Parameter element must be defined.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Parameter" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Instruct the SetParam what parameter to set. See the “Name” attribute in the parameter definition. If specified, only a single parameter is set by this task.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:choice>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Reboot">
+		<xs:complexType>
+			<xs:sequence minOccurs="0">
+				<xs:element name="Command">
+					<xs:annotation>
+						<xs:documentation>Any valid command or script. May include parameters enclose by “{}”, replaced by parameter value by SWIM at run time. Script name or image, shall be specified with an absolute path on target units.</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+			<xs:attribute name="PauseAfter" type="xs:positiveInteger">
+				<xs:annotation>
+					<xs:documentation>Time in seconds to wait after reboot finish successfully and before executing the next task.</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Group">
+		<xs:annotation>
+			<xs:documentation>Dynamic parameters groups</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute name="Name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="DefaultInstances" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="DisplayName">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="MinOccur" default="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="MaxOccur">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="999"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="OperationalAttributesGroup">
+		<xs:attribute name="ExecutionOrder" use="optional">
+			<xs:annotation>
+				
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:minInclusive value="1"/>
+					<xs:maxInclusive value="2147483647"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="Timeout" use="optional">
+			<xs:annotation>
+				<xs:documentation>Time to wait in seconds for the task to finish.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:positiveInteger">
+					<xs:maxInclusive value="2147483647"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="UponError" use="optional" default="Stop">
+			<xs:annotation>
+				<xs:documentation>what to do when the command can’t be executed successfully.</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Stop"/>
+					<xs:enumeration value="Continue"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="CopyToManager">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Source" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>Full file name and path, absolute or relative to the component home folder. May include parameters enclose by “{” and “}”, replaced by parameter value by SWIM at run time. “*” Wild card is supported. Note: this element is mandatory and defined SWIM which files shall be distributed to the manager storage folder.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:all>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CopyFromManager">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Source" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>File name and path relative to the manager storage folder. May include parameters enclose by “{” and “}”, replaced by parameter value by SWIM at run time. Note: this element is mandatory and defines SWIM which file shall be distributed to the target unit.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="Target" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>The directory (full path) where to place the file.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:all>
+			<xs:attributeGroup ref="OperationalAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="MMG_AddService_DSU" Version="5.0.0.0_02" Platform="Linux">
+    <Install>
+		<Execute ExecutionOrder="15080">
+			<Command>/opt/criticalpath/global/bin/mgr -p 4201 -w {MIPS Password} -s MIPS1 set IDextension 1 </Command>
+		</Execute>
+		<SetParams ExecutionOrder="15012">
+			<ExecutionGroup>Service definition</ExecutionGroup>
+		</SetParams>
+    </Install>
+    <Parameters>
+		<Parameter Name="MIPS Password" ExecutionGroup="Service definition" Level="System">
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+		</Parameter>
+    </Parameters>
+  </Component>
+</SWIM>

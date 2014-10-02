@@ -1,0 +1,95 @@
+#!/bin/bash
+#
+# Init script for babysitter 
+# chkconfig: 345 90 20
+# description: Babysitter daemon
+#
+# processname: Babysitter
+
+RETVAL=0
+WHOAMI=`whoami`
+
+Type=`uname`
+OSType=`echo $Type | tr '[a-z]' '[A-Z]'`
+if [ "$OSType" = "LINUX" ]; then
+    BASH_ENV="/usr/cti/apps/babysitter/.bashrc"
+    echo export $BASH_ENV >> /dev/null
+fi
+
+start() {
+	#echo $"Starting babysitter"
+	source /etc/profile
+	#shellVar=`which bash`
+        if [ $WHOAMI = "root" ]; then
+         #   LinuxVersion=`rpm -qa | grep -i redhat-release | grep -i release-3`
+          #  if [ $? -eq 0 ]; then
+           #      su bsuser --shell=$shellVar -c "/usr/cti/apps/babysitter/Babysitter"
+           # else
+           #      su  bsuser --shell=$shellVar --session-command "/usr/cti/apps/babysitter/Babysitter"
+            #fi
+            /usr/cti/apps/babysitter/Babysitter
+            RETVAL=$?
+            return $RETVAL
+        elif [ $WHOAMI = "bsuser" ]; then
+            /usr/cti/apps/babysitter/Babysitter
+            RETVAL=$?
+            return $RETVAL
+	    else
+           echo "Babysitter can only be run by bsuser/root user!!!"	
+        fi
+}
+
+stop() {
+	#echo $"Stopping babysitter"
+	/usr/cti/apps/babysitter/MamCMD -shutdown
+	RETVAL=$?
+	return $RETVAL
+}
+
+restart() {
+	if [ $WHOAMI = "root" ]; then
+        	ps -ef | grep -i babysitter.jar | grep -v grep | awk '{print $2}'| xargs kill -9 2>/dev/null
+        	ps -ef | grep -i babwatch.jar | grep -v grep | awk '{print $2}'| xargs kill -9 2>/dev/null
+        elif [ $WHOAMI = "bsuser" ]; then
+            sudo ps -ef | grep -i babysitter.jar | grep -v grep | awk '{print $2}'| xargs kill -9 2>/dev/null
+            sudo ps -ef | grep -i babwatch.jar | grep -v grep | awk '{print $2}'| xargs kill -9 2>/dev/null
+        fi
+        sleep 5 
+        start
+}
+
+reload() {
+        restart
+}
+
+status_at() {
+        /usr/cti/apps/babysitter/MamCMD -d
+        RETVAL=$?
+	return $RETVAL
+}
+
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  restart)
+        restart
+        ;;
+  reload)
+        reload
+        ;; 
+  status)
+          status_at
+        ;;  
+  *)
+   echo $"Usage: (start|stop|restart|reload|status)"
+
+   exit 1
+
+esac
+
+exit $?

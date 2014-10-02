@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="NDU-WHC_Group" Platform="Linux">
+    <Install>
+      <Component Name="Balancer_NDU" ExecutionOrder="154">
+        <!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+        <!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+        <!--This Component has Product Name UnitGroup with ExecutionPhass 154-->
+      </Component>
+      <Component Name="Balancer_FirstMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_FirstDMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondDMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="MMG_Customization_NDU" ExecutionOrder="3150">
+        <!--This Component has Product Name test_ndu with ExecutionPhass 3150-->
+        <!--This Component has Product Name Customization_NDU with ExecutionPhass 650-->
+        <!--This Component has Product Name Customization_SYS with ExecutionPhass 700-->
+        <!--This Component has Product Name Restart_Babysitter with ExecutionPhass 1150-->
+        <!--This Component has Product Name CSP_BASE_4.3.0.0-11_WAFix with ExecutionPhass 150-->
+      </Component>
+      <Component Name="MMG_ServiceKit_NDU" ExecutionOrder="1150">
+        <!--This Component has Product Name SK_System with ExecutionPhass 900-->
+        <!--This Component has Product Name SK_NDU with ExecutionPhass 850-->
+        <!--This Component has Product Name SK_SystemAndMTS with ExecutionPhass 900-->
+        <!--This Component has Product Name Restart_Babysitter with ExecutionPhass 1150-->
+        <!--This Component has Product Name IS4_SDC with ExecutionPhass 950-->
+      </Component>
+      <Component Name="MMG_ServiceKit_ProxyBalancerList">
+        <OnlyOn>
+          <UnitName>{ProxyBalancerList}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="PVVM_Config_NDU" ExecutionOrder="650">
+        <!--This Component has Product Name PVVM_Conf with ExecutionPhass 650-->
+        <!--This Component has Product Name PVVM_Conf_NDU with ExecutionPhass 650-->
+      </Component>
+      <Component Name="VI_SiteBook_NDU" ExecutionOrder="150">
+        <!--This Component has Product Name SiteBook MetaData Files with ExecutionPhass 150-->
+        <!--This Component has Product Name SiteBook User with ExecutionPhass 150-->
+      </Component>
+    </Install>
+    <Uninstall>
+      <Component Name="Balancer_NDU"/>
+    </Uninstall>
+  </UnitType>
+</SWIM>

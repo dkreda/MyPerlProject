@@ -1,0 +1,7 @@
+[SAF]
+Black & White list,Black White list
+Call Screening Enabled,Call Screening
+Install Type
+SWIM UnitGroup Location,NDU System Name
+Smart Call Enabled,Smart Call,SMC USSD Enabled
+[UAF]

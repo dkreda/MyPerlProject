@@ -1,0 +1,384 @@
+<UnitGroup>
+   <Identification>
+      <ComponentName>scdb</ComponentName>
+      <FileFormatVersion>1.0</FileFormatVersion>
+      <ComponentRelease>6.1.1.0</ComponentRelease>
+      <ComponentBuild>05</ComponentBuild>
+   </Identification>
+   <Physical GroupName='CMS_HMP_Group'>
+      <UnitInstance DataIp='10.106.92.238' Hostname='cms-sip2.devlinux.comverse.com' MngIp='10.106.92.238' Mngname='cms-sip2.devlinux.comverse.com' UnitName='cms-sip2'>
+         <Connection Hostname='cms-sip2.devlinux.comverse.com' IP='10.106.92.238' Type='Data'/>
+      </UnitInstance>
+      <UnitInstance DataIp='10.106.92.27' Hostname='cms-sip27.devlinux.comverse.com' MngIp='10.106.92.27' Mngname='cms-sip27.devlinux.comverse.com' UnitName='cms-sip27'>
+         <Connection Hostname='cms-sip27.devlinux.comverse.com' IP='10.106.92.27' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='VM_ASU_Group'>
+      <UnitInstance DataIp='10.106.92.20' Hostname='vm-asu1.devlinux.comverse.com' MngIp='10.106.92.20' Mngname='vm-asu1.devlinux.comverse.com' UnitName='vm-asu1'>
+         <Connection Hostname='vm-asu1.devlinux.comverse.com' IP='10.106.92.20' Type='Data'/>
+      </UnitInstance>
+      <UnitInstance DataIp='10.106.92.25' Hostname='vm-asu2.devlinux.comverse.com' MngIp='10.106.92.25' Mngname='vm-asu2.devlinux.comverse.com' UnitName='vm-asu2'>
+         <Connection Hostname='vm-asu2.devlinux.comverse.com' IP='10.106.92.25' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='TAG_AU_Group'>
+      <UnitInstance DataIp='10.106.67.105' Hostname='tag-au1.devlinux.comverse.com' MngIp='10.106.69.105' Mngname='admin_tag-au1.devlinux.comverse.com' UnitName='tag-au1'>
+         <Connection Hostname='admin_tag-au1.devlinux.comverse.com' IP='10.106.69.105' Type='Admin'/>
+         <Connection Hostname='tag-au1.devlinux.comverse.com' IP='10.106.67.105' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='ADRM_Group'>
+      <UnitInstance DataIp='10.106.67.107' Hostname='adrm107.devlinux.comverse.com' MngIp='10.106.67.107' Mngname='adrm107.devlinux.comverse.com' UnitName='adrm107'>
+         <Connection Hostname='adrm107.devlinux.comverse.com' IP='10.106.67.107' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='MXA_Group'>
+      <UnitInstance DataIp='10.106.67.106' Hostname='mxa106.devlinux.comverse.com' MngIp='10.106.67.106' Mngname='mxa106.devlinux.comverse.com' UnitName='mxa106'>
+         <Connection Hostname='mxa106.devlinux.comverse.com' IP='10.106.67.106' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='NetApp_Group'>
+      <UnitInstance DataIp='172.17.13.30' Hostname='csu1a_db.devlinux.comverse.com' MngIp='172.17.13.30' Mngname='csu1a_db.devlinux.comverse.com' UnitName='csu1a'>
+         <Connection Hostname='csu1a_db.devlinux.comverse.com' IP='172.17.13.30' Type='Data'/>
+         <Connection Hostname='csu1a.devlinux.comverse.com' IP='10.106.134.211' Type='SZ'/>
+      </UnitInstance>
+      <UnitInstance DataIp='172.17.13.31' Hostname='csu1b_db.devlinux.comverse.com' MngIp='172.17.13.31' Mngname='csu1b_db.devlinux.comverse.com' UnitName='csu1b'>
+         <Connection Hostname='csu1b_db.devlinux.comverse.com' IP='172.17.13.31' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='DSU_Group'>
+      <UnitInstance DataIp='10.106.134.209' Hostname='dsu1.devlinux.comverse.com' MngIp='192.168.134.209' Mngname='admin_dsu1.devlinux.comverse.com' UnitName='dsu1'>
+         <Connection Hostname='admin_dsu1.devlinux.comverse.com' IP='192.168.134.209' Type='Admin'/>
+         <Connection Hostname='dsu1.devlinux.comverse.com' IP='10.106.134.209' Type='Data'/>
+         <Connection Hostname='dsu1.devlinux.comverse.com' IP='10.106.134.235' Type='RAC_Con'/>
+      </UnitInstance>
+      <UnitInstance DataIp='10.106.134.210' Hostname='dsu2.devlinux.comverse.com' MngIp='192.168.134.210' Mngname='admin_dsu2.devlinux.comverse.com' UnitName='dsu2'>
+         <Connection Hostname='admin_dsu2.devlinux.comverse.com' IP='192.168.134.210' Type='Admin'/>
+         <Connection Hostname='dsu2.devlinux.comverse.com' IP='10.106.134.210' Type='Data'/>
+         <Connection Hostname='dsu2.devlinux.comverse.com' IP='10.106.134.236' Type='RAC_Con'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='SMU_Group'>
+      <UnitInstance DataIp='10.106.134.208' Hostname='smu1a.devlinux.comverse.com' MngIp='10.106.134.208' Mngname='smu1a.devlinux.comverse.com' UnitName='smu1a'>
+         <Connection Hostname='smu1a.devlinux.comverse.com' IP='10.106.134.208' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='MAU_Group'>
+      <UnitInstance DataIp='10.106.134.249' Hostname='mau1.devlinux.comverse.com' MngIp='10.106.134.249' Mngname='mau1.devlinux.comverse.com' UnitName='mau1'>
+         <Connection Hostname='mau1.devlinux.comverse.com' IP='10.106.134.249' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='OMU_Group'>
+      <UnitInstance DataIp='10.106.92.19' Hostname='omu-au1.devlinux.comverse.com' MngIp='10.106.92.19' Mngname='omu-au1.devlinux.comverse.com' UnitName='omu-au1'>
+         <Connection Hostname='omu-au1.devlinux.comverse.com' IP='10.106.92.19' Type='Data'/>
+      </UnitInstance>
+      <UnitInstance DataIp='10.106.92.26' Hostname='omu-au2.devlinux.comverse.com' MngIp='10.106.92.26' Mngname='omu-au2.devlinux.comverse.com' UnitName='omu-au2'>
+         <Connection Hostname='omu-au2.devlinux.comverse.com' IP='10.106.92.26' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='LVU_Group'>
+      <UnitInstance DataIp='10.106.92.208' Hostname='lvu1.devlinux.comverse.com' MngIp='10.106.92.208' Mngname='lvu1.devlinux.comverse.com' UnitName='lvu1'>
+         <Connection Hostname='lvu1.devlinux.comverse.com' IP='10.106.92.208' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Logical>
+      <Application ApplicationLabel='Process Control' ApplicationName='MAM.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+         <UnitInstance AppIP='10.106.92.208' Appname='lvu1' DataIp='10.106.92.208' Hostname='lvu1' MngIp='10.106.92.208' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+      <Application ApplicationLabel='Auditd' ApplicationName='Auditd.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+         <UnitInstance AppIP='10.106.134.209' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.210' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+         <UnitInstance AppIP='10.106.134.208' Appname='smu1a' DataIp='10.106.134.208' Hostname='smu1a' MngIp='10.106.134.208' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+         <UnitInstance AppIP='10.106.92.208' Appname='lvu1' DataIp='10.106.92.208' Hostname='lvu1' MngIp='10.106.92.208' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='CMS-HMP_Platform.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+      </Application>
+      <Application ApplicationLabel='Media Server' ApplicationName='CMS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+      </Application>
+      <Application ApplicationLabel='SCA' ApplicationName='SCA.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='CMSTG1.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+      </Application>
+      <Application ApplicationLabel='Media Access Adaptor' ApplicationName='MAA.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+      </Application>
+      <Application ApplicationLabel='NMS line card' ApplicationName='NMS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+      </Application>
+      <Application ApplicationLabel='Pegasus line card' ApplicationName='Pegasus.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+      </Application>
+      <Application ApplicationLabel='CCM Agent' ApplicationName='ccm-agent.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.238' Appname='cms-sip2' DataIp='10.106.92.238' Hostname='cms-sip2' MngIp='10.106.92.238' Mngname='cms-sip2' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip2'/>
+         <UnitInstance AppIP='10.106.92.27' Appname='cms-sip27' DataIp='10.106.92.27' Hostname='cms-sip27' MngIp='10.106.92.27' Mngname='cms-sip27' ParentGroup='CMS_HMP_Unit' Precedence='Primary' UnitName='cms-sip27'/>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+         <UnitInstance AppIP='10.106.134.209' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.210' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+         <UnitInstance AppIP='10.106.134.208' Appname='smu1a' DataIp='10.106.134.208' Hostname='smu1a' MngIp='10.106.134.208' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+         <UnitInstance AppIP='10.106.92.208' Appname='lvu1' DataIp='10.106.92.208' Hostname='lvu1' MngIp='10.106.92.208' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+      <Application ApplicationLabel='Rules and Restrictions' ApplicationName='RMR.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Message Relay' ApplicationName='MR.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='MTA' ApplicationName='MTA.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+      </Application>
+      <Application ApplicationLabel='MTS' ApplicationName='MTS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='VM-ASU_Platform.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Jmx Mediator' ApplicationName='VM-ASU_JMXM.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='IVE-APP VoiceXML VoiceMail' ApplicationName='VxV.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Notification Server' ApplicationName='NDS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='SMS Gateway' ApplicationName='SMG.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='HLR Service' ApplicationName='HLRS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.20' Appname='vm-asu1' DataIp='10.106.92.20' Hostname='vm-asu1' MngIp='10.106.92.20' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.106.92.25' Appname='vm-asu2' DataIp='10.106.92.25' Hostname='vm-asu2' MngIp='10.106.92.25' Mngname='vm-asu2' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='TAG-AU_Platform.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+      </Application>
+      <Application ApplicationLabel='TAG' ApplicationName='TAG.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+      </Application>
+      <Application ApplicationLabel='TAG-MXA' ApplicationName='TAG-MXA.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+      </Application>
+      <Application ApplicationLabel='TAG-SRL' ApplicationName='TAG-SRL.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+      </Application>
+      <Application ApplicationLabel='TAG-CentralProv' ApplicationName='TAG-CentralProv.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+      </Application>
+      <Application ApplicationLabel='TAG-MO' ApplicationName='TAG-MO.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+      </Application>
+      <Application ApplicationLabel='SRL Gateway' ApplicationName='SRLGateway.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.105' Appname='tag-au1' DataIp='10.106.67.105' Hostname='tag-au1' MngIp='10.106.69.105' Mngname='admin_tag-au1' ParentGroup='TAG_AU_Unit' Precedence='Primary' UnitName='tag-au1'/>
+      </Application>
+      <Application ApplicationLabel='Address Resolution' ApplicationName='ADRM.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.107' Appname='adrm107' DataIp='10.106.67.107' Hostname='adrm107' MngIp='10.106.67.107' Mngname='adrm107' ParentGroup='ADRM_Unit' Precedence='Primary' UnitName='adrm107'/>
+      </Application>
+      <Application ApplicationLabel='Messaging Exchange Application' ApplicationName='MXA.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.67.106' Appname='mxa106' DataIp='10.106.67.106' Hostname='mxa106' MngIp='10.106.67.106' Mngname='mxa106' ParentGroup='MXA_Unit' Precedence='Primary' UnitName='mxa106'/>
+      </Application>
+      <Application ApplicationLabel='OnTAP' ApplicationName='OnTAP.devlinux.comverse.com'>
+         <UnitInstance AppIP='172.17.13.30' Appname='csu1a_db' DataIp='172.17.13.30' Hostname='csu1a_db' MngIp='172.17.13.30' Mngname='csu1a_db' ParentGroup='NetApp_Unit' Precedence='Primary' UnitName='csu1a'/>
+         <UnitInstance AppIP='172.17.13.31' Appname='csu1b_db' DataIp='172.17.13.31' Hostname='csu1b_db' MngIp='172.17.13.31' Mngname='csu1b_db' ParentGroup='NetApp_Unit' Precedence='Primary' UnitName='csu1b'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='DSU_Platform.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.209' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.210' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='DDS' ApplicationName='DDS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.209' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.210' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='Oracle' ApplicationName='ODS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.235' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.236' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='AASDB.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.235' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.236' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='Profile1' ApplicationName='PROFILE1.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.235' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.236' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='GSL.MASTER' ApplicationName='GSL.MASTER'>
+         <UnitInstance AppIP='10.106.134.235' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.236' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='GSL.SECONDARY' ApplicationName='GSL.SECONDARY'>
+         <UnitInstance AppIP='10.106.134.235' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.236' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='ProfileCounter' ApplicationName='ProfileCounter.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.235' Appname='dsu1' DataIp='10.106.134.209' Hostname='dsu1' MngIp='192.168.134.209' Mngname='admin_dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.106.134.236' Appname='dsu2' DataIp='10.106.134.210' Hostname='dsu2' MngIp='192.168.134.210' Mngname='admin_dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='SMU_Platform.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.208' Appname='smu1a' DataIp='10.106.134.208' Hostname='smu1a' MngIp='10.106.134.208' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='PM' ApplicationName='PM.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.208' Appname='smu1a' DataIp='10.106.134.208' Hostname='smu1a' MngIp='10.106.134.208' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='NTPSERVER1.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.208' Appname='smu1a' DataIp='10.106.134.208' Hostname='smu1a' MngIp='10.106.134.208' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='NTPSERVER2.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.208' Appname='smu1a' DataIp='10.106.134.208' Hostname='smu1a' MngIp='10.106.134.208' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='MAU_Platform.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.134.249' Appname='mau1' DataIp='10.106.134.249' Hostname='mau1' MngIp='10.106.134.249' Mngname='mau1' ParentGroup='mau' Precedence='Primary' UnitName='mau1'/>
+      </Application>
+      <Application ApplicationLabel='Provisioning Mediator' ApplicationName='SPM.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Web Service Administration' ApplicationName='WSA.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Linux Virtual Server' ApplicationName='LVS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='OMU_Platform.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='File Transfer Mediator' ApplicationName='FTM.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='Transaction Charging Mediator' ApplicationName='TCM.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='TCM Adapter' ApplicationName='TCMAdapter.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='TCMMANAGER.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='TCMSERVER.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='AAS' ApplicationName='AAS.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='PMT' ApplicationName='PMT.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Load Balancer' ApplicationName='Balancer-IC.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.106.92.26' Appname='omu-au2' DataIp='10.106.92.26' Hostname='omu-au2' MngIp='10.106.92.26' Mngname='omu-au2' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au2'/>
+      </Application>
+      <Application ApplicationLabel='CCM' ApplicationName='CCM.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.19' Appname='omu-au1' DataIp='10.106.92.19' Hostname='omu-au1' MngIp='10.106.92.19' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='LVU_Platform.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.208' Appname='lvu1' DataIp='10.106.92.208' Hostname='lvu1' MngIp='10.106.92.208' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+      <Application ApplicationLabel='Log Viewer' ApplicationName='LGW.devlinux.comverse.com'>
+         <UnitInstance AppIP='10.106.92.208' Appname='lvu1' DataIp='10.106.92.208' Hostname='lvu1' MngIp='10.106.92.208' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+   </Logical>
+   <Virtual>
+      <Vapplication ApplicationLabel='MIPS1' ApplicationName='MIPS1.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.234'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SMGDB' ApplicationName='SMGDB.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.141'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='DSUSFTP' ApplicationName='DSUSFTP.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.239'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='DSUHTTP1' ApplicationName='DSUHTTP1.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.232'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Notification Scheduling' ApplicationName='SRH.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.242'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SPMAgent' ApplicationName='SPMAgent.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.241'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Data Consistency' ApplicationName='data_const.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.10.10.10'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='ProfileLocator' ApplicationName='ProfileLocator.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.238'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='OSS-Portal' ApplicationName='OSS-Portal.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SNMP Status UI' ApplicationName='SUI.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='System Configuration' ApplicationName='SCDB.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Comverse SNMP Agent' ApplicationName='CMA.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='ICC' ApplicationName='Core_SPI.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='SNMPMANAGER.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='MARIMBASDM.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SiteBook' ApplicationName='SiteBook.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='MARIMBATX' ApplicationName='MARIMBATX.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='SYSLOGSERVER.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='admin_vip_smu' ApplicationName='admin_vip_smu.devlinux.comverse.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+   </Virtual>
+</UnitGroup>

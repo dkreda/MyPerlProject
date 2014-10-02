@@ -1,0 +1,18 @@
+[SAF]
+..Insight Platform
+ESU_IP
+ESU_PASSWORD
+IS4 Balancers list,IS4 Balancer List
+IS4 Network Domain
+IS4_Email_Domain
+Main Domain,Main_Domain
+Manager_Password,ManagerPass
+Network Domain
+SMSC IP
+SMU A Physical IP
+SMU B Physical IP
+SMU Physical IP List
+SMU VIP,SMU_VIP
+Subscriber Locator Method,Subs Location Method
+TRM ID,TRM_ID,TrmServerId
+[UAF]

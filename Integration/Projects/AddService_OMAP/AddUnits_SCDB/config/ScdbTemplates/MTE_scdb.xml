@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by gavraha (Comvers) -->
+<SCDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Identification>
+		<ComponentName>scdb</ComponentName>
+		<FileFormatVersion>2.0</FileFormatVersion>
+		<ComponentRelease>5.5.0.0</ComponentRelease>
+		<ComponentBuild>05</ComponentBuild>
+	</Identification>
+	<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Spark_color.gif" inventoryMask="N/A" objectClass="System" objectDescription="InSight4" objectId="1" objectLabel="InSight4" objectName="System" objectType="System">
+		<SystemRoot CIRNumber="" CustomerName="" ManualInactive="0" SystemDomain="msg.in.telstra.com.au" SystemLabel="" SystemName="vms2" SystemType="LocalSystem">
+			<Product InstallDate="" ProductName="Voice" ProductRelease="4.3.7.0"/>
+		</SystemRoot>
+		<Application ApplicationLabel="System Parameters" ApplicationName="Common" />
+		<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Voice-Access.gif" inventoryMask="N/A" objectClass="Layer" objectDescription="IP_Access_Layer" objectId="120" objectLabel="IP_Access" objectName="IP_Access_Layer" objectType="Logical">
+			<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/4th.gif" inventoryMask="N/A" objectClass="Unit_Group" objectDescription="Proxy N+1 Group" objectId="121" objectLabel="Proxy_AU_Group" objectName="Proxy_AU_Group" objectType="Logical">
+				<Object ObjectCardinality="Multiple" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Linux.gif" inventoryMask="proxy-au%" objectClass="Unit_Type" objectDescription="Proxy_AU_Unit" objectId="122" objectLabel="Unit:$UnitName" objectName="Proxy_AU_Unit" objectType="Physical">
+					<Application ApplicationLabel="Process Control" ApplicationLevel="Farm" ApplicationName="MAM" ConnectionType="Data"/>
+					<Application ApplicationLabel="Auditd" ApplicationLevel="Farm" ApplicationName="Auditd"  ConnectionType="Data"/>
+					<Application ApplicationLabel="Platform Configuration" ApplicationLevel="Farm" ApplicationName="PROXY_AU_Platform" ConnectionType="Data"/>
+					<Application ApplicationLabel="Proxy-IC" ApplicationLevel="Farm" ApplicationName="Proxy-IC" ConnectionType="Data"/>
+					<EMS EMSName="SUI-ElementStatus-Linux" URLTarget=""/>
+					<EMS EMSName="SUI-ProcessControl" URLTarget=""/>
+					<AgentHeartbeat AgentCommunity="8y7pE4xnXwhnAJNuyc3j2w==" AgentEnable="1" AgentName="MAM" AgentOID="1.3.6.1.4.1.5271.2.2.1.2.1.0" AgentPort="161" PollingIntervalSec="600" PollingRetries="3" PollingTimeoutSec="10" SetCommunity="pIuSg2Fv6v+p1y48Imakiw=="/>
+				</Object>
+			</Object>
+		</Object>
+		<Object ObjectCardinality="Single" display="1" iconURL="/opt/OV/www/htdocs/ito_op/images/internet.32.gif" inventoryMask="N/A" objectClass="Layer" objectDescription="OSS BSS" objectId="170" objectLabel="OSS/BSS_Layer" objectName="OSS_BSS_Layer" objectType="Logical">
+			<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/winnt.32.gif" inventoryMask="N/A" objectClass="Unit_Group" objectDescription="MAU Group" objectId="173" objectLabel="MAU_Group" objectName="MAU_Group" objectType="Logical">
+				<Object  ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/winnt.32.gif" inventoryMask="N/A" objectClass="Unit_Type" objectDescription="UM NT Unit" objectId="174" objectLabel="Unit:$UnitName" objectName="mau" objectType="Physical">
+					<Application ApplicationLabel="Platform Configuration" ApplicationLevel="Farm" ApplicationName="MAU_Platform"  ConnectionType="Management"/>
+					<Application ApplicationLabel="Auditd" ApplicationLevel="Farm" ApplicationName="Auditd"  ConnectionType="Data"/>
+					<EMS EMSName="SUI-ElementStatus-Network" URLTarget=""/>
+					<UnitInstance MacAddress='xxxxxx' ManualInactive='0' UnitName='mau1'>
+                  		<Connection Hostname='mau1' IP='10.170.214.25' Type='Management'/>
+               		</UnitInstance>
+				</Object>
+			</Object>
+		</Object>
+		<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Application.gif" inventoryMask="N/A" objectClass="Layer" objectDescription="Application Layer" objectId="130" objectLabel="Applications" objectName="Application_Layer" objectType="Logical">
+			<Object ObjectCardinality="Single" display="1" iconURL="/opt/CMVT/ICC/xml/icons/4th.gif" inventoryMask="N/A" objectClass="Unit_Group" objectDescription="Linux N+1 Group" objectId="141" objectLabel="CAS_Group" objectName="CAS_Group" objectType="Logical">
+				<Object ObjectCardinality="Multiple" display="1" iconURL="/opt/CMVT/ICC/xml/icons/Linux.gif" inventoryMask="cas-au%" objectClass="Unit_Type" objectDescription="CAS _Unit" objectId="142" objectLabel="Unit:$UnitName" objectName="CAS_Unit" objectType="Physical">
+					<Application ApplicationLabel="Process Control" ApplicationLevel="Farm" ApplicationName="MAM" ConnectionType="Data"/>
+					<Application ApplicationLabel="Platform Configuration" ApplicationLevel="Farm" ApplicationName="CAS_Platform" ConnectionType="Data"/>
+					<Application ApplicationLabel="Auditd" ApplicationLevel="Farm" ApplicationName="Auditd"  ConnectionType="Data"/>
+					<EMS EMSName="SUI-ElementStatus-Linux" URLTarget=""/>
+					<EMS EMSName="SUI-ProcessControl" URLTarget=""/>
+					<AgentHeartbeat AgentCommunity="8y7pE4xnXwhnAJNuyc3j2w==" AgentEnable="1" AgentName="MAM" AgentOID="1.3.6.1.4.1.5271.2.2.1.2.1.0" AgentPort="161" PollingIntervalSec="600" PollingRetries="3" PollingTimeoutSec="10" SetCommunity="pIuSg2Fv6v+p1y48Imakiw=="/>
+				</Object>
+			</Object>
+		</Object>
+	</Object>
+</SCDB>

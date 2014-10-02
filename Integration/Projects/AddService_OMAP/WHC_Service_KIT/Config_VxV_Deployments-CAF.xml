@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Config_VxV_Deployments" Version="First-Draft" Platform="Linux">
+    <!--This CAF File is implementation of /Add_WHC_Service/Deployments/Config_VxV.Config_VxV-->
+    <Install>
+      <Execute ExecutionOrder="1000">
+        <Command>cd /usr/cti/conf/vxv/app; sed '/WHCEnabled/s/false/true/' vxv.properties &gt; vxv.properties.tmp; cp -f vxv.properties.tmp vxv.properties; rm -f vxv.properties.tmp</Command>
+      </Execute>
+    </Install>
+  </Component>
+</SWIM>

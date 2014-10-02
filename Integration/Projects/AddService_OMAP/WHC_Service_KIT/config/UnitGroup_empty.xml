@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UnitGroup>
+	<Logical>
+	<Application ApplicationLabel='MAM' ApplicationName='MAM'>
+	</Application>
+	<Application ApplicationLabel='NDS-WHC' ApplicationName='NDS-WHC'>
+	</Application>
+	<Application ApplicationLabel='FTM' ApplicationName='FTM'>
+	</Application>
+	</Logical>
+</UnitGroup>

@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\MYDOCU~1\Integration\Projects\SwimConvertor\CAFTests\CAF.xsd">
+	<Component Name="WHC_Service" Version="4.5.0.0-05" Platform="Linux">
+		<Install>
+			<Execute ExecutionOrder="14970">
+				<Command>rm -f /var/tmp/hosts; touch /var/tmp/hosts </Command>
+			</Execute>
+			<Execute ExecutionOrder="15025">
+				<Command>ln -sf libfcgi.so.0.0.0 /usr/cti/lib/libfcgi.so.0</Command>
+			</Execute>
+			<Execute ExecutionOrder="15030">
+				<Command>/var/tmp/babysitter_xml.sh disable ApplicationsBalancerLINUX.xml</Command>
+			</Execute>
+			<Execute ExecutionOrder="15030">
+				<Command>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/cti/lib/swift-platform:/usr/cti/lib/swift-gem:/usr/cti/lib/swift-dsv;if [ "{WHC Platform Type}" == "InSight4" ]; then /.IFSenv.sh;/usr/cti/apps/swift-gem/reg2gdbm -reg /tmp/dsv_ldap.reg -update; fi </Command>
+			</Execute>
+			<Execute ExecutionOrder="15030">
+				<Command>rpm -qa | grep -i IS4_Common_Parameters_Customization || rpm -iv /tmp/IS4_Common_Parameters*.rpm</Command>
+			</Execute>
+			<Execute ExecutionOrder="15030">
+				<Command>if [ "{WHC Platform Type}" == "InSight4" ]; then perl -pi -e '/Insight4Profile/ and s/(Default=)"."/$1"1"/' /usr/cti/conf/nds/NDSpst.xml; fi </Command>
+			</Execute>
+			<Execute ExecutionOrder="15030">
+				<Command>perl -piBackup -e 's/None/IS4/' /usr/cti/conf/alc/ALC_conf.xml</Command>
+			</Execute>
+			<Execute ExecutionOrder="15030">
+				<Command>\cp /var/tmp/cc_suite.sh /etc/profile.d/cc_suite.sh; chmod +x /etc/profile.d/cc_suite.sh </Command>
+			</Execute>
+			<Execute ExecutionOrder="21005">
+				<Command>/var/tmp/smg_config.sh</Command>
+			</Execute>
+			<Execute ExecutionOrder="91520">
+				<Command>/usr/cti/babysitter/Babysitter; sleep 180</Command>
+			</Execute>
+			<Execute ExecutionOrder="91505">
+				<Command>/usr/cti/apps/swift-dsv/swiftXmlPostChange.sh</Command>
+			</Execute>
+			<Execute ExecutionOrder="915030">
+				<Command>/usr/local/csp/api/csp_cronedit.pl --remove --schedule '0 4 * * *' --task '/usr/local/csp/api/csp_gen_filecleanup.pl';exit 0 </Command>
+			</Execute>
+			<Execute ExecutionOrder="915030">
+				<Command>chkconfig httpd off </Command>
+			</Execute>
+			<Execute ExecutionOrder="915030">
+				<Command>chattr -iR /etc/httpd/conf;perl -pi -e 's/^(CustomLog .+)/#$1/g' /etc/httpd/conf/httpd.conf;chattr -R +i /etc/httpd/conf </Command>
+			</Execute>
+			<Execute ExecutionOrder="915030">
+				<Command>ln -sf jdk1.5.0_06 /usr/java/jre1.5.0_06 </Command>
+			</Execute>
+			<Execute ExecutionOrder="915030">
+				<Command>chmod 755 /usr/cti/conf/babysitter</Command>
+			</Execute>
+			<Execute ExecutionOrder="915030">
+				<Command>mkdir -p /var/cti/logs/swp-apache/fastcgi/dynamic;chmod -R 777 /var/cti/logs/swp-apache/fastcgi </Command>
+			</Execute>
+			<!--   Temporary Remove till I understand why we need it.  Oracle Path is /opt/oracle/product ....
+			<Execute ExecutionOrder="915030">
+				<Command>chmod -R a+rx /var/oracle </Command>
+			</Execute>    -->
+			<Execute ExecutionOrder="915030">
+				<Command>chmod 777 /var/cti/logs </Command>
+			</Execute>
+			<Copy ExecutionOrder="15000" ChmodFlags="+x">
+				<Source>./scripts/babysitter_xml.sh</Source>
+				<Target>/var/tmp/babysitter_xml.sh</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./config/tnsnames.ora</Source>
+				<Target>/tmp/tnsnames.ora.ServiceKit</Target>
+			</Copy>
+			<!-- DR-4-011-697 - Install the PL locator relevant file at the NDU -->
+			<Copy ExecutionOrder="15000" ChmodFlags="+x">
+				<Source>./bin/IS4_Common_Parameters*.rpm</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000" ChmodFlags="ugo+xr">
+				<Source>./bin/libtcl8.5.so</Source>
+				<Target>/usr/lib/libtcl8.5.so</Target>
+			</Copy>
+			<!-- End of DR-4-011-697 -->
+			<Copy ExecutionOrder="21000" ChmodFlags="+x">
+				<Source>./scripts/smg_config.sh</Source>
+				<Target>/var/tmp/smg_config.sh</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./config/dsv_ldap.reg</Source>
+				<Target>/tmp/dsv_ldap.reg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./scripts/cc_suite.sh</Source>
+				<Target>/var/tmp/cc_suite.sh</Target>
+			</Copy>
+			<!-- Fix for PSG00665467 -->
+			<Copy ExecutionOrder="21000">
+				<Source>./scripts/WhcConfig.ini</Source>
+				<Target>/tmp/WhcConfig.ini</Target>
+			</Copy>
+			<Copy ExecutionOrder="21000" ChmodFlags="+x">
+				<Source>./scripts/OctParamsManipulation.pl</Source>
+				<Target>/var/tmp/OctParamsManipulation.pl</Target>
+			</Copy>
+			<Execute ExecutionOrder="21015">
+				<Command>/var/tmp/OctParamsManipulation.pl -Conf /tmp/WhcConfig.ini -Unit SMGUnit</Command>
+			</Execute>
+			<!--    Fix PSG00694252  -->
+			<Copy ExecutionOrder="21100" ChmodFlags="+x">
+				<Source>./scripts/FixHosts.pl</Source>
+				<Target>/tmp/FixHosts.pl</Target>
+			</Copy>
+			<Execute ExecutionOrder="21110">
+				<Command>/tmp/FixHosts.pl</Command>
+			</Execute>
+			<SetParams ExecutionOrder="21012">
+				<ExecutionGroup>WHC_SMG_Config</ExecutionGroup>
+			</SetParams>
+			<SetParams ExecutionOrder="15012">
+				<ExecutionGroup>WHC_Fixes</ExecutionGroup>
+			</SetParams>
+			<SetParams ExecutionOrder="25012">
+				<ExecutionGroup>PL_SMG_Config</ExecutionGroup>
+			</SetParams>
+			<SetParams ExecutionOrder="20000">
+				<ExecutionGroup>Babysitter</ExecutionGroup>
+			</SetParams>
+		</Install>
+		<Parameters>
+			<Parameter Name="Subs Location Method" ExecutionGroup="PL_SMG_Config" Level="UnitType">
+				<Value>PL</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="PL"/>
+						<Item Value="GSL"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/common/PLcommon.properties" Format="Properties" ParameterPath="SubsLocationMethod"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="NDM1 IP" ExecutionGroup="WHC_SMG_Config" Level="UnitType">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/tmp/WhcConfig.ini" Format="INI" ParameterPath="Values.ndm1_ip"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="NDM1 Port" ExecutionGroup="WHC_SMG_Config" Level="UnitType" Display="false">
+				<Value>1530</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/tmp/WhcConfig.ini" Format="INI" ParameterPath="Values.ndm1_port"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="NDM2 IP" ExecutionGroup="WHC_SMG_Config" Level="UnitType" Display="false">
+				<Value>127.0.0.1</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/tmp/WhcConfig.ini" Format="INI" ParameterPath="Values.ndm2_ip"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="NDM2 Port" ExecutionGroup="WHC_SMG_Config" Level="UnitType" Display="false">
+				<Value>8910</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/tmp/WhcConfig.ini" Format="INI" ParameterPath="Values.ndm2_port"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="NDM3 IP" ExecutionGroup="WHC_SMG_Config" Level="UnitType">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/tmp/WhcConfig.ini" Format="INI" ParameterPath="Values.ndm3_ip"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="NDM3 Port" ExecutionGroup="WHC_SMG_Config" Level="UnitType">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/tmp/WhcConfig.ini" Format="INI" ParameterPath="Values.ndm3_port"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="WHC Platform Type" ExecutionGroup="WHC_Fixes" Level="UnitType">
+				<Description>Co-hosted on InSight 4 platform&#13;
+or&#13;
+WHC stand alone platform</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="InSight4"/>
+						<Item Value="StandAlone"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="System ID" ExecutionGroup="WHC_Fixes" Level="System">
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>100</MinVal>
+					<MaxVal>999</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/swift-dsv/swift.xml" Format="XML" ParameterPath="/Swift/Dsv/Registry/LocalSystemId"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="DSU Calls DB VIP" Level="System" ExecutionGroup="WHC_Fixes">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="SMSC Port" Level="System" ExecutionGroup="WHC_SMG_Config">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="SMSC IP" Level="System" ExecutionGroup="WHC_SMG_Config">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Application Name" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>MAM</Value>
+				<Description>Application Name as apperas in the Babysitter SNMP sub agent</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.ApplicationName"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Balancer ACK Timeout" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1000</Value>
+				<Description>Time babysitter waits for retry from the balancer</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>10</MinVal>
+					<MaxVal>10000</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Balancer ACK Timeout"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Balancer Retries" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>3</Value>
+				<Description>The number of retries babysitter will try to notify the balancer for graceful shutdown</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>1</MinVal>
+					<MaxVal>3</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Balancer Retries"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="BalancerPort" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>50054</Value>
+				<Description>Balancer port to be used</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>1024</MinVal>
+					<MaxVal>65000</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.BalancerPort"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Check Swap Memory" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1</Value>
+				<Description>Enables/Disables Swap Memory Check</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.CheckSwapMemory"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Connectivity check port" ExecutionGroup="Babysitter" Level="UnitType" Display="false">
+				<Value>61502</Value>
+				<Description>Port number to be used for listening for balancer connections (The balancer must be configured with this port as well)</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>1024</MinVal>
+					<MaxVal>65000</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Automatic Shutdown.Connectivity check port"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="CPU Snapshot Command" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>ps -auxww</Value>
+				<Description>A shell command that is executed by babysitter when CPU alarm is started to capture the system status for future analysis</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.CPUSnapshotCommand"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="DiskSpaceCriticalLevel" ExecutionGroup="Babysitter" Level="UnitType" Display="false">
+				<Value>10%</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.DiskSpaceCriticalLevel"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Enable balancer connectivity check" ExecutionGroup="Babysitter" Level="UnitType" Display="false">
+				<Value>0</Value>
+				<Description>Enables the balancer connectivity check feature.</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Automatic Shutdown.Enable balancer connectivity check"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Enable Balancer Notify" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>0</Value>
+				<Description>Enables communications with the balancer for graceful shutdown</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Enable Balancer Notify"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Enable Graceful Shutdown" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>0</Value>
+				<Description>Enables the graceful shutdown feature</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Enable Graceful Shutdown"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="EnableHTCheck" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>0</Value>
+				<Description>Enables/Disables the Hyper Threading Technology check</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="General.EnableHTCheck"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Generic SNMP Support" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1</Value>
+				<Description>Enable Generic SNMP Support</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="General.GenericSNMPSupport"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Graceful shutdown period (seconds)" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>300</Value>
+				<Description>Time (in seconds) for graceful shutdown that is a result of no balancer connections.</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>10</MinVal>
+					<MaxVal>7200</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Automatic Shutdown.GracefulShutdownPeriodSeconds"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Last resort host name" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>Ods</Value>
+				<Description>Host name for babysitter to check if the unit has a DNS service or not.</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Automatic Shutdown.LastResortHostName"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Max Debug File Size" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>2048</Value>
+				<Description>sets the maximum size of babysitter trace file (kb)</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>10</MinVal>
+					<MaxVal>2048</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Debug.DebugMaxFileSize"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="MaxFileSize" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>512</Value>
+				<Description>Max size of the babysitter log file</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>100</MinVal>
+					<MaxVal>4096</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="General.MaxFileSize"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Memory Check Interval" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>5</Value>
+				<Description>Interval for Memory Check</Description>
+				<Restrictions>
+					<Type>Number</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.MemCheckInterval"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Memory Snapshot Command" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>ps -auxww</Value>
+				<Description>A shell command that is executed by babysitter when CPU alarm is started to capture the system status for future analysis</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.MemorySnapshotCommand"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Memory Warning Level" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>100000</Value>
+				<Description>Memory Warning Level</Description>
+				<Restrictions>
+					<Type>Number</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.MemWarningLevel"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="MemPercentReboot" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>0</MinVal>
+					<MaxVal>100</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.MemPercentReboot"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="MemPercentWarning" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>110</Value>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>1</MinVal>
+					<MaxVal>200</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.MemPercentWarning"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="No connectivity check period" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>75</Value>
+				<Description>Time (in seconds) for babysitter to wait since last balancer connection to start a graceful shutdown.</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>10</MinVal>
+					<MaxVal>900</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Automatic Shutdown.NoConnectivityCheckPeriod"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Number of Samples For Average Calculation" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>4</Value>
+				<Description>Number of Samples For Average Calculation</Description>
+				<Restrictions>
+					<Type>Number</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.NumberOfSamplesForAverageCalculation"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="PartitionsToMonitor" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>/usr;/;/var</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.PartitionsToMonitor"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Platform Alarm ID Prefix" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>101</Value>
+				<Description>Prefix of platform alarm ID</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>0</MinVal>
+					<MaxVal>999</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.PlatformAlarmIDPrefix"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Platform MOC" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>MAM-Platform</Value>
+				<Description>Platform Alarm MOC string</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.PlatformMOC"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Process Alarm ID Prefix" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>102</Value>
+				<Description>Prefix of process alarm ID</Description>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>0</MinVal>
+					<MaxVal>999</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.ProcessAlarmIDPrefix"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Process MOC" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>MAM-Process</Value>
+				<Description>Process Alarm MOC string</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.ProcessMOC"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="ProcessDownThirdLevel" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>9</Value>
+				<Restrictions>
+					<Type>Number</Type>
+					<MinVal>1</MinVal>
+					<MaxVal>1000</MaxVal>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="General.ProcessDownThirdLevel"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Send Alarm on Balancer Failure" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>0</Value>
+				<Description>Enables sending an alarm if the babysitter did not receive ACK from one of the balancers</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="Graceful Shutdown.Send Alarm on Balancer Failure"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SNMP Community Name" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>GAS361LI</Value>
+				<Description>Community name for the traps sent by babysitter</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="SNMP.CommunityName"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SNMP GeneralAlarmsClearOID" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1.3.6.1.4.1.5271.2.1.1.4</Value>
+				<Description>OID for clear platform SNMP alarms</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="SNMP.GeneralAlarmsClearOID"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SNMP GeneralAlarmsNewOID" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1.3.6.1.4.1.5271.2.1.1.2</Value>
+				<Description>OID for new platform SNMP alarms</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="SNMP.GeneralAlarmsNewOID"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SNMP ProcessControlOID" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1.3.6.1.4.1.5271.2.2.2</Value>
+				<Description>OID for process SNMP alarms</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="SNMP.ProcessControlOID"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SNMP TrapDestination" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>127.0.0.1</Value>
+				<Description>IP address or host name of the SMU. Needed for the windows version only. Enter 127.0.0.1 if not sure</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="SNMP.TrapDestination"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SNMP UpDownOID" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1.3.6.1.4.1.5271.2.2.3</Value>
+				<Description>OID for babysitter up/down SNMP alarms</Description>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="SNMP.UpDownOID"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SNMPTrapActive" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>0</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="SNMP.SNMPTrapActive"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Unit CPU Check Enabled" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1</Value>
+				<Description>Enables/Disables the unit CPU check</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.UnitCpuCheckEnabled"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Unit Memory Check Enabled" ExecutionGroup="Babysitter" Level="System" Display="false">
+				<Value>1</Value>
+				<Description>Enables/Disables the unit memory check</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="1" Display="Yes"/>
+						<Item Value="0" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="PerfMon.UnitMemoryCheckEnabled"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Babysitter_UnitType" ExecutionGroup="Babysitter" Level="UnitType" Display="true">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="General.UnitType"/>
+				</Files>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

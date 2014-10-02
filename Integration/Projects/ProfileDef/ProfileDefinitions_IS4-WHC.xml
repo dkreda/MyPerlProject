@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Provisioning>
+	<ProfileDefinition Name="WHC" Version="4.3.0.0">
+		<Entities>
+			<Entity>
+				<Name>Subscriber</Name>
+				<DsvEntityName>SUB</DsvEntityName>
+				<Fields>
+					<Field>
+						<Name>WhoCalledOn</Name>
+						<DsvName>cnsWHCOn</DsvName>
+						<DbName>SUBSCRIBERS.WHC_On</DbName>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>Voicemail</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+						<DisplayName>Who Called On</DisplayName>
+						<Description>Determines if the Who Called service is currently active for the subscriber.</Description>
+						<SubGroupName>Advanced Features</SubGroupName>
+					</Field>
+					<Field>
+						<Name>NFAMOn</Name>
+						<DsvName>cnsNFAMOn</DsvName>
+						<DbName>SUBSCRIBERS.NFAM_On</DbName>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>General</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+						<DisplayName>NFAM On</DisplayName>
+						<Description>Determines whether Notify About me feature	is on</Description>
+						<SubGroupName>Advanced Features</SubGroupName>
+					</Field>
+					<Field>
+						<Name>GenCustom14</Name>
+						<DsvName>cnsGenCustom14</DsvName>
+						<DbName>SUBSCRIBERS.Gen_Custom14</DbName>
+						<XsdValidation>
+							<Type>compas:SecuredString</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>Voicemail</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+						<DisplayName>General Custom 14</DisplayName>
+						<Description>Customer-specific resolved attribute.</Description>
+					</Field>
+					<Field>
+						<Name>NotificationTextLanguage</Name>
+						<DsvName>cnsNotificationTextLanguage</DsvName>
+						<DbName>SUBSCRIBERS.Notification_Text_Language</DbName>
+						<XsdValidation>
+							<Type>compas:SecuredString</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>General</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+						<DisplayName>Notification Text Language</DisplayName>
+						<Description>The subscriber's notification text language (sms, email)</Description>
+						<SubGroupName>General</SubGroupName>
+					</Field>
+				</Fields>
+			</Entity>
+		</Entities>
+	</ProfileDefinition>
+</Provisioning>

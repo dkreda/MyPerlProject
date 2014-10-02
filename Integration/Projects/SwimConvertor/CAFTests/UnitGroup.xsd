@@ -1,0 +1,160 @@
+<!-- edited with XMLSpy v2006 rel. 3 sp2 (http://www.altova.com) by Mark Rozinkovich (comverse) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:simpleType name="comverseIP">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="Physical">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="UnitInstance">
+					<xsd:complexType>
+						
+						<!-- Connection -->
+						<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+							<xsd:element name="Connection" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:attribute name="Hostname" type="xsd:string" use="required"/>
+									<xsd:attribute name="IP" type="xsd:string" use="required"/>
+									<xsd:attribute name="Type" type="xsd:string" use="required"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+
+						<xsd:attribute name="UnitName" type="xsd:string" use="required"/>
+						<xsd:attribute name="DataIp" type="comverseIP" use="required"/>
+						<xsd:attribute name="MngIp" type="comverseIP" use="required"/>
+						<xsd:attribute name="Hostname" type="xsd:string" use="required"/>
+						<xsd:attribute name="Mngname" type="xsd:string" use="required"/>
+
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="GroupName" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Logical">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="Application" minOccurs="0" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+							<xsd:element name="UnitInstance">
+							<xsd:complexType>
+								<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+									<xsd:element name="AppInstance" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+		
+											<!-- Port -->
+											<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+												<xsd:element name="Port" minOccurs="0" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:attribute name="portId" type="xsd:string" use="required"/>
+														<xsd:attribute name="portType" type="xsd:string" use="required"/>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+
+											<xsd:attribute name="InstanceName" type="xsd:string" use="required"/>
+											<xsd:attribute name="InstanceLabel" type="xsd:string" use="optional"/>
+										</xsd:complexType>
+									</xsd:element>
+									</xsd:sequence>
+						
+									<xsd:attribute name="UnitName" type="xsd:string" use="required"/>
+									<xsd:attribute name="Appname" type="xsd:string"/>
+									<xsd:attribute name="AppIP" type="comverseIP" use="required"/>
+									<xsd:attribute name="Hostname" type="xsd:string" use="required"/>
+									<xsd:attribute name="DataIp" type="comverseIP" use="required"/>
+									<xsd:attribute name="Mngname" type="xsd:string" use="required"/>
+									<xsd:attribute name="MngIp" type="comverseIP" use="required"/>
+									<xsd:attribute name="Precedence" use="required">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:enumeration value="Primary"/>
+												<xsd:enumeration value="Secondary"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:attribute>
+									<xsd:attribute name="ParentGroup" type="xsd:string" use="required"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="ApplicationName" type="xsd:string" use="required"/>
+						<xsd:attribute name="ApplicationLabel" type="xsd:string" use="required"/>
+						<xsd:attribute name="ClusterType" type="xsd:string" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+			
+	<xsd:element name="Port">
+		<xsd:complexType>
+			<xsd:attribute name="portId" type="xsd:string" use="required"/>
+			<xsd:attribute name="portType" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="VConnection">
+		<xsd:complexType>
+			<xsd:attribute name="VHostname" type="xsd:string" use="required"/>
+			<xsd:attribute name="VirtualIp" type="comverseIP" use="required"/>
+			<xsd:attribute name="ConnectionType" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="Virtual">
+		<xsd:complexType>
+			<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="Vapplication">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="VUnitInstance" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+										<xsd:element ref="Port" minOccurs="0" maxOccurs="unbounded"/>
+										<xsd:element ref="VConnection" minOccurs="0" maxOccurs="unbounded"/>
+									</xsd:sequence>
+									<xsd:attribute name="VirtualIp" type="comverseIP" use="required"/>
+									<xsd:attribute name="VHostname" type="xsd:string" use="optional"/>
+									<xsd:attribute name="InstanceName" type="xsd:string" use="optional"/>
+									<xsd:attribute name="InstanceLabel" type="xsd:string" use="optional"/>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+						<xsd:attribute name="ApplicationName" type="xsd:string" use="required"/>
+						<xsd:attribute name="ApplicationLabel" type="xsd:string" use="optional"/>						
+						<xsd:attribute name="ClusterType" type="xsd:string" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UnitGroup">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Identification">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="ComponentName" type="xsd:string"/>
+							<xsd:element name="FileFormatVersion" type="xsd:string"/>
+							<xsd:element name="ComponentRelease" type="xsd:string"/>
+							<xsd:element name="ComponentBuild" type="xsd:string"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="Physical" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+				<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="Logical" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+				<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="Virtual" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

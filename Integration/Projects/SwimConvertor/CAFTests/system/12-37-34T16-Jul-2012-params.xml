@@ -1,0 +1,34 @@
+<SWIM>
+   <Parameters>
+      <Parameter ComponentName='CC_CSP-Base_Customization_NDU' ComponentVersion='1.0.2.0' Level='Unit' Name='Admin IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.50.185</Value>
+      </Parameter>
+      <Parameter ComponentName='CC_CSP-Base_Customization_NDU' ComponentVersion='1.0.2.0' Level='UnitType' Name='Admin Netmask' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>255.255.255.0</Value>
+      </Parameter>
+      <Parameter ComponentName='CC_CSP-Base_Customization_NDU' ComponentVersion='1.0.2.0' Level='UnitType' Name='Admin VLAN Enabled' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>No</Value>
+      </Parameter>
+      <Parameter ComponentName='CC_CSP-Base_Customization_NDU' ComponentVersion='1.0.2.0' Level='UnitType' Name='Admin VLAN ID' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value/>
+      </Parameter>
+      <Parameter ComponentName='CC_CSP-Base_Customization_NDU' ComponentVersion='1.0.2.0' Level='System' Name='SMU A Physical IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.70.8</Value>
+      </Parameter>
+      <Parameter ComponentName='CC_CSP-Base_Customization_NDU' ComponentVersion='1.0.2.0' Level='System' Name='SMU B Physical IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.70.9</Value>
+      </Parameter>
+      <Alias DisplayName='Network Domain' Level='System' Mandatory='false' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>stam.com</Value>
+      </Alias>
+      <Alias DisplayName='Primary DNS IP' Level='System' Mandatory='false' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.50.185</Value>
+      </Alias>
+      <Alias DisplayName='Secondary DNS IP Address' Level='System' Mandatory='false' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.50.186</Value>
+      </Alias>
+      <Alias DisplayName='SMU VIP' Level='System' Mandatory='false' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>9.9.9.9</Value>
+      </Alias>
+   </Parameters>
+</SWIM>

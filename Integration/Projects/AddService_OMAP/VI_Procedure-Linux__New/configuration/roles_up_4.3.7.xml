@@ -1,0 +1,44 @@
+<AAS>
+    <Roles>
+		<Role Name="SystemAdministrator">
+                        <Desc>Role dedicated to the system administrator</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+				<Privilege Name="WIC_ManageProfile"/>
+				<Privilege Name="WIC_ViewMailbox"/>
+                       	</Privileges>
+		</Role>
+		<Role Name="ServiceAdministrator">
+                        <Desc>Role dedicated to the system service administrator</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+                                <Privilege Name="WIC_ModifyProfile"/>
+                                <Privilege Name="WIC_ViewMailbox"/>
+			</Privileges>
+		</Role>
+		<Role Name="ServiceOperator">
+                        <Desc>Role dedicated to the service operator</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+                                <Privilege Name="WIC_ViewProfile"/>
+                                <Privilege Name="WIC_ViewMailbox"/>
+			</Privileges>
+		</Role>
+		<Role Name="CustomerCareSupervisor">
+                        <Desc>Role dedicated to the customer care supervisor</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+                                <Privilege Name="WIC_ManageProfile"/>
+                                <Privilege Name="WIC_ViewMailbox"/>
+                        </Privileges>
+        	</Role>
+		<Role Name="CustomerCare">
+                        <Desc>Role dedicated to the customer care user</Desc>
+                        <ReadOnly>false</ReadOnly>
+                        <Privileges>
+                                <Privilege Name="WIC_ManageProfile"/>
+                                <Privilege Name="WIC_ViewMailbox"/>
+                        </Privileges>
+                </Role>
+	</Roles>
+</AAS>

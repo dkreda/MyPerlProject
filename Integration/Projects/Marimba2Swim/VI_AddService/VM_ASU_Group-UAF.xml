@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="VM_ASU_Group" Platform="Linux">
+    <!--This UAF is implementation of Marimba ServerGroup VMASU-->
+    <Install>
+      <Component Name="Config_VMASU_Deployments" ExecutionOrder="10"/>
+    </Install>
+  </UnitType>
+</SWIM>

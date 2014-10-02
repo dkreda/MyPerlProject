@@ -1,0 +1,7 @@
+	<Application ApplicationName="NDSVAN.SITE1" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="8911">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>

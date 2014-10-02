@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Load_VI_to_SiteBook_Upload_VI_Units_to_SiteBook" Version="First-Draft" Platform="Linux">
+    <!--This CAF File is implementation of /VI_Procedures/Upload_VI_Units_to_SiteBook/Load_VI_to_SiteBook.Load_VI_to_SiteBook_TG-->
+    <Install>
+      <!--Note - The command below have been extracted from /VI_Procedures/Upload_VI_Units_to_SiteBook-->
+      <!--	#Orig line of Task: Load_VI_to_SiteBook_TG . New Task :
+	#http://marimbatx:5282/Marimba/Current/Rep|rep|19001|19002|19000|19999|true|-1=start install  -url "http://marimbatx:5282/Applications/InSight_4_Channels/vi_sitebook/vi_sitebook" -version newest -dir "/var/tmp/vi_sitebook " -verbose 2-->
+      <Copy ExecutionOrder="1000">
+        <Source>./IS4Kits/vi_sitebook/*</Source>
+        <Target>/var/tmp/vi_sitebook</Target>
+      </Copy>
+      <Execute ExecutionOrder="1005">
+        <Command>chmod -R 755 /var/tmp/vi_sitebook</Command>
+      </Execute>
+      <Execute ExecutionOrder="1010">
+        <Command>su - root -c 'cd /var/tmp/vi_sitebook/; perl ./loadAndUpdateViMetadataFilesForSiteBook.pl "" "" "" ""'</Command>
+      </Execute>
+    </Install>
+  </Component>
+</SWIM>

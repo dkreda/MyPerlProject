@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\galcohe\Desktop\CAF.xsd">
+	<Component Name="Config_SMU_Deployments" Version="5.0.0.0" Platform="Linux">
+		<Install>
+			<Copy ExecutionOrder="100">
+				<Source>./configuration/registrations.xml</Source>
+				<Target>/var/tmp/vi_service/registrations.xml</Target>
+			</Copy>
+			<Copy ExecutionOrder="100">
+				<Source>./configuration/AddService_Conf.txt</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100">
+				<Source>./configuration/ScdbTemplates/*</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="+x">
+				<Source>./scripts/OctParamsManipulation.pl</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100">
+				<Source>{SystemDirectory}/../{System Name}/UnitGroup.xml</Source>
+				<Target>/tmp/{Site Name}SiteBookUnitGroup.xml</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="+x">
+				<Source>./scripts/SiteBookServer.pl</Source>
+				<Target>/tmp/SiteBook.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="100">
+				<Source>./configuration/menu_wcc.xml</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="+x">
+				<Source>./scripts/Scdb_AddUnits.pl</Source>
+				<Target>/var/tmp</Target>
+			</Copy>
+			<Execute ExecutionOrder="150">
+				<Command>/tmp/OctParamsManipulation.pl -Conf /tmp/AddService_Conf.txt -Unit {UnitRun}   -WebServices "{.WebInbox}:{.WCC}"  -VVmService "{.VVM}:{.Direct Retrieval}:{.Direct Deposit}" -MTE "{.MTE}:{AMTE Enabled}" -ProductVal `perl -n -e '/ProductName=\"(.+?)\"/i and print $1 and last' /usr/cti/conf/ossp-menu/menu_is4.xml`</Command>
+			</Execute>
+			<Execute ExecutionOrder="160">
+				<Command>if [ "{.WCC}" == "Yes" ]; then ps -U ossp &amp;&amp; su - ossp -c "/usr/cti/apps/ossp/bin/restart.sh" || echo "OSSP is Not Running";fi;</Command>
+			</Execute>
+			<SetParams ExecutionOrder="120">
+				<ExecutionGroup>Base</ExecutionGroup>
+			</SetParams>
+		</Install>
+		<Parameters>
+			<Parameter Name=".Direct Deposit" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".Direct Retrieval" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".MTE" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Site Name" ExecutionGroup="Base" Level="System">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#SiteName#" Name="/tmp/AddService_Conf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name=".VVM" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".WCC" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".WebInbox" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="UnitRun" ExecutionGroup="Base" Level="UnitType">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="System Name" ExecutionGroup="Base" Level="System">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="AMTE Enabled" ExecutionGroup="Base" Level="System">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="true"/>
+						<Item Value="false"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#AMTEEnabled#" Name="/tmp/AddService_Conf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="ProductVal" ExecutionGroup="Base" Level="System" Display="false">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#ProductVal#" Name="/tmp/AddService_Conf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

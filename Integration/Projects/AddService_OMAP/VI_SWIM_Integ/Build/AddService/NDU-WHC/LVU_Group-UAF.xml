@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM>
+  <UnitType Name="LVU_Group" Platform="Linux">
+    <Install>
+      <Component Name="UpdateTopology"/>
+    </Install>
+    <Parameters>
+      <Parameter Name="RunUnit" ComponentName="UpdateTopology" Display="false">
+	<Value>LVU</Value>
+      </Parameter>
+    </Parameters>
+  </UnitType>
+</SWIM>

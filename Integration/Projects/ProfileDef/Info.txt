@@ -1,0 +1,57 @@
+1.	su -  ora_api
+2.	bin/oracleApi.sh<enter>
+[ERROR]?At?least?one?profile?Definition?file?is?expected
+Usage:?--config?[/usr/cti/conf/oracleApi/oracleApi.xml]?--logConfig?[/usr/cti/conf/oracleApi/log4j.properties]?--profileDefinitionXsd?[ProfileDefinition.xsd]?
+[--dryRun]?[--resume]?<profile?definition?file?name>...
+
+All you need to do is specify the profile definitions file name, if it is in /usr/cti/conf/profiledefinition, or the full path if it is not.
+Add -dryRun to view the actions without actually doing them.
+
+
+In order to run OracleAPI:
+su - ora_api -c "./bin/oracleApi.sh /usr/cti/conf/profiledefinition/ProfileDefinitions_VVM.xml"
+
+to connect to SUBS_PROF schema:
+su - oracle
+sqlplus SUBS_PROF_OWNER/NwSb5crb
+
+To check subscribers fields:
+SQL>desc subscribers;
+
+
+To uninstall/install SUBS_PROF schema:
+cd /oracle/admin/create/PKG/subs_prof/schema_scripts/
+./drop_SUBSPROF.ksh
+
+COMP_WHC_EX-5.0.0.0-01.i386.rpm
+CSCRPRFEXT-5.0.0.0-01.i386.rpm
+DBwhcAPP-3.0.0.0-01.i386.rpm
+SMCUSSDPRFEXT-5.0.0.0-01.i386.rpm
+WHCBASICEXT-5.0.0.0-01.i386.rpm
+
+
+WHCBASICEXT
+DBwhcAPP
+CSCRPRFEXT
+SMCUSSDPRFEXT
+COMP_WHC_EX
+
+
+
+./cre_SUBSPROF.ksh
+
+
+desc SUBS_PROF_OWNER.subscribers;
+
+ACCESSED_PHONE_GREETING
+Associated_Accessed_Phones
+
+alter table CLI_GREETING_LIST modify  CLI_VOICE_GREETING_MIPSUID Number(20) ;
+alter table ACCESSED_PHONE_GREETING modify  Associated_Accessed_Phones Varchar2(400) ;
+
+Tabbls size :
+/oracle/subs_prof/SUBS_PROF.tbs
+/oracle/admin/create/PKG/subs_prof/schema_scripts/SUBS_PROF.tbs
+
+
+DROP TABLESPACE SUBS_PROF_OWNER.temp_01_ODS INCLUDING CONTENTS AND DATAFILES; temp_01_ODS.ora

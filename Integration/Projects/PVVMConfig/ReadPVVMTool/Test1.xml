@@ -1,0 +1,1731 @@
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<Configuration>
+	<Parameters>
+		<Component Name="Common">
+			<Group Name="FieldsLogic">
+				<Parameter Name="EnableLanguageMicrosoftFormat">
+					<Description>Determines whether the language is in Microsoft Locale format instead of ISO format.</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="false"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordMinLength">
+					<Description>Determines the min length of the TuiPassword</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>0</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="4"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordMaxLength">
+					<Description>Determines the max length of the TuiPassword</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>1</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="6"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordNumOfNearbyIdenticalChars">
+					<Description>The maximum number of adjacent and identical characters that can be set in the TuiPassword</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>1</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="0"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordValidateNotAllCharsIdentical">
+					<Description>Determines whether to validate and fail cases in which all charachters in the password are identical</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="false"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordNumOfNearbyConsecutiveChars">
+					<Description>The maximum number of adjacent and consecutive characters that can be set in the TuiPassword</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>1</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="0"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordValidateNotAllCharsConsecutive">
+					<Description>Determines whether to validate and fail cases in which all charachters in the password are identical</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="false"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="EnableTuiPasswordSubsetOfTelephone">
+					<Description>Determines whether to check if TuiPassword is subset of TelephoneNumber</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="false"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordMinLength">
+					<Description>Determines the min length of the Internet password</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>1</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="6"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordMaxLength">
+					<Description>Determines the max length of the Internet password</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>1</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="12"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordMinNumOfDigits">
+					<Description>Determines the minimum number of digits that are allowed in the password</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>0</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="1"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordMinNumOfLetters">
+					<Description>Determines the minimum number of letter characters that are allowed in the password</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>0</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="1"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordDefault">
+					<Description>Determines the default TuiPassword</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal>40</MaxVal>
+						<MaxLength/>
+						<Mandatory>false</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="1234"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="ActivityStatusDefault">
+					<Description>Determines the default ActivityStatus</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal>40</MaxVal>
+						<MaxLength/>
+						<Mandatory>false</Mandatory>
+						<Lov>
+							<Val>Active</Val>
+							<Val>Dormant</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="Active"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="AddDomainSuffixToDefaultInternetUsername">
+					<Description>Determines whether the default InternetUsername value should be created with or without domain suffix</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="true"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordDefaultSource">
+					<Description>Determines the default TuiPassword value source.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>TuiPasswordDefault</Val>
+							<Val>Random</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="TuiPasswordDefault"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="General">
+				<Parameter Name="InternetUserNameFormat">
+					<Description>Determines whether the provisioning key supplied is an International or a National number.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>International</Val>
+							<Val>National</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="National"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TransactionCleanupInterval">
+					<Description>The time interval (in seconds) between each transaction cleanup procedure to be run on the transactions container.</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>10</MinVal>
+						<MaxVal>1800</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="120"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="XDSVRequestTimeout">
+					<Description>Defines the XDSV request timeout (in milliseconds). Used by transaction object.</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal>100</MinVal>
+						<MaxVal>100000</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="2000"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAMessageTypesEnableFlagsOrder">
+					<Description>Determines the bit order (top to bottom) of the MailAccountMessageType field created in any MailAccount entry.</Description>
+					<Type>Map</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>500</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Key="1" Value="VoiceMessageEnabled"/>
+						<Item Key="2" Value="FaxMessageEnabled"/>
+						<Item Key="3" Value="ECCMessageEnabled"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="ErrorDescriptionMappingFile">
+					<Description>File that holds the PA Error Description Mappings. Used by ErrorDescSingleton.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>256</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="common/ErrorDescriptionMapping.xml"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="PaInitObject">
+					<Description>Defines the class name which performs the initialization of the PA.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.init.PaCommonInit"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="PaInvokeObject">
+					<Description>Defines the class name which performs the request invocation of the PA.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.PaCommonProfile"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="PaPluginsList">
+					<Description>Indicates which plugins the PA will activate</Description>
+					<Type>List</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="VxvLogics"/>
+						<Item Value="NotificationLogics"/>
+						<Item Value="FsLogics"/>
+						<Item Value="AdditionalIdsLogics"/>
+						<Item Value="AuthLogics"/>
+						<Item Value="FamilyMailboxStatusLogics"/>
+						<Item Value="VoicePushLogics"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MailAccountUserNameFormat">
+					<Description>Determines whether the provisioning key supplied is an International or a National number.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>International</Val>
+							<Val>National</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="National"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="SupportedCommands">
+					<Description>List of supported commands.</Description>
+					<Type>List</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>500</MaxLength>
+						<Mandatory/>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="Create"/>
+						<Item Value="Delete"/>
+						<Item Value="Modify"/>
+						<Item Value="Retrieve"/>
+						<Item Value="Block"/>
+						<Item Value="UnBlock"/>
+						<Item Value="Verify"/>
+						<Item Value="SrlRetrieve"/>
+						<Item Value="ForceCreate"/>
+						<Item Value="ForceDelete"/>
+						<Item Value="ForceDeleteNoGSL"/>
+						<Item Value="SrlDelete"/>
+						<Item Value="UnSRL"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="SupportedEntity">
+					<Description>Defines the supported entity.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory/>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="Subscriber"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="UniqueDbConstraint">
+					<Description>Defines the DB constraint name and its matching ComPAS field name it represents.</Description>
+					<Type>Map</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory/>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Key="COMPROF_OWNER.SUBSCRIBERS_PK" Value="InternalSubscriberId"/>
+						<Item Key="COMPROF_OWNER.SUBS_INTERNET_USERNAME_IX" Value="InternetUsername"/>
+						<Item Key="COMPROF_OWNER.SUBS_MMS_ADDRESS_IX" Value="MmsAddress"/>
+						<Item Key="COMPROF_OWNER.SUBS_TELEPHONE_NUMBER_IX" Value="TelephoneNumber"/>
+						<Item Key="SUBS_PROF_OWNER.SUBS_TELEPHONE_NUMBER_IX" Value="TelephoneNumber"/>
+						<Item Key="SUBS_PROF_OWNER.SUBS_INTERNET_USERNAME_IX" Value="InternetUsername"/>
+						<Item Key="SUBS_PROF_OWNER.SUBS_MA_EMAIL_ADDRESS_IX" Value="MailAccountEmailAddress"/>
+						<Item Key="SUBS_PROF_OWNER.ADD_ID_VALUE_IX" Value="AdditionalIds/AdditionalId/TelephoneNumber"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="RequestPasswordLogic">
+				<Parameter Name="RequestPasswordIvParameter">
+					<Description>The IV Parameter that is used to decrypt the password fields received in the request. For 3DES it must be 8 characters long. For AES it must be 16 characters long.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>16</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="12345678"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="RequestPasswordMode">
+					<Description>The cryptography mode used to decrypt the password fields received in the request.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>CBC</Val>
+							<Val>CFB</Val>
+							<Val>ECB</Val>
+							<Val>OFB</Val>
+							<Val>PCBC</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="CBC"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="RequestPasswordPadding">
+					<Description>The cryptography padding used to decrypt the password fields received in the request.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>NoPadding</Val>
+							<Val>PKCS5Padding</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="PKCS5Padding"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="RequestPasswordSecretKey">
+					<Description>The secret key used to decrypt the password fields received in the request. For 3DES it must be 24 characters long. For AES it must be 16 characters long.</Description>
+					<Type>Password</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>24</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="LBIQmTsU5QO7ZU3rLWiKmvo6xCG1OwKUT1Vf5c1SgdQ="/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="MaFieldsLogic">
+				<Parameter Name="MAEmailOnlyEMSProvisioning">
+					<Description>Determines whether the external email server is provisioned.</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>false</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="true"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="SupportMaPasswordInLdapSchema">
+					<Description>Indicates whether the LDAP schema support the MailAccount/Password field</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="false"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MaPasswordEncryptOnSrl">
+					<Description>Indicates whether the MailAccountPassword should be sent in SrlCreate encrypted or not</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="true"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAAdditionalAddressUserSource">
+					<Description>Determines the user value (email prefix) source for the additional operator VM MAs address.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory/>
+						<Lov>
+							<Val>TelephoneNumber</Val>
+							<Val>InternetUsername</Val>
+							<Val>InternalId</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="TelephoneNumber"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAPasswordEncyptionFormat">
+					<Description>Determines the way that the MA password will be kept in the data store.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>PlainText</Val>
+							<Val>3DES</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="3DES"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAPasswordIvParameter">
+					<Description>The IV Parameter that is used to encrypt and decrypt the password fields. For 3DES it must be 8 characters long. For AES it must be 16 characters long.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>16</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="12345678"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAPasswordMode">
+					<Description>The cryptography mode used to encrypt and decrypt the password fields.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>CBC</Val>
+							<Val>CFB</Val>
+							<Val>ECB</Val>
+							<Val>OFB</Val>
+							<Val>PCBC</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="CBC"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAPasswordPadding">
+					<Description>The cryptography padding used to encrypt and decrypt the password fields.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>NoPadding</Val>
+							<Val>PKCS5Padding</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="PKCS5Padding"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAPasswordSecretKey">
+					<Description>The secret key used to encrypt and decrypt the password fields. For 3DES it must be 24 characters long. For AES it must be 16 characters long.</Description>
+					<Type>Password</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>24</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="LBIQmTsU5QO7ZU3rLWiKmvo6xCG1OwKUT1Vf5c1SgdQ="/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAAdditionalAddressDomain">
+					<Description>Determines an additional voicemail operator mail account domain (address suffix) which is added as an additional alias.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>256</MaxLength>
+						<Mandatory>false</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value=""/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MADefaultAddressDomain">
+					<Description>Determines the email operator mail account domain (address suffix).</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>256</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="is433.email.com"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MADefaultPassword">
+					<Description>Determines the default value of the MailAccountPassword field.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>40</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="123456"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="MAPasswordDefaultSource">
+					<Description>Determines the default MAPassword value source.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>MADefaultPassword</Val>
+							<Val>Random</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="MADefaultPassword"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="FsLogics">
+				<Parameter Name="MlFilePrefixName">
+					<Description>Defines mailing list file prefix name</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory/>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="ML"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="CliFilePrefixName">
+					<Description>Defines CLI greeting list file prefix name</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory/>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="CLI"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="BulletFilePrefixName">
+					<Description>Defines bulletin file prefix name</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory/>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="Bullet"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="AccessedPhoneFilePrefixName">
+					<Description>Defines accessed phone greeting file prefix name</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory/>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="AP"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="CustomFilePrefixName">
+					<Description>Defines custom greeting file prefix name</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory/>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="Custom"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.FsLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="LifeLogLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.LifeLogLogics"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="FileSystemStructureFile">
+					<Description>Determines the name of the file that describe the directory structure of the file system on the NFS server.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>256</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="directoryStructure.txt"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="FileSystemRootDir">
+					<Description>Determines the full path to the NFS root directory.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>256</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="/nfs-app"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="AdditionalIdsLogics">
+				<Parameter Name="SkipTuiPasswordOnDefault">
+					<Description>The default value while creating a new additional ID entry</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="true"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.AdditionalIdsLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="VxvLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.VxvLogics"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="BulletinAdminMappedFields">
+					<Description>Defines the fields that will be mapped to the BulletinAdminTelephoneNumber. For example: GlobalLanguageId and VxVCustom6.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>500</MaxLength>
+						<Mandatory>false</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="GlobalLanguageId,VxVCustom6"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="BulletinAdminFieldsValuesMapping">
+					<Description>Defines the value mappings between one or more fields and BulletinAdminTelephoneNumber. For example: GlobalLanguageId and VxVCustom6.</Description>
+					<Type>Map</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>500</MaxLength>
+						<Mandatory>false</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value/>
+				</Parameter>
+			</Group>
+			<Group Name="NotificationLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.NotificationLogics"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="EnablePreExecutionLogics">
+					<Description>Determines whether the NotificationRules PreExecution method will be invoked.</Description>
+					<Type>Boolean</Type>
+					<Restriction>
+						<RequiresRestart>false</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="true"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="AuthLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.AuthLogics"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordEncryptionMethod">
+					<Description>Determines the mechanism to be used in order to encrypt the TuiPassword field before storing it in the data store.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>MD5</Val>
+							<Val>3DES</Val>
+							<Val>AES</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="MD5"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordIvParameter">
+					<Description>The IV Parameter that is used to encrypt and decrypt the password fields. For 3DES it must be 8 characters long. For AES it must be 16 characters long.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>16</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="12345678"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordMode">
+					<Description>The cryptography mode used to encrypt and decrypt the password fields.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>CBC</Val>
+							<Val>CFB</Val>
+							<Val>ECB</Val>
+							<Val>OFB</Val>
+							<Val>PCBC</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="CBC"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordPadding">
+					<Description>The cryptography padding used to encrypt and decrypt the password fields.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>NoPadding</Val>
+							<Val>PKCS5Padding</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="PKCS5Padding"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="TuiPasswordSecretKey">
+					<Description>The secret key used to encrypt and decrypt the password fields. For 3DES it must be 24 characters long. For AES it must be 16 characters long.</Description>
+					<Type>Password</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>24</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="LBIQmTsU5QO7ZU3rLWiKmvo6xCG1OwKUT1Vf5c1SgdQ="/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordEncryptionMethod">
+					<Description>Determines the mechanism to be used in order to encrypt the InternetPassword field before storing it in the data store.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>MD5</Val>
+							<Val>3DES</Val>
+							<Val>AES</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="MD5"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordIvParameter">
+					<Description>The IV Parameter that is used to encrypt and decrypt the password fields. For 3DES it must be 8 characters long. For AES it must be 16 characters long.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>16</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="1234567890123456"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordMode">
+					<Description>The cryptography mode used to encrypt and decrypt the password fields.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>CBC</Val>
+							<Val>CFB</Val>
+							<Val>ECB</Val>
+							<Val>OFB</Val>
+							<Val>PCBC</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="CBC"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordPadding">
+					<Description>The cryptography padding used to encrypt and decrypt the password fields.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>NoPadding</Val>
+							<Val>PKCS5Padding</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="PKCS5Padding"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="InternetPasswordSecretKey">
+					<Description>The secret key used to encrypt and decrypt the password fields. For 3DES it must be 24 characters long. For AES it must be 16 characters long.</Description>
+					<Type>Password</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>24</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="j2NKegh0xIopcrX9CS3tnktJcNqCCNGZ"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="MeLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.MeLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="MmsLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.MmsLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="MmsOperatorToDomainLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.MmsOperatorToDomainLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="VwLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.VwLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="SmscLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.SmscLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="GenericAdditionalIdsLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.GenericAdditionalIdsLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="ImpressLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.ImpressLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="NabLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.NabLogics"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordMinLength">
+					<Description>Determines the min length of the NabHandsetPassword </Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>1</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="8"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordMaxLength">
+					<Description>Determines the max length of the NabHandsetPassword </Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>1</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="12"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordMinNumOfDigits">
+					<Description>Determines the minimum number of digits that are allowed in the password</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>0</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="1"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordMinNumOfLetters">
+					<Description>Determines the minimum number of letter characters that are allowed in the password</Description>
+					<Type>Integer</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal>0</MinVal>
+						<MaxVal>50</MaxVal>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="1"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordEncryptionMethod">
+					<Description>Determines the mechanism to be used in order to encrypt the NabHandsetPassword field before storing it in the data store.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>MD5</Val>
+							<Val>3DES</Val>
+							<Val>AES</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="AES"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordIvParameter">
+					<Description>The IV Parameter that is used to encrypt and decrypt the password fields. For 3DES it must be 8 characters long. For AES it must be 16 characters long.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>16</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="1234567890123456"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordMode">
+					<Description>The cryptography mode used to encrypt and decrypt the password fields.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>CBC</Val>
+							<Val>CFB</Val>
+							<Val>ECB</Val>
+							<Val>OFB</Val>
+							<Val>PCBC</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="CBC"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordPadding">
+					<Description>The cryptography padding used to encrypt and decrypt the password fields.</Description>
+					<Type>Enum</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov>
+							<Val>NoPadding</Val>
+							<Val>PKCS5Padding</Val>
+						</Lov>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="PKCS5Padding"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="NabHandsetPasswordSecretKey">
+					<Description>The secret key used to encrypt and decrypt the password fields. For 3DES it must be 24 characters long. For AES it must be 16 characters long.</Description>
+					<Type>Password</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>24</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="j2NKegh0xIopcrX9CS3tnktJcNqCCNGZ"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="IPhoneLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.IPhoneLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="InternetPwdSpecialLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.InternetPwdSpecialLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="HSPasswordLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.HSPasswordLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="FamilyMailboxStatusLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.FamilyMailboxStatusLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="CustomizationLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.plugin.customization.CustomizationLogics"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="CustomizationMappingFilesPath">
+					<Description>Defines the path of the CustomizationMapping.xml files that allows during request to customize fields and values. If parameter is empty no manipulation will be done.</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>256</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="/usr/cti/conf/compas/common"/>
+					</Value>
+				</Parameter>
+				<Parameter Name="SkipAttrManipulationCommands">
+					<Description>Defines command types in which the customization logic will be skipped.</Description>
+					<Type>List</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength/>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>5</Level>
+					</Restriction>
+					<Value>
+						<Item Value="Retrieve"/>
+						<Item Value="Delete"/>
+						<Item Value="SrlCreate"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="VoicePushLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.VoicePushLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+			<Group Name="MWLogics">
+				<Parameter Name="PaPluginObject">
+					<Description>Defines the class name which represents the plugin</Description>
+					<Type>String</Type>
+					<Restriction>
+						<RequiresRestart>true</RequiresRestart>
+						<MinVal/>
+						<MaxVal/>
+						<MaxLength>100</MaxLength>
+						<Mandatory>true</Mandatory>
+						<Lov/>
+						<Level>9</Level>
+					</Restriction>
+					<Value>
+						<Item Value="comverse.compas.spm.pa.agents.common.MWLogics"/>
+					</Value>
+				</Parameter>
+			</Group>
+		</Component>
+	</Parameters>
+</Configuration>

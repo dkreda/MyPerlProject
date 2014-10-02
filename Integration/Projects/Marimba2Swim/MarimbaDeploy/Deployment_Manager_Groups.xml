@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tree version="1">
+  <metadata>
+    <property name="database">oracle</property>
+  </metadata>
+  <dirnode name="" type="root-directory" class="com.marimba.tools.dbtree.DirNode">
+    <dirnode name="public" type="directory" class="com.marimba.tools.dbtree.DirNode">
+      <property name="atlas.folder">true</property>
+      <dirnode name="Deployment Manager Groups" type="directory" class="com.marimba.tools.dbtree.DirNode">
+        <property name="atlas.folder">true</property>
+        <property name="mrba.folder">true</property>
+        <property name="atlas.node.createdBy">admin</property>
+        <property name="atlas.node.dateCreated">1064371157314</property>
+        <property name="atlas.node.desc">Deployment Manager can target machines returned by the queries you create in this folder.</property>
+        <node name="1st_half_cms" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969354816</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;cms%1&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;cms%3&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;cms%5&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;cms%7&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;cms%9&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="1st_half_mmugw" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969386992</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;mmu%1&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;mmu%3&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;mmu%5&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;mmu%7&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;mmu%9&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="1st_half_omu" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969317530</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;omu-au%1&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;omu-au%3&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;omu-au%5&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;omu-au%7&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;omu-au%9&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="1st_half_proxy" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969423328</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;proxy-au%1&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;proxy-au%3&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;proxy-au%5&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;proxy-au%7&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;proxy-au%9&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="1st_half_tag" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969455285</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;tag-au%1&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;tag-au%3&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;tag-au%5&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;tag-au%7&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;tag-au%9&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="1st_half_vm-asu" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969488737</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;vm-asu%1&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;vm-asu%3&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;vm-asu%5&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;vm-asu%7&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;vm-asu%9&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="2nd_half_cms" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969978341</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;cms%0&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;cms%2&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;cms%4&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;cms%6&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;cms%8&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="2nd_half_mmugw" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969551304</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;mmu%0&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;mmu%2&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;mmu%4&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;mmu%6&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;mmu%8&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="2nd_half_omu" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969584218</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;omu-au%0&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;omu-au%2&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;omu-au%4&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;omu-au%6&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;omu-au%8&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="2nd_half_proxy" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969615499</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;proxy-au%0&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;proxy-au%2&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;proxy-au%4&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;proxy-au%6&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;proxy-au%8&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="2nd_half_tag" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969649571</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;tag-au%0&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;tag-au%2&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;tag-au%4&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;tag-au%6&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;tag-au%8&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="2nd_half_vm-asu" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1173969680271</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_MACHINE.NAME like &apos;vm-asu%0&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;vm-asu%2&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;vm-asu%4&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;vm-asu%6&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos; or INV_MACHINE.NAME like &apos;vm-asu%8&apos; and INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_CCS" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319149057</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;ccs%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_CMS" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319218725</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;cms%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_CMS-PSTN" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319176268</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;cms-pstn%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_CMS-SIP" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319238289</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;cms-sip%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_CMS-VIDEO" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319250228</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;cms-video%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_CMS-VIDEO324M" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319264993</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;cms-video324m%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_DSU1a_Cluster1" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319277574</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;dsu1a%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_DSU1b_Cluster1" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319289652</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;dsu1b%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_DSU2a_Cluster2" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319305995</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;dsu2a%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_DSU2b_Cluster2" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319315937</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;dsu2b%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_DSU3a_Cluster3" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319328114</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;dsu3a%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_DSU3b_Cluster3" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319341527</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;dsu3b%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_Linux_DataIP" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1134314630963</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select MANAGEMENT_IP as MACHINE_NAME,DATA_IP, DATA_HOSTNAME,MANAGEMENT_HOSTNAME from INV_DATA_MANAGEMENT_NETWORK</property>
+        </node>
+        <node name="All_Linux_Dynamic " class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1143992661569</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct inv_network.address machine_name, rpcport, rpcsslport, inv_machine.name from inv_machine, inv_tuner, inv_network where inv_machine.id = inv_tuner.machine_id and inv_machine.id = inv_network.machine_id and inv_network.address != &apos;127.0.0.1&apos; and inv_network.address not like &apos;%.1&apos; and rpcport like &apos;7717&apos;</property>
+        </node>
+        <node name="All_Linux_No_CMS" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1198756584789</property>
+          <property name="atlas.node.desc">This query is used for installing Oracle client v9 instead of v10.</property>
+          <property name="atlas.node.descVisible">
+          </property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">SELECT distinct n.address machine_name FROM inv_machine m, inv_network n, inv_os o, inv_tuner WHERE o.machine_id = m.id AND n.machine_id = m.id AND m.id =inv_tuner.machine_id AND UPPER(o.product) LIKE &apos;%LINUX%&apos; AND n.address NOT IN (&apos;0.0.0.0&apos;, &apos;127.0.0.1&apos;) and rpcport like &apos;7717&apos; and (m.name like &apos;vm-asu%&apos; or m.name like &apos;omu-au%&apos; or m.name like &apos;tag-au%&apos; or m.name like &apos;proxy-au%&apos;)</property>
+        </node>
+        <node name="All_Linux_machines" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1159426332886</property>
+          <property name="atlas.node.desc">This query is used by deployments in SDM to idenify Linux based machines in the array.</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">SELECT distinct n.address machine_name, m.machine_domain, inv_tuner.rpcport, inv_tuner.rpcsslport FROM inv_machine m, inv_network n, inv_os o, inv_tuner WHERE o.machine_id = m.id AND n.machine_id = m.id AND m.id =inv_tuner.machine_id AND UPPER(o.product) LIKE &apos;%LINUX%&apos; AND n.address NOT IN (&apos;0.0.0.0&apos;, &apos;127.0.0.1&apos;) and rpcport like &apos;7717&apos;</property>
+        </node>
+        <node name="All_MMTV" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319359444</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;mmtv%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_MMU-GW" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319367725</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;mmu-gw%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_OMU-AU" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319398602</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;omu-au%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_PROXY-AU" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319420045</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;proxy-au%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_SMU1a" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319431743</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;smu1a%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_SMU1b" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319441564</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;smu1b%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_Solaris_machines" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1159380420788</property>
+          <property name="atlas.node.desc">This query is used by deployments in SDM to idenify Solaris based machines in the array.</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">SELECT distinct n.address machine_name, m.machine_domain, inv_tuner.rpcport, inv_tuner.rpcsslport FROM inv_machine m, inv_network n, inv_os o, inv_tuner WHERE o.machine_id = m.id AND n.machine_id = m.id AND m.id =inv_tuner.machine_id AND UPPER(o.product) LIKE &apos;%SUN%&apos; AND n.address NOT IN (&apos;0.0.0.0&apos;, &apos;127.0.0.1&apos;) and rpcport like &apos;7717&apos;</property>
+        </node>
+        <node name="All_TAG-AU" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319454730</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;tag-au%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_VM-ASU" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319467175</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;vm-asu%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+		<node name="All_LVU" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1174319467175</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct INV_TUNER.RPCIPADDR as machine_name from INV_TUNER, INV_MACHINE where INV_TUNER.MACHINE_ID=INV_MACHINE.ID and INV_MACHINE.NAME like &apos;lvu%&apos; and INV_TUNER.RPCIPADDR!=&apos;127.0.0.1&apos;</property>
+        </node>
+        <node name="All_data_management_network" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1165931841399</property>
+          <property name="atlas.node.desc">select * from inventory.data_management_network</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select * from inventory.data_management_network</property>
+        </node>
+        <node name="All_fqdn_data" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1165931682936</property>
+          <property name="atlas.node.desc">select * from inventory.fqdn_data</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select * from inventory.fqdn_data</property>
+        </node>
+        <node name="All_local_Agents" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1144232417641</property>
+          <property name="atlas.node.desc">Verify the content of your system here !</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select min(inv_network.address) machine_name, min(rpcport) as rpcport,inv_machine.name from inv_machine , inv_tuner, inv_network where inv_machine.id = inv_tuner.machine_id and inv_machine.id = inv_network.machine_id and inv_network.address != &apos;127.0.0.1&apos; and inv_network.address not like &apos;%.1&apos; and rpcport like &apos;7717&apos; group by inv_machine.name</property>
+        </node>
+        <node name="All_tuners" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1139146524470</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select distinct inv_network.address machine_name, machine_domain, rpcport, rpcsslport, inv_machine.name from inv_machine, inv_tuner, inv_network where inv_machine.id = inv_tuner.machine_id and inv_machine.id = inv_network.machine_id and inv_network.address != &apos;127.0.0.1&apos; and rpcport like &apos;%7717&apos;</property>
+        </node>
+        <node name="All_virtual_network" class="com.marimba.tools.dbtree.Node">
+          <property name="atlas.node.createdBy">admin</property>
+          <property name="atlas.node.dateCreated">1165931758834</property>
+          <property name="atlas.node.desc">select * from inventory.virtual_network</property>
+          <property name="atlas.query.type">s</property>
+          <property name="atlas.node.sql">select * from inventory.virtual_network</property>
+        </node>
+      </dirnode>
+    </dirnode>
+  </dirnode>
+</tree>

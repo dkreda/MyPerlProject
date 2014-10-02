@@ -1,0 +1,39 @@
+<UnitContent name="Babysitter" version="1.0.0.0">
+<group>
+  <name>BabySitter_NG</name>
+	  <file>
+		<path>/etc/init.d/babysitter</path>
+		<decoder>TxtDecoder</decoder>
+	  </file>    	 
+ 	<file>
+		<path>/usr/cti/conf/babysitter/kfiles/BabysitterKey.ini</path>
+		<decoder>TxtLineDecoder</decoder>
+ 	</file>
+ 	<file>
+		<path>/usr/cti/conf/babysitter/Babysitter.ini</path>
+		<decoder>TxtLineDecoder</decoder>
+ 	</file>
+ 	<file>
+		<path>/usr/cti/conf/babysitter/Applications*.xml</path>
+		<decoder>XmlDecoder</decoder>
+ 	</file>
+ 	<file>
+		<path>/usr/cti/conf/babysitter/*.xsd</path>
+		<decoder>XmlDecoder</decoder>
+ 	</file>
+ 	<file>
+		<path>/usr/cti/conf/babysitter/*.scm</path>
+		<decoder>XmlDecoder</decoder>
+ 	</file>
+
+ 	<file>
+		<path>/usr/local/etc/sudoers</path>
+		<decoder>TxtLineDecoder</decoder>
+ 	</file>
+	<file>
+		<path>/etc/sudoers</path>
+		<decoder>TxtLineDecoder</decoder>
+	</file>
+</group>
+</UnitContent> 
+

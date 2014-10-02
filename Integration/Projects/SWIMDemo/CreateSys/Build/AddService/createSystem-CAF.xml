@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+	<Component Platform="Linux" Name="CreateSystem" Version="1.0.0.0" Type="Procedure">
+		<Parameters>
+			<Parameter Name="Service Type" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="MMG" Display="MMG Services"/>
+						<Item Value="VI" Display="VI Suite Services"/>
+						<Item Value="NDU-WHC" Display="Who Called"/>
+						<Item Value="UpDate" Display="UpDate Systems values"/>
+					</Enum>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>SysType</ParameterPath>
+				<Description>Select the Relevant Service or "Update System value" to update the Systems list </Description>
+			</Parameter>
+			<Parameter Name="PVVM System" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Default"/>
+					</Enum>
+				</Restrictions>
+				<File Format="KeyValue" Name="/tmp/Stam.txt"/>
+				<ParameterPath>PVVM</ParameterPath>
+				<Description>Select the site name</Description>
+			</Parameter>
+			<Parameter Name="SWIM SystemName" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Default"/>
+					</Enum>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>SysName</ParameterPath>
+				<Description>Select the system name as appears at the SWIM instalation - which you wish to add to the site</Description>
+			</Parameter>
+			<Parameter Name="New System Name" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>NewName</ParameterPath>
+				<Description>Destination Name - which will appear at the swim system names</Description>
+			</Parameter>
+		</Parameters>
+		<Install>
+			<Execute ExecutionOrder="1">
+        <Command>&gt; /tmp/Stam.txt</Command>
+			</Execute>
+			<Execute ExecutionOrder="20">
+				<Command>if [ "UpDate" == "{Service Type}" ] ; then  /var/cti/data/swim/kits/AddServiceUtil/scripts/CreatSys.pl -Caf /var/cti/data/swim/kits/AddServiceUtil/createSystem-CAF.xml ; else /var/cti/data/swim/kits/AddServiceUtil/scripts/CreatAddServiceSys.pl -Conf /tmp/Stam.txt -LogFile - /tmp/CreateAddService.log; fi</Command>
+			</Execute>
+			<SetParams ExecutionOrder="10">
+				<ExecutionGroup>Stam</ExecutionGroup>
+			</SetParams>
+		</Install>
+	</Component>
+</SWIM>

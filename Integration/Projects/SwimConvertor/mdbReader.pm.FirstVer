@@ -1,0 +1,862 @@
+#!/usr/bin/perl
+
+
+package Buffer ;
+use strict;
+### our @ISA=("BaseObj");
+
+sub new ## String /scalar
+{
+	my $ObjType=shift;
+	## my $Buf=shift;
+	## my $Self=$ObjType->SUPER::new( (Buf	=> shift),@_);
+	my %Self = ( Buf	=> shift );
+	return bless(\%Self,$ObjType);
+}
+
+sub Size
+{
+	my $Self=shift;
+	return length($Self->{Buf});
+}
+sub ReadBytes  ### $Place, $Buffer , $Size
+{
+	my $Self=shift;
+	my $Place=shift;
+	my $Size=shift || 1;
+	my $Result=0;
+	## print "Debug - Buffer::ReadBytes:: Input: Location $Place , Size $Size\n";
+	while ( $Size ) 
+	{
+		##my $Loaction= $Place < 0 ? ++$Place : $Place+$Size  ;
+		my $Loaction= $Place+$Size  ;
+		##printf "Debug - Buffer::ReadBytes:: Read Byte Number %d\n",$Loaction-1;
+         $Result = $Result * 0x100 + ord(substr($Self->{Buf},$Loaction-1,1));
+		 $Size--;
+	}
+	## print "Debug - Buffer::ReadBytes: Result = $Result\n";
+	return $Result;
+}
+
+sub String
+{
+	my $Self=shift;
+	my $Place=shift;
+	my $Size=shift;
+	return $Size ? substr($Self->{Buf},$Place,$Size) : substr($Self->{Buf},$Place);
+}
+
+sub Buffer
+{
+	my $Self=shift;
+	my $Place=shift;
+	my $Size=shift;
+	return Buffer->new($Self->String($Place,$Size));
+}
+
+sub Byte
+{
+	my $Self=shift;
+	my $Place=shift;
+	return $Self->ReadBytes($Place);
+}
+
+sub Word
+{
+	my $Self=shift;
+	my $Place=shift;
+	return $Self->ReadBytes($Place,2);
+}
+
+sub Long
+{
+	my $Self=shift;
+	my $Place=shift;
+	return $Self->ReadBytes($Place,4);
+}
+
+sub toString
+###############################################################################
+#
+# Input:	$Buffer ( string 
+#
+# Return:       @List of Lines to print
+#
+# Description:
+#
+###############################################################################
+{
+   my $Self=shift;
+   my ($HexBuf,$AsciiBuf,$i,$Tmp);
+   my $LineSize=16;
+   my $Len=$LineSize * -3;  
+   my @Result=(); 
+   for ($i=0; $i<length($Self->{Buf}) ; $i++ )
+   {
+   		unless ( $i % $LineSize )
+   		{
+   			push (@Result,sprintf ("%${Len}s  %s\n",$HexBuf , $AsciiBuf));
+   			$HexBuf="";
+   			$AsciiBuf="";
+   		}
+   		$Tmp=ord(substr($Self->{Buf},$i,1));
+   		$HexBuf .= sprintf("%02X ",$Tmp);
+   		$AsciiBuf .= ($Tmp < 128 && $Tmp > 24) ? chr($Tmp) : '.';
+   }
+   push (@Result,sprintf ("%${Len}s  %s\n",$HexBuf , $AsciiBuf));
+   return wantarray ? @Result : join('\n',@Result);
+}
+
+package BaseObj ;
+use strict ;
+
+sub new
+{
+	my $OBJType=shift;
+	my %Self = ( @_ );
+	my $DebugModule="Debug";
+	$OBJType =~ /\:([^\:]+?)$/ and $DebugModule .= $1;
+	### print " DDDDDD EDUN ($OBJType) Denug Module is $DebugModule ...\n";
+	exists $Self{$DebugModule} and $Self{Debug}=1;
+	return bless(\%Self,$OBJType);
+}
+
+sub Logger
+{
+	my $Self=shift;
+	if ( exists $Self->{Loger} and ( ref($Self->{Loger}) =~ /CODE/)  )
+	{
+		$Self->{Loger}->(@_);
+		return ;
+	}
+	print '=' x 60 ,ref($Self->{Loger} ), __PACKAGE__ ,"\n";
+	foreach my $Line ( @_ ) 
+	{
+		print "$Line\n";
+	}
+}
+
+sub getLogOptions
+{
+	my $Self=shift;
+	my %Result ;
+	exists $Self->{Loger} and $Result{Loger}=$Self->{Loger};
+	foreach my $KeyIter (grep(/Debug/,keys(%$Self))) 
+	{
+		$Result{$KeyIter}=$Self->{$KeyIter};
+	}
+	return %Result;
+}
+
+package mdbReader ;
+
+use strict;
+use Fcntl;
+our @ISA=("BaseObj");
+
+sub new
+{
+	my $ObjType=shift;
+	my $FileName=shift;
+	my $Self=$ObjType->SUPER::new( ( FileName	=>	$FileName , 
+									 PgSize	=>	4096 ,
+									 @_) );
+	return bless($Self,$ObjType);
+}
+
+
+sub Test
+{
+	my $Self=shift;
+	my $Start=shift;
+	my $Range=shift;
+	$Range += $Start;
+	$Self->{Debug}=1;
+	return $Self->getPages(($Start..$Range));
+}
+
+sub getPages
+{
+   my $Self=shift;
+   my @PgList=@_;
+   my @Result;
+   my $LastPos=-1;
+   my $pgNum=0;
+   my $Err;
+   my @Result;
+   my $Offset= defined $Self->{UsageOffset} ? $Self->{UsageOffset} : 0;
+   ###  exists $Self->{Buffer} or $Self->{Buffer}="";
+   $Err = (open MDBFILE ,"<$Self->{FileName}") ? 0 : 1;
+   if ( $Err ) 
+   {
+		$Self->Logger("Error - Fail to open File $Self->{FileName}");
+		return ();
+   }
+   binmode(MDBFILE); 
+   $Err += (seek(MDBFILE,$Offset,Fcntl::SEEK_SET)) ? 0 : 1 ;
+   exists $Self->{Debug} and $Self->Logger("Debug - Error counter after Seek to offset ($Offset) $pgNum $Err <$Self->{PgSize}>");
+   while ( @PgList ) 
+   {
+	    my $Buffer="";
+		$pgNum=shift(@PgList);
+		## seek(MDBFILE,$Self->{PgSize} * ($pgNum - $LastPos -1) ,Fcntl::SEEK_CUR);
+		$Err += (seek(MDBFILE,$Self->{PgSize} * ($pgNum - $LastPos -1) ,Fcntl::SEEK_CUR)) ? 0 : 1;
+		## exists $Self->{Debug} and $Self->Logger("Debug - Error counter after Seek to Page $pgNum $Err <$?> $TTT");
+		$Err or my $TmpErr += read(MDBFILE,$Buffer,$Self->{PgSize} ) ;
+		if ( defined $TmpErr ) 
+		{
+			exists $Self->{Debug} and $Self->Logger($TmpErr ? "Debug - Read Succesfully $TmpErr Bytes" : 
+				"Debug - Read till End of File ...");
+		} else { $Err++ }
+			## exists $Self->{Debug} and $Self->Logger("Debug - Error counter after reading Page $pgNum $Err");
+		if ( $Err ) 
+		{
+			$Self->Logger("Error - Fail to read Page $pgNum from $Self->{FileName}");
+			close MDBFILE ;
+			return ();
+		}
+		my $TmpBuf=Buffer->new($Buffer);
+		## $Self->Logger("Debug getPages - Last Block Read:",$TmpBuf->Size(),$TmpBuf->toString());
+		my $TmpPage=mdbReader::Page->new($TmpBuf,$Self,$pgNum,$Self->getLogOptions());
+		$TmpPage or next;
+		push(@Result,$TmpPage);
+		$LastPos=$pgNum;
+   }
+   close MDBFILE ;
+   ## print "Debug - Read Block ....\n";
+   return @Result;
+}
+
+1;
+
+package mdbReader::Parser ;
+our @ISA=("mdbReader");
+
+sub parse_file
+{
+	my $ObjType=shift;
+	my $FileName=shift;
+	my $Self=$ObjType->SUPER::new( ( $FileName , 
+									 ## PgSize	=>	4096 ,
+									 @_) );
+	#my %Self = ( PgSize	=>	4096 ,
+	#			 Loger	=> \&Logger ,
+	#			 @_ );
+	## my $Reader=mdbReader->new($Self->{FileName},@_);
+	my %CatalogList;
+	my @DefPg=$Self->getPages(2);
+	## my $DefPg=mdbReader::TDefPg->new($Self,2,$Self->getLogOptions());
+	@DefPg or return undef;
+	exists $Self->{Debug} and $Self->Logger("Debug - Create Catalog Table");
+	my $TmpTable=mdbReader::Table->new($DefPg[0],$Self->getLogOptions());
+	exists $Self->{Debug} and $Self->Logger("Debug - Build Catalog for $Self->{FileName}");
+	my @CatRows=$TmpTable->getRows("Name","Type","Id","ParentId","Flags");
+    exists $Self->{Debug} and $Self->Logger(sprintf("Debug - Catalog Table Contain %d Rows",$#CatRows+1));
+	foreach my $RowVal (@CatRows ) 
+	{
+		my $TableName=shift(@$RowVal);
+		$CatalogList{$TableName}=$RowVal;
+		exists $Self->{Debug} and $Self->Logger("Debug - Insert to Catalog $TableName");
+	}
+	$Self->{Catalog}=\%CatalogList;
+	return bless($Self,$ObjType);
+}
+
+sub getTableByName
+{
+	my $Self=shift;
+	my $Name=shift;
+	unless ( exists $Self->{Catalog}->{$Name} and $Self->{Catalog}->{$Name}->[0] == 1 ) 
+	{
+		$Self->Logger("Error - Table $Name not exist / found at $Self->{FileName}");
+		exists $Self->{Catalog}->{$Name} and $Self->Logger("Debug $Self->{Catalog}->{$Name} is of type $Self->{Catalog}->{$Name}->[0]");
+		return undef;
+	}
+	my @DefPg=$Self->getPages($Self->{Catalog}->{$Name}->[1]);
+	my $Table=mdbReader::Table->new($DefPg[0],$Self->getLogOptions());
+	return $Table;
+}
+
+sub getTableList
+{
+	my $Self=shift;
+	my @Result;
+	my @DebugStr=("%-40s %-6s %-10s %-10s %-5s" ,
+				  "%-40s %-6d %-10d %-10d %-5d");
+	exists $Self->{Debug} and $Self->Logger(sprintf($DebugStr[0],"Name","Type","Id","ParentId","Flags"),'-' x 100);
+	while ( my ($TblName,$TablVal) = each(%{$Self->{Catalog}}) ) 
+	{
+		exists $Self->{Debug} and $Self->Logger(sprintf($DebugStr[1],$TblName,@$TablVal));
+		### Return just Tables Type ...
+		$$TablVal[0] == 1 and  push(@Result,$TblName);
+	}
+	return @Result;
+}
+
+package mdbReader::Table ;
+## use Buffer ;
+## use mdbReader ;
+## our @ISA=("mdbReader");
+our @ISA=("mdbReader");
+
+use constant {
+	OffsetMask	=>	0x2000 ,
+	SkipRowFlag	=>  0x4000 ,
+	Byte		=>  1,
+	Word		=>  2,
+	Long		=>  4  } ;
+
+sub new 
+###############################################################################
+#
+# Input:	$MdbObj , $PageStart  - the First page of the table. [%options]
+#
+# Return:
+#
+# Description:  Reads Table from Mdb that start at page $PageStart
+#
+###############################################################################
+{
+   my $ObjType=shift;
+   my $DefPage=shift;
+   my $Self=$ObjType->SUPER::new( $DefPage->{FileName},
+									( Mdb	=> $DefPage , 
+									FirstPg  => $DefPage->{PgNum} ) ,
+								   @_ );
+
+   $Self->{RowNums}=$DefPage->{Buf}->Long(16);
+   $Self->{ColumnsNum}=$DefPage->MaxRows();
+   $Self->{NumOfIndx}=$DefPage->{Buf}->Long(47);        #        mdbReader::ReadBytes(47,$Self{Mdb}->{Buffer},4);
+   $Self->{NumOfRIdx}=$DefPage->{Buf}->Long(51);        #      mdbReader::ReadBytes(51,$Self{Mdb}->{Buffer},4);
+   $Self->{FirstDataPg}=$DefPage->{Buf}->Word(56);
+   my %CollumnList;
+   my $NextCollNamePos=$Self->{ColumnsNum}*25+$DefPage->RowIndex();
+   for (my $CoIndx=0 ; $CoIndx < $Self->{ColumnsNum} ; $CoIndx++ ) 
+   {
+	   $Self->Logger("Debug - read Collumnn by getRow ($DefPage)....");
+	   my $TmpCollBuf=$DefPage->getRow($CoIndx);
+	   $Self->Logger("Debug - after Collumnn by getRow ....");
+	   unless ( defined $TmpCollBuf ) 
+	   {
+		   $Self->Logger("Error - Collumn $CoIndx not exist at Table");
+		   return undef;
+	   }
+	   exists $Self->{Debug} and $Self->Logger("Debug Column $CoIndx Content:",$TmpCollBuf->toString());
+	   my $CollNameSize=$DefPage->{Buf}->Word($NextCollNamePos);
+	   my $CollName=$DefPage->{Buf}->String($NextCollNamePos+2,$CollNameSize);
+	   exists $Self->{Debug} and $Self->Logger("Debug Collumn Name:$CollName");
+	   ### $CollName =~ s/\0//g;
+	   my $TmpColumnRec=mdbReader::Collumn->new($CollName,$TmpCollBuf);
+	   $CollumnList{$TmpColumnRec->{Name}}=$TmpColumnRec;
+	   $NextCollNamePos += $CollNameSize + 2;
+   }
+   $Self->{ColList}=\%CollumnList;
+   exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Table: Read First DataPage $Self->{FirstDataPg}");
+   my @TablePages=$Self->getPages($Self->{FirstDataPg});
+   @TablePages or $Self->Logger("Error - Fail to read Data pages. Skip Table Reading."),return;
+   exists $Self->{Debug} and $Self->Logger(sprintf("Debug - mdbReader::Table: Usage Map Row Index is: %d",$DefPage->{Buf}->Byte(55)));
+   my $UsageMapRow = $TablePages[0]->getRow($DefPage->{Buf}->Byte(55));
+   exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Table: Content of UsageMap:",$UsageMapRow->toString);
+   my @MaskBit=( 0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80);
+   @TablePages=();
+   if ( $UsageMapRow->Byte(0) ) 
+   {
+		$Self->Logger(sprintf("Error - Usage map %d Not supported yet.",$UsageMapRow->Byte(0)));
+		return undef;
+   }
+   $Self->{UsageOffset}=$UsageMapRow->Long(1);
+   $Self->{UsageMap}=$UsageMapRow->Buffer(5);
+   return bless($Self,$ObjType) ;
+}
+
+sub getRows  ### @NameList of Columns
+{
+	my $Self=shift;
+	my @NameList= @_  ? @_ : $Self->collumnsNameList();
+	my @MaskBit=( 0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80);
+    my @TablePages=();
+	my @Result;
+	## ColList
+	### Read all Pages  ###
+	exists $Self->{Debug} and $Self->Logger("Debug - Calculate The Pages of this Table:",$Self->{UsageMap}->toString);
+	for ( my $ByteCount=0; $ByteCount < $Self->{UsageMap}->Size ; $ByteCount++ ) 
+    {
+	   my $BitMask=$Self->{UsageMap}->Byte($ByteCount);
+	   $BitMask or next;
+	   $Self->Logger(sprintf("Debug - Found out Relevant Page at range: %d - %d ($ByteCount)",$ByteCount * 8,($ByteCount + 1) * 8 -1));
+	   for ( my $i=0 ; $i < @MaskBit ; $i++)
+	   {
+			int( $BitMask / $MaskBit[$i] ) % 2 or next ;
+			push(@TablePages,$ByteCount * 8 + $i);
+	   }
+   }
+   exists $Self->{Debug} and $Self->Logger("Debug - Start to Read Table Rows data ....");
+   @TablePages= $Self->getPages(@TablePages);
+   @TablePages or $Self->Logger("Warnning - no Pages found for this table"),return @Result;
+   my $RowCounter=$Self->{RowNums};
+   
+   foreach my $PgObj ( @TablePages ) 
+   {
+		for ( my $RowNum=0 ; $RowNum <  $PgObj->MaxRows() ; $RowNum++ ) 
+		{
+			$PgObj->RowDelFlag($RowNum) and next;
+			exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Table::getRows: Creating Row number $RowNum");
+			my $TmpRow=mdbReader::Row->new($PgObj->getRow($RowNum),$Self,$Self->getLogOptions());
+			$TmpRow->{SkipFlag} and next;
+			$RowCounter--;
+			my @Answer=$TmpRow->getValues(@NameList);
+			exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Table::getRows :::: RowVals: @Answer");
+			push(@Result,[@Answer]);
+				##undef @Answer;
+			$RowCounter or last;
+			exists $Self->{Debug} and $Self->Logger("Debug - >>>>>>>>>>>>>>>>>>>>>>   New Row Reading       <<<<<<<<<<<<<<<<<<<<<<<<");
+		}
+		$RowCounter or last;
+		exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Table::getRows Finish to parse Page $PgObj->{PgNum} moving to next page (Last Page):",$PgObj->{Buf}->toString());
+	}
+	exists $Self->{Debug} and $Self->Logger(sprintf("Debug - mdbReader::Table::getRows: Number of Rows return : %d",$#Result+1));
+   $RowCounter and $Self->Logger("Error - Finish to read all Pages but still tere are more $RowCounter missing Rows"),return;
+   return @Result;
+}
+
+sub collumnsNameList
+{
+	my $Self=shift;
+	return keys(%{$Self->{ColList}});
+}
+
+
+package mdbReader::Collumn ;
+
+sub new 
+{
+	my $ObjType=shift;
+	my $Name=shift;
+	my $Content=shift;
+	$Name =~ s/\0//g;
+	
+	my @ColumnType=("BOOL","BYTE","INT","LONGINT","MONEY","FLOAT",
+   	"DOUBLE","SDATETIME","ERROR","TEXT","OLE",
+   	"MEMO","D_Unknowen","E_Unknown","REPID","NUMERIC");
+	my %Self = ( Type	=> $ColumnType[$Content->Byte(0)-1] ,
+			     ColNum	=> $Content->Byte(5) ,
+		         Var_ColNum => $Content->Word(7) ,
+				 NumofRows	=> $Content->Word(9) ,
+				 IsFixed	=> $Content->Word(15) % 2 ,
+				 FixedOffset => $Content->Word(21) ,
+				 ColSize	=>  $Content->Word(23) ,
+				 Name		=>  $Name );
+	return bless(\%Self,$ObjType);
+}
+
+package mdbReader::Memo ;
+our @ISA=("mdbReader");
+sub new
+{
+	my $ObjType=shift;
+	my $Buff=shift;
+	my $FName=shift;
+	my $Self = $ObjType->SUPER::new($FName ,
+									( Content => $Buff , 
+									  memoRecSize => $Buff->Word(0) ,
+									  Lval		=>  $Buff->Word(4) ) ,
+									   Debug	=> 1 ,
+									 @_ );
+	return $Self;
+}
+
+sub getVal
+{
+	my $Self=shift;
+	if ( $Self->{Content}->Word(2) >= 0x8000 ) 
+	{
+		exists $Self->{Debug} and $Self->Logger("Debug - Memo record is local");
+		return $Self->{Content}->String(16,$Self->{memoRecSize});
+	} elsif ( $Self->{Content}->Word(2) >= 0x4000 ) 
+	{
+		$Self->Logger("Debug - Memo record :", $Self->{Content}->toString());
+		my $RowNum=$Self->{Lval} % 0x100 ;
+		my $PgNum=int($Self->{Lval} / 0x100) ;
+		#my %TmpRec=(FileName=>$Self->{FileName});
+		#print "Debug - Read Block Page $PgNum\n";
+		$Self->Logger("Debug - read Memo record from Page $PgNum");
+		my @LValPage=$Self->getPages($PgNum);
+		#my $NumofRows=$LValPage[0]->MaxRows();
+		#my $Location=$LValPage[0]->Word(10 + $RowNum *2);
+		#my $Size=$RowNum >0 ? $LValPage[0]->Word( 8  + $RowNum *2) - $Location : 4096 - $Location ;
+		#return $LValPage[0]->String($Location,$Size);
+		my $Buf=$LValPage[0]->getRow($RowNum);
+		$Self->Logger("Debug - Memo record Page $PgNum return value:",$Buf->toString());
+		return $Buf ? $Buf->String($Buf->Word(0) > 0xF0F0 ? 2 : 0 ) : undef;
+	}
+}
+
+package mdbReader::Row ;
+## our @ISA=("mdbReader::Table");
+our @ISA=("mdbReader");
+sub new  ### $RowNumber
+# RowRec   1. Order ?  , 2. Null/Exist , 3. Fixed/Var , 4. offset , 5. size , 6. Type
+{
+	## print "NotReady Yet ..\n" ;
+	### Should be implemntation of ReadRowNum ! 
+	my $ObjType=shift;
+	my $Buff=shift;
+	my $Table=shift;
+	my $Self = $ObjType->SUPER::new($Table->{FileName} ,
+									( Content => $Buff , 
+									  SkipFlag	=> 0 ,     ### $Buff->Word(0) > 0x4000 ,
+									  NumOfFields => $Buff->Word(0) % 0x4000 ) ,
+									##   FileName => $Table->{Mdb}->{FileName} ,
+									  Fields => $Table->{ColList} ,
+									  @_);
+	$Table->{ColumnsNum} != $Self->{NumOfFields} and $Self->Logger("Warning - Number of Table fields $Table->{ColumnsNum} don't match number of Row Fields $Self->{NumOfFields}");
+    $Self->{NumOfFields}=$Table->{ColumnsNum};
+	my %CollPointer;
+	exists $Self->{Debug} and $Self->Logger(sprintf("Debug - mdbReader::Row::new Number of collumns $Self->{NumOfFields} [ $Self->{Table}->{ColList} ] (%d)",0));
+	##print "Row Debug File Name is $Self->{FileName}\n\n";
+	#foreach my $CollObj (@{$Table->{ColList}} ) 
+	#{
+#		exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::new Adding $CollObj->{Name} as collumn to row");
+#		$CollPointer{$CollObj->{Name}}=$CollObj;
+#	}
+#	$Self->{Fields}=\%CollPointer;
+	exists $Self->{Debug} and $Self->Logger("Debug - Row Content :",$Self->{Content}->toString);
+	return bless($Self,$ObjType);
+}
+
+sub getFieldMask
+{
+	my $Self=shift;
+	my @MaskBit=( 0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80);
+	my $MaskFiledSize=( ( $Self->{NumOfFields} -1 ) / 8 ) +1 ;
+	my $MaskBitMap=$Self->{Content}->Buffer(-$MaskFiledSize);
+	my $ByteMask;
+	my @Result;
+	for (my $i=0 ; $i < $Self->{NumOfFields} ; $i++ ) 
+	{
+		$i % 8 or $ByteMask=$MaskBitMap->Byte(int($i/8));
+		push(@Result, ($ByteMask / $MaskBit[$i % 8]) % 2);
+		exists $Self->{Debug} and $Self->Logger(sprintf "Debug - Field $i -> %s ($ByteMask)/ %d \n",(($ByteMask / $MaskBit[$i % 8]) % 2) ? "Exists" : "Null" , $MaskBit[$i % 8]); 
+ 	}
+	return @Result;
+}
+
+######## Internal subRoutines ####
+sub ReadNumber
+{
+	my $Content=shift;
+	my $Location=shift;
+	my $Size=shift;
+	return $Content->ReadBytes($Location,$Size);
+}
+
+sub ReadText
+{
+	my $Content=shift;
+	my $Location=shift;
+	my $Size=shift;
+	if ( $Content->Word($Location) > 0xF0F0 ) 
+	{
+		$Location += 2;
+		$Size -= 2;
+	}
+	my $Result=$Content->String($Location,$Size);
+	$Result =~ s/\0//g;
+	return $Result;
+}
+
+sub ReadMemo
+{
+	my $Content=shift;
+	my $Location=shift;
+	my $Size=shift;
+	my $FName=shift;
+	my @Str=caller;
+	print "Debug - Memo Inpud $Content , $Location , $Size , \"$FName\"\n@Str\n";
+	my $TmpObj=mdbReader::Memo->new($Content->Buffer($Location,$Size),$FName );
+	return $TmpObj->getVal();
+}
+
+sub getValues
+{
+	my $Self=shift;
+	my @Names=@_;
+	my %TypeMethod=("BOOL"	=> \&ReadNumber,
+					"BYTE"	=> \&ReadNumber,
+					"INT"	=> \&ReadNumber,
+					"LONGINT" => \&ReadNumber,
+					"MONEY"	  => \&ReadNumber ,
+					"FLOAT"	  => \&ReadNumber,
+   					"DOUBLE"  => \&ReadNumber,
+					"SDATETIME" => \&ReadText,
+					"ERROR"		=> \&ReadNumber,
+					"TEXT"	=> \&ReadText ,
+					"OLE"	=> \&ReadText,
+   					"MEMO"	=>  \&ReadMemo,
+					"D_Unknowen"	=> \&ReadText,
+					"E_Unknown"	=>  \&ReadText,
+					"REPID"	=>  \&ReadText,
+					"NUMERIC"	=> \&ReadNumber );
+    exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::getValues Input: @Names" ,
+							sprintf("Debug - Row Content (%d):",$Self->{Content}->Size),
+							$Self->{Content}->toString);
+	my @NullFields=$Self->getFieldMask();
+	my @Result;
+	my %FIndex=%{$Self->{Fields}};
+	my ($Location,$Size);
+	my $MaskFiledSize=int( ( $Self->{NumOfFields} -1 ) / 8 ) +1 ;
+	my $VarayColumns=$Self->{Content}->Word(-1 * ($MaskFiledSize + 2));
+	my $IndexPointer=$MaskFiledSize + 4 ;
+	my $VarayColumnCounter=0;
+	exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::getValues MaskBitMap Size (in Bytes $MaskFiledSize ), Start Index positon $IndexPointer");
+	foreach my $Name ( @Names ) 
+	{
+		unless ( exists $FIndex{$Name} ) 
+		{
+			$Self->Logger("Warning - The Field $Name do not exists at Row Table ! $Self->{Fields}",join(" , ",keys(%FIndex)));
+			push(@Result,"");
+			next ;
+			## return undef;
+		}
+		exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::getValues $Name position ($FIndex{$Name}->{ColNum})");
+		unless ( $NullFields[$FIndex{$Name}->{ColNum}]  ) 
+		{  ###  Null Field !   #
+			exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::getValues $Name is null ($FIndex{$Name}->{ColNum})");
+			push(@Result,"");
+			next ;
+		}
+
+		if ( $FIndex{$Name}->{IsFixed} ) 
+		{
+			$Location=$FIndex{$Name}->{FixedOffset}+2;
+   			$Size=$FIndex{$Name}->{ColSize};
+			 exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::getValues $Name is Fixed Column");
+		} else
+		{  #### Varay Field
+			$Location=$Self->{Content}->Word(-1*($IndexPointer+$FIndex{$Name}->{Var_ColNum}*2));
+			exists $Self->{Debug} and $Self->Logger(sprintf("Debug - mdbReader::Row::getValues $Name Index location -(%d) , Start Location %d",
+									$IndexPointer+$FIndex{$Name}->{Var_ColNum}*2+2,$Location),
+									"Debug - mdbReader::Row::getValues $Name is column $VarayColumnCounter out of $VarayColumns");
+			$VarayColumnCounter++;
+			for ( my $Step=2 , $Size=0 ; $Size==0 ; $Step += 2) 
+			{
+				exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::getValues Step $Step , Size $Size");
+				$Size = ($FIndex{$Name}->{Var_ColNum} + ($Step/2))  <= $VarayColumns ? 
+						$Self->{Content}->Word(-1*($IndexPointer+$FIndex{$Name}->{Var_ColNum}*2 + $Step )) - $Location : 
+						$Self->{Content}->Size - $Location - $MaskFiledSize - 2;
+				exists $Self->{Debug} and $Self->Logger(sprintf("Debug - Index Calculation of next Collumn %d (MaxVaray:%d)", $FIndex{$Name}->{Var_ColNum} + ($Step/2),$VarayColumns));
+				exists $Self->{Debug} and $Self->Logger(sprintf("Debug - mdbReader::Row::getValues After calaculation Size $Size ( next Index location -(%d) or MaxPosition calculated:  %d",
+													$IndexPointer+$VarayColumnCounter*2 + $Step , $Self->{Content}->Size - $Location - $MaskFiledSize - 2));
+			}
+			
+			exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::getValues $Name is Varay Column Coll Num $VarayColumnCounter");
+		}
+		exists $Self->{Debug} and $Self->Logger("Debug - mdbReader::Row::getValues $Name ($Location,$Size)",
+								sprintf("Debug - mdbReader::Row::getValues $Name Value: %s",$TypeMethod{$FIndex{$Name}->{Type}}->($Self->{Content},$Location,$Size,$Self->{FileName})));
+		### print " Debug Row get value File name $Self->{FileName}\n";
+		push(@Result,$TypeMethod{$FIndex{$Name}->{Type}}->($Self->{Content},$Location,$Size,$Self->{FileName}));
+	}
+	
+	return  @Result;
+}
+
+package mdbReader::Page ;
+## use mdbReader;
+our @ISA=("mdbReader");
+
+sub new
+{
+	my $ObjType=shift;
+	my $PgBuffer=shift ;
+	my $MdbObj=shift;
+    my $PageNumber=shift;
+	my %PageType= (  TableDef	=> "mdbReader::Page::TDefPage" ,
+					 DataPage   => "mdbReader::Page::DataPage" ,
+					 LvalPage	=> "mdbReader::Page::LvalPage" );
+
+	my $PageDef="Unknown";
+
+	if ( $PgBuffer->Byte(0) == 1 ) 
+	{
+		$PageDef=$PgBuffer->String(4,4) eq "LVAL" ? "LvalPage" : "DataPage" ;
+	} elsif ( $PgBuffer->Byte(0) == 2 ) 
+	{
+		$PageDef="TableDef";
+	}
+	unless ( exists $PageType{$PageDef} ) 
+	{
+		my $Self=BaseObj->new(@_);
+		$Self->Logger("Error - Page number $PageNumber - is unsupported",$PgBuffer->Buffer(0,15)->toString());
+		return undef;
+	}
+
+	my $Self=mdbReader->new($MdbObj->{FileName},( Buf	=>  $PgBuffer ,
+												 PgNum	 => $PageNumber ,
+												 @_ ) );
+	
+   #	my $Self=$PageType{$PageDef}->new( $MdbObj->{FileName},
+#										 ( Buf	=>  $PgBuffer ,
+#										 ## FileName => $MdbObj->{FileName} ,
+#										 ## PgSize	=>	4096 ,
+#										 PgNum	 => $PageNumber ,
+#									     @_ ));
+	exists $Self->{Debug} and $Self->Logger("Debug Page $PageNumber :",$PgBuffer->toString());
+	return $PageType{$PageDef}->new($Self);
+
+
+	my $Self = $ObjType->SUPER::new( 
+				 Buf	=>  $PgBuffer ,
+				 Type	=>  $PgBuffer->Byte(0) ,
+				 MaxRows => $PgBuffer->Word(12),
+				 OffsetMask => 0x2000 ,
+				 DelFlag	=> 0x4000 ,
+				 LookUpFlag => 0x8000 ,
+				 RowIndex	=> 14 ,
+				 @_ );
+	exists $Self->{Debug} and $Self->Logger("Debug mdbReader::Page::new -> Page $PgBuffer->{BlockNum} Type:",$PgBuffer->Buffer(0,32)->toString());
+	return bless($Self,$ObjType);
+}
+
+sub FindRow
+{
+	my $Self=shift;
+	my $RowNum=shift;
+	$RowNum > $Self->MaxRows() and return undef ;
+	exists $Self->{Debug} and $Self->Logger("Debug - FindRow Obj $Self , RowIndex:",$Self->RowIndex(),$Self->{Buf}->Word($Self->RowIndex + $RowNum * 2 ),$Self->{Buf}->Word($Self->RowIndex + $RowNum * 2 - 2  ) , $Self->{Buf}->Word($Self->RowIndex + $RowNum * 2  + 2)   );
+	my $Result = $RowNum < 0 ? $Self->{Buf}->Size + 1 : $Self->{Buf}->Word($Self->RowIndex + $RowNum * 2 ) ;
+	return $Result ;
+}
+
+sub RowDelFlag
+{
+	my $Self=shift;
+	my $RowNum=shift;
+	exists $Self->{Debug} and $Self->Logger("Debug - RowDelFlag Obj $Self , Max rows on this page :",$Self->MaxRows());
+	$RowNum > $Self->MaxRows() and return undef ;
+	my $RowIndx=$Self->{Buf}->Word($Self->RowIndex+$RowNum * 2);
+	exists $Self->{Debug} and $Self->Logger("Debug - RowDelFlag Obj $Self , RowIndex:$RowIndx");
+	return int( $RowIndx / $Self->{DelFlag} ) % 2 ;
+}
+
+sub LookUpFlag
+{
+	my $Self=shift;
+	my $RowNum=shift;
+	$RowNum > $Self->{MaxRows} and return undef ;
+	my $RowIndx=$Self->{Buf}->Word($Self->RowIndex+$RowNum * 2 );
+	return int( $RowIndx / $Self->{LookUpFlag} ) % 2 ;
+}
+
+sub getRow
+{
+	my $Self=shift;
+	my $RowNum=shift;
+	exists $Self->{Debug} and $Self->Logger("Debug - Page get row $RowNum",$Self->MaxRows() );
+	$RowNum > $Self->MaxRows() and return undef ;
+	my $RowLocation=$Self->FindRow($RowNum);
+	my $RowSize = $Self->FindRow($RowNum-1) - $RowLocation ;
+	exists $Self->{Debug} and $Self->Logger("Debug - Page get row $RowNum location $RowLocation , $RowSize :");
+	return $Self->{Buf}->Buffer($RowLocation,$RowSize);
+}
+
+package mdbReader::Page::TDefPage;
+our @ISA=("mdbReader::Page");
+sub new
+{
+	my $ObjType=shift;
+	my $Self=shift;
+	$Self->{TableSize}=$Self->{Buf}->Long(8);
+	return bless($Self,$ObjType);
+}
+
+sub MaxRows
+{
+	my $Self=shift;
+	### Number of Collumns ####
+	return $Self->{Buf}->Word(45);
+}
+
+sub RowIndex
+{
+	my $Self=shift;
+	return $Self->{Buf}->Long(51)*12 + 63 ;
+}
+
+sub FindRow
+{
+	my $Self=shift;
+	my $RowNum=shift;
+	$RowNum > $Self->MaxRows() and return undef ;
+	exists $Self->{Debug} and $Self->Logger("Debug - FindRow Obj $Self , RowIndex:",$Self->RowIndex());
+	return $Self->RowIndex + $RowNum * 25 ;
+}
+	## return $Result ;
+sub getRow
+{
+	my $Self=shift;
+	my $RowNum=shift;
+	exists $Self->{Debug} and $Self->Logger("Debug - Page get row $RowNum",$Self->MaxRows() );
+	$RowNum > $Self->MaxRows() and return undef ;
+	my $RowLocation=$Self->FindRow($RowNum);
+	return $Self->{Buf}->Buffer($RowLocation,25);
+}
+
+package mdbReader::Page::DataPage; 
+our @ISA=("mdbReader::Page");
+sub new
+{
+	my $ObjType=shift;
+	my $Self=shift;
+	$Self->{DelFlag}=0x8000;
+	$Self->{LookUpFlag}=0x4000;
+	return bless($Self,$ObjType);
+}
+
+sub MaxRows
+{
+	my $Self=shift;
+	return $Self->{Buf}->Word(12);
+}
+
+sub RowIndex
+{
+	my $Self=shift;
+	return 14 ;
+}
+
+
+
+sub FindRow
+{
+	my $Self=shift;
+	my $RowNum=shift;
+	my $Result=$Self->SUPER::FindRow($RowNum);
+
+	#$RowNum > $Self->MaxRows() and return undef ;
+	#my $Result = $RowNum < 0 ? $Self->{Buf}->Size + 1 : $Self->{Buf}->Word($Self->{RowIndex} + $RowNum * 2 ) ;
+	return $Result ? $Result % 0x2000 : undef ;
+}
+
+
+package mdbReader::Page::LvalPage;
+our @ISA=("mdbReader::Page");
+sub new
+{
+	my $ObjType=shift;
+	my $Self=shift;
+	## my %Self=( @_ );
+	return bless($Self,$ObjType);
+}
+
+sub MaxRows
+{
+	my $Self=shift;
+	return $Self->{Buf}->Word(12);
+}
+sub RowIndex
+{
+	my $Self=shift;
+	return 28 ;
+}
+
+1;

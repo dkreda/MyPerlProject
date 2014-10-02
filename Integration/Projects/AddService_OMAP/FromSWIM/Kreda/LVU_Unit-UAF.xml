@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="LVU_Group" Platform="Linux">
+    <Install>
+      <Component Name="MMG_LogViewer_LVU" ExecutionOrder="10"/>
+      <Component Name="UpdateTopology" ExecutionOrder="30"/>
+    </Install>
+    <Parameters>
+      <Parameter Name="RunUnit" ComponentName="UpdateTopology" Display="false">
+        <Value>LVU</Value>
+      </Parameter>
+    </Parameters>
+  </UnitType>
+</SWIM>

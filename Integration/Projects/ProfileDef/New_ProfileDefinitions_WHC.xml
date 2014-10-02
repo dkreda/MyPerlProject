@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Provisioning>
+  <ProfileDefinition Name="New_ProfileDefinitions_WHC.xml" Version="1.0.0.0">
+    <Entities>
+      <Entity>
+        <Name>Unknown</Name>
+        <DsvEntityName>New</DsvEntityName>
+        <Fields>
+          <Field>
+            <Name>CnsNFMBusyEnabled</Name>
+            <Description>CnsNFMBusyEnabled</Description>
+            <DsvName>CnsNFMBusyEnabled</DsvName>
+            <DbName>SUBSCRIBERS</DbName>
+            <DbData>
+              <DbType>Number</DbType>
+              <DbLength>1</DbLength>
+            </DbData>
+          </Field>
+          <Field>
+            <Name>CnsNfmSilentEnabled</Name>
+            <Description>CnsNfmSilentEnabled</Description>
+            <DsvName>CnsNfmSilentEnabled</DsvName>
+            <DbName>SUBSCRIBERS</DbName>
+            <DbData>
+              <DbType>Number</DbType>
+              <DbLength>1</DbLength>
+            </DbData>
+          </Field>
+          <Field>
+            <Name>CnsMsgAggregationEnabled</Name>
+            <Description>CnsMsgAggregationEnabled</Description>
+            <DsvName>CnsMsgAggregationEnabled</DsvName>
+            <DbName>SUBSCRIBERS</DbName>
+            <DbData>
+              <DbType>Number</DbType>
+              <DbLength>1</DbLength>
+            </DbData>
+          </Field>
+        </Fields>
+      </Entity>
+    </Entities>
+  </ProfileDefinition>
+</Provisioning>

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="SWIM">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="UnitType">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="Install" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Component" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="OnlyOn" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="UnitName" maxOccurs="unbounded">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:minLength value="1"/>
+																			<xs:pattern value="(\S.*\S)|(\S*)"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="Name" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:minLength value="1"/>
+															<xs:pattern value="(\S.*\S)|(\S*)"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="UponError" default="Stop">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Stop"/>
+															<xs:enumeration value="Continue"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="ExecutionOrder">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="DisplayGroup" type="xs:string"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element ref="Dependencies" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Uninstall" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Component" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="OnlyOn" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="UnitName" maxOccurs="unbounded">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:minLength value="1"/>
+																			<xs:pattern value="(\S.*\S)|(\S*)"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="Name" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:minLength value="1"/>
+															<xs:pattern value="(\S.*\S)|(\S*)"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="UponError" default="Stop">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Stop"/>
+															<xs:enumeration value="Continue"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="ExecutionOrder">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="DisplayGroup" type="xs:string"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element ref="Dependencies" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Upgrade" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Component" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="OnlyOn" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="UnitName" maxOccurs="unbounded">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:minLength value="1"/>
+																			<xs:pattern value="(\S.*\S)|(\S*)"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="Name" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:minLength value="1"/>
+															<xs:pattern value="(\S.*\S)|(\S*)"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="UponError" default="Stop">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Stop"/>
+															<xs:enumeration value="Continue"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="ExecutionOrder">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="DisplayGroup" type="xs:string"/>
+												<xs:attribute name="ForceOperation">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Install"/>
+															<xs:enumeration value="Uninstall"/>
+															<xs:enumeration value="Upgrade"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+										<xs:element ref="Dependencies" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Rollback" minOccurs="0">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Component" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="OnlyOn" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="UnitName" maxOccurs="unbounded">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:minLength value="1"/>
+																			<xs:pattern value="(\S.*\S)|(\S*)"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="Name" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:minLength value="1"/>
+															<xs:pattern value="(\S.*\S)|(\S*)"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="UponError" default="Stop">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Stop"/>
+															<xs:enumeration value="Continue"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="ExecutionOrder">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="DisplayGroup" type="xs:string"/>
+												<xs:attribute name="ForceOperation">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="Install"/>
+															<xs:enumeration value="Uninstall"/>
+															<xs:enumeration value="Upgrade"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+										<xs:element ref="Dependencies" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="Parameters" minOccurs="0">
+								<xs:complexType>
+									<xs:choice maxOccurs="unbounded">
+										<xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Value" minOccurs="0"/>
+												</xs:sequence>
+												<xs:attribute name="Overwrite" type="xs:boolean" default="true"/>
+												<xs:attribute name="Display" type="xs:boolean" default="true"/>
+												<xs:attributeGroup ref="ParameterAttributesGroup"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Alias" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Value" minOccurs="0"/>
+													<xs:element name="Restrictions">
+														<xs:complexType>
+															<xs:all>
+																<xs:element name="Type">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:enumeration value="Number"/>
+																			<xs:enumeration value="String"/>
+																			<xs:enumeration value="Password"/>
+																			<xs:enumeration value="Enum"/>
+																			<xs:enumeration value="Boolean"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="MinVal" type="xs:integer" minOccurs="0"/>
+																<xs:element name="MaxVal" type="xs:integer" minOccurs="0"/>
+																<xs:element name="MinLength" type="xs:integer" minOccurs="0"/>
+																<xs:element name="MaxLength" type="xs:integer" minOccurs="0"/>
+																<xs:element name="Pattern" minOccurs="0">
+																	<xs:simpleType>
+																		<xs:restriction base="xs:string">
+																			<xs:minLength value="1"/>
+																		</xs:restriction>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element name="Enum" minOccurs="0">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Item" maxOccurs="unbounded">
+																				<xs:complexType>
+																					<xs:attribute name="Display" type="xs:string">
+																						<xs:annotation>
+																							<xs:documentation>The name which will be displayed in the WUI</xs:documentation>
+																						</xs:annotation>
+																					</xs:attribute>
+																					<xs:attribute name="Value" type="xs:string" use="required"/>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Mandatory" type="xs:boolean" default="false" minOccurs="0">
+																	<xs:annotation>
+																		<xs:documentation>Determines whether the parameter value is mandatory or not.</xs:documentation>
+																	</xs:annotation>
+																</xs:element>
+															</xs:all>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Parameter" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:attributeGroup ref="ParameterAttributesGroup"/>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="DisplayName" use="required">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:minLength value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+												<xs:attribute name="Overwrite" type="xs:boolean"/>
+												<xs:attribute name="Display" type="xs:boolean" default="true"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:choice>
+								</xs:complexType>
+							</xs:element>
+							<xs:element ref="Dependencies" minOccurs="0"/>
+						</xs:all>
+						<xs:attribute name="Name" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:pattern value="(\S.*\S)|(\S*)"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="Platform" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Linux"/>
+									<xs:enumeration value="SunOS"/>
+									<xs:enumeration value="AIX"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="ParameterAttributesGroup">
+		<xs:attribute name="Name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="ComponentName" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+					<xs:pattern value="(\S.*\S)|(\S*)"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="ExecutionOrder">
+		<xs:complexType>
+			<xs:attribute name="Number" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Dependencies">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Component" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Component">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DependsOn">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Component" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:attributeGroup ref="ComponentAttributesGroup"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attributeGroup ref="ComponentAttributesGroup"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="ComponentAttributesGroup">
+		<xs:attribute name="UnitName" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+					<xs:pattern value="(\S.*\S)|(\S*)"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="Name" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:minLength value="1"/>
+					<xs:pattern value="(\S.*\S)|(\S*)"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+</xs:schema>

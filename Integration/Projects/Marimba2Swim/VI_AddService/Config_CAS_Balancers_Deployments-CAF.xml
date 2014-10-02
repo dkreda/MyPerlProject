@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Config_CAS_Balancers_Deployments" Version="First-Draft" Platform="Linux">
+    <!--This CAF File is implementation of /VI_Procedures/Add_Web_Inbox_Service/Deployments/Config_CAS_Balancers.Update_CAS_Balancer-->
+    <Install>
+      <Execute ExecutionOrder="1000">
+        <Command>cd /usr/cti/conf/balancer; sed s/BalancerType=.*/BalancerType=Proxy/ balancer.conf &gt; balancer.conf.tmp; cp balancer.conf.tmp balancer.conf; rm -f balancer.conf.tmp</Command>
+      </Execute>
+      <Execute ExecutionOrder="1005">
+        <Command>cd /usr/cti/conf/balancer; TYPE='NormalBalancerList'; PREV=`grep $TYPE balancer.conf | cut -d = -f2`; if [ "X$PREV" != "X" ]; then PREV=','$PREV; fi; sed s/$TYPE=.*/$TYPE=,$PREV/ balancer.conf &gt; balancer.conf.tmp; cp balancer.conf.tmp balancer.conf; rm -f balancer.conf.tmp</Command>
+      </Execute>
+      <Execute ExecutionOrder="1010">
+        <Command>ps -ef | grep BalancerService| grep -v 'grep' | awk '{print $2}' | xargs kill -9</Command>
+      </Execute>
+    </Install>
+  </Component>
+</SWIM>

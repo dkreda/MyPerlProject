@@ -1,0 +1,30 @@
+#!/usr/bin/expect -f
+###########################################
+# Expect Test dcript
+
+proc Login {MachinIp} {
+spawn ssh "admin@$MachinIp"
+expect "assword:"
+send "aDm4cu2t\r"
+expect "\\$"
+send "su -\r"
+expect "assword:"
+send "Adm1Cmv4$\r"
+expect "#"
+}
+
+proc getBalancerAuth {} {
+set BalancFile "/usr/cti/conf/balancer/balancer.conf"
+send sed -n '/EnableReceivedRequestAuth/ s/^.*=//p' $BalancFile
+expect "\r"
+return [$expect_out(buffer)]
+}
+
+Login $argv
+puts "\nBalancer Authentication Mode = "
+puts [getBalancerAuth]
+puts "\nEnd of Balancer conf\n\n"
+send "exit\r"
+expect "\\$"
+send "exit\r"
+expect eof

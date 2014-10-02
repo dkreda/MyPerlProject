@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="WHC_Service_DSU" Version="4.4.4.0" Platform="SunOS">
+    <Install>
+      <Execute ExecutionOrder="15030">
+        <Command>/var/tmp/dsu_config.sh </Command>
+      </Execute>
+      <Copy ExecutionOrder="15000" ChmodFlags="+x">
+        <Source>./scripts/dsu_config.sh</Source>
+        <Target>/var/tmp/dsu_config.sh</Target>
+      </Copy>
+    </Install>
+  </Component>
+</SWIM>

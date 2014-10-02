@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Provisioning>
+	<ProfileDefinition Name="WHC" Version="4.0.0.0">
+		<Entities>
+			<Entity>
+				<Name>Subscriber</Name>
+				<DsvEntityName>SUB</DsvEntityName>
+				<Fields>
+					<Field>
+						<Name>WhoCalledEnabled</Name>
+						<DsvName>CnsWHCEnabled</DsvName>
+						<DbName>SUBSCRIBERS.WHO_CALLED_ENABLED</DbName>
+						<DisplayName>Who Called Enabled</DisplayName>
+						<Description>Determines if the WHC service is enabled.</Description>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>NotifyAboutMeEnabled</Name>
+						<DsvName>CnsNFAMEnabled</DsvName>
+						<DbName>SUBSCRIBERS.NOTIFY_ABOUT_ME_ENABLED</DbName>
+						<DisplayName>Notify About Me Enabled</DisplayName>
+						<Description>Determines if the NFM service is enabled (when user is B party).</Description>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>NfmBWListEnabled</Name>
+						<DsvName>CnsNfmBWListEnabled</DsvName>
+						<DbName>SUBSCRIBERS.NFM_BW_LIST_ENABLED</DbName>
+						<DisplayName>Notify Me Black White List Enabled</DisplayName>
+						<Description>This parameter determines if B party is permitted to manage a personal list.</Description>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>NfmBWListType</Name>
+						<DsvName>CnsNfmBWListType</DsvName>
+						<DbName>SUBSCRIBERS.NFM_BW_LIST_TYPE</DbName>
+						<XsdValidation>
+							<Type>xs:nonNegativeInteger</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+							<MinVal>0</MinVal>
+							<MaxVal>2</MaxVal>
+						</XsdValidation>
+						<DisplayName>Notify Me Black and white List typee</DisplayName>
+						<Description>Defines the subscriber&apos;s black white list for Notify Me (Black -all accept provisioned subs will not receive NFM, White -only provisioned subs will receive NFM, None -no list (and no need to load such a list))</Description>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>PromoSMSEnabled</Name>
+						<DsvName>CnsPromoSMSEnabled</DsvName>
+						<DbName>SUBSCRIBERS.PROMO_SMS_ENABLED</DbName>
+						<DisplayName>Promotion SMS Notification Enable</DisplayName>
+						<Description>This parameter determines if Promotion SMS Notification will be sent to A party.</Description>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>NfmBWList</Name>
+						<DsvName>CnsNfmBWList</DsvName>
+						<MultiValueElementName>Value</MultiValueElementName>
+						<DbName>SUBSCRIBERS_NFM_BW_LIST.NFM_BW_LIST</DbName>
+						<XsdValidation>
+							<Type>xs:string</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<DisplayName>Telephone number - Black White List</DisplayName>
+						<Description>Defines the subscriber&apos;s telephone numbers for black and white list up to 40 different numbers.</Description>
+					</Field>
+				</Fields>
+			</Entity>
+		</Entities>
+	</ProfileDefinition>
+</Provisioning>

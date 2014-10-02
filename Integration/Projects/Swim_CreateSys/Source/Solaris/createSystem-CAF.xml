@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\MYDOCU~1\Integration\Projects\SwimConvertor\CAFTests\CAF.xsd">
+	<Component Platform="SunOS" Name="CreateSystem" Version="1.0.0.0">
+		<Parameters>
+			<Parameter Name="Service Type" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="MMG" Display="MMG Services"/>
+						<Item Value="VI" Display="VI Suite Services"/>
+						<Item Value="NDU-WHC" Display="Who Called"/>
+					</Enum>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>SysType</ParameterPath>
+			</Parameter>
+			<Parameter Name="Cas Host Name" Level="System" GroupName="CAS Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>CASName</ParameterPath>
+			</Parameter>
+			<Parameter Name="Proxy Host Name" Level="System" GroupName="Proxy Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>Proxy_AUName</ParameterPath>
+			</Parameter>
+			<Parameter Name="Proxy Host IP" Level="System" GroupName="Proxy Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>Proxy_AUIP</ParameterPath>
+			</Parameter>
+			<Parameter Name="Cas Host IP" Level="System" GroupName="CAS Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>CASIP</ParameterPath>
+				<Value/>
+			</Parameter>
+			<Parameter Name="System Name" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Format="KeyValue" Name="/tmp/Stam.txt"/>
+				<ParameterPath>SysName</ParameterPath>
+			</Parameter>
+			<Parameter Name="MMG Host name" Level="System" GroupName="MMG Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue" ParameterPath=""/>
+				<ParameterPath>MMSGWName</ParameterPath>
+			</Parameter>
+			<Parameter Name="MMG Host IP" Level="System" GroupName="MMG Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>MMSGWIP</ParameterPath>
+			</Parameter>
+			<Parameter Name="NDU Host name" Level="System" GroupName="NDU Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>NDUName</ParameterPath>
+			</Parameter>
+			<Parameter Name="NDU Host IP" Level="System" GroupName="NDU Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>NDUIP</ParameterPath>
+			</Parameter>
+			<Parameter Name="Balancer Host" Level="System" GroupName="Balancer Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>BalancerHost</ParameterPath>
+			</Parameter>
+		</Parameters>
+		<Install>
+			<Execute ExecutionOrder="1">
+				<Command>> /tmp/Stam.txt</Command>
+			</Execute>
+			<SetParams ExecutionOrder="10">
+				<ExecutionGroup>Stam</ExecutionGroup>
+			</SetParams>
+			<Execute ExecutionOrder="20">
+				<Command>/var/cti/data/swim/kits/CreateSystem/BuildSwimSystem.pl -Conf /tmp/Stam.txt -Map /var/cti/data/swim/kits/CreateSystem/Octopu2Twim.csv -LogFile - /tmp/SwimLog_BuildSwimSys.log</Command>
+			</Execute>
+			<UpdateInventory ExecutionOrder="100">
+				<ComponentName>CreateSystem</ComponentName>
+				<Operation>Install</Operation>
+				<ComponentVersion>0.0.01</ComponentVersion>
+			</UpdateInventory>
+		</Install>
+		<Groups>
+			<Group Name="CAS Definition" DefaultInstances="1" MaxOccur="50" MinOccur="0"/>
+			<Group Name="Proxy Definition" DefaultInstances="1" MinOccur="0" MaxOccur="50"/>
+			<Group Name="MMG Definition" DefaultInstances="1" MinOccur="0" MaxOccur="50"/>
+			<Group Name="NDU Definition" DefaultInstances="1" MinOccur="0" MaxOccur="50"/>
+			<Group Name="MTS Definition" DefaultInstances="1" MinOccur="0" MaxOccur="50"/>
+			<Group Name="Balancer Definition" DefaultInstances="2" MinOccur="0" MaxOccur="2"/>
+		</Groups>
+	</Component>
+</SWIM>

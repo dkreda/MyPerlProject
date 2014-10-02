@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\MYDOCU~1\Integration\Projects\SwimConvertor\CAFTests\UAF.xsd">
+  <UnitType Name="DSU_Group" Platform="Linux">
+	<Install>
+		<Component Name="ProfileDefinition" ExecutionOrder="20">
+		</Component>
+		<Component Name="Whc_DBKits" ExecutionOrder="10">
+		</Component>
+	</Install>
+   </UnitType>
+</SWIM>

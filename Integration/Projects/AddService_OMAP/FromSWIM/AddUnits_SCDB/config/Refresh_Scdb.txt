@@ -1,0 +1,38 @@
+####################################################################
+#
+# Octpus Parameters manipulation configuration File
+# 
+#  for Whc
+#
+####################################################################
+
+[Octopus.Parameters.Mapping]
+
+
+[RealName.Parameters.Def]
+BalancerRun=%$BalancersIP%,cmd:///usr/cti/balancer/create_balancer_conf.sh && MamCMD restart balancer
+ICCRun=%$ICC_Unit%,cmd:///opt/CMVT/ICC/tools/STP/stp.pl
+SiteBookRun=%$SiteBookUnit%,cmd://%$SiteBookCLI% reflect_topology && %$SiteBookCLI% rebuild_metadata
+CCMRun=%$CCMIPs%,cmd://su - ccm_user -c "ccm-cli -C updateTopology -s %$SystemName% -o BUILD"
+LGWRun=LVU,cmd://su - lgw -c "cd script/; ./scdbBuilder.sh - parse scdb"
+PMRun=SMU,cmd://echo "Performance monitore not ready yet ..."
+PMTRun=%$PMTIPs%,cmd://echo "PMT not ready yet ..."
+
+
+[Values]
+BalancerRun=#Param1#
+ICCRun=#Param2#
+SiteBookRun=#Param3#
+CCMRun=#Param4#
+LGWRun=#Param5#
+PMRun=#Param6#
+
+
+[Macros]
+BalancersIP=#TokenBalancer#
+PMTIPs=#PMTMachinesIP#
+CCMIPs=#CCMMachineIP#
+SystemName=#Param7#
+ICC_Unit=SMU
+SiteBookUnit=SMU
+SiteBookCLI=/usr/cti/apps/sitebook/catalinaBase/webapps/sitebook/SiteBook_CLI.sh

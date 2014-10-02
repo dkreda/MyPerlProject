@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="service-kit-vi_suite_FirstDMZunitIP" Version="4.8.1.0-03" Platform="Linux">
+    <Install>
+      <Copy ExecutionOrder="215609">
+        <Source>./scripts/balancer-cleanup.pl</Source>
+        <Target>/var/tmp/balancer-cleanup.pl</Target>
+      </Copy>
+      <SetParams ExecutionOrder="365012">
+        <ExecutionGroup>Babysitter-Critical_Apps_Conf</ExecutionGroup>
+      </SetParams>
+    </Install>
+    <Parameters>
+      <Parameter Name="Babysitter - Balancer GracefulRestartUnitOnFailure" ExecutionGroup="Babysitter-Critical_Apps_Conf" Level="UnitType" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/ApplicationsBalancerLINUX.xml" Format="XML" ParameterPath="/MAMDATA/Applications/ROW/LINUX/@GracefulRestartUnitOnFailure"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Second MZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Second DMZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="First DMZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="First MZ unit IP" Level="System" ExecutionGroup="Babysitter-Critical_Apps_Conf">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+    </Parameters>
+  </Component>
+</SWIM>

@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="root">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="General"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="Debug"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="Graceful_T_SPACE_T_Shutdown"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Balancer_T_SPACE_T_Switchover"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Automatic_T_SPACE_T_Shutdown"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+				<xsd:element ref="AlarmProcessor"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="EmailNotif"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Heartbeat"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="PerfMon"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="SNMP"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="GenericSNMP"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="DaemonTests"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="TCP-Example"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="HTTP-Example"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Nci-Example"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="General">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="UnitType"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MonitorCrash"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MaxAgeOfFile"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MaxFileSize"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ScanDirForTrc"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="TrcFileMaxAgeHours"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="TrcFileMaxNum"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="TrcFileMaxSize"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="TrcFileHoursBetweenDelete"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AlmEnabled"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="EnableAppErrorSearch"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AppErrorHeader"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="IncludedApps"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ExcludedApps"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ProcessDownFirstLevel"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ProcessDownSecondLevel"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ProcessDownThirdLevel"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MinutesToClearRetries"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="GenericSNMPSupport"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="EnableHTCheck"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="BINDING_0"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="EnableAliveTestLog"/>
+				</xsd:sequence>
+                <xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="DisableProcessControlViaSNMP"/>
+				</xsd:sequence>
+            </xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Debug">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="DebugMode"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="DebugMaxFileSize"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="OutputDeletedFileNames"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Graceful_T_SPACE_T_Shutdown">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="Enable_T_SPACE_T_Graceful_T_SPACE_T_Shutdown"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="Enable_T_SPACE_T_Balancer_T_SPACE_T_Notify"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="Balancer_T_SPACE_T_IP_T_SPACE_T_Override"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="Balancer_T_SPACE_T_Retries"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="Send_T_SPACE_T_Alarm_T_SPACE_T_on_T_SPACE_T_Balancer_T_SPACE_T_Failure"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="Balancer_T_SPACE_T_ACK_T_SPACE_T_Timeout"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="BalancerPort"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Balancer_T_SPACE_T_Switchover">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Enable_T_SPACE_T_balancer_T_SPACE_T_connectivity_T_SPACE_T_check"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Enable_T_SPACE_T_Resolv.conf_T_SPACE_T_editing"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Connectivity_T_SPACE_T_check_T_SPACE_T_port"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="PrimaryBalancerIpAddressMethod"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="NoConnectivityCheckPeriod"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="LastResortHostName"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MaximumAllowedConnection"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="GracefulShutdownPeriodSeconds"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	  <xsd:element name="Automatic_T_SPACE_T_Shutdown">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:sequence maxOccurs="1" minOccurs="0">
+                    <xsd:element ref="Enable_T_SPACE_T_balancer_T_SPACE_T_connectivity_T_SPACE_T_check"/>
+                </xsd:sequence>
+                <xsd:sequence maxOccurs="1" minOccurs="0">
+                    <xsd:element ref="Connectivity_T_SPACE_T_check_T_SPACE_T_port"/>
+                </xsd:sequence>
+                <xsd:sequence maxOccurs="1" minOccurs="0">
+                    <xsd:element ref="NoConnectivityCheckPeriod"/>
+                </xsd:sequence>
+                <xsd:sequence maxOccurs="1" minOccurs="0">
+                    <xsd:element ref="LastResortHostName"/>
+                </xsd:sequence>
+                <xsd:sequence maxOccurs="1" minOccurs="0">
+                    <xsd:element ref="GracefulShutdownPeriodSeconds"/>
+                </xsd:sequence>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+	<xsd:element name="AlarmProcessor">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="RetryInterval"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="APOutPort"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="APInPort"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="IuID"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="APAliveInterval"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="APEnabled"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AlarmIdOffSet"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="IapIp"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="EmailNotif">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AuthPassword"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AuthUser"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="FromAddress"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="CcAddress"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="EmailEnabled"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="SmtpServer"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="SmtpFromName"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ToAddress"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MaxMailSize"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MaxMailPerHour"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MaxMailPerDay"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="SendAlarmsByEmail"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Heartbeat">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="HBInterval"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MaxHBMissed"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="HBPort"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="CheckTaskNames"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="HBEnabled"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PerfMon">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="PerfMonEnable"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemCheckInterval"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="CheckSwapMemory"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="NumberOfSamplesForAverageCalculation"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemWarningLevel"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="WriteMemLog"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemLogPercentChangeToLog"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="SendMemReport"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemLogDaysOfWeek"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemLogTimeOfDay"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemLogSubject"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="DiskSpaceCriticalLevel"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="PartitionsToMonitor"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="UnitCpuCheckEnabled"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="CpuTimesToStop"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="CpuTimesToWarning"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="CpuTimesToReboot"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="CpuTimes"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="CPUSnapshotCommand"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="UnitMemoryCheckEnabled"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemPercentWarning"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemPercentReboot"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="MemorySnapshotCommand"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AlarmsXmlFile"/>
+				</xsd:sequence>
+                               <xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AuthPassword"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AuthUser"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="FromText"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="CcAddress"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="EmailEnabled"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="SmtpServer"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="SmtpFromName"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ToAddress"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MaxMailSize"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MaxMailPerHour"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MaxMailPerDay"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="SendAlarmsByEmail"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SNMP">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="TrapPort"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="CommunityName"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="SNMPTrapActive"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="TrapDestination"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="AddAlarmNumbersForProcesses"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="AlarmIDPrefix"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="AlarmIDLength"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="GeneralAlarmsNewOID"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="GeneralAlarmsClearOID"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ProcessControlOID"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="UpDownOID"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GenericSNMP">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ProcessMOC"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="PlatformMOC"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ProcessAlarmIDPrefix"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="PlatformAlarmIDPrefix"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ApplicationName"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ApplicationVersionDate"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ApplicationAdditionalInformation"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ApplicationSupportContact"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="1">
+					<xsd:element ref="ApplicationRequirementsVersion"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AgentXPortNumber"/>
+				</xsd:sequence>
+                <xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AgentXServiceName"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="AgentXProtocol"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DaemonTests">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ActiveTests"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TCP-Example">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Type"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Port"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Command"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Response"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ProcessToTerminate"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Host"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="FailedAttempts"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="FaliedAttemptsBeforeMail"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Interval"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ReadTimeout"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="HTTP-Example">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Type"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Url"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="PostInformation"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Enabled"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ResponseCode"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ProcessToTerminate"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Port"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Host"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="FailedAttempts"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="FaliedAttemptsBeforeMail"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Interval"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="UseKillToStop"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ReadTimeoutSeconds"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Nci-Example">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Type"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="SubId"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="ProcessToKill"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="RetriesBeforeKill"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="RetriesBeforeAlarm"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="Interval"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="MsuList"/>
+				</xsd:sequence>
+				<xsd:sequence maxOccurs="1" minOccurs="0">
+					<xsd:element ref="TrmList"/>
+				</xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="comverseIP">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="(([0-9])|([0-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))\.(([0-9])|([0-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))\.(([0-9])|([0-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))\.(([0-9])|([0-9][0-9])|(1[0-9][0-9])|(2[0-4][0-9])|(25[0-5]))"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="comverseEmail">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*@[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="UnitType">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MonitorCrash">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MaxAgeOfFile">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MaxFileSize">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ScanDirForTrc">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="TrcFileMaxAgeHours">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="TrcFileMaxNum">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="TrcFileMaxSize">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="TrcFileHoursBetweenDelete">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AlmEnabled">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="EnableAppErrorSearch">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AppErrorHeader">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="IncludedApps">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ExcludedApps">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ProcessDownFirstLevel">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ProcessDownSecondLevel">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ProcessDownThirdLevel">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MinutesToClearRetries">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="GenericSNMPSupport">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="EnableHTCheck">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="BINDING_0">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="EnableAliveTestLog">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+    <xsd:element name="DisableProcessControlViaSNMP">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="DebugMode">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="DebugMaxFileSize">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="OutputDeletedFileNames">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Enable_T_SPACE_T_Graceful_T_SPACE_T_Shutdown">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Enable_T_SPACE_T_Balancer_T_SPACE_T_Notify">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Balancer_T_SPACE_T_IP_T_SPACE_T_Override">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Balancer_T_SPACE_T_Retries">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Send_T_SPACE_T_Alarm_T_SPACE_T_on_T_SPACE_T_Balancer_T_SPACE_T_Failure">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Balancer_T_SPACE_T_ACK_T_SPACE_T_Timeout">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="BalancerPort">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Enable_T_SPACE_T_balancer_T_SPACE_T_connectivity_T_SPACE_T_check">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Enable_T_SPACE_T_Resolv.conf_T_SPACE_T_editing">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Connectivity_T_SPACE_T_check_T_SPACE_T_port">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="PrimaryBalancerIpAddressMethod">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="NoConnectivityCheckPeriod">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="LastResortHostName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MaximumAllowedConnection">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="GracefulShutdownPeriodSeconds">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="RetryInterval">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="APOutPort">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="APInPort">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="IuID">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="APAliveInterval">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="APEnabled">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AlarmIdOffSet">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="IapIp">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AuthPassword">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AuthUser">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="FromAddress">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="FromText">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CcAddress">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="EmailEnabled">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SmtpServer">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SmtpFromName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ToAddress">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MaxMailSize">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MaxMailPerHour">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MaxMailPerDay">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SendAlarmsByEmail">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="HBInterval">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MaxHBMissed">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="HBPort">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CheckTaskNames">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="HBEnabled">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="PerfMonEnable">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemCheckInterval">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CheckSwapMemory">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="NumberOfSamplesForAverageCalculation">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemWarningLevel">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="WriteMemLog">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemLogPercentChangeToLog">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SendMemReport">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemLogDaysOfWeek">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemLogTimeOfDay">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemLogSubject">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="DiskSpaceCriticalLevel">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="PartitionsToMonitor">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="UnitCpuCheckEnabled">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CpuTimesToStop">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CpuTimesToWarning">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CpuTimesToReboot">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CpuTimes">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CPUSnapshotCommand">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="UnitMemoryCheckEnabled">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemPercentWarning">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemPercentReboot">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MemorySnapshotCommand">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AlarmsXmlFile">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="TrapPort">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="CommunityName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SNMPTrapActive">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="TrapDestination">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AddAlarmNumbersForProcesses">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AlarmIDPrefix">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AlarmIDLength">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="GeneralAlarmsNewOID">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="GeneralAlarmsClearOID">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ProcessControlOID">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="UpDownOID">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ProcessMOC">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="PlatformMOC">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ProcessAlarmIDPrefix">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="PlatformAlarmIDPrefix">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ApplicationName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ApplicationVersionDate">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ApplicationAdditionalInformation">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ApplicationSupportContact">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ApplicationRequirementsVersion">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="AgentXPortNumber">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+    <xsd:element name="AgentXServiceName">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+    <xsd:element name="AgentXProtocol">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ActiveTests">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Type">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Port">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Command">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Response">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ProcessToTerminate">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Host">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="FailedAttempts">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="FaliedAttemptsBeforeMail">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Interval">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ReadTimeout">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Url">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="PostInformation">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Enabled">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ResponseCode">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="UseKillToStop">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ReadTimeoutSeconds">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="SubId">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="ProcessToKill">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="RetriesBeforeKill">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="RetriesBeforeAlarm">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="MsuList">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="TrmList">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>

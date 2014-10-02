@@ -1,0 +1,5 @@
+<UnitGroup>
+        <Physical DashboardLayer="Data Store" GroupName="SwimManager">
+                <UnitInstance MngIp="10.106.50.164" UnitName="SwimManger"/>
+        </Physical>
+</UnitGroup>

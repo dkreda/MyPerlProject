@@ -1,0 +1,36 @@
+**************************************************************************
+* Start Marimba2Swim.pl                                                  *
+* at The current date is: Wed 10/24/2012 
+Enter the new date: (mm-dd-yy)  *
+**************************************************************************
+Marimba2Swim.pl Input Parameters:
+	-Dep                  = MarimbaDeploy\InSight4_3_7_0
+	-Conf                 = SGMap.txt
+	-SwimKitLocation      = /var/cti/data/swim/kits
+	-LogFile              = -,Stam.txt
+Info	Reading File SGMap.txt
+Finish Successfully :-)
+**************************************************************************
+* Start Marimba2Swim.pl                                                  *
+* at The current date is: Wed 10/24/2012 
+Enter the new date: (mm-dd-yy)  *
+**************************************************************************
+Marimba2Swim.pl Input Parameters:
+	-Dep                  = MarimbaDeploy\InSight4_3_7_0
+	-Conf                 = SGMap.txt
+	-SwimKitLocation      = /var/cti/data/swim/kits
+	-LogFile              = -,Stam.txt
+Info	Reading File SGMap.txt
+Finish Successfully :-)
+**************************************************************************
+* Start Marimba2Swim.pl                                                  *
+* at The current date is: Wed 10/24/2012 
+Enter the new date: (mm-dd-yy)  *
+**************************************************************************
+Marimba2Swim.pl Input Parameters:
+	-Dep                  = MarimbaDeploy\InSight4_3_7_0
+	-Conf                 = SGMap.txt
+	-SwimKitLocation      = /var/cti/data/swim/kits
+	-LogFile              = -,Stam.txt
+Info	Reading File SGMap.txt
+Finish Successfully :-)

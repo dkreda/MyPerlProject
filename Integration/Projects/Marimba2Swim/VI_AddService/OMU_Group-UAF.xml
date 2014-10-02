@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\UAF.xsd">
+	<UnitType Name="OMU_Group" Platform="Linux">
+		<!--This UAF is implementation of Marimba ServerGroup OMU-->
+		<Install>
+			<Component Name="Load_VI_to_SiteBook_Upload_VI_Units_to_SiteBook" ExecutionOrder="10"/>
+			<Component Name="Config_IS4_Balancers_Deployments" ExecutionOrder="10">
+				<OnlyOn>
+					<UnitName>Balancer</UnitName>
+				</OnlyOn>
+			</Component>
+		</Install>
+	</UnitType>
+</SWIM>

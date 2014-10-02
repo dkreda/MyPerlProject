@@ -1,0 +1,20 @@
+####################################################################
+#
+# Octpus Parameters manipulation configuration File
+#
+####################################################################
+[Octopus.Parameters.Mapping]
+InsightVersion=JDSV,Dummy
+
+[RealName.Parameters.Def]
+JDSV=CAS,xml://%$OsaFile%////attributes/attribute[@name="Jdsv.GlobalDefinitions.ProfileDataStructures"]/@value
+Dummy=CAS,cmd://perl -piBack -e '/Jdsv.GlobalDefinitions.ProfileDataStructures/ and s/value=\".+?\"/value=\"\"/' %$OsaFile%
+
+[Octopus.Parameters.Def.InsightVersion]
+Insight4==$NULL,1
+Insight5==Jdsv,$NULL
+Insight3==$NULL,1
+
+[Values]
+[Macros]
+OsaFile=/usr/cti/conf/genesis/JGlue/jglue/osa/osa/gsl/JdsvInit.xml

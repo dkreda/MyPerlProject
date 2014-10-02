@@ -1,0 +1,19 @@
+File Name,Scdb Type,insight3,insight4,insight5
+Voicewriter_scdb.xml,Single,,MMG;VoiceWriter,MMG;VoiceWriter
+Voicewriter_scdb_Distribute.xml,Distribute,,MMG;VoiceWriter,MMG;VoiceWriter
+Voicewriter_scdb_IS3.xml,Single,MMG;VoiceWriter,,
+Voicewriter_scdb_Distribute_IS3.xml,Distribute,MMG;VoiceWriter,,
+WHC_scdb.xml,Single,,WHC,
+WHC_scdb_Distribute.xml,Distribute,,WHC,
+WHC_scdb_IS3.xml,Single,WHC,,
+WHC_scdb_Distribute_IS3.xml,Distribute,WHC,,
+WHC_scdb_IS5.xml,Single,,,WHC
+WHC_scdb_Distribute_IS5.xml,Distribute,,,WHC
+VNM2MMS_scdb.xml,Single,VM2MMS,VM2MMS,VM2MMS
+VNM2MMS_scdb.xml,Distribute,VM2MMS,VM2MMS,VM2MMS
+VVM_scdb.xml,Single,VVM,VVM,VVM
+VVM_scdb.xml,Distribute,VVM,VVM,VVM
+Webinbox_scdb.xml,Single,WebInbox,WebInbox,WebInbox
+Webinbox_scdb.xml,Distribute,WebInbox,WebInbox,WebInbox
+MTE_scdb.xml,Single,MTE,MTE,MTE
+MTE_scdb.xml,Distribute,MTE,MTE,MTE

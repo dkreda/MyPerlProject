@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+	<Component Platform="Linux" Name="simple" Version="0000">
+		<Install>
+			<SetParams>
+				<ExecutionGroup>Dumy</ExecutionGroup>
+			</SetParams>
+		</Install>
+		<Parameters>
+			<Parameter Name="Test1" Level="System" ExecutionGroup="Dumy">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Exa" Name="/tmp/Stam.txt" Format="KeyValue"/>
+				</Files>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AAS>
+    <Privileges>
+        <PrivilegesGroup Name="WIC">
+			<Privilege Name="OSSP_VI_WIC">
+                <Desc>WCC open via OSSP</Desc>
+            </Privilege>
+            <Privilege Name="WIC_CreateProfile">
+                <Desc>WIC Create Porfile</Desc>
+                <Dependances>
+                    <Privilege Name="WIC_ModifyProfile"/>
+					<Privilege Name="CreateSubscriber"/>
+                </Dependances>
+            </Privilege>
+			<Privilege Name="WIC_DeleteProfile">
+                <Desc>WIC Delete Porfile</Desc>
+                <Dependances>
+                    <Privilege Name="WIC_ModifyProfile"/>
+					<Privilege Name="DeleteSubscriber"/>
+                </Dependances>
+            </Privilege>
+			<Privilege Name="WIC_ManageProfile">
+                <Desc>WIC Manage Porfile</Desc>
+                <Dependances>
+                    <Privilege Name="WIC_DeleteProfile"/>
+					<Privilege Name="WIC_CreateProfile"/>
+                </Dependances>
+            </Privilege>
+			<Privilege Name="WIC_ModifyProfile">
+                <Desc>WIC Modify Porfile</Desc>
+                <Dependances>
+                    <Privilege Name="WIC_ViewProfile"/>
+					<Privilege Name="ModifySubscriber"/>
+					<Privilege Name="BlockSubscriber"/>
+					<Privilege Name="UnBlockSubscriber"/>
+                </Dependances>
+            </Privilege>
+			<Privilege Name="WIC_ViewProfile">
+                <Desc>WIC View Porfile</Desc>
+                <Dependances>
+                    <Privilege Name="OSSP_VI_WIC"/>
+					<Privilege Name="WIC_GetUserProfile"/>
+					<Privilege Name="RetrieveSubscriber"/>
+                </Dependances>
+            </Privilege>
+			<Privilege Name="WIC_ViewMailbox">
+                <Desc>WIC View Porfile</Desc>
+                <Dependances>
+                    <Privilege Name="OSSP_VI_WIC"/>
+					<Privilege Name="WIC_GetUserProfile"/>
+                </Dependances>
+            </Privilege>
+        </PrivilegesGroup>
+    </Privileges>
+</AAS>

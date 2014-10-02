@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\MYDOCU~1\Integration\Projects\SwimConvertor\CAFTests\SAF.xsd">
+	<System>
+		<Install>
+			<UnitType Name="OMU_Group"/>
+			<UnitType Name="DSU_Group"/>
+			<UnitType Name="SMU_Group"/>
+			<UnitType Name="VM_ASU_Group"/>
+			<UnitType Name="LVU_Group"/>
+			<Dependencies>
+				<Component UnitName="*" Name="WHC_Service_LVU">
+					<DependsOn>
+						<Component UnitName="smu*" Name="WHC_Service_SMU"/>
+					</DependsOn>
+				</Component>
+				<Component UnitName="*" Name="ProfileDefinition">
+					<DependsOn>
+						<Component UnitName="dsu*" Name="WHC_Service_SMU"/>
+					</DependsOn>
+				</Component>
+			</Dependencies>
+		</Install>
+		<Parameters>
+			<Alias DisplayName="Platform Type" Display="false">
+				<Value>InSight4</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="StandAlone"/>
+						<Item Value="InSight4"/>
+					</Enum>
+				</Restrictions>
+				<Parameter ComponentName="WHC_Service_OMU" Name="WHC Platform Type"/>
+				<Parameter ComponentName="WhoCalled_profile_definition_OMU" Name="WHC Platform Type"/>
+				<Parameter ComponentName="WHC_Service_SMU" Name="WHC Platform Type"/>
+			</Alias>
+			<Alias DisplayName="TCM Enabled">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter ComponentName="WHC_Service_OMU" Name="Is TCM Enabled"/>
+				<Parameter ComponentName="WHC_Service_SMU" Name="Is TCM Enabled"/>
+			</Alias>
+			<Alias DisplayName="AASDB VIP">
+				<Value>[UnitGroup.xml://Vapplication[@ApplicationLabel="Oracle"]/VUnitInstance/@VirtualIp]</Value>
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<Parameter ComponentName="WHC_Service_OMU" Name="AASDB VIP"/>
+				<Parameter ComponentName="WHC_Service_SMU" Name="AASDB VIP"/>
+			</Alias>
+			<Alias DisplayName="Site Name">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter ComponentName="WHC_Service_OMU" Name="Site Name"/>
+				<Parameter ComponentName="WHC_Service_SMU" Name="Site Name"/>
+			</Alias>
+			<Parameter ComponentName="WHC_Service_SMU" Name="DSU Calls DB VIP">
+				<Value>[UnitGroup.xml://Vapplication[@ApplicationLabel="Oracle"]/VUnitInstance/@VirtualIp]</Value>
+			</Parameter>
+			<Parameter ComponentName="WHC_Service_SMU" Name="DSU Profile DB VIP">
+				<Value>[UnitGroup.xml://Vapplication[@ApplicationLabel="Profile1"]/VUnitInstance/@VirtualIp]</Value>
+			</Parameter>
+			<Parameter ComponentName="WHC_Service_SMU" Name="DSU SFTP VIP">
+				<Value>[UnitGroup.xml://Vapplication[@ApplicationLabel="DSUSFTP"]/VUnitInstance/@VirtualIp]</Value>
+			</Parameter>
+			<Parameter ComponentName="WHC_Service_SMU" Name="SMU_VIP">
+				<Value>[UnitGroup.xml://Vapplication[@ApplicationLabel="admin_vip_smu"]/VUnitInstance/@VirtualIp]</Value>
+			</Parameter>
+      <Alias DisplayName="Black &amp; White list">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name="Black White list" ComponentName="Whc_DBKits"/>
+        <Parameter Name="Black White list" ComponentName="ProfileDefinition"/>
+      </Alias>
+      <Alias DisplayName="Smart Call Enabled">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name="SMC USSD Enabled" ComponentName="Whc_DBKits"/>
+        <Parameter Name="Smart Call" ComponentName="ProfileDefinition"/>
+      </Alias>
+      <Alias DisplayName="Call Screening Enabled">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name="Call Screening Enabled" ComponentName="Whc_DBKits"/>
+        <Parameter Name="Call Screening Enabled" ComponentName="WHC_Service_SMU"/>
+        <Parameter Name="Call Screening" ComponentName="ProfileDefinition"/>
+      </Alias>
+      <Alias DisplayName="SWIM UnitGroup Location">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Parameter Name="NDU System Name" ComponentName="WHC_Service_SMU"/>
+        <Parameter Name="NDU System Name" ComponentName="WHC_Service_OMU"/>
+      </Alias>
+		</Parameters>
+	</System>
+</SWIM>

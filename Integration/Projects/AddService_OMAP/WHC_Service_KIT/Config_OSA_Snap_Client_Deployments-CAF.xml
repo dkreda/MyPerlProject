@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Config_OSA_Snap_Client_Deployments" Version="First-Draft" Platform="Linux">
+    <!--This CAF File is implementation of /Add_WHC_Service/Deployments/Config_OSA_Snap_Client.Config_Snap_Client-->
+    <Install>
+      <Execute ExecutionOrder="1000">
+        <Command>cd /usr/cti/conf/vxv/osa/snapclient/whocalled; if [ -f WhoCalledSnapClient.properties]; then grep -w ProfileAttributes WhoCalledSnapClient.properties | grep -v '#' &gt; /dev/null; if [ $? -ne 0 ]; then echo 'ProfileAttributes = CnsMsgAggregationEnabled,CnsGroupingByMessageTypeStyle,CnsLongDistanceDialingCode,CnsNFAMEnabled,cnsCosName,CnsWHCEnabled' &gt;&gt; WhoCalledSnapClient.properties; fi; fi</Command>
+      </Execute>
+      <Execute ExecutionOrder="1005">
+        <Command>cd /usr/cti/conf/vxv/osa/snapclient/whocalled; if [ -f WhoCalledSnapClient.properties]; then sed '/FarmName/s/WHCNDS/NDS-WHC.SITE1/' WhoCalledSnapClient.properties &gt; WhoCalledSnapClient.properties.tmp; cp -f WhoCalledSnapClient.properties.tmp WhoCalledSnapClient.properties; rm -f WhoCalledSnapClient.properties.tmp; fi</Command>
+      </Execute>
+      <Execute ExecutionOrder="1010">
+        <Command>cd /usr/cti/conf/vxv/osa; if [ -f VMBL.properties]; then grep -w Vmbl.WhoCalled.ProfileAttributes VMBL.properties | grep -v '#' &gt; /dev/null; if [ $? -ne 0 ]; then echo 'Vmbl.WhoCalled.ProfileAttributes = CnsMsgAggregationEnabled,CnsGroupingByMessageTypeStyle,CnsLongDistanceDialingCode,CnsNFAMEnabled,cnsCosName,CnsWHCEnabled' &gt;&gt; VMBL.properties; fi; fi</Command>
+      </Execute>
+      <Execute ExecutionOrder="1015">
+        <Command>cd /usr/cti/conf/vxv/osa; if [ -f VMBL.properties]; then sed '/Vmbl.WhoCalled.FarmName/s/WHCNDS/NDS-WHC.SITE1/' VMBL.properties &gt; VMBL.properties.tmp; cp -f VMBL.properties.tmp VMBL.properties; rm -f VMBL.properties.tmp; fi</Command>
+      </Execute>
+    </Install>
+  </Component>
+</SWIM>

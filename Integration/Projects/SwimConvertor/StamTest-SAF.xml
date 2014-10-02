@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<SWIM>
+  <System>
+    <Install>
+      <UnitType Name="CAS"/>
+      <UnitType Name="depractaed"/>
+      <UnitType Name="IS3_CMD_Unit"/>
+      <UnitType Name="MMSGW"/>
+      <UnitType Name="MTS"/>
+      <UnitType Name="PROXY"/>
+      <UnitType Name="TRM_Group"/>
+      <UnitType Name="unknoown"/>
+    </Install>
+    <Parameters>
+      <Alias DisplayName="First MZ unit IP">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite"/>
+        <Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite_FirstDMZunitIP"/>
+        <Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite_FirstMZunitIP"/>
+        <Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite_MTS-U"/>
+        <Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite_PROXY"/>
+        <Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite_SecondDMZunitIP"/>
+        <Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite_SecondMZunitIP"/>
+      </Alias>
+      <Alias DisplayName="..Insight Platform">
+        <Value>insight3</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="insight3"/>
+            <Item Value="insight4"/>
+            <Item Value="hybrid"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name="..Insight Platform" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name="..Insight Platform" ComponentName="service-kit-vi_suite_FirstMZunitIP"/>
+        <Parameter Name="..Insight Platform" ComponentName="service-kit-vi_suite_MTS-U"/>
+        <Parameter Name="..Insight Platform" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName=".Direct Deposit">
+        <Value>No</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".Direct Deposit" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name=".Direct Deposit" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName=".Direct Retrieval">
+        <Value>No</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".Direct Retrieval" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name=".Direct Retrieval" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName=".MTE">
+        <Value>No</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".MTE" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name=".MTE" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName=".Voice Open API">
+        <Value>No</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".Voice Open API" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name=".Voice Open API" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName=".VVM">
+        <Value>No</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".VVM" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name=".VVM" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName=".WCC">
+        <Value>No</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".WCC" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name=".WCC" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName=".WebInbox">
+        <Value>No</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".WebInbox" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name=".WebInbox" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName=".WPM">
+        <Value>No</Value>
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="Yes"/>
+            <Item Value="No"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name=".WPM" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name=".WPM" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName="IS4 Network Domain">
+        <Value> {IS4 Network Domain}</Value>
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Parameter Name="IS4 Network Domain" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name="IS4 Network Domain" ComponentName="service-kit-vi_suite_MTS-U"/>
+        <Parameter Name="IS4 Network Domain" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Parameter Name="TRM_ID" ComponentName="service-kit-vi_suite_CAS" Display="true"/>
+      <Alias DisplayName="Subscriber Locator Method">
+        <Restrictions>
+          <Type>Enum</Type>
+          <Enum>
+            <Item Value="PL" Display="&quot;Profile Locator&quot;"/>
+            <Item Value="GSL" Display="&quot;GSL Table&quot;"/>
+          </Enum>
+        </Restrictions>
+        <Parameter Name="Subscriber Locator Method" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name="Subscriber Locator Method" ComponentName="service-kit-vi_suite_MTS-U"/>
+        <Parameter Name="Subscriber Locator Method" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName="ESU_PASSWORD">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Parameter Name="ESU_PASSWORD" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name="ESU_PASSWORD" ComponentName="service-kit-vi_suite_FirstMZunitIP"/>
+        <Parameter Name="ESU_PASSWORD" ComponentName="service-kit-vi_suite_MTS-U"/>
+        <Parameter Name="ESU_PASSWORD" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName="Manager_Password">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Parameter Name="Manager_Password" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name="Manager_Password" ComponentName="service-kit-vi_suite_MTS-U"/>
+        <Parameter Name="Manager_Password" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Alias DisplayName="Main_Domain">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Parameter Name="Main_Domain" ComponentName="service-kit-vi_suite_CAS"/>
+        <Parameter Name="Main_Domain" ComponentName="service-kit-vi_suite_PROXY"/>
+      </Alias>
+      <Parameter Name="ESU_IP" ComponentName="service-kit-vi_suite_FirstMZunitIP" Display="true"/>
+      <Parameter Name="Operator's SMTP Server" ComponentName="service-kit-vi_suite_PROXY" Display="true"/>
+      <Parameter Name="IS4_Email_Domain" ComponentName="service-kit-vi_suite_PROXY" Display="true"/>
+    </Parameters>
+  </System>
+</SWIM>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="TRM_Group" Platform="Linux">
+    <Install>
+      <Component Name="AddService_03" ExecutionOrder="150">
+<!--This Component has Product Name FTM Update with ExecutionPhass 150-->
+<!--This Component has Product Name Service definition with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

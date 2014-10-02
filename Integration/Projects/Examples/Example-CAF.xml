@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+	<Component Platform="Linux" Name="Example" Version="0.0.0.0" Type="Procedure">
+		<Install>
+			<SetParams ExecutionOrder="10">
+				<ExecutionGroup>Stam</ExecutionGroup>
+			</SetParams>
+			<Execute ExecutionOrder="5">
+				<Command>touch /tmp/Example.txt</Command>
+			</Execute>
+		</Install>
+		<Parameters>
+			<Parameter Name="Test1" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Yofi" Name="/tmp/Example.txt" Format="KeyValue"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Test Sec" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="Tofi" Name="/tmp/Example.txt" Format="KeyValue"/>
+				</Files>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

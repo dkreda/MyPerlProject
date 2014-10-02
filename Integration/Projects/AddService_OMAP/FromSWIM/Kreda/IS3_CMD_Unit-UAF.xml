@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="IS3_CMD_Unit" Platform="SunOS">
+    <Install>
+      <Component Name="AddService_01" ExecutionOrder="150">
+<!--This Component has Product Name Service definition with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

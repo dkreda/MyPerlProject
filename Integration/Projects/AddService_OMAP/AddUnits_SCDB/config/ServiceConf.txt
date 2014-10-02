@@ -1,0 +1,43 @@
+####################################################################
+#
+# Octpus Parameters manipulation configuration File
+# 
+#  for Whc
+#
+####################################################################
+
+[Octopus.Parameters.Mapping]
+MMGEnabled=MMG_Services
+WHCEnabled=WhoCalled_Services
+VM2MMSEnbaled=VM2MMS_Services
+VVMEnabled=VVM_Services
+WebInboxEnabled=WebInbox_Services
+MTEEnabled=MTE_Services
+
+[RealName.Parameters.Def]
+Run=All,cmd://echo "{MMG_Services} {WhoCalled_Services} {VM2MMS_Services} {VVM_Services} {WebInbox_Services} {MTE_Services}" > %$ConfFile%
+
+[Octopus.Parameters.Def.MMGEnabled]
+Yes==MMG
+No==" "
+[Octopus.Parameters.Def.WHCEnabled]
+Yes==WHC
+No==" "
+[Octopus.Parameters.Def.VM2MMSEnbaled]
+Yes==VM2MMS
+No==" "
+[Octopus.Parameters.Def.VVMEnabled]
+Yes==VVM
+No==" "
+[Octopus.Parameters.Def.WebInboxEnabled]
+Yes==WebInbox
+No==" "
+[Octopus.Parameters.Def.MTEEnabled]
+Yes==MTE
+No==" "
+
+[Values]
+Run=1
+
+[Macros]
+ConfFile=/tmp/ScdbServiceConf.txt

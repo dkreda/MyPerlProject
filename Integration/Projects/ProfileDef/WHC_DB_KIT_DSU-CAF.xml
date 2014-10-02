@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM>
+	<Component Name="WHC_DB_KIT_DSU" Version="4.5.0.0-02" Platform="SunOS">
+		<Install>
+			<Execute ExecutionOrder="14970">
+				<Command>rm -rf /var/tmp/whc_pkg </Command>
+			</Execute>
+			<Execute ExecutionOrder="17030">
+				<Command>/usr/cti/whc_db_kit/scripts/WHC_DB_install.sh {WHC Platform Type} {SMC Enabled} {Enhanced WHC Routing Enabled} {Profile Snapshot Enabled} {SMC USSD Enabled} {Call Screening Enabled}</Command>
+			</Execute>
+			<Execute ExecutionOrder="17034">
+				<Command>/usr/cti/whc_db_kit/scripts/cleanBackupToCron.pl </Command>
+			</Execute>
+			<Copy ExecutionOrder="15000">
+				<Source>./scripts/pkgadmin</Source>
+				<Target>/var/tmp/pkgadmin</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../Gen-Oracle-baseline-Fix-Unix-Solaris-4.0.0.0-02/gen-oracle-baseline-fix-unix-4.0.0.0-02</Source>
+				<Target>/var/tmp/whc_pkg/gen-oracle-baselinefix-unix-4.0.0.0bld02/gen-oracle-baseline-fix-unix-4.0.0.0-02</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../DBsup-Solaris-1.5.0.0-01/DBsup-1.5.0.0-01-sol10.pkg</Source>
+				<Target>/var/tmp/whc_pkg/DBsup_1.5.0.0-B01/DBsup-1.5.0.0-01-sol10.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../SMG_Platform-Solaris-1.0.0.0-01/DBsmgCSP-1.0.0.0-01.pkg</Source>
+				<Target>/var/tmp/whc_pkg/SMG_Platform_1.0.0.0-B01/DBsmgCSP-1.0.0.0-01.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../SMG_Schema-Solaris-1.0.0.0-02/DBsmgSC-1.0.0.0-02.pkg</Source>
+				<Target>/var/tmp/whc_pkg/SMG_Schema_1.0.0.0-B02/DBsmgSC-1.0.0.0-02.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../OSSP_DB-Solaris-1.0.0.0-04/CSP/OSSP-DB-1.0.0.0-04</Source>
+				<Target>/var/tmp/whc_pkg/OSSP_DB_1.0.0.0-B04/OSSP-DB</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../COMP_WHC_EX-Solaris-5-03/WHCCOMPROFEXT5-1.0.0.0-03.pkg</Source>
+				<Target>/var/tmp/whc_pkg/WHCCOMPROFEXT5-1.0.0.0-03/WHCCOMPROFEXT5-1.0.0.0-03.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../DBdump-Solaris-02-03/DBDUMP02-1.0.0.0-03.pkg</Source>
+				<Target>/var/tmp/whc_pkg/DBDUMP02-1.0.0.0-03/DBDUMP02-1.0.0.0-03.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../SMCCOMPROFEXT-Solaris-4-02/SMCCOMPROFEXT4-1.0.0.0-02.pkg</Source>
+				<Target>/var/tmp/whc_pkg/SMCCOMPROFEXT4_1.0.0.0-B02/SMCCOMPROFEXT4-1.0.0.0-02.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../CS_DB_Schema-Solaris-DBcalscrn1-1.0.0.0-1/DBcalscrn1-1.0.0.0-01.pkg</Source>
+				<Target>/var/tmp/whc_pkg/AAS_DB_1.2.0.0-B04/AASschema</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./PKG/WHC-DB-KIT-*</Source>
+				<Target>/var/tmp/whc_pkg/</Target>
+			</Copy>
+			<Copy ExecutionOrder="17000" ChmodFlags="+x">
+				<Source>./scripts/WHC_DB_install.sh</Source>
+				<Target>/usr/cti/whc_db_kit/scripts/WHC_DB_install.sh</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../COMP_WHC_EX-Solaris-4-01/WHCCOMPROFEXT4-1.4.0.0-01.pkg</Source>
+				<Target>/var/tmp/whc_pkg/WHCCOMPROFEXT4-1.4.0.0-01.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./scripts/installPackages.sh</Source>
+				<Target>/var/tmp/whc_pkg/installPackages.sh</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../SMCUSSDPRFEXT-Solaris-1.0.0.0-03/SMCUSSDPRFEXT1-1.0.0.0-03.pkg</Source>
+				<Target>/var/tmp/whc_pkg/SMCUSSDPRFEXT-1.0.0.0-B03/SMCUSSDPRFEXT1-1.0.0.0-03.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="17004" ChmodFlags="+x">
+				<Source>./scripts/cleanBackupToCron.pl</Source>
+				<Target>/usr/cti/whc_db_kit/scripts/cleanBackupToCron.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../CSCRPRFEXT-Solaris-1.0.0.0-2/CSCRPRFEXT1-1.0.0.0-02.pkg</Source>
+				<Target>/var/tmp/whc_pkg/CSCRPRFEXT-1.0.0.0-B02/CSCRPRFEXT1-1.0.0.0-02.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../CS_DB_Schema-Solaris-DBcalscrn1-1.0.0.0-1/DBcalscrn1-1.0.0.0-01.pkg</Source>
+				<Target>/var/tmp/whc_pkg/DBcalscrn1-1.0.0.0-01/DBcalscrn1-1.0.0.0-01.pkg</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./../COMP_WHC_EX-Solaris-8-03/WHCCOMPROFEXT8-1.8.0.0-03.pkg</Source>
+				<Target>/var/tmp/whc_pkg/COMP_WHC_EX-1.8.0.0-B03/WHCCOMPROFEXT8-1.8.0.0-03.pkg</Target>
+			</Copy>
+			<SetParams ExecutionOrder="16012">
+				<ExecutionGroup>WHC_DB_KIT_PKG_Installation</ExecutionGroup>
+			</SetParams>
+		</Install>
+		<Parameters>
+			<Parameter Name="Enhanced WHC Routing Enabled" ExecutionGroup="WHC_DB_KIT_PKG_Installation" Level="UnitType">
+				<Description>Enable WHC enhanced routing - for Chinese customer features</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Profile Snapshot Enabled" ExecutionGroup="WHC_DB_KIT_PKG_Installation" Level="UnitType">
+				<Description>Dbdump will be installed</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="SMC Enabled" ExecutionGroup="WHC_DB_KIT_PKG_Installation" Level="System">
+				<Description>Smart Call Enabled</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="WHC Platform Type" ExecutionGroup="WHC_DB_KIT_PKG_Installation" Level="UnitType">
+				<Description>Co-hosted on InSight 4 platform&#13;
+or&#13;
+WHC stand alone platform</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="InSight4"/>
+						<Item Value="StandAlone"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="SMC USSD Enabled" ExecutionGroup="WHC_DB_KIT_PKG_Installation" Level="UnitType">
+				<Description>Smart Call USSD</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Call Screening Enabled" ExecutionGroup="WHC_DB_KIT_PKG_Installation" Level="UnitType">
+				<Description>Call Screening Enabled</Description>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+		</Parameters>
+		<Groups>
+			<Group Name="Tmp Group" DefaultInstances="1" MaxOccur="1"/>
+		</Groups>
+	</Component>
+</SWIM>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="PROXY" Platform="Linux">
+    <Install>
+      <Component Name="Balancer_PROXY" ExecutionOrder="152">
+        <!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+        <!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+      </Component>
+      <Component Name="Balancer_FirstMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_FirstDMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondDMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="MMG_Customization_PROXY" ExecutionOrder="1150">
+        <!--This Component has Product Name Proxy_Farms with ExecutionPhass 650-->
+        <!--This Component has Product Name Customization_SYS with ExecutionPhass 700-->
+        <!--This Component has Product Name Restart_Babysitter with ExecutionPhass 1150-->
+        <!--This Component has Product Name Customization_PROXY with ExecutionPhass 650-->
+        <!--This Component has Product Name CSP_BASE_4.3.0.0-11_WAFix with ExecutionPhass 150-->
+      </Component>
+      <Component Name="MMG_ServiceKit_PROXY" ExecutionOrder="1150">
+        <!--This Component has Product Name SK_System with ExecutionPhass 900-->
+        <!--This Component has Product Name SK_SystemAndMTS with ExecutionPhass 900-->
+        <!--This Component has Product Name SK_Proxy with ExecutionPhass 850-->
+        <!--This Component has Product Name Fix_PSG00609812 with ExecutionPhass 260-->
+        <!--This Component has Product Name Proxy_Farms with ExecutionPhass 650-->
+        <!--This Component has Product Name Restart_Babysitter with ExecutionPhass 1150-->
+        <!--This Component has Product Name IS4_SDC with ExecutionPhass 950-->
+      </Component>
+      <Component Name="PVVM_Config_PROXY" ExecutionOrder="650">
+        <!--This Component has Product Name PVVM_Conf with ExecutionPhass 650-->
+      </Component>
+      <Component Name="PVVM_Config_MZBalancersIPList">
+        <OnlyOn>
+          <UnitName>{MZBalancersIPList}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="VI_SiteBook_PROXY" ExecutionOrder="150">
+        <!--This Component has Product Name SiteBook MetaData Files with ExecutionPhass 150-->
+        <!--This Component has Product Name SiteBook User with ExecutionPhass 150-->
+      </Component>
+      <Component Name="service-kit-vi_suite_PROXY" ExecutionOrder="4150">
+        <!--This Component has Product Name Merge_Tool with ExecutionPhass 150-->
+        <!--This Component has Product Name Platform_Config with ExecutionPhass 2154-->
+        <!--This Component has Product Name MTS_Customization_Not_Per_HW with ExecutionPhass 3150-->
+        <!--This Component has Product Name Babysitter - Resilience with ExecutionPhass 3650-->
+        <!--This Component has Product Name IS4_SDC with ExecutionPhass 4150-->
+        <!--This Component has Product Name Service_Config with ExecutionPhass 2152-->
+        <!--This Component has Product Name Maintanenc_Product with ExecutionPhass 150-->
+        <!--This Component has Product Name Babysitter-Critical_Apps_Conf with ExecutionPhass 3650-->
+        <!--This Component has Product Name GEN_Customization with ExecutionPhass 2156-->
+        <!--This Component has Product Name IC-IFS_Proxy_Balancer_Farms with ExecutionPhass 2150-->
+        <!--This Component has Product Name Merge_Tool with ExecutionPhass 150-->
+        <!--This Component has Product Name Platform_Config with ExecutionPhass 2154-->
+        <!--This Component has Product Name MTS_Customization_Not_Per_HW with ExecutionPhass 3150-->
+        <!--This Component has Product Name Babysitter - Resilience with ExecutionPhass 3650-->
+        <!--This Component has Product Name IS4_SDC with ExecutionPhass 4150-->
+        <!--This Component has Product Name Service_Config with ExecutionPhass 2152-->
+        <!--This Component has Product Name Maintanenc_Product with ExecutionPhass 150-->
+        <!--This Component has Product Name Babysitter-Critical_Apps_Conf with ExecutionPhass 3650-->
+        <!--This Component has Product Name GEN_Customization with ExecutionPhass 2156-->
+        <!--This Component has Product Name IC-IFS_Proxy_Balancer_Farms with ExecutionPhass 2150-->
+      </Component>
+      <Component Name="service-kit-vi_suite_FirstMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="service-kit-vi_suite_SecondMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="service-kit-vi_suite">
+        <OnlyOn>
+          <UnitName>{FirstDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+    </Install>
+    <Uninstall>
+      <Component Name="Balancer_PROXY"/>
+    </Uninstall>
+  </UnitType>
+</SWIM>

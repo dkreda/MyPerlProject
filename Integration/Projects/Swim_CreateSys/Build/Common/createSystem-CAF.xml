@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Component Platform="Linux" Name="CreateSystem" Version="1.0.0.0" Type="Procedure">
+		<Parameters>
+			<Parameter Name="Service Type" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="MMG" Display="MMG Services"/>
+						<Item Value="VI" Display="VI Suite Services"/>
+						<Item Value="NDU-WHC" Display="Who Called"/>
+					</Enum>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>SysType</ParameterPath>
+			</Parameter>
+			<Parameter Name="Cas Host Name" Level="System" GroupName="CAS Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>CASName</ParameterPath>
+			</Parameter>
+			<Parameter Name="Proxy Host Name" Level="System" GroupName="Proxy Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>PROXYName</ParameterPath>
+			</Parameter>
+			<Parameter Name="Proxy Host IP" Level="System" GroupName="Proxy Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>PROXYIP</ParameterPath>
+			</Parameter>
+			<Parameter Name="MTS Host Name" Level="System" GroupName="MTS Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>MTSName</ParameterPath>
+			</Parameter>
+			<Parameter Name="MTS Host IP" Level="System" GroupName="MTS Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>MTSIP</ParameterPath>
+			</Parameter>			
+			<Parameter Name="Cas Host IP" Level="System" GroupName="CAS Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>CASIP</ParameterPath>
+				<Value/>
+			</Parameter>
+			<Parameter Name="System Name" Level="System" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Format="KeyValue" Name="/tmp/Stam.txt"/>
+				<ParameterPath>SysName</ParameterPath>
+			</Parameter>
+			<Parameter Name="MMSGW Host name" Level="System" GroupName="MMSGW Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue" ParameterPath=""/>
+				<ParameterPath>MMSGWName</ParameterPath>
+			</Parameter>
+			<Parameter Name="MMSGW Host IP" Level="System" GroupName="MMSGW Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>MMSGWIP</ParameterPath>
+			</Parameter>
+			<Parameter Name="NDU Host name" Level="System" GroupName="NDU-WHC Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>NDUName</ParameterPath>
+			</Parameter>
+			<Parameter Name="NDU Host IP" Level="System" GroupName="NDU-WHC Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>[1-9]\d*(\.\d+){3}</Pattern>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>NDUIP</ParameterPath>
+			</Parameter>
+			<Parameter Name="Balancer Host" Level="System" GroupName="Balancer Definition" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>BalancerHost</ParameterPath>
+			</Parameter>
+			<Parameter Name="Host Name/IP Unit" Level="System" GroupName="Balancers at UnSecured Zone (DMZ)" ExecutionGroup="Stam">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<File Name="/tmp/Stam.txt" Format="KeyValue"/>
+				<ParameterPath>DMZBalancerHost</ParameterPath>
+			</Parameter>
+		</Parameters>
+		<Install>
+			<Execute ExecutionOrder="1">
+				<Command>> /tmp/Stam.txt</Command>
+			</Execute>
+			<SetParams ExecutionOrder="10">
+				<ExecutionGroup>Stam</ExecutionGroup>
+			</SetParams>
+			<Execute ExecutionOrder="20">
+				<Command>/var/cti/data/swim/kits/CreateSystem/BuildSwimSystem.pl -Conf /tmp/Stam.txt -Map /var/cti/data/swim/kits/CreateSystem/Octopu2Twim.csv -LogFile - /tmp/SwimLog_BuildSwimSys.log</Command>
+			</Execute>
+			<UpdateInventory ExecutionOrder="100">
+				<ComponentName>CreateSystem</ComponentName>
+				<Operation>Install</Operation>
+				<ComponentVersion>0.0.01</ComponentVersion>
+			</UpdateInventory>
+		</Install>
+		<Groups>
+			<Group Name="CAS Definition" DefaultInstances="0" MinOccur="0" MaxOccur="50"/>
+			<Group Name="Proxy Definition" DefaultInstances="0" MinOccur="0" MaxOccur="50"/>
+			<Group Name="MMSGW Definition" DefaultInstances="0" MinOccur="0" MaxOccur="50"/>
+			<Group Name="NDU-WHC Definition" DefaultInstances="0" MinOccur="0" MaxOccur="50"/>
+			<Group Name="MTS Definition" DefaultInstances="0" MinOccur="0" MaxOccur="50"/>
+			<Group Name="Balancer Definition" DefaultInstances="2" MinOccur="0" MaxOccur="4" DisplayName="Balancers at Secured Zone (MZ)"/>
+			<Group Name="Balancers at UnSecured Zone (DMZ)" DefaultInstances="0" MinOccur="0" MaxOccur="4"/>
+		</Groups>
+	</Component>
+</SWIM>

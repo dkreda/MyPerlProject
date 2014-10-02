@@ -1,0 +1,43 @@
+        <Transfer>
+                <!-- copy Proxy Statistics and Counters to OMU -->
+                <Connection>
+                        <HostOrGroupName>Proxy-IC</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2006-01-01T06:00:00</StartTime>
+                        <RepeatInterval>PT0H15M</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/data/stat/AllDomains</LocalPath>
+                                <RemotePath>/var/cti/al/MTAPluginOnProxy</RemotePath>
+                                <Include>.+\.stat\..+[0-9]</Include>
+                                <Source action="Delete"/>
+                                <Destination action="Rename" suffix=".done"/>
+                                <IfExist action="Skip"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H05M</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="N"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+        </Transfer>

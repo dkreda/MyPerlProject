@@ -1,0 +1,38 @@
+###############################################################################
+#	MTA Answer File ( For VI Suite configuration )
+#
+# Parameters Description:
+#
+# RelayRule	: maildomain [via hostname]
+#		  This parameter add relay domain + route to next mta
+#		  This parametr can have multy values ( at domain but not at via )
+#		  example RelayRule= *.mte via 10.20.30.40
+#		  RelayRule= comverse.com via casmta.site1
+#		  RelayRule= comvare.com,Test.vi.comvers.mail via casmta.site1
+#
+# NetworkDomain	:
+#
+# ExternalMTA	:
+#
+# AllowDomains	:
+#
+# AllowIPs	:
+#
+# ManagerPassword:
+#
+# AllowManagerIPs:
+#
+# AddUser	:   user@domain password
+#
+###############################################################################
+#
+#RelayRule=Is4.domain.name via casmta.site1
+#
+#AllowDomains=comverse.com,yofi.tofi
+#AllowIPs=  1.1.1.0,5.5.55.9
+#
+#ManagerPassword=A25$tk
+#
+#AddUser=rt45FggQx@webinbox.com inFG459k3
+#AddUser=fooooog@stopgoo
+#

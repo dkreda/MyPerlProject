@@ -1,0 +1,118 @@
+<SWIM>
+   <Parameters>
+      <Parameter ComponentName='CC_CSP-Base_Customization_NDU' ComponentVersion='1.0.2.0' Level='System' Name='SMU A Physical IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.70.8</Value>
+      </Parameter>
+      <Parameter ComponentName='CC_CSP-Base_Customization_NDU' ComponentVersion='1.0.2.0' Level='System' Name='SMU B Physical IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.70.9</Value>
+      </Parameter>
+      <Parameter ComponentName='Babysitter_NDU' ComponentVersion='3.7.2.2-1' Level='System' Name='Generic SNMP Support' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>1</Value>
+      </Parameter>
+      <Parameter ComponentName='Babysitter_NDU' ComponentVersion='3.7.2.2-1' Level='UnitType' Name='BabtsitterUnitType' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>NDU-WHC_Group</Value>
+      </Parameter>
+      <Parameter ComponentName='um_utils_NDU' ComponentVersion='1.2.0.0' DisplayName='3DES_KEY' Level='UnitType' Name='3des' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>Test3DesKeyVal</Value>
+      </Parameter>
+      <Parameter ComponentName='Balancer_FirstMZunitIP' ComponentVersion='4.4.0.0-04' Level='System' Name='Second DMZ unit IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>2.2.2.2</Value>
+      </Parameter>
+      <Parameter ComponentName='Balancer_FirstMZunitIP' ComponentVersion='4.4.0.0-04' Level='System' Name='First DMZ unit IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>1.1.2.2</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='AAS Farm' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>AAS.Site1</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='CMS Farm' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>Cms.site1</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='NDS Farm' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>NDU.site1</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='NDSVAN Farm' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>Van.Site1</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='NDU Hosts Balancer' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>what</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='OMU Hosts Balancer' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.20.30.50</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='SPM Farm' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>SPM</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='TCMManager Farm' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>TCMManager</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='TCMServer Farm' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>TCMServer</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='UnitType' Name='WSA Farm' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>WSA</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='System' Name='AASDB VIP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>1.2.3.5</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='System' Name='DSU Calls DB VIP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>OracleIP</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='System' Name='IP Address of first OMU unit' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>2.2.2.2</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='System' Name='::units-CMS-SS7-ip' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>1.1.1.1;2.2.2.2</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='System' Name='::units-NDU-ip' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>1.2.3.4;10.106.50.185</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='System' Name='DSU Profile DB VIP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>LDapIP</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_PrimaryDNSIPAddress' ComponentVersion='4.4.0.0' Level='System' Name='::units-OMU-ip' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>2.2.2.2;1.2.3.4</Value>
+      </Parameter>
+      <Parameter ComponentName='AMP-NDU_NDU' ComponentVersion='1.0.0.2-01' Level='UnitType' Name='Network Ping Unit Address' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.50.1</Value>
+      </Parameter>
+      <Parameter ComponentName='AMP-NDU_NDU' ComponentVersion='1.0.0.2-01' Level='UnitType' Name='Site Name' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>NoName</Value>
+      </Parameter>
+      <Parameter ComponentName='AMP-NDU_NDU' ComponentVersion='1.0.0.2-01' Level='UnitType' Name='SMG Address (1)' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>3.3.3.3</Value>
+      </Parameter>
+      <Parameter ComponentName='AMP-NDU_NDU' ComponentVersion='1.0.0.2-01' Level='UnitType' Name='SMS Notification Destination (1)' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>2222222</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_NDU' ComponentVersion='4.4.0.0' Level='UnitType' Name='NDM1 IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>2.2.2.2</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_NDU' ComponentVersion='4.4.0.0' Level='UnitType' Name='NDM3 IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>5.5.5.5</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_NDU' ComponentVersion='4.4.0.0' Level='UnitType' Name='NDM3 Port' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>7001</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_NDU' ComponentVersion='4.4.0.0' Level='System' Name='SMSC Port' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>77777</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_NDU' ComponentVersion='4.4.0.0' Level='System' Name='SMSC IP' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>5.5.5.5</Value>
+      </Parameter>
+      <Parameter ComponentName='WHC_Service_NDU' ComponentVersion='4.4.0.0' Level='System' Name='CCS IP (enter 1.1.1.1 if no CCS)' Platform='Linux' SelectedOperation='Install' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>1.1.1.1</Value>
+      </Parameter>
+      <Alias DisplayName='Network Domain' Level='System' Mandatory='false' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>stam.com</Value>
+      </Alias>
+      <Alias DisplayName='Primary DNS IP' Level='System' Mandatory='false' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.50.185</Value>
+      </Alias>
+      <Alias DisplayName='Secondary DNS IP Address' Level='System' Mandatory='false' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>10.106.50.186</Value>
+      </Alias>
+      <Alias DisplayName='SMU VIP' Level='System' Mandatory='false' UnitName='proxy-au185' UnitType='NDU-WHC_Group'>
+         <Value>9.9.9.9</Value>
+      </Alias>
+   </Parameters>
+</SWIM>

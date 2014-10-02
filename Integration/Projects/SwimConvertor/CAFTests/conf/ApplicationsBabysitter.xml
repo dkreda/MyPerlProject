@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<MAMDATA>
+<Applications>
+  <ROW Name="Babsrv"  PhaseNumber="0" MemWarningLevel="0" MemTerminateLevel="0">
+   <LINUX Executable="/usr/local/java/bin/java" AbnormalTerminationAlarm="1" CommandLine="*babwatch.jar*"  LaunchingScript="/usr/cti/apps/babysitter/Babwatch"></LINUX>
+	 <MonitorByCMD />
+      <DaemonProcess></DaemonProcess>
+  	<TRACE_DELETION>
+		<IntervalMinutes>1440</IntervalMinutes>
+		<FolderToMonitor>/var/cti/logs/babysitter/*.csv,/var/cti/logs/babysitter/*.trc,/var/cti/logs/babysitter/*.log,/var/cti/logs/babysitter/*.trc.gz,/var/cti/logs/babysitter/*.csv.gz</FolderToMonitor>
+		<MaxAgeHours>480</MaxAgeHours>
+		<MaxNumberOfFiles>100</MaxNumberOfFiles>
+		<MaxSizeKb>10000</MaxSizeKb>
+		<WarningSizePercent>0</WarningSizePercent>
+	</TRACE_DELETION>
+  </ROW>
+</Applications>
+<AppInUnitType>
+	<All>
+		<Babsrv/>
+	</All>
+</AppInUnitType>
+</MAMDATA>

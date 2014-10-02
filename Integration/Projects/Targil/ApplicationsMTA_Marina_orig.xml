@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<MAMDATA>
+<Applications>
+  <ROW Name="SMTP" MemWarningLevel="350000" LoadSequenceNumber="2" PauseBeforeRestart="2000" MemTerminateLevel="700000" CheckVirtualMemory="1">
+  	<LINUX Executable="/opt/criticalpath/global/bin/smtpd" LaunchingScript="/opt/criticalpath/global/bin/su_mips.sh" CommandLine="__MTAUSER__ smtpd start" TerminationScript="/opt/criticalpath/global/bin/su_mips.sh __MTAUSER__ smtpd stop" TerminationScriptTimeout="10000">
+  	</LINUX>
+  	<IgnorePidChange>
+	</IgnorePidChange>
+  	<Alarm ID="1260" Severity="2"> </Alarm>
+	<!-- @VK  PSG00604270 implementation: Change babysitter setup to recognize the MTA stuck: Begin -->
+		<Tester>
+		   <Enabled>1</Enabled>
+		   <Host>localhost</Host>
+		   <Port>__SMTPPORT__</Port>	<!-- Will will be replaced with value by "install_MTA.sh" script -->
+		   <Interval>60</Interval>
+		   <ReadTimeout>10</ReadTimeout>
+		   <Responses>220,421</Responses>
+		   <Type>Tcp</Type>
+		   <WarningLevel>3</WarningLevel>
+		   <TerminationLevel>5</TerminationLevel>
+        </Tester>
+	<!-- @VK  PSG00604270 implementation: Change babysitter setup to recognize the MTA stuck: End -->
+			
+  </ROW>
+  <ROW Name="RMAP" MemWarningLevel="140000" LoadSequenceNumber="2" PauseBeforeRestart="2000" MemTerminateLevel="280000">
+  	<LINUX Executable="/opt/criticalpath/rmapd/rmap" LaunchingScript="/opt/criticalpath/global/bin/su_mips.sh" CommandLine="__MTAUSER__ rmap start" TerminationScript="/opt/criticalpath/global/bin/su_mips.sh __MTAUSER__ rmap stop" TerminationScriptTimeout="10000">
+  	</LINUX>
+  	<IgnorePidChange>
+	</IgnorePidChange>
+  	<Alarm ID="1260" Severity="2"> </Alarm>
+  </ROW>
+  <ROW Name="SMTP_SNMPSERVICE" MemWarningLevel="140000" LoadSequenceNumber="2" PauseBeforeRestart="2000" MemTerminateLevel="280000">
+  	<LINUX Executable="/opt/criticalpath/global/bin/snmpservice" LaunchingScript="/opt/criticalpath/global/bin/su_mips.sh" CommandLine="root snmpservice start" TerminationScript="/opt/criticalpath/global/bin/su_mips.sh root snmpservice stop" TerminationScriptTimeout="10000">
+  	</LINUX>
+  	<IgnorePidChange>
+	</IgnorePidChange>
+  	<Alarm ID="1260" Severity="2"> </Alarm>
+  </ROW>
+
+</Applications>
+<AppInUnitType>
+	<All>
+		<SMTP/>
+		<RMAP/>
+		<SMTP_SNMPSERVICE/>
+	</All>	
+</AppInUnitType>
+<Alarms>
+    <ROW AlarmID="0" AlarmText="Proc &lt;Data&gt; is down" AlarmSeverity="1">
+    </ROW>
+    <ROW AlarmID="1" AlarmText="Proc &lt;Data&gt; is unstable" AlarmSeverity="0">
+    </ROW>
+    <ROW AlarmID="2" AlarmText="Proc &lt;Data&gt; was manually shutdown" AlarmSeverity="0">
+    </ROW>
+    <ROW AlarmID="3" AlarmText="Proc &lt;Data&gt; could not be initialized" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="4" AlarmText="Proc &lt;Data&gt; is using &lt;Data2&gt;Kb" AlarmSeverity="1">
+    </ROW>
+    <ROW AlarmID="11" AlarmText="Disk space on C is only &lt;Data&gt;Mb" AlarmSeverity="1">
+    </ROW>
+    <ROW AlarmID="12" AlarmText="Disk space on D is only &lt;Data&gt;Mb" AlarmSeverity="1">
+    </ROW>
+    <ROW AlarmID="13" AlarmText="Fan #1 is offline" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="14" AlarmText="Fan #2 is offline" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="15" AlarmText="CPU Temperature is too high" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="16" AlarmText="Platform Temperature too high" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="17" AlarmText="Average CPU0 usage too high" AlarmSeverity="1">
+    </ROW>
+    <ROW AlarmID="18" AlarmText="Average CPU1 usage too high" AlarmSeverity="1">
+    </ROW>
+    <ROW AlarmID="19" AlarmText="Memory Usage is too high" AlarmSeverity="1">
+    </ROW>
+    <ROW AlarmID="20" AlarmText="Email testing has failed" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="21" AlarmText="Http testing failed" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="22" AlarmText="Tcp testing failed" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="23" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="24" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="25" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="26" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="27" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="28" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="29" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="30" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="31" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="32" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="33" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="34" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="35" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="36" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="37" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="38" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="39" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="40" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="41" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="42" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="43" AlarmText="Sps testing failed on TRM &lt;Data&gt;" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="44" AlarmText="NciLi testing failed" AlarmSeverity="2">
+    </ROW>
+    <ROW AlarmID="45" AlarmText="MAU testing failed &lt;Data&gt;" AlarmSeverity="4">
+    </ROW>
+    <ROW AlarmID="46" AlarmText="Platform PFM#3 is FAULTY!" AlarmSeverity="2">
+    </ROW>
+  </Alarms>
+ </MAMDATA>

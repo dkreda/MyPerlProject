@@ -1,0 +1,32 @@
+[UAF]
+Unit_Type
+[SAF]
+..Insight Platform
+.Direct Deposit
+.Direct Retrieval
+.MTE
+.Voice Open API
+.VVM
+.WCC
+.WebInbox
+.WPM
+IS3 MIPS IP (ESU IP),ESU_IP
+ESU_PASSWORD
+FromAddress
+IS4 Network Domain
+IS4 Mail Domain,IS4_Email_Domain
+Main_Domain
+Manager_Password
+Network Domain
+Network IP for Management Center Access
+Operator's SMTP Server
+ProcessDownThirdLevel
+SendMemReport
+SMU Physical IP List
+SMU VIP
+Subscriber Locator Method
+TRM_ID
+TRM_IP
+First MZ unit IP
+Vvm - NotificationMask
+

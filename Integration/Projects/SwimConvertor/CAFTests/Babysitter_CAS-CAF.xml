@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <Component Name="Babysitter_CAS" Version="1.2.0.0-01" Platform="Linux">
+    <Install>
+      <Copy ExecutionOrder="15001">
+        <Source>./bin/linux/babysitter-ic-4.3.0.0-04.i386.rpm</Source>
+        <Target>/usr/tmp/{Dest Dir}/babysitter-ic-4.3.0.0-04.i386.rpm</Target>
+      </Copy>
+      <Execute ExecutionOrder="15234">
+        <Command>/usr/tmp/install_babysitter.pl {Param at CLI}  {Regular Param}</Command>
+      </Execute>
+      <Copy ExecutionOrder="15204" ChmodFlags="+x">
+        <Source>./scripts/install_babysitter.pl</Source>
+        <Target>/usr/tmp/install_babysitter.pl</Target>
+      </Copy>
+      <Copy ExecutionOrder="15000">
+        <Source>./bin/bs_answer_file</Source>
+        <Target>/usr/tmp/bs_answer_file</Target>
+      </Copy>
+      <SetParams ExecutionOrder="15012">
+        <ExecutionGroup>Babysitter</ExecutionGroup>
+      </SetParams>
+      <SetParams ExecutionOrder="15212">
+        <ExecutionGroup>Baysitter_trm_configuration</ExecutionGroup>
+      </SetParams>
+    </Install>
+    <Parameters>
+      <Parameter Name="AgentXPortNumber" ExecutionGroup="Babysitter" Level="System" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1055</Value>
+        <Description>AgentXPortNumber</Description>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.AgentXPortNumber"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Application Additional Information" ExecutionGroup="Babysitter" Level="System">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{Default Parameter}</Value>
+        <Description>Application additional information</Description>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.ApplicationAdditionalInformation"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Application Name" ExecutionGroup="Babysitter" Level="System" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>MAM</Value>
+        <Description>Application Name as apperas in the Babysitter SNMP sub agent</Description>
+        <Files>
+          <File Name="/usr/cti/conf/{Param Path}/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.ApplicationName"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Regular Param" ExecutionGroup="Babysitter" Level="System">
+        <Restrictions>
+          <Type>Number</Type>
+          <MinVal>100</MinVal>
+          <MaxVal>4096</MaxVal>
+        </Restrictions>
+        <Description>Max size of the babysitter log file</Description>
+        <Files>
+          <File Name="/usr/cti/conf/{Param Path}/babysitter/Babysitter.ini" Format="INI" ParameterPath="General.MaxFileSize"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="ProcessDownThirdLevel" ExecutionGroup="Babysitter" Level="UnitType">
+        <Restrictions>
+          <Type>Number</Type>
+          <MinVal>1</MinVal>
+          <MaxVal>1000</MaxVal>
+        </Restrictions>
+        <Value>9</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="General.ProcessDownThirdLevel"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="SNMP UpDownOID" ExecutionGroup="Babysitter" Level="System" Display="false">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>1.3.6.1.4.1.5271.2.2.3</Value>
+        <Description>OID for babysitter up/down SNMP alarms</Description>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="SNMP.UpDownOID"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Unit_Type" ExecutionGroup="Babysitter" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{UnitType}</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="General.UnitType"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Local_IP" ExecutionGroup="Babysitter" Level="Unit">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{LocalIP}</Value>
+        <Files>
+          <File Name="/usr/cti/conf/babysitter/Babysitter.ini" Format="INI" ParameterPath="GenericSNMP.AgentXServiceName"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Test Regular Param" ExecutionGroup="Babysitter" Level="System">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{Regular Param}{Default Parameter}</Value>
+        <Files>
+          <File Name="/usr/cti/tmp.lul" Format="INI" ParameterPath="Stam.Boom"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Test Diff Product" ExecutionGroup="Baysitter_trm_configuration" Level="UnitType">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+        <Value>{Regular Param}:50025</Value>
+        <Files>
+          <File Name="/tmp/NoName.txt" Format="INI" ParameterPath="Foo.fee"/>
+        </Files>
+      </Parameter>
+      <Parameter Name="Param Path" Level="System" ExecutionGroup="Babysitter">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Default Parameter" Level="System" ExecutionGroup="Babysitter">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Param at CLI" Level="System" ExecutionGroup="Baysitter_trm_configuration">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+      <Parameter Name="Dest Dir" Level="System" ExecutionGroup="Babysitter">
+        <Restrictions>
+          <Type>String</Type>
+        </Restrictions>
+      </Parameter>
+    </Parameters>
+  </Component>
+</SWIM>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="CAS" Platform="Linux">
+    <Install>
+      <Component Name="Balancer_CAS" ExecutionOrder="152">
+        <!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+        <!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+      </Component>
+      <Component Name="Balancer_SecondMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_FirstDMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondDMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="MMG_MTA_CAS" ExecutionOrder="240">
+        <!--This Component has Product Name MTA_BASE with ExecutionPhass 240-->
+      </Component>
+      <Component Name="service-kit-vi_suite_CAS" ExecutionOrder="4150">
+        <!--This Component has Product Name Merge_Tool with ExecutionPhass 150-->
+        <!--This Component has Product Name Platform_Config with ExecutionPhass 2154-->
+        <!--This Component has Product Name MTS_Customization_Not_Per_HW with ExecutionPhass 3150-->
+        <!--This Component has Product Name Babysitter - Resilience with ExecutionPhass 3650-->
+        <!--This Component has Product Name IS4_SDC with ExecutionPhass 4150-->
+        <!--This Component has Product Name Service_Config with ExecutionPhass 2152-->
+        <!--This Component has Product Name IC-IFS_CAS_Balancer_Farms with ExecutionPhass 2150-->
+        <!--This Component has Product Name Maintanenc_Product with ExecutionPhass 150-->
+        <!--This Component has Product Name Babysitter-Critical_Apps_Conf with ExecutionPhass 3650-->
+        <!--This Component has Product Name GEN_Customization with ExecutionPhass 2156-->
+        <!--This Component has Product Name Platform_Install with ExecutionPhass 250-->
+        <!--This Component has Product Name Merge_Tool with ExecutionPhass 150-->
+        <!--This Component has Product Name Platform_Config with ExecutionPhass 2154-->
+        <!--This Component has Product Name MTS_Customization_Not_Per_HW with ExecutionPhass 3150-->
+        <!--This Component has Product Name Babysitter - Resilience with ExecutionPhass 3650-->
+        <!--This Component has Product Name IS4_SDC with ExecutionPhass 4150-->
+        <!--This Component has Product Name Service_Config with ExecutionPhass 2152-->
+        <!--This Component has Product Name IC-IFS_CAS_Balancer_Farms with ExecutionPhass 2150-->
+        <!--This Component has Product Name Maintanenc_Product with ExecutionPhass 150-->
+        <!--This Component has Product Name Babysitter-Critical_Apps_Conf with ExecutionPhass 3650-->
+        <!--This Component has Product Name GEN_Customization with ExecutionPhass 2156-->
+        <!--This Component has Product Name Platform_Install with ExecutionPhass 250-->
+      </Component>
+      <Component Name="service-kit-vi_suite_SecondMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="service-kit-vi_suite">
+        <OnlyOn>
+          <UnitName>{FirstDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+    </Install>
+    <Uninstall>
+      <Component Name="Balancer_CAS"/>
+      <Component Name="MMG_MTA_CAS"/>
+    </Uninstall>
+  </UnitType>
+</SWIM>

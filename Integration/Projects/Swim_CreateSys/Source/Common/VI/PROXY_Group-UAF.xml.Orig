@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\galcohe\Desktop\VI_SUITE_SWIM\UAF.xsd">
+	<UnitType Name="PROXY_Group" Platform="Linux">
+		<!-- <UnitType Name="PROXY" Platform="Linux"> -->
+		<Install>
+			<Component Name="genesis" ExecutionOrder="210">
+				<!--This Component has Product Name Genesis-JGlue with ExecutionPhass 210-->
+				<!--This Component has Product Name Genesis-BASE with ExecutionPhass 190-->
+			</Component>
+			<Component Name="mts" ExecutionOrder="170">
+				<!--This Component has Product Name MTS with ExecutionPhass 170-->
+			</Component>
+			<Component Name="um23log" ExecutionOrder="152">
+				<!--This Component has Product Name NciLi with ExecutionPhass 152-->
+				<!--This Component has Product Name VfpApi with ExecutionPhass 150-->
+			</Component>
+			<Component Name="vi_audit" ExecutionOrder="4990">
+				<!--This Component has Product Name swp-CSPbase-Services with ExecutionPhass 4990-->
+				<!--This Component has Product Name change_traceability_params with ExecutionPhass 160-->
+				<!--This Component has Product Name enable_disable_traceability with ExecutionPhass 170-->
+			</Component>
+			<Component Name="VI_CSP-Base_Customization_PROXY" ExecutionOrder="110">
+				<!--This Component has Product Name VI_CSP-Base_Customization with ExecutionPhass 110-->
+				<!--This Component has Product Name VI_CSP-MTA_Custom with ExecutionPhass 110-->
+			</Component>
+			<Component Name="cspbase" ExecutionOrder="70">
+				<!--This Component has Product Name CSPbase_Post_Reboot with ExecutionPhass 70-->
+				<!--This Component has Product Name CSPbase with ExecutionPhass 60-->
+			</Component>
+			<Component Name="vi_j2sdk" ExecutionOrder="100">
+				<!--This Component has Product Name JRE_Gen_32bits with ExecutionPhass 100-->
+			</Component>
+			<Component Name="vi_mta_PROXY" ExecutionOrder="300">
+				<!--This Component has Product Name MTA_GENCustom with ExecutionPhass 300-->
+				<!--This Component has Product Name MTA_Proxy with ExecutionPhass 252-->
+				<!--This Component has Product Name MTA_BASE with ExecutionPhass 250-->
+			</Component>
+			<Component Name="aumsi_PROXY" ExecutionOrder="200">
+				<!--This Component has Product Name AUMSI_PROXY with ExecutionPhass 200-->
+				<!--This Component has Product Name AUMSI with ExecutionPhass 190-->
+			</Component>
+			<Component Name="MTA_Plugin_PROXY" ExecutionOrder="550">
+				<!--This Component has Product Name MTA_Plugin_PROXY with ExecutionPhass 550-->
+				<!--This Component has Product Name MTA_Plugin with ExecutionPhass 250-->
+			</Component>
+			<Component Name="um_utils" ExecutionOrder="150">
+				<!--This Component has Product Name UM_UTILS with ExecutionPhass 150-->
+			</Component>
+			<Component Name="Babysitter" ExecutionOrder="150">
+				<!--This Component has Product Name Babysitter with ExecutionPhass 150-->
+			</Component>
+			<Component Name="service-kit-vi_suite_PROXY" ExecutionOrder="3150">
+				<!--This Component has Product Name Merge_Tool with ExecutionPhass 150-->
+				<!--This Component has Product Name Platform_Config with ExecutionPhass 2154-->
+				<!--This Component has Product Name Maintanenc_Product with ExecutionPhass 150-->
+				<!--This Component has Product Name GEN_Customization with ExecutionPhass 2156-->
+				<!--This Component has Product Name MTS_Customization_Not_Per_HW with ExecutionPhass 3150-->
+				<!--This Component has Product Name IC-IFS_Proxy_Balancer_Farms with ExecutionPhass 2150-->
+				<!--This Component has Product Name Service_Config with ExecutionPhass 2152-->
+			</Component>
+			<Component Name="service-kit-vi_suite_Balancer" ExecutionOrder="3151">
+				<OnlyOn>
+					<UnitName>Balancer</UnitName>
+				</OnlyOn>
+			</Component>
+			<Component Name="balancer" ExecutionOrder="152">
+				<!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+				<!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+			</Component>
+			<Component Name="balancer_FirstDMZunitIP" ExecutionOrder="152">
+				<OnlyOn>
+					<UnitName>Balancer</UnitName>
+				</OnlyOn>
+			</Component>
+			<Component Name="Linux_Hkit" ExecutionOrder="150000">
+				<!--This Component has Product Name SEC_AS5_HKIT with ExecutionPhass 150-->
+			</Component>
+			<Component Name="Tomcat" ExecutionOrder="150">
+				<!--This Component has Product Name Tomcat with ExecutionPhass 150-->
+			</Component>
+			<Component Name="VI_SiteBook" ExecutionOrder="150">
+				<!--This Component has Product Name SiteBook MetaData Files with ExecutionPhass 150-->
+				<!--This Component has Product Name SiteBook User with ExecutionPhass 150-->
+			</Component>
+		</Install>
+		<Uninstall>
+			<Component Name="genesis"/>
+			<Component Name="mts"/>
+			<Component Name="VI_SiteBook"/>
+			<Component Name="vi_mta_PROXY"/>
+			<Component Name="aumsi_PROXY"/>
+			<Component Name="MTA_Plugin_PROXY"/>
+			<Component Name="um_utils"/>
+			<Component Name="balancer"/>
+			<Component Name="Tomcat"/>
+		</Uninstall>
+		<Parameters>
+			<Parameter Name="Unit_Type" ComponentName="genesis" Display="false">
+				<Value>PROXY</Value>
+			</Parameter>
+<!--			<Parameter Name="UnitType" ComponentName="vi_mta_PROXY" Display="false">
+				<Value>PROXY</Value>
+			</Parameter>  -->
+			<Parameter Name="UnitType" ComponentName="MTA_Plugin_PROXY" Display="false">
+				<Value>PROXY</Value>
+			</Parameter>
+			<Parameter Name="Unit_Type" ComponentName="vi_mta_PROXY" Display="false">
+				<Value>PROXY</Value>
+			</Parameter>
+			<Parameter Name="Unit_Type" ComponentName="Babysitter" Display="false">
+				<Value>PROXY</Value>
+			</Parameter>
+			<Parameter Name="Unit Type" ComponentName="MTA_Plugin_PROXY" Display="false">
+				<Value>PROXY</Value>
+			</Parameter>
+		</Parameters>
+	</UnitType>
+</SWIM>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<Provisioning xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\ProfileDefinition.xsd">
+	<ProfileDefinition Name="WHC-BLack White List" Version="1.0.0.0">
+		<Entities>
+			<Entity>
+				<Name>Subscriber</Name>
+				<DsvEntityName>SUB</DsvEntityName>
+				<Fields>
+					<Field>
+						<Name>NfmBWList</Name>
+						<Description>Defines the subscriber&apos;s telephone numbers for black and white list up to 40 different numbers.</Description>
+						<DsvName>CnsNfmBWList</DsvName>
+						<MultiValueElementName>Value</MultiValueElementName>
+						<DbName>NFM_BW_LIST.NFM_BW_LIST</DbName>
+						<DbData>
+							<DbType>Varchar2</DbType>
+							<DbLength>850</DbLength>
+						</DbData>
+						<XsdValidation>
+							<Type>xs:string</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<DisplayName>Telephone number - Black White List</DisplayName>
+					</Field>
+					<Field>
+						<Name>NfmBWListEnabled</Name>
+						<Description>This parameter determines if B party is permitted to manage a personal list.</Description>
+						<DsvName>CnsNfmBWListEnabled</DsvName>
+						<DbName>SUBSCRIBERS.NFM_BW_LIST_ENABLED</DbName>
+						<DbData>
+							<DbType>Number</DbType>
+							<DbLength>1</DbLength>
+						</DbData>
+						<XsdValidation>
+							<Type>xs:boolean</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+						</XsdValidation>
+						<DisplayName>Notify Me Black White List Enabled</DisplayName>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+									<DefaultValue>0</DefaultValue>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>NfmBWListType</Name>
+						<Description>Defines the subscriber&apos;s black white list for Notify Me (Black -all accept provisioned subs will not receive NFM, White -only provisioned subs will receive NFM, None -no list (and no need to load such a list))</Description>
+						<DsvName>CnsNfmBWListType</DsvName>
+						<DbName>SUBSCRIBERS.NFM_BW_LIST_TYPE</DbName>
+						<DbData>
+							<DbType>Number</DbType>
+							<DbLength>1</DbLength>
+						</DbData>
+						<XsdValidation>
+							<Type>xs:nonNegativeInteger</Type>
+							<MinOcc>0</MinOcc>
+							<MaxOcc>1</MaxOcc>
+							<Nillable>true</Nillable>
+							<MinVal>0</MinVal>
+							<MaxVal>2</MaxVal>
+						</XsdValidation>
+						<DisplayName>Notify Me Black and white List typee</DisplayName>
+						<SubscriberBehavioralInfo>
+							<ServiceName>WHC</ServiceName>
+							<ResolvedLevels>
+								<DomainDefaults/>
+								<ServiceLevel/>
+								<SystemDefaults>
+									<XsdValidation>
+										<Nillable>false</Nillable>
+									</XsdValidation>
+									<DefaultValue>0</DefaultValue>
+								</SystemDefaults>
+							</ResolvedLevels>
+						</SubscriberBehavioralInfo>
+					</Field>
+					<Field>
+						<Name>cnsNFMBWListID</Name>
+						<Description>cnsNFMBWListID</Description>
+						<DsvName>cnsNFMBWListID</DsvName>
+						<DbName>NFM_BW_LIST.ID</DbName>
+						<DbData>
+							<DbType>Varchar2</DbType>
+							<DbLength>25</DbLength>
+						</DbData>
+					</Field>
+				</Fields>
+			</Entity>
+		</Entities>
+	</ProfileDefinition>
+</Provisioning>

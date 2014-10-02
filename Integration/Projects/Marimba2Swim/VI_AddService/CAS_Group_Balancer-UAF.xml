@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="CAS_Group_Balancer" Platform="Linux">
+    <!--This UAF is implementation of Marimba ServerGroup CAS_Balancers-->
+    <Install>
+      <Component Name="Config_CAS_Balancers_Deployments" ExecutionOrder="10"/>
+    </Install>
+  </UnitType>
+</SWIM>

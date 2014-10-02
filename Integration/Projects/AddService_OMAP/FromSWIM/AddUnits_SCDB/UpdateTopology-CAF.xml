@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\CAF.xsd">
+	<Component Platform="Linux" Name="UpdateTopology" Version="1.0.0.0" Type="Procedure">
+		<Install>
+			<Copy ChmodFlags="+x" ExecutionOrder="10">
+				<Source>scripts/OctParamsManipulation.pl</Source>
+				<Target>/tmp/OctParamsManipulation.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="10">
+				<Source>config/Refresh_Scdb.txt</Source>
+				<Target>/tmp/Refresh_Scdb.txt</Target>
+			</Copy>
+			<SetParams ExecutionOrder="20">
+				<ExecutionGroup>CompConf</ExecutionGroup>
+			</SetParams>
+			<Execute>
+				<Command>/tmp/OctParamsManipulation.pl -Conf /tmp/Refresh_Scdb.txt -Unit {RunUnit}</Command>
+			</Execute>
+		</Install>
+		<Parameters>
+			<Parameter Name="RunUnit" Level="Unit" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="ICC Enabled" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="Yes"/>
+						<Item Value="$NULL" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#Param2#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Balancer Enable" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="Yes"/>
+						<Item Value="$NULL" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#Param1#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="SiteBook Enabled" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="Yes"/>
+						<Item Value="$NULL" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#Param3#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="CCM Enabled" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="Yes"/>
+						<Item Value="$NULL" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#Param4#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Log Viewer Enabled" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="Yes"/>
+						<Item Value="$NULL" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#Param5#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Performanc Monitor Enabled" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="Yes"/>
+						<Item Value="$NULL" Display="No"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#Param6#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Balancers IP Lists" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#TokenBalancer#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="PMT IP Lists" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#PMTMachinesIP#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="CCM IP Lists" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#CCMMachineIP#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="System Name" Level="System" ExecutionGroup="CompConf">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#Param7#" Name="/tmp/Refresh_Scdb.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

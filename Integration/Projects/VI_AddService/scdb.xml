@@ -1,0 +1,374 @@
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 6 users (Comverse) -->
+<SCDB xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+   <Identification>
+      <ComponentName>scdb</ComponentName>
+      <FileFormatVersion>2.0</FileFormatVersion>
+      <ComponentRelease>6.1.1.0</ComponentRelease>
+      <ComponentBuild>05</ComponentBuild>
+   </Identification>
+   <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Spark_color.gif' inventoryMask='N/A' objectClass='System' objectDescription='InSight4' objectLabel='InSight4' objectName='System' objectType='System'>
+      <SystemRoot CIRNumber='' CustomerName='' ManualInactive='0' SystemDomain='is433.com' SystemLabel='Moran' SystemName='Moran' SystemType='LocalSystem'>
+         <Product InstallDate='' ProductName='Voice' ProductRelease='5.0.0.0'/>
+      </SystemRoot>
+      <Application ApplicationLabel='System Parameters' ApplicationLevel='N/A' ApplicationName='Common' ConnectionType='N/A'/>
+      <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Voice-Access.gif' inventoryMask='N/A' objectClass='Layer' objectDescription='Telephony Access Layer' objectLabel='Telephony_Access' objectName='Telephony_Access_Layer' objectType='Logical'>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='CMS N+1 Group' objectLabel='CMS_HMP_Group' objectName='CMS_HMP_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='cms-sip%' objectClass='Unit_Type' objectDescription='CMS SIP Unit' objectLabel='Unit:$UnitName' objectName='CMS_HMP_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='CMS-HMP_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='Media Server' ApplicationLevel='Farm' ApplicationName='CMS' ConnectionType='Data'/>
+               <Application ApplicationLabel='SCA' ApplicationLevel='Farm' ApplicationName='SCA' ConnectionType='Data'/>
+               <Application ApplicationLabel='' ApplicationLevel='Farm' ApplicationName='CMSTG1' ConnectionType='Data'/>
+               <Application ApplicationLabel='Media Access Adaptor' ApplicationLevel='Farm' ApplicationName='MAA' ConnectionType='Data'/>
+               <Application ApplicationLabel='NMS line card' ApplicationLevel='Farm' ApplicationName='NMS' ConnectionType='Data'/>
+               <Application ApplicationLabel='Pegasus line card' ApplicationLevel='Farm' ApplicationName='Pegasus' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <EMS EMSName='CMS-BoardInformation' URLTarget=''/>
+               <EMS EMSName='CMS-SessionStatus' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='CMS N+1 Group' objectLabel='CMS_H324MVideo_Group' objectName='CMS_H324MVideo_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='cms-h324mvideo%' objectClass='Unit_Type' objectDescription='CMS_H324MVideo_Unit' objectLabel='Unit:$UnitName' objectName='CMS_H324MVideo_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='CMS-H324-Video_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='Media Server' ApplicationLevel='Farm' ApplicationName='CMS' ConnectionType='Data'/>
+               <Application ApplicationLabel='' ApplicationLevel='Farm' ApplicationName='CMSTG1' ConnectionType='Data'/>
+               <Application ApplicationLabel='Media Access Adaptor' ApplicationLevel='Farm' ApplicationName='MAA' ConnectionType='Data'/>
+               <Application ApplicationLabel='Pegasus line card' ApplicationLevel='Farm' ApplicationName='Pegasus' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <EMS EMSName='CMS-BoardInformation' URLTarget=''/>
+               <EMS EMSName='CMS-PortsConfiguration' URLTarget=''/>
+               <EMS EMSName='CMS-PortStatus' URLTarget=''/>
+               <EMS EMSName='CMS-ConnectionStatusCCS' URLTarget=''/>
+               <EMS EMSName='CMS-PortsMonitoring' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='CMS N+1 Group' objectLabel='CMS_PSTN_Group' objectName='CMS_SS7_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='cms-pstn%' objectClass='Unit_Type' objectDescription='CMS PSTN Unit' objectLabel='Unit:$UnitName' objectName='CMS_SS7_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='CMS-SS7_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='Media Server' ApplicationLevel='Farm' ApplicationName='CMS' ConnectionType='Data'/>
+               <Application ApplicationLabel='' ApplicationLevel='Farm' ApplicationName='CMSTG1' ConnectionType='Data'/>
+               <Application ApplicationLabel='Media Access Adaptor' ApplicationLevel='Farm' ApplicationName='MAA' ConnectionType='Data'/>
+               <Application ApplicationLabel='NMS line card' ApplicationLevel='Farm' ApplicationName='NMS' ConnectionType='Data'/>
+               <Application ApplicationLabel='Pegasus line card' ApplicationLevel='Farm' ApplicationName='Pegasus' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <EMS EMSName='CMS-BoardInformation' URLTarget=''/>
+               <EMS EMSName='CMS-PortsConfiguration' URLTarget=''/>
+               <EMS EMSName='CMS-PortStatus' URLTarget=''/>
+               <EMS EMSName='CMS-ConnectionStatusCCS' URLTarget=''/>
+               <EMS EMSName='CMS-PortsMonitoring' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='CCS_Group' objectName='CCS_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Unix.gif' inventoryMask='ccs%' objectClass='Unit_Type' objectDescription='CCS Unit' objectLabel='Unit:$UnitName' objectName='CCS_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Call Control' ApplicationLevel='Farm' ApplicationName='ISUP' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='' ApplicationLevel='Farm' ApplicationName='TCAP' ConnectionType='Data'/>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='CCS_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+            </Object>
+         </Object>
+      </Object>
+      <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Application.gif' inventoryMask='N/A' objectClass='Layer' objectDescription='Application Layer' objectLabel='Applications' objectName='Application_Layer' objectType='Logical'>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='VM_ASU_Group' objectName='VM_ASU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='vm-asu%' objectClass='Unit_Type' objectDescription='Messaging Unit' objectLabel='Unit:$UnitName' objectName='VM_ASU_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='Rules and Restrictions' ApplicationLevel='Farm' ApplicationName='RMR' ConnectionType='Data'/>
+               <Application ApplicationLabel='Message Relay' ApplicationLevel='Farm' ApplicationName='MR' ConnectionType='Data'/>
+               <Application ApplicationLabel='MTA' ApplicationLevel='Farm' ApplicationName='MTA' ConnectionType='Data'/>
+               <Application ApplicationLabel='MTS' ApplicationLevel='Farm' ApplicationName='MTS' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='VM-ASU_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='IVE-APP VoiceXML VoiceMail' ApplicationLevel='Farm' ApplicationName='VxV' ConnectionType='Data'/>
+               <Application ApplicationLabel='Notification Server' ApplicationLevel='Farm' ApplicationName='NDS' ConnectionType='Data'/>
+               <Application ApplicationLabel='SMS Gateway' ApplicationLevel='Farm' ApplicationName='SMG' ConnectionType='Data'/>
+               <Application ApplicationLabel='HLR Service' ApplicationLevel='Farm' ApplicationName='HLRS' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <EMS EMSName='MTA-StartMTAEMS' URLTarget='//SystemRoot[@SystemName = &apos;Moran&apos;]/..//UnitInstance[@UnitName = &apos;mau1&apos;]/Connection[@Type = &apos;Management&apos;]'/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+               <UnitInstance MacAddress='00:50:56:BF:56:B5' ManualInactive='0' UnitName='vm-asu1'>
+                  <Connection Hostname='vm-asu1' IP='10.107.113.165' Type='Data'/>
+               </UnitInstance>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='TAG_AU_Group' objectName='TAG_AU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='tag-au%' objectClass='Unit_Type' objectDescription='TAG-AU Unit' objectLabel='Unit:$UnitName' objectName='TAG_AU_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='TAG-AU_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='MTA' ApplicationLevel='Farm' ApplicationName='MTA' ConnectionType='Data'/>
+               <Application ApplicationLabel='TAG' ApplicationLevel='Farm' ApplicationName='TAG' ConnectionType='Data'/>
+               <Application ApplicationLabel='TAG-MXA' ApplicationLevel='Farm' ApplicationName='TAG-MXA' ConnectionType='Data'/>
+               <Application ApplicationLabel='TAG-SRL' ApplicationLevel='Farm' ApplicationName='TAG-SRL' ConnectionType='Data'/>
+               <Application ApplicationLabel='TAG-CentralProv' ApplicationLevel='Farm' ApplicationName='TAG-CentralProv' ConnectionType='Data'/>
+               <Application ApplicationLabel='TAG-MO' ApplicationLevel='Farm' ApplicationName='TAG-MO' ConnectionType='Data'/>
+               <Application ApplicationLabel='SRL Gateway' ApplicationLevel='Farm' ApplicationName='SRLGateway' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='0' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='' objectName='ADRM_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='0' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='ADRM_Unit' objectLabel='Unit:$UnitName' objectName='ADRM_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Address Resolution' ApplicationLevel='Farm' ApplicationName='ADRM' ConnectionType='Data'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='0' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='' objectName='MXA_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='0' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='MXA_Unit' objectLabel='Unit:$UnitName' objectName='MXA_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Messaging Exchange Application' ApplicationLevel='Farm' ApplicationName='MXA' ConnectionType='Data'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='MMU_GW_Group' objectName='MMU_GW_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='mmu-gw%' objectClass='Unit_Type' objectDescription='MMU_GW _Unit' objectLabel='Unit:$UnitName' objectName='MMUGW_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='MMUGateway' ApplicationLevel='Farm' ApplicationName='MMUGW' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='MMU-GW_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <EMS EMSName='CMS-BoardInformation' URLTarget=''/>
+               <EMS EMSName='CMS-PortsConfiguration' URLTarget=''/>
+               <EMS EMSName='CMS-PortStatus' URLTarget=''/>
+               <EMS EMSName='CMS-ConnectionStatusCCS' URLTarget=''/>
+               <EMS EMSName='CMS-PortsMonitoring' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='VPIM_GW_Group' objectName='VPIM_GW_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='VPIM_GW_Unit' objectLabel='Unit:$UnitName' objectName='VPIM_Unit' objectType='Physical'>
+               <Application ApplicationLabel='VPIM GW' ApplicationLevel='Farm' ApplicationName='VPIM-GW' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+            </Object>
+         </Object>
+      </Object>
+      <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Data-store.gif' inventoryMask='N/A' objectClass='Layer' objectDescription='...' objectLabel='DataStore_Layer' objectName='DataStore_Layer' objectType='Logical'>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/hdisk.32.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='NetApp_Storage_Group' objectLabel='Storage Group' objectName='NetApp_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/hdisk.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='NetApp Data Storage' objectLabel='Unit:$UnitName' objectName='NetApp_Unit' objectType='Physical'>
+               <Application ApplicationLabel='OnTAP' ApplicationLevel='Farm' ApplicationName='OnTAP' ConnectionType='Admin'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/database.32.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='DSU_Cluster' objectName='DSU_Group' objectType='Logical'>
+            <EMS EMSName='MIPS-StartMIPSEMS' URLTarget='//SystemRoot[@SystemName = &apos;Moran&apos;]/..//UnitInstance[@UnitName = &apos;mau1&apos;]/Connection[@Type = &apos;Management&apos;]'/>
+            <EMS EMSName='ONGUARD-StartOracleEMS' URLTarget='//SystemRoot[@SystemName = &apos;Moran&apos;]/..//UnitInstance[@UnitName = &apos;mau1&apos;]/Connection[@Type = &apos;Management&apos;]'/>
+            <EMS EMSName='LEGATO-StartBackupServerEMS' URLTarget='//SystemRoot[@SystemName = &apos;Moran&apos;]/..//UnitInstance[@UnitName = &apos;mau1&apos;]/Connection[@Type = &apos;Management&apos;]'/>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/DSU.gif' inventoryMask='dsu%' objectClass='Unit_Type' objectDescription='Data Server Unit' objectLabel='Unit:$UnitName' objectName='DSU_Unit' objectType='Physical'>
+               <Application ApplicationLabel='MIPS1' ApplicationLevel='N/A' ApplicationName='MIPS1' ConnectionType='Virtual' VirtualIp='10.107.113.172'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='DSU_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='Oracle' ApplicationLevel='Unit' ApplicationName='ODS' ConnectionType='RAC_Con' HostingUnits='1,2'/>
+               <Application ApplicationLabel='' ApplicationLevel='Unit' ApplicationName='AASDB' ConnectionType='RAC_Con' HostingUnits='1,2'/>
+               <Application ApplicationLabel='Profile1' ApplicationLevel='Unit' ApplicationName='PROFILE1' ConnectionType='RAC_Con' HostingUnits='1,2'/>
+               <Application ApplicationLabel='GSL.MASTER' ApplicationLevel='Unit' ApplicationName='GSL.MASTER' ConnectionType='RAC_Con' FQDNConcat='' HostingUnits='1,2'/>
+               <Application ApplicationLabel='GSL.SECONDARY' ApplicationLevel='Unit' ApplicationName='GSL.SECONDARY' ConnectionType='RAC_Con' FQDNConcat='' HostingUnits='1,2'/>
+               <Application ApplicationLabel='DSUSFTP' ApplicationLevel='N/A' ApplicationName='DSUSFTP' ConnectionType='Virtual' VirtualIp='10.107.113.175'/>
+               <Application ApplicationLabel='DSUHTTP1' ApplicationLevel='N/A' ApplicationName='DSUHTTP1' ConnectionType='Virtual' VirtualIp='10.107.113.178'/>
+               <Application ApplicationLabel='ProfileCounter' ApplicationLevel='Unit' ApplicationName='ProfileCounter' ConnectionType='RAC_Con' HostingUnits='1,2'/>
+               <Application ApplicationLabel='Notification Scheduling' ApplicationLevel='N/A' ApplicationName='SRH' ConnectionType='Virtual' VirtualIp='10.107.113.176'/>
+               <Application ApplicationLabel='SPMAgent' ApplicationLevel='N/A' ApplicationName='SPMAgent' ConnectionType='Virtual' VirtualIp='10.107.113.177'/>
+               <Application ApplicationLabel='Data Consistency' ApplicationLevel='N/A' ApplicationName='data_const' ConnectionType='Virtual' VirtualIp='10.10.10.10'/>
+               <Application ApplicationLabel='DDS' ApplicationLevel='Farm' ApplicationName='DDS' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <Application ApplicationLabel='ProfileLocator' ApplicationLevel='N/A' ApplicationName='ProfileLocator' ConnectionType='Virtual' VirtualIp='10.107.113.174'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='OnGuard-MIB2' AgentOID='1.3.6.1.2.1.1.5.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+               <UnitInstance MacAddress='00:50:56:BF:56:C1' ManualInactive='0' UnitName='dsu1'>
+                  <Connection Hostname='dsu1' IP='10.107.113.170' Type='Data'/>
+                  <Connection Hostname='dsu1' IP='10.107.113.160' Type='RAC_Con'/>
+                  <HostedApplication ApplicationName='ODS' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='AASDB' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='PROFILE1' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='GSL.MASTER' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='GSL.SECONDARY' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='ProfileCounter' Precedence='Primary'/>
+               </UnitInstance>
+               <UnitInstance MacAddress='00:50:56:BF:56:C9' ManualInactive='0' UnitName='dsu2'>
+                  <Connection Hostname='dsu2' IP='10.107.113.171' Type='Data'/>
+                  <Connection Hostname='dsu2' IP='10.107.113.161' Type='RAC_Con'/>
+                  <HostedApplication ApplicationName='ODS' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='AASDB' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='PROFILE1' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='GSL.MASTER' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='GSL.SECONDARY' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='ProfileCounter' Precedence='Primary'/>
+               </UnitInstance>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/hdisk.32.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Data Storage' objectLabel='BLU_Group' objectName='BLU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/hdisk.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='BLU' objectLabel='Unit:$UnitName' objectName='BLU' objectType='Physical'>
+               <EMS EMSName='RMU-StartRMUWebInterface' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Data Storage' objectLabel='FC_Switch_Group' objectName='FC_Switch_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='FC_Switch' objectLabel='Unit:$UnitName' objectName='FC_Switch' objectType='Physical'>
+               <EMS EMSName='FCSW-LaunchFCSwitchConsole' URLTarget=''/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/gateway.32.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Data Storage' objectLabel='RPA_Group' objectName='RPA_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/gateway.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='RPA_Unit' objectLabel='Unit:$UnitName' objectName='RPA_Unit' objectType='Physical'>
+               <EMS EMSName='RPA-LaunchRPAConsole' URLTarget=''/>
+            </Object>
+         </Object>
+      </Object>
+      <Object ObjectCardinality='Single' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/internet.32.gif' inventoryMask='N/A' objectClass='Layer' objectDescription='OSS BSS' objectLabel='OSS/BSS_Layer' objectName='OSS_BSS_Layer' objectType='Logical'>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Management Server Cluster' objectLabel='SMU_Group' objectName='SMU_Group' objectType='Logical'>
+            <EMS EMSName='ONGUARD-StartOracleEMS' URLTarget='//SystemRoot[@SystemName = &apos;Moran&apos;]/..//UnitInstance[@UnitName = &apos;mau1&apos;]/Connection[@Type = &apos;Management&apos;]'/>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/SUN.gif' inventoryMask='smu%' objectClass='Unit_Type' objectDescription='Management Server' objectLabel='Unit:$UnitName' objectName='SMU_Unit' objectType='Physical'>
+               <Application ApplicationLabel='OSS-Portal' ApplicationLevel='N/A' ApplicationName='OSS-Portal' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='SNMP Status UI' ApplicationLevel='N/A' ApplicationName='SUI' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='System Configuration' ApplicationLevel='N/A' ApplicationName='SCDB' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='Comverse SNMP Agent' ApplicationLevel='N/A' ApplicationName='CMA' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='ICC' ApplicationLevel='N/A' ApplicationName='Core_SPI' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='SMU_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='' ApplicationLevel='N/A' ApplicationName='SNMPMANAGER' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='' ApplicationLevel='Unit' ApplicationName='NTPSERVER1' ConnectionType='Data' HostingUnits='1a'/>
+               <Application ApplicationLabel='' ApplicationLevel='Unit' ApplicationName='NTPSERVER2' ConnectionType='Data' HostingUnits=''/>
+               <Application ApplicationLabel='' ApplicationLevel='N/A' ApplicationName='MARIMBASDM' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='SiteBook' ApplicationLevel='N/A' ApplicationName='SiteBook' ConnectionType='Virtual' VirtualIp='10.106.134.208'/>
+               <Application ApplicationLabel='MARIMBATX' ApplicationLevel='N/A' ApplicationName='MARIMBATX' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='' ApplicationLevel='N/A' ApplicationName='SYSLOGSERVER' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='admin_vip_smu' ApplicationLevel='N/A' ApplicationName='admin_vip_smu' ConnectionType='Virtual' VirtualIp='10.107.113.159'/>
+               <Application ApplicationLabel='PM' ApplicationLevel='Farm' ApplicationName='PM' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <UnitInstance MacAddress='00:50:56:BF:56:B9' ManualInactive='0' UnitName='smu1a'>
+                  <Connection Hostname='smu1a' IP='10.107.113.159' Type='Data'/>
+                  <HostedApplication ApplicationName='NTPSERVER1' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='NTPSERVER2' Precedence='Primary'/>
+               </UnitInstance>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/hdisk.32.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Data Storage' objectLabel='System1_SSn' objectName='SMU_EMC_Storage_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/hdisk.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='Emc Data Storage' objectLabel='Unit:$UnitName' objectName='SMU_EMC_Unit' objectType='Physical'>
+               <EMS EMSName='EMC-StartEMCStorageEMS' URLTarget=''/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/winnt.32.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='MAU Group' objectLabel='MAU_Group' objectName='MAU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/winnt.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='UM NT Unit' objectLabel='Unit:$UnitName' objectName='mau' objectType='Physical'>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='MAU_Platform' ConnectionType='Management'/>
+               <EMS EMSName='SUI-ElementStatus-Network' URLTarget=''/>
+               <UnitInstance MacAddress='xxxxxx' ManualInactive='0' UnitName='mau1'>
+                  <Connection Hostname='mau1' IP='10.106.134.249' Type='Management'/>
+               </UnitInstance>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='OMU_Group' objectName='OMU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='omu-au%' objectClass='Unit_Type' objectDescription='Operation and Maintanance Unit' objectLabel='Unit:$UnitName' objectName='OMU_Unit' objectType='Physical'>
+               <Application ApplicationLabel='PMT' ApplicationLevel='Unit' ApplicationName='PMT' ConnectionType='Data' HostingUnits='1'/>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='Provisioning Mediator' ApplicationLevel='Farm' ApplicationName='SPM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Web Service Administration' ApplicationLevel='Farm' ApplicationName='WSA' ConnectionType='Data'/>
+               <Application ApplicationLabel='Linux Virtual Server' ApplicationLevel='Farm' ApplicationName='LVS' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='OMU_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='File Transfer Mediator' ApplicationLevel='Farm' ApplicationName='FTM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Transaction Charging Mediator' ApplicationLevel='Farm' ApplicationName='TCM' ConnectionType='Data'/>
+               <Application ApplicationLabel='TCM Adapter' ApplicationLevel='Farm' ApplicationName='TCMAdapter' ConnectionType='Data'/>
+               <Application ApplicationLabel='' ApplicationLevel='Farm' ApplicationName='TCMMANAGER' ConnectionType='Data'/>
+               <Application ApplicationLabel='' ApplicationLevel='Farm' ApplicationName='TCMSERVER' ConnectionType='Data'/>
+               <Application ApplicationLabel='AAS' ApplicationLevel='Farm' ApplicationName='AAS' ConnectionType='Data'/>
+               <Application ApplicationLabel='Load Balancer' ApplicationLevel='Unit' ApplicationName='Balancer-IC' ConnectionType='Data' HostingUnits='1'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM' ApplicationLevel='Unit' ApplicationName='CCM' ConnectionType='Data' HostingUnits='1'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <EMS EMSName='SUI-ProcessControl' URLTarget=''/>
+               <EMS EMSName='SUI-Billingstatistics' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+               <UnitInstance MacAddress='00:50:56:BF:56:B3' ManualInactive='0' UnitName='omu-au1'>
+                  <Connection Hostname='omu-au1' IP='10.107.113.164' Type='Data'/>
+                  <HostedApplication ApplicationName='PMT' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='Balancer-IC' Precedence='Primary'/>
+                  <HostedApplication ApplicationName='CCM' Precedence='Primary'/>
+               </UnitInstance>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='RKVM_Group' objectName='rkvm_group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='/opt/OV/www/htdocs/ito_op/images/m-port.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='Remote Key Mouse' objectLabel='Unit:$UnitName' objectName='rkvm_unit' objectType='Physical'>
+               <EMS EMSName='RKVM-StartKVM.net' URLTarget=''/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='LVU_Group' objectName='LVU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Single' display='1' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='lvu%' objectClass='Unit_Type' objectDescription='Log Viewer Unit' objectLabel='Unit:$UnitName' objectName='LVU_Unit' objectType='Physical'>
+               <Application ApplicationLabel='Process Control' ApplicationLevel='Farm' ApplicationName='MAM' ConnectionType='Data'/>
+               <Application ApplicationLabel='Auditd' ApplicationLevel='Farm' ApplicationName='Auditd' ConnectionType='Data'/>
+               <Application ApplicationLabel='Platform Configuration' ApplicationLevel='Farm' ApplicationName='LVU_Platform' ConnectionType='Data'/>
+               <Application ApplicationLabel='Log Viewer' ApplicationLevel='Farm' ApplicationName='LGW' ConnectionType='Data'/>
+               <Application ApplicationLabel='CCM Agent' ApplicationLevel='Farm' ApplicationName='ccm-agent' ConnectionType='Data'/>
+               <EMS EMSName='SUI-ElementStatus-Linux' URLTarget=''/>
+               <AgentHeartbeat AgentCommunity='8y7pE4xnXwhnAJNuyc3j2w==' AgentEnable='1' AgentName='MAM' AgentOID='1.3.6.1.4.1.5271.2.2.1.2.1.0' AgentPort='161' PollingIntervalSec='600' PollingRetries='3' PollingTimeoutSec='10'/>
+               <UnitInstance MacAddress='00:50:56:BF:56:B7' ManualInactive='0' UnitName='lvu1'>
+                  <Connection Hostname='lvu1' IP='10.107.113.166' Type='Data'/>
+               </UnitInstance>
+            </Object>
+         </Object>
+      </Object>
+      <Object ObjectCardinality='Single' display='1' iconURL='IP-Network.gif' inventoryMask='N/A' objectClass='Layer' objectDescription='IP Network Section' objectLabel='IP_Network' objectName='IP_Network_Layer' objectType='Logical'>
+         <Object ObjectCardinality='Single' display='1' iconURL='4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Load Balancer Assembly Group' objectLabel='LBA_Group' objectName='LBA_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='m-port.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='Load Balancer Assembly Unit' objectLabel='Unit:$UnitName' objectName='lba' objectType='Physical'>
+               <EMS EMSName='ems-StartLBAEMS' URLTarget=''/>
+               <EMS EMSName='SUI-ElementStatus-Network' URLTarget=''/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='HSBA Group' objectLabel='HSBA_Group' objectName='HSBA_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='DMZ Switch' objectLabel='Unit:$UnitName' objectName='DMZ_HSBU_Unit' objectType='Physical'>
+               <EMS EMSName='SUI-ElementStatus-Network' URLTarget=''/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='SZ HSBU Group' objectLabel='SZ_HSBU_Group' objectName='SZ_HSBU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='SZ Zone Switch Group' objectLabel='SZ_HSBU_Unit' objectName='SZ_HSBU_Unit' objectType='Physical'>
+               <EMS EMSName='SUI-ElementStatus-Network' URLTarget=''/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='FWU Group' objectLabel='FWU_Group' objectName='FWU_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='Linux.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='FWU LINUX Unit' objectLabel='Unit:$UnitName' objectName='FWU_Unit' objectType='Physical'>
+               <EMS EMSName='FWU-CONS-StartFWEMS' URLTarget='//SystemRoot[@SystemName = &apos;Moran&apos;]/..//UnitInstance[@UnitName = &apos;mau1&apos;]/Connection[@Type = &apos;Management&apos;]'/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='Router Group' objectLabel='Router_Group' objectName='Router_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='Routers' objectLabel='Unit:$UnitName' objectName='Router_Unit' objectType='Physical'>
+               <EMS EMSName='SUI-ElementStatus-Network' URLTarget=''/>
+            </Object>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='IBM-BC_Group' objectLabel='IBM-BC_Group' objectName='IBM-BC_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='IBM-BC_Unit' objectLabel='Unit:$UnitName' objectName='IBM-BC_Unit' objectType='Physical'>
+               <EMS EMSName='Blade-StartIBM-BladeConsole'/>
+            </Object>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='IBM-BC-Switch' objectLabel='Unit:$UnitName' objectName='IBM-BC-Switch' objectType='Physical'/>
+         </Object>
+         <Object ObjectCardinality='Single' display='1' iconURL='4th.gif' inventoryMask='N/A' objectClass='Unit_Group' objectDescription='HP-BC_Group' objectLabel='HP-BC Group' objectName='HP-BC_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='HP-BC_Unit' objectLabel='Unit:$UnitName' objectName='HP-BC_Unit' objectType='Physical'>
+               <EMS EMSName='Blade-StartHP-OA'/>
+            </Object>
+            <Object ObjectCardinality='Multiple' display='1' iconURL='bridge.32.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='HP-BC-Switch_Unit' objectLabel='Unit:$UnitName' objectName='HP-BC-Switch_Unit' objectType='Physical'/>
+         </Object>
+      </Object>
+      <Object ObjectCardinality='Single' display='0' iconURL='/opt/CMVT/ICC/xml/icons/Application.gif' inventoryMask='N/A' objectClass='Layer' objectDescription='External Layer' objectLabel='External' objectName='External_Layer' objectType='Logical'>
+         <Object ObjectCardinality='Single' display='0' iconURL='/opt/CMVT/ICC/xml/icons/4th.gif' inventoryMask='N/A/' objectClass='Unit_Group' objectDescription='Linux N+1 Group' objectLabel='SMSC_Group' objectName='SMSC_Group' objectType='Logical'>
+            <Object ObjectCardinality='Multiple' display='0' iconURL='/opt/CMVT/ICC/xml/icons/Linux.gif' inventoryMask='N/A' objectClass='Unit_Type' objectDescription='SMSC Unit' objectLabel='Unit:$UnitName' objectName='SMSC_Unit' objectType='Physical'/>
+         </Object>
+      </Object>
+   </Object>
+</SCDB>

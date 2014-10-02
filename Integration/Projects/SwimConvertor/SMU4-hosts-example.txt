@@ -1,0 +1,139 @@
+smu1a:/ ROOT > cat /etc/hosts
+#
+# Internet host table
+#
+127.0.0.1       localhost       loghost
+10.168.212.240  smu1a icc1 icc cma snmpmanager oracle NTPSERVER1 # |ICC|smu|icc1|smu1a
+172.17.1.71     admin_smu1a admin_vipsmu1
+10.10.10.1    nsrhost_vip
+10.10.10.2    dummy
+
+10.168.212.228  datanwgw    # def. router in data network
+172.17.1.6      gwtovvm     # virtual IP of TMo VoGa/VVM F5 LBA CoreNet
+
+############# below TMo Lab internal only ###############
+#
+#         DO NOT change - contact: Ingo Bahn
+#
+# Clocking
+10.168.247.147  ntpserv1          # OCSMA041 smu1a  SMU1A VMS4
+10.168.247.150  ntpserv2          # OCSMB041 smu1b  SMU1B VMS1
+#
+# external SNMP trap destination(s)
+10.16.4.185     NetExpert noc
+#10.25.24.125     NetExpert noc
+10.25.76.234    blvov01 # new TMo HPOV trap destination
+#
+############## end TMo Lab internal only ################
+
+#Service icc1 # |ICC|smu_group|ossbss|ICC
+
+#Service impact #      |ICC|main|root|Impact
+#Service dstore #       |ICC|datastore|impact|Data Store
+#Service ip_net #       |ICC|ip_network|impact|IP Network
+#Service app    #       |ICC|application|impact|Application
+#Service ossbss #       |ICC|ossbss|impact|OSS/BSS
+#Service v_acc  #       |ICC|voiceaccess|impact|Telephony Access
+ 
+#Service ccs_gr #       |ICC|linux_group_whc|v_acc|CCS Group
+#Service ndu_whc_gr #       |ICC|linux_group_whc|app|NDU-WHC Group
+
+#Service dsu_cluster  #  |ICC|dsu_cluster_whc|dstore|DSU Cluster
+#Service dsulsi1         #|ICC|lsi_whc|dsu_cluster|LSI Disk
+
+#Service dsu1a/LSI #|ICC|lsi_whc|dsulsi1|DSU1a LSI Agent
+#Service dsu1b/LSI #|ICC|lsi_whc|dsulsi1|DSU1b LSI Agent
+
+#Service hsbu_gr  #     |ICC|linux_group_whc|ip_net|HSBU Group
+
+#### VVM SERVICES ######
+#Service cas_gr         # |ICC|linux_group_is375|app|CAS Group
+#Service mte_gr         # |ICC|linux_group_is375|app|MTE Group
+#Service ip_proxy_gr    # |ICC|linux_group_is375|app|IP-Proxy Group
+
+#Service sz_hsbu_gr     # |ICC|linux_group_is375|sz_hsbu_gr|SZ-HSBU Group
+#Service dmz_hsbu_gr    # |ICC|linux_group_is375|hsbn_gr|DMZ-HSBU Group
+
+#Service mau_gr         # |ICC|mau_group_is375|ossbss|MAU Group
+
+##############################################
+#--10.25.25.130 cajun CAJUN #    |ICC|cajun_whc|dmz_hsbu_gr|OCWLA011
+10.168.212.235 OCWLA011 ocwla011 # |ICC|cajun_is373|hsbu_gr|OCWLA011
+172.17.1.4 BLLUC101 blluc101  # |ICC|cajun_is373|hsbu_gr|BLLUC101
+172.17.1.5 BLLUC102 blluc102    |ICC|cajun_is373|hsbu_gr|BLLUC102
+
+#--(physical IP)
+10.168.212.241 OCWDA011 dsu1a DSU1A #|ICC|dsu_whc|dsu_cluster|OCWDS011a
+10.168.212.242 OCWDB011 dsu1b DSU1B #|ICC|dsu_whc|dsu_cluster|OCWDS011b
+
+10.168.212.237 OCWND011 nduwhc1 ndu NDU #   |ICC|ndu_whc|ndu_whc_gr|OCWND011
+
+
+#Service wpm_gr #       |ICC|linux_group_is373|impact|WPM Group
+172.17.1.75 BLWPM101 wpm1 WPM1 #   |ICC|wpm_is373|wpm_gr|BLWPM101
+172.17.1.76 BLWPM102 wpm2 WPM2 #   |ICC|wpm_is373|wpm_gr|BLWPM102
+172.17.1.25 OCWPX011 proxy1  #   |ICC|wpm_is373|wpm_gr|OCWPX011
+
+
+#Service mts_gr #       |ICC|linux_group_is373|impact|MTS Group
+172.17.1.77 BLMTS101 mts1 MTS1 #  |ICC|mam_linux_is373|mts_gr|BLMTS101 
+172.17.1.70 BLMAU101 mau MAU # |ICC|mam_nt_is375|mau_gr|BLMAU101
+
+#--10.168.210.167 BLMAUA11 # |ICC|mam_nt_is375|mau_gr|BLMAUA11
+#--10.25.25.133 OCWMA011 # |ICC|mam_nt_whc|ossbss|OCWMA011
+
+
+#--(RDR GW) 
+10.168.212.239 OCWRD011 ismsc ISMSC #  |ICC|mam_linux_is373|ccs_gr|OCWRD011
+
+#### VVM SERVERS ####
+
+10.168.210.169 BLCAS101 # |ICC|mam_linux_is375|cas_gr|BLCAS101
+10.168.210.170 BLCAS102 # |ICC|mam_linux_is375|cas_gr|BLCAS102
+10.168.210.173 BLCAS103 # |ICC|mam_linux_is375|cas_gr|BLCAS103
+172.30.38.120  BLCAS201 # |ICC|mam_linux_is375|cas_gr|BLCAS201
+172.30.75.46   BLVCA103 # |ICC|mam_linux_is375|cas_gr|BLVCA103
+172.30.75.47   BLVCA104 # |ICC|mam_linux_is375|cas_gr|BLVCA104
+
+10.168.210.171 BLMTE101 # |ICC|mam_linux_is375|mte_gr|BLMTE101
+10.168.210.172 BLMTE102 # |ICC|mam_linux_is375|mte_gr|BLMTE102
+10.168.210.174 BLMTE103 # |ICC|mam_linux_is375|mte_gr|BLMTE103
+172.30.38.121  BLMTE201 # |ICC|mam_linux_is375|mte_gr|BLMTE201
+172.30.75.48   BLVMT107 # |ICC|mam_linux_is375|mte_gr|BLVMT107
+172.30.75.49   BLVMT108 # |ICC|mam_linux_is375|mte_gr|BLVMT108
+
+172.26.24.7    BLIPP101 # |ICC|mam_linux_is375|ip_proxy_gr|BLIPP101
+172.26.24.8    BLIPP102 # |ICC|mam_linux_is375|ip_proxy_gr|BLIPP102
+172.26.24.11   BLIPP103 # |ICC|mam_linux_is375|ip_proxy_gr|BLIPP103
+10.160.67.157  BLIPP201 # |ICC|mam_linux_is375|ip_proxy_gr|BLIPP201
+10.160.79.234  BLVIP104 # |ICC|mam_linux_is375|ip_proxy_gr|BLVIP104
+10.160.79.235  BLVIP105 # |ICC|mam_linux_is375|ip_proxy_gr|BLVIP105
+
+10.168.210.167 BLMAUA11 # |ICC|mam_nt_is375|mau_gr|BLMAUA11
+
+10.168.210.165 BLHSBA11   # |ICC|cisco_is375|hsbu_gr|SZ_BLHSBA11
+10.168.210.166 BLHSBB11   # |ICC|cisco_is375|hsbu_gr|SZ_BLHSBB11
+
+172.26.24.5 BLDMZA11  # |ICC|cisco_is375|hsbu_gr|DMZ_BLDMZA11
+172.26.24.6 BLDMZB11  # |ICC|cisco_is375|hsbu_gr|DMZ_BLDMZB11
+
+# F5 Load Balancers
+172.17.1.7 BLLBA101 # |ICC|mam_nt_is375|ossbss|BLLBA101
+172.17.1.8 BLLBA102 # |ICC|mam_nt_is375|ossbss|BLLBA102
+
+#Service wis_gr #       |ICC|linux_group_is375|app|WIS Group
+172.17.1.80     BLWIS101 #   |ICC|wis_is375|wis_gr|BLWIS101 
+172.17.1.81     BLWIS102 #   |ICC|wis_is375|wis_gr|BLWIS102 
+172.17.1.82     BLVCA101 # |ICC|mam_linux_is375|cas_gr|BLVCA101  
+172.17.1.83     BLVCA102 # |ICC|mam_linux_is375|cas_gr|BLVCA102
+
+#Service voice_writer #       |ICC|linux_group_is375|app|VW Group
+172.30.38.105   BLVGW101 #   |ICC|mam_linux_is375|voice_writer|BLVGW101
+172.30.38.106   BLVGW102 #   |ICC|mam_linux_is375|voice_writer|BLVGW102 
+172.30.38.123   BLVND101 #   |ICC|mam_linux_is375|voice_writer|BLVND101
+172.30.38.124   BLVND102 #   |ICC|mam_linux_is375|voice_writer|BLVND102
+10.160.67.150   BLVIP101 #   |ICC|mam_linux_is375|voice_writer|BLVIP101
+10.160.67.151   BLVIP102 #   |ICC|mam_linux_is375|voice_writer|BLVIP102
+
+172.30.38.102   BLVSW101 #   |ICC|cisco_is375|hsbu_gr|BLVSW101
+172.30.38.103   BLVSW102 #   |ICC|cisco_is375|hsbu_gr|BLVSW102

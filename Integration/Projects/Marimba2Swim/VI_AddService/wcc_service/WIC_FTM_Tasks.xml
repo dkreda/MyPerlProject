@@ -1,0 +1,173 @@
+	<Transfer>
+		<!-- copy CAS WIC Statistics and Counters to OMU -->
+		<Connection>
+			<HostOrGroupName>CAS_Platform</HostOrGroupName>
+			<Port>22</Port>
+			<Transport type="SecureFTP"/>
+		</Connection>
+		<Operation type="GET">
+			<StartTime>2006-01-01T06:00:00</StartTime>
+			<RepeatInterval>PT0H15M</RepeatInterval>
+			<UserName>ftm</UserName>
+			<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+			<FileSpecification>
+				<LocalPath>/var/cti/db/ftm/</LocalPath>
+				<RemotePath>/var/cti/al/WIC/</RemotePath>
+				<Include>WIC.+\.stat\..+[0-9]$</Include>
+				<Source action="Delete"/>
+				<Destination action="Rename" suffix=".done"/>
+				<IfExist action="Skip"/>
+				<ZIPCompression>N</ZIPCompression>
+			</FileSpecification>
+		</Operation>
+		<Errors>
+			<Login>
+				<RetryInterval>PT0H05M</RetryInterval>
+				<MaxRetry>3</MaxRetry>
+				<Alarm enable="Y"/>
+			</Login>
+			<FileTransfer>
+				<Timeout>PT0H0M30S</Timeout>
+				<RetryInterval>PT0H0M30S</RetryInterval>
+				<MaxRetry>3</MaxRetry>
+				<Alarm enable="Y"/>
+			</FileTransfer>
+			<NoActivity>
+				<MaxIntervals>10</MaxIntervals>
+				<Alarm enable="Y"/>
+			</NoActivity>
+			<TrnsNotDone>
+				<Alarm enable="Y"/>
+			</TrnsNotDone>
+		</Errors>
+	</Transfer>
+	<Transfer>
+		<!--CAS WIC Activity Log to OMU -->
+		<Connection>
+			<HostOrGroupName>CAS_Platform</HostOrGroupName>
+			<Port>22</Port>
+			<Transport type="SecureFTP"/>
+		</Connection>
+		<Operation type="GET">
+			<StartTime>2006-01-01T06:00:00</StartTime>
+			<RepeatInterval>PT0H15M</RepeatInterval>
+			<UserName>ftm</UserName>
+			<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+			<FileSpecification>
+				<LocalPath>/var/cti/db/ftm/</LocalPath>
+				<RemotePath>/var/cti/al/WIC/</RemotePath>
+				<Include>WIC.+\.AL\..+[0-9]</Include>
+				<Source action="Delete"/>
+				<Destination action="Keep"/>
+				<IfExist action="Skip"/>
+				<ZIPCompression>N</ZIPCompression>
+			</FileSpecification>
+		</Operation>
+		<Errors>
+			<Login>
+				<RetryInterval>PT0H05M</RetryInterval>
+				<MaxRetry>3</MaxRetry>
+				<Alarm enable="Y"/>
+			</Login>
+			<FileTransfer>
+				<Timeout>PT0H0M30S</Timeout>
+				<RetryInterval>PT0H0M30S</RetryInterval>
+				<MaxRetry>3</MaxRetry>
+				<Alarm enable="Y"/>
+			</FileTransfer>
+			<NoActivity>
+				<MaxIntervals>10</MaxIntervals>
+				<Alarm enable="Y"/>
+			</NoActivity>
+			<TrnsNotDone>
+				<Alarm enable="Y"/>
+			</TrnsNotDone>
+		</Errors>
+	</Transfer>
+	<Transfer>
+		<!-- Transfer WIC Statistics Counters to DSU repository -->
+		<Connection>
+			<HostOrGroupName>DsuSftp</HostOrGroupName>
+			<Port>22</Port>
+			<Transport type="SecureFTP"/>
+		</Connection>
+		<Operation type="PUT">
+			<StartTime>2006-01-01T06:00:00</StartTime>
+			<RepeatInterval>PT0H15M</RepeatInterval>
+			<UserName>ftm</UserName>
+			<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+			<FileSpecification>
+				<LocalPath>/var/cti/db/ftm/</LocalPath>
+				<RemotePath>/data/stat1/AllDomains</RemotePath>
+				<Include>WIC.+\.stat\..+[0-9].done$</Include>
+				<Source action="Delete"/>
+				<Destination action="Keep"/>
+				<IfExist action="Skip"/>
+				<ZIPCompression>N</ZIPCompression>
+			</FileSpecification>
+		</Operation>
+		<Errors>
+			<Login>
+				<RetryInterval>PT0H05M</RetryInterval>
+				<MaxRetry>3</MaxRetry>
+				<Alarm enable="Y"/>
+			</Login>
+			<FileTransfer>
+				<Timeout>PT0H0M30S</Timeout>
+				<RetryInterval>PT0H0M30S</RetryInterval>
+				<MaxRetry>3</MaxRetry>
+				<Alarm enable="Y"/>
+			</FileTransfer>
+			<NoActivity>
+				<MaxIntervals>10</MaxIntervals>
+				<Alarm enable="N"/>
+			</NoActivity>
+			<TrnsNotDone>
+				<Alarm enable="Y"/>
+			</TrnsNotDone>
+		</Errors>
+	</Transfer>
+	<Transfer>
+		<!-- Transfer WIC Activity Log to DSU repository -->
+		<Connection>
+			<HostOrGroupName>DsuSftp</HostOrGroupName>
+			<Port>22</Port>
+			<Transport type="SecureFTP"/>
+		</Connection>
+		<Operation type="PUT">
+			<StartTime>2006-01-01T06:00:00</StartTime>
+			<RepeatInterval>PT0H15M</RepeatInterval>
+			<UserName>ftm</UserName>
+			<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+			<FileSpecification>
+				<LocalPath>/var/cti/db/ftm/</LocalPath>
+				<RemotePath>/data/act_logs1/AllDomains</RemotePath>
+				<Include>WIC.+\.AL\..+[0-9]</Include>
+				<Source action="Rename" suffix=".done"/>
+				<Destination action="Keep"/>
+				<IfExist action="Skip"/>
+				<ZIPCompression>Y</ZIPCompression>
+			</FileSpecification>
+		</Operation>
+		<Errors>
+			<Login>
+				<RetryInterval>PT0H05M</RetryInterval>
+				<MaxRetry>3</MaxRetry>
+				<Alarm enable="Y"/>
+			</Login>
+			<FileTransfer>
+				<Timeout>PT0H0M30S</Timeout>
+				<RetryInterval>PT0H0M30S</RetryInterval>
+				<MaxRetry>3</MaxRetry>
+				<Alarm enable="Y"/>
+			</FileTransfer>
+			<NoActivity>
+				<MaxIntervals>10</MaxIntervals>
+				<Alarm enable="N"/>
+			</NoActivity>
+			<TrnsNotDone>
+				<Alarm enable="Y"/>
+			</TrnsNotDone>
+		</Errors>
+	</Transfer>
+</File-Transfer-Configuration>

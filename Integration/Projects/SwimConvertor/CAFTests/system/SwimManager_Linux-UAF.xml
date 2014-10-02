@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="SwimManager" Platform="Linux">
+    <Install>
+      <Component Name="CreateSystem" ExecutionOrder="1"/>
+    </Install>
+  </UnitType>
+</SWIM>

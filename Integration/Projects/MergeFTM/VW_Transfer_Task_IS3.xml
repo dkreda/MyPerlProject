@@ -1,0 +1,522 @@
+<root>
+ 
+
+    <Transfer>
+                <!-- Transfer of MMSGW Activity Log Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>MMSGW.site1</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2006-01-01T06:00:00</StartTime>
+                        <RepeatInterval>PT0H60M</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/trm/data/counters</LocalPath>
+                                <RemotePath>/var/cti/al/mmsgw</RemotePath>
+                                <Include>.+\.AL\..+[0-9]$</Include>
+                                <Source action="Delete"/>
+                                <Destination action="Rename" suffix=".done"/>
+                                <IfExist action="Skip"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H05M</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+    <Transfer>
+                <!-- Transfer of MMSGW Statistics Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>MMSGW.site1</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2006-01-01T06:00:00</StartTime>
+                        <RepeatInterval>PT0H60M</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/trm/data/counters</LocalPath>
+                                <RemotePath>/var/cti/al/mmsgw</RemotePath>
+                                <Include>.+\.stat\..+[0-9]$</Include>
+                                <Source action="Delete"/>
+                                <Destination action="Rename" suffix=".done"/>
+                                <IfExist action="Skip"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H05M</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+    <Transfer>
+	            <!-- Transfer of NDU-WHC Activity Logs Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>CC.NDU</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2006-01-01T06:00:00</StartTime>
+                        <RepeatInterval>PT0H60M</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/trm/data/counters</LocalPath>
+                                <RemotePath>/var/cti/al/whc/</RemotePath>
+                                <Include>.+\.AL.+[0-9]$</Include>
+                                <Source action="Delete"/>
+                                <Destination action="Rename" suffix=".done"/>
+                                <IfExist action="Skip"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H05M</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+	<Transfer>
+                <!-- Transfer of NDU-WHC-NDS Statistics Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>CC.NDU</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2006-01-01T06:00:00</StartTime>
+                        <RepeatInterval>PT0H60M</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/trm/data/counters</LocalPath>
+                                <RemotePath>/var/cti/al/whcnds/</RemotePath>
+                                <Include>.+\.stat\..+[0-9]$</Include>
+                                <Source action="Delete"/>
+                                <Destination action="Rename" suffix=".done"/>
+                                <IfExist action="Skip"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H05M</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+	<Transfer>
+                <!-- Transfer of NDU-WHC-SMG Statistics Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>CC.NDU</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2006-01-01T06:00:00</StartTime>
+                        <RepeatInterval>PT0H60M</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/trm/data/counters</LocalPath>
+                                <RemotePath>/var/cti/al/whcsmg/</RemotePath>
+                                <Include>.+\.stat\..+[0-9]$</Include>
+                                <Source action="Delete"/>
+                                <Destination action="Rename" suffix=".done"/>
+                                <IfExist action="Skip"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H05M</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+    <Transfer>
+                <!-- Transfer of NDU-WHC-VAN Statistics Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>CC.NDU</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2006-01-01T06:00:00</StartTime>
+                        <RepeatInterval>PT0H60M</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/trm/data/counters</LocalPath>
+                                <RemotePath>/var/cti/al/whcvan/</RemotePath>
+                                <Include>.+\.stat\..+[0-9]$</Include>
+                                <Source action="Delete"/>
+                                <Destination action="Rename" suffix=".done"/>
+                                <IfExist action="Skip"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H05M</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+	<Transfer>
+                <!-- Transfer of MMSGW Configuration Backup Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>MMSGW.site1</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2010-06-11T23:31:00</StartTime>
+                        <RepeatInterval>P7D</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/cti/conf/backup/</LocalPath>
+                                <RemotePath>/usr/cti/conf/backup/</RemotePath>
+                                <Include>conf_.+\.tgz$</Include>
+                                <Source action="Keep"/>
+                                <Destination action="Keep"/>
+                                <IfExist action="Replace"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H60M</RetryInterval>
+                                <MaxRetry>5</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+	<Transfer>
+                <!-- Transfer of PROXY Configuration Backup Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>null.site1</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2010-06-11T23:31:00</StartTime>
+                        <RepeatInterval>P7D</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/cti/conf/backup/</LocalPath>
+                                <RemotePath>/usr/cti/conf/backup/</RemotePath>
+                                <Include>conf_.+\.tgz$</Include>
+                                <Source action="Keep"/>
+                                <Destination action="Keep"/>
+                                <IfExist action="Replace"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H60M</RetryInterval>
+                                <MaxRetry>5</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+	<Transfer>
+                <!-- Transfer of NDU-WHC Configuration Backup Files to TRM -->
+                <Connection>
+                        <HostOrGroupName>CC.NDU</HostOrGroupName>
+                        <Port>22</Port>
+                        <Transport type="SecureFTP"/>
+                </Connection>
+                <Operation type="GET">
+                        <StartTime>2010-06-11T23:31:00</StartTime>
+                        <RepeatInterval>P7D</RepeatInterval>
+                        <UserName>ftm</UserName>
+                        <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+                        <FileSpecification>
+                                <LocalPath>/usr/cti/conf/backup/</LocalPath>
+                                <RemotePath>/usr/cti/conf/backup/</RemotePath>
+                                <Include>conf_.+\.tgz$</Include>
+                                <Source action="Keep"/>
+                                <Destination action="Keep"/>
+                                <IfExist action="Replace"/>
+                                <ZIPCompression>N</ZIPCompression>
+                        </FileSpecification>
+                </Operation>
+                <Errors>
+                        <Login>
+                                <RetryInterval>PT0H60M</RetryInterval>
+                                <MaxRetry>5</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </Login>
+                        <FileTransfer>
+                                <Timeout>PT0H0M30S</Timeout>
+                                <RetryInterval>PT0H0M30S</RetryInterval>
+                                <MaxRetry>3</MaxRetry>
+                                <Alarm enable="Y"/>
+                        </FileTransfer>
+                        <NoActivity>
+                                <MaxIntervals>10</MaxIntervals>
+                                <Alarm enable="Y"/>
+                        </NoActivity>
+                        <TrnsNotDone>
+                                <Alarm enable="Y"/>
+                        </TrnsNotDone>
+                </Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of MMSGW Configuration Backup files to UDS -->
+				<Connection>
+						<HostOrGroupName>UDS</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="PUT">
+						<StartTime>2010-07-11T00:01:00</StartTime>
+						<RepeatInterval>P7D</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/usr/cti/conf/backup/</LocalPath>
+								<RemotePath>/softwarebackup/mmsgw_MMEG/</RemotePath>
+								<Include>conf_mmsgw.+\.tgz$</Include>
+								<Source action="Keep"/>
+								<Destination action="Delete"/>
+								<IfExist action="Replace"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H60M</RetryInterval>
+								<MaxRetry>5</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>5</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>1</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of PROXY Configuration Backup files to UDS -->
+				<Connection>
+						<HostOrGroupName>UDS</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="PUT">
+						<StartTime>2010-07-11T00:00:01</StartTime>
+						<RepeatInterval>P7D</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/usr/cti/conf/backup/</LocalPath>
+								<RemotePath>/softwarebackup/proxy_MMEG/</RemotePath>
+								<Include>conf_proxy.+\.tgz$</Include>
+								<Source action="Keep"/>
+								<Destination action="Delete"/>
+								<IfExist action="Replace"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H60M</RetryInterval>
+								<MaxRetry>5</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>5</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>1</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+	<Transfer>
+				<!-- Transfer of NDU-WHC Configuration Backup files to UDS -->
+				<Connection>
+						<HostOrGroupName>UDS</HostOrGroupName>
+						<Port>22</Port>
+						<Transport type="SecureFTP"/>
+				</Connection>
+				<Operation type="PUT">
+						<StartTime>2010-07-11T00:01:00</StartTime>
+						<RepeatInterval>P7D</RepeatInterval>
+						<UserName>ftm</UserName>
+						<Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+						<FileSpecification>
+								<LocalPath>/usr/cti/conf/backup/</LocalPath>
+								<RemotePath>/softwarebackup/ndu-whc_MMEG</RemotePath>
+								<Include>conf_ndu-whc.+\.tgz$</Include>
+								<Source action="Keep"/>
+								<Destination action="Delete"/>
+								<IfExist action="Replace"/>
+								<ZIPCompression>N</ZIPCompression>
+						</FileSpecification>
+				</Operation>
+				<Errors>
+						<Login>
+								<RetryInterval>PT0H60M</RetryInterval>
+								<MaxRetry>5</MaxRetry>
+								<Alarm enable="Y"/>
+						</Login>
+						<FileTransfer>
+								<Timeout>PT0H0M30S</Timeout>
+								<RetryInterval>PT0H0M30S</RetryInterval>
+								<MaxRetry>5</MaxRetry>
+								<Alarm enable="Y"/>
+						</FileTransfer>
+						<NoActivity>
+								<MaxIntervals>1</MaxIntervals>
+								<Alarm enable="Y"/>
+						</NoActivity>
+						<TrnsNotDone>
+								<Alarm enable="Y"/>
+						</TrnsNotDone>
+				</Errors>
+    </Transfer>
+
+	
+</root>

@@ -1,0 +1,132 @@
+###############################################################################
+#
+# Mips Configuration Template File
+#
+# This file is used to configure MTA/MIPS using the script ConfigMTA.pl
+#
+# Parameters Description:
+#
+# RelayRule	: maildomain [via hostname]
+#		  This parameter add relay domain + route to next mta
+#		  This parametr can have multy values ( at domain but not at via )
+#		  example RelayRule= *.mte via 10.20.30.40
+#		  RelayRule= comverse.com via casmta.site1
+#		  RelayRule= comvare.com,Test.vi.comvers.mail via casmta.site1
+#
+# Cmd	:
+#
+# Clear	:
+#
+# AllowDomains	:
+#
+# AllowIPs	: IP List or range (IP/Mask) of Alloe Authentication + Relay (these IPs do not need
+#			Authentication and may allowed to send to remote relay MTA ).
+#
+# ManagerPassword:
+#
+# AllowManagerIPs:
+#
+# AddUser	:   user@domain password
+###############################################################################
+
+
+###############################################################################
+#
+# RelayRule - This section contain all Mail domains routing rulls.
+#
+# Syntax: RelayRule=<Mail Domain> via <host> [port]
+#
+# Example: 1. RelayRule=comerse.com via 1.2.3.4
+#	   2. RelayRule=domain.com  via Farm.Name.com 50025
+#
+################################################################################
+
+###############################################################################
+#
+# DefaultFilter - This section contain all Filters (located at Default filters)
+#
+# Syntax: DefaultFilter=<ACCEPT|REFUSE> LBL "<Description>" <Condition> 
+#     where Condition may be:
+#	   IP-RELAY <IP/Mask>
+#	   RELAY-FROM <domain>
+#	   RELAY-TO <domain>
+#	   and more ... see 
+#
+# Example: 1. DefaultFilter=ACCEPT LBL "Demo Filter" IP-RELAT 1.2.3.0/255.255.255.0
+#	   2. DefaultFilter=REFUSE LBL "Demo2" RELAY-TO *.mte
+#	   3. DefaultFilter=ACCEPT LBL "Demo3" IP-RELAY 1.1.0.0/16
+#
+################################################################################
+
+
+###############################################################################
+#
+# AllowIPs - IP List or range (IP/Mask) of Allow Relay + Authentication
+# AllowDomains - 
+#
+# Syntax: AllowIPs=<IP>/<Mask>
+#	  AllowIPs=<IP>
+#         AllowDomains=<Domain>
+#
+# Example: AllowIPs=10.106.0.0/16,1.2.3.4,10.106.0.0-255.255.0.0
+#          AllowIPs=10.106.0.0/255.255.0.0
+#	   AllowDomains=comvers.com
+#
+################################################################################
+
+
+
+###############################################################################
+#
+# Cmd - Execute mgr command
+#
+# Syntax: Cmd=Text
+#
+# Example: 1. Cmd=ACCESS RELAY ALLOW "*"
+#
+################################################################################
+
+
+################################################################################
+#
+# Clear - Clear List of Rulls / domains ....
+#
+# Syntax: Clear=<AccessRelay|AccessAuth>[,<AccessRelay|AccessAuth>]
+#
+# Example: 1. Clear=AccessRelay,AccessAuth
+#
+################################################################################
+
+
+################################################################################
+#
+# AllowManagerIPs - Add IP or Range of IPs tp access to mgr manager.
+#
+# Syntax: AllowManagerIPs=<IP>/<Mask>
+#
+# Example: 1. AllowManagerIPs=<IP>/<Mask>
+#
+################################################################################
+
+################################################################################
+#
+# AddUser - Add User to domain ( local ).
+#
+# Syntax: AddUser=<User>@<Domain> <pssword>
+#
+# Example: 1. AddUser=Stam@comverse.com  A25Trk7B
+#
+################################################################################
+AddUser=app_proxy_user@cns.mips.com kSjd2$tr
+
+################################################################################
+#
+# set any parametrs
+#
+# Syntax: Parameter=<Value>
+#
+# Example: 1. ExternalSMTPHost=1.1.1.0
+#	   2. ServerName=Shalom.com
+#
+################################################################################
+IDextension=1

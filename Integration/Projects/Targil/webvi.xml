@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wis-configuration>
+  <general>     
+		<!-- This parameter used only for Ims4 for registration on OSA --> 
+		<thresholdTimeToMeasure>6000</thresholdTimeToMeasure>
+		    <application-id>wis</application-id>
+		    <sessionTimeOut>420</sessionTimeOut>
+		    <ACLEnabled>true</ACLEnabled>		
+		    <!--portalAddress>https://localhost:8443/webvi/sso.do</portalAddress-->
+		<portalAddress>https://10.106.152.46:8443/webvi/sso.do</portalAddress>
+		    <maxNumOfMessages>1000</maxNumOfMessages>
+		    <contentDispositionForSave>attachment</contentDispositionForSave>
+		    <contentDispositionForPlay>inline</contentDispositionForPlay>
+		    <refreshTimeOut>3000</refreshTimeOut>
+		    <maxRefreshCounter>3</maxRefreshCounter>
+		    <insightPlatformsToLocate>Insight4;Insight3</insightPlatformsToLocate>
+		    <contextId>is</contextId>
+		    <!--baseUrl>https://localhost:8443/webvi</baseUrl-->
+		<baseUrl>https://Google.com:8443/webvi</baseUrl>		
+		    <baseWccUrl>https://Google.com:8443/webvi/LoginAdmin.jsp</baseWccUrl>		
+		    <fetchProfileFor10Id>true</fetchProfileFor10Id>
+		    <!-- syslog -->
+		<syslog>
+			<!-- syslogEnabled - true/false Default true -->
+			<syslogEnabled>false</syslogEnabled>
+			      <!-- writingSuccessRecords - true/false Default false -->
+			<writingSuccessRecords>false</writingSuccessRecords>
+			      <!-- MSISDNEnabled - true/false Default false -->
+			<MSISDNEnabled>false</MSISDNEnabled>
+		    </syslog>
+		    <validations>
+			<!-- Validation is used in the following features:
+			Fax
+			VM2MMS
+			Group List
+			Create Subscriber (WCC)
+			-->
+			<mailboxPhoneNumber>
+				        <minSize>4</minSize>
+				        <maxSize>16</maxSize>
+			      </mailboxPhoneNumber>
+
+			      <!-- Validation is used in the following features:
+			Personal Operator
+			Notification Call forwarding
+			-->
+			<externalPhoneNumber>
+				        <minSize>6</minSize>
+				        <maxSize>20</maxSize>
+			      </externalPhoneNumber>
+			      <!-- Validation is used in the following features:
+			Message To Email
+			Notification
+			-->
+			<emailAddress>
+				        <minSize>5</minSize>
+				        <maxSize>100</maxSize>
+				        <forbiddenDomainList/>
+			      </emailAddress>
+			
+			      <!-- Validation is used in the following features:
+				WCC - Create USer
+			-->
+			<emailUserName>
+				        <minSize>4</minSize>
+				        <maxSize>20</maxSize>
+			      </emailUserName>
+
+			      <!-- Validation is used in the following features:
+			Password
+			-->
+			<TUIPassword>
+				        <minSize>3</minSize>
+				        <maxSize>10</maxSize>
+				        <forbiddenPasswords/>
+				        <maxIdenticalDigits>4</maxIdenticalDigits>
+				        <checkMsisdnLookAlike>false</checkMsisdnLookAlike>
+			      </TUIPassword>
+
+			      <emailPassword>
+				        <allowedPattern>^[a-zA-Z0-9]{8\,8}$</allowedPattern>
+				        <maxSize>8</maxSize>
+			      </emailPassword>
+			      <loginPage>
+					       <msisdnMinLength>4</msisdnMinLength>
+					       <msisdnMaxLength>16</msisdnMaxLength>
+					       <msisdnRegex>[0-9]*</msisdnRegex>
+					       <pwMinLength>3</pwMinLength>
+					       <pwMaxLength>10</pwMaxLength>
+					       <pwRegex>[0-9]*</pwRegex>
+			      </loginPage>
+			      <addressDelimiter>;\,</addressDelimiter>
+			      <CLIRegex>\bCLI[1-9]{1}\b|\bCLI[1-9]{1}[0-9]{1}\b</CLIRegex>
+		    </validations>	
+		    <Log4jRefresh>
+			<!-- log4j refresh thread wake up time in seconds-->
+			<refreshTime>60</refreshTime>
+		    </Log4jRefresh>
+	     <!-- Broide - List of OSA components to register seperated with ; -->
+	<osaComponentsToRegister>alarm;rmr;jdbcpool;profile;action</osaComponentsToRegister>
+  </general>
+  <jglue-server>
+		    <auSimpleInsight3EntryName>WebViInsight3Simple</auSimpleInsight3EntryName>
+		    <auSimpleInsight4EntryName>WebViInsight4Simple</auSimpleInsight4EntryName>
+		    <auSsoEntryName>WebViSso</auSsoEntryName>
+		    <auSsoExternalAPIName>WpmSsoExternalAPI</auSsoExternalAPIName>
+		    <auSsoInsight3Admin>WebViInsight3Admin</auSsoInsight3Admin>
+		    <auSsoInsight4Admin>WebViInsight4Admin</auSsoInsight4Admin>		
+		    <auWccInsight3Admin>WccInsight3Admin</auWccInsight3Admin>
+		    <auWccInsight4Admin>WccInsight4Admin</auWccInsight4Admin>		
+		    <xmlEncoding>UTF-8</xmlEncoding>
+  </jglue-server>
+  <ui>
+		    <browsers>
+			      <IE>
+				        <VoicePlayer>WindowsMediaPlayer</VoicePlayer>
+				        <FaxViewer/>
+            <!--QuickTime shows first page only-->
+				<VideoPlayer>QuickTime</VideoPlayer>
+			      </IE>
+			      <FireFox>
+				        <VoicePlayer>QuickTime</VoicePlayer>
+				        <FaxViewer/>
+            <!--QuickTime shows first page only-->
+				<VideoPlayer>QuickTime</VideoPlayer>
+			      </FireFox>
+		    </browsers>
+		    <cacheControl>
+			      <enableCache>false</enableCache>
+			      <!-- importent: preCheck must be bigger than postCheck -->
+			<preCheck>172900</preCheck>
+			      <postCheck>172800</postCheck>
+			      <CacheControl>no-cache\,no-store\,max-age=0</CacheControl>
+			      <Pragma>No-cache</Pragma>
+			      <Expires>1</Expires>
+			      <NonCachedServletPaths>/validateRecipientsAction.do\,/messagingAction.do\,/getFolderAction.do\,/getOGM.do\,/getMLName.do\,/getMailingListMembersAction.do</NonCachedServletPaths>
+			      <CachedServletPaths/>
+			      <CacheTimeInHours>1</CacheTimeInHours>
+		    </cacheControl>
+		    <pageSize>10</pageSize>
+		    <!-- valid values: ReceivedDate, MessageType, MessageSender, Importance -->
+		<defaultSortProperty>ReceivedDate</defaultSortProperty>
+		    <!-- valid values: descending, ascending  -->
+		<typeDefaultSortOrder>descending</typeDefaultSortOrder>
+		    <dateDefaultSortOrder>descending</dateDefaultSortOrder>
+		    <fromDefaultSortOrder>ascending</fromDefaultSortOrder>
+		    <importanceDefaultSortOrder>ascending</importanceDefaultSortOrder>
+		    <sensitivityDefaultSortOrder>ascending</sensitivityDefaultSortOrder>
+		    <durationDefaultSortOrder>ascending</durationDefaultSortOrder>
+
+		    <displayVoice>true</displayVoice>
+		    <displayFax>true</displayFax>
+		    <displayVideo>true</displayVideo>
+		    <toTextBox-maxLength>300</toTextBox-maxLength>
+		    <subject-maxLength>100</subject-maxLength>
+		    <comment-maxLength>300</comment-maxLength>
+		    <!-- fwdNonVoiceMsg valid values : enable \ disable -->
+		<fwdNonVoiceMsg>disable</fwdNonVoiceMsg>
+		    <calculateDateWithProfileTimeZone>false</calculateDateWithProfileTimeZone>
+  </ui>
+  <security>
+	     <secured-parameters>
+	        <username>msisdn</username>
+	        <password>password</password>
+	        <sso-xml>xml</sso-xml>
+	     </secured-parameters>
+	     <!-- list of wis allowed services (comma seperated no need to escaped by backslash, lower case letters) valid values: wpm \ wcc \ webinbox \ vm2web -->	
+	<allowed-services>wcc,wpm</allowed-services>
+        <!-- possible values: fkey or cos -->
+        <allowed-rule>fkey</allowed-rule>
+        <!-- configurable level of disabled COS - default 500 must be integer value -->
+        <disable-cos-level>500</disable-cos-level>
+	     <!-- allowed-login-access valid values : Portal \ LoginPage \ All -->
+	<allowed-login-access>All</allowed-login-access>
+        <SsoEncryptedSecretKey>0AC6444E075952E348CE6DEDEDE41F9E1DA6722F8EFA2BE54847B9077247F3FE3578367A1512F3CB253911A87A068E78B22DE7CD500235034C57363BCF10307B2E1CC78801AA05CEBC3A917070D282D5</SsoEncryptedSecretKey>	
+      <!--encryptedSecretKey>8956D2FFE80023A5AA687D287ECDD1168956D2FFE80023A5AA687D287ECDD1168956D2FFE80023A5AA687D287ECDD1168956D2FFE80023A5AA687D287ECDD1167CF045E4B4739940E046F0EE68A455DA</encryptedSecretKey-->
+		<MteLinkEncryptedSecretKey>4CB647406126262BF3989A70A782CF23</MteLinkEncryptedSecretKey>
+	     <imapAuthenticateEnabled>true</imapAuthenticateEnabled>
+  </security>
+  <AdminPrivileges>
+  	   <ViewMailbox>WIC_ViewMailbox</ViewMailbox>
+  	   <ViewProfile>WIC_ViewProfile</ViewProfile>
+  	   <ModifyProfile>WIC_ModifyProfile</ModifyProfile>
+  	   <FullProfile>WIC_ManageProfile</FullProfile>
+   </AdminPrivileges>
+   <NotifRuleCustomerCareColumns>NotifRuleDescription;NotifRuleID;NotifRuleMethod;NotifRuleDestination;NotifRuleMessageTypes;NotifRuleAction;NotifRuleTriggers;NotifRulePriority</NotifRuleCustomerCareColumns>
+    <!--NotifRuleCustomerCareColumns>#all</NotifRuleCustomerCareColumns-->
+
+  <DB-query>
+	     <attributes>
+	        <wpm_enabled>WpmEnabled</wpm_enabled>
+	        <webinbox_enabled>WebInboxEnabled</webinbox_enabled>
+	        <language_id>VmLanguage</language_id>
+	        <imap4_username>ImapLoginName</imap4_username>
+	        <imap4_password>InternetPassword</imap4_password>
+	        <imap4_server_name>ImapServerName</imap4_server_name>
+	        <video_enabled>VideoMessageEnabled</video_enabled>
+	        <fax_enabled>FaxMessageEnabled</fax_enabled>
+	        <cos_num>COS</cos_num>
+	        <blocking_flag>BlockingFlag</blocking_flag>
+	        <time_zone>TimeZone</time_zone>
+	     </attributes>
+  </DB-query>
+  <Transcoding>
+     <Voice>
+	  		    <maxSize>4000000</maxSize>
+     	  <num_of_types>11</num_of_types>
+			      <type1 bitrate="64000" codec="*" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/wav_g711a" outputType="audio/wav" saveOutputType="application/x-msdownload"/>
+			      <type2 bitrate="64000" codec="g729edtx" fileExtension="wav" inputMediaType="audio/wav_g729edtx" inputType="audio/wav" outputMediaType="audio/wav_g711a" outputType="audio/wav_g711a" saveOutputType="application/x-msdownload"/>
+  			    <type3 bitrate="64000" codec="g729edtx" fileExtension="wav" inputType="audio/x-wav" outputMediaType="audio/wav_g711a" outputType="audio/x-wav" saveOutputType="application/x-msdownload"/>
+  			    <type4 bitrate="64000" codec="g711u" fileExtension="wav" inputType="audio/x-wav" outputMediaType="audio/wav_g711a" outputType="audio/x-wav" saveOutputType="application/x-msdownload"/>
+  			    <type5 bitrate="64000" codec="g711a" fileExtension="wav" inputType="audio/x-wav" outputMediaType="audio/wav_g711a" outputType="audio/x-wav" saveOutputType="application/x-msdownload"/>
+			      <type6 bitrate="64000" codec="*" fileExtension="dummy-value" inputType="message/rfc822" outputMediaType="dummy/value" outputType="message/rfc822" saveOutputType="application/x-msdownload"/>
+			      <type7 bitrate="64000" codec="g711u" fileExtension="wav" inputType="audio/wav" outputMediaType="audio/wav_g711a" outputType="audio/wav" saveOutputType="application/x-msdownload"/>
+  			    <type8 bitrate="64000" codec="g711a" fileExtension="wav" inputType="audio/wav" outputMediaType="audio/wav_g711a" outputType="audio/wav" saveOutputType="application/x-msdownload"/>
+			      <type9 bitrate="64000" codec="*" fileExtension="wav" inputType="audio/evrc" outputMediaType="audio/wav_g711a" outputType="audio/wav" saveOutputType="application/x-msdownload"/>
+			      <type10 bitrate="64000" codec="*" fileExtension="wav" inputType="audio/evrcb" outputMediaType="audio/wav_g711a" outputType="audio/wav" saveOutputType="application/x-msdownload"/>
+			      <type11 bitrate="64000" codec="*" fileExtension="wav" inputType="audio/amr-wb" outputMediaType="audio/wav_g711a" outputType="audio/wav" saveOutputType="application/x-msdownload"/>
+     </Voice>
+     <Fax>
+        <maxSize>4000000</maxSize>
+     	  <num_of_types>3</num_of_types>
+	  		    <type1 codec="*" fileExtension="tif" inputType="Image/vnd.cns.inf2" outputMediaType="image/tiff" outputType="IMAGE/TIFF" saveOutputType="application/x-msdownload"/>
+	  		    <type2 codec="*" fileExtension="tif" inputType="image/tiff" outputMediaType="image/tiff" outputType="IMAGE/TIFF" saveOutputType="application/x-msdownload"/>
+			      <type3 bitrate="64000" codec="*" fileExtension="dummy-value" inputType="message/rfc822" outputMediaType="dummy/value" outputType="message/rfc822" saveOutputType="application/x-msdownload"/>
+     </Fax>
+     <Video>
+          <maxSize>4000000</maxSize>
+     	  <num_of_types>2</num_of_types>
+     	  <type1 codec="h263_amr" fileExtension="3gp" inputType="video/3gpp" outputMediaType="" outputType="video/3gpp" saveOutputType="application/x-msdownload"/>
+		       <type2 bitrate="64000" codec="*" fileExtension="dummy-value" inputType="message/rfc822" outputMediaType="dummy/value" outputType="message/rfc822" saveOutputType="application/x-msdownload"/>
+     </Video>
+  </Transcoding>
+  <Cookie>
+		    <enableCookie>false</enableCookie>
+		    <name>wis_cookie</name>
+		    <!--value>wis_cookie_value</value-->
+		<value>cas-au-vi48</value>
+		    <vm2web>
+			      <name>JSESSIONID</name>
+			      <path>/vm2web/voicemail/</path>
+		    </vm2web>
+  </Cookie>
+  <Messaging>
+  		  <mail-from>webinbox@comverse.com</mail-from>
+		    <smtp-server-hostname-voice-mail>casmta.site1</smtp-server-hostname-voice-mail>
+		    <smtp-server-hostname-external-email>proxymta.site1</smtp-server-hostname-external-email>
+		    <smtp-server-port>50025</smtp-server-port>
+		    <mailBoxMaxLength>16</mailBoxMaxLength>
+		    <mailBoxMinLength>4</mailBoxMinLength>
+		    <charset>UTF-8</charset>
+		    <enable-mailing-list>true</enable-mailing-list>
+		    <enable-read-receipt>false</enable-read-receipt>
+		    <enable-confidential>false</enable-confidential>
+  </Messaging>
+  <MteLink>
+  		  <msisdnRegExp>^[0-9]+$</msisdnRegExp>
+  </MteLink>
+    <Vm2Web>
+		<!-- mailboxMultiThreadSolution>false</mailboxMultiThreadSolution -->
+		<supportedApiVersions>v1.0</supportedApiVersions>	
+      <!-- List of supported API Versions seperated with ; -->
+		<validateJAXBObject>false</validateJAXBObject>
+		    <retrieveEntireProfileIS3>true</retrieveEntireProfileIS3>
+		    <retrieveEntireProfileIS4>true</retrieveEntireProfileIS4>
+		    <GenerateALAndStatistics>true</GenerateALAndStatistics>
+		    <!-- List of Message-Context supported values seperated with *** -->
+		<supportedMessageTypesForDeposit>Message-Context:voice-message</supportedMessageTypesForDeposit>
+		    <!-- List of pairs of headers and values (pairs are seperated with *** header & values seperated with :) -->
+		<supportedMessageTypesForRetrieve>Message-Context:voice-message***Message-Context:video-message***Message-Context:fax-message***Message-Context:x-empty-call-capture-message***Message-Context:x-Number-message***Message-Context:text-message***Content-Type:Multipart/report;report-type=disposition-notification***Content-Type:Multipart/Report;report-type=delivery-status</supportedMessageTypesForRetrieve> 
+		    <isVPserviceActive IS4Domain="">false</isVPserviceActive>
+		    <!-- Broide - In vm2web (per WebinboxWIS process) in case that session is already exist for a certain Cookie path, Client is enforced to send the relevant Cookie header in all of the future HTTP Requests for this Cookie path, otherwise it will receive 403 - Forbidden -->
+		<enforceSessionSingularity>true</enforceSessionSingularity>
+		    <TranscriptionHeadersNameMapping>
+			<!-- Broide - Note that in case you change any of the following header values, you need to check whether the change headers exist also in the prohibitedHeaders sections. In case they do exist, you MUST change it there as well (Case Sensitive)  -->
+			<XTranscriptionLanguageActualHeaderName>X-Transcription-Language</XTranscriptionLanguageActualHeaderName>
+			      <XPartialTranscriptionActualHeaderName>X-Partial-Transcription</XPartialTranscriptionActualHeaderName>
+			      <XCnsTransTextActualHeaderName>X-CNS-Trans-Text</XCnsTransTextActualHeaderName>
+			      <XOriginalMsgUidActualHeaderName>X-Original-Msg-UID</XOriginalMsgUidActualHeaderName>
+			      <XTranscriptionStateActualHeaderName>X-Transcription-State</XTranscriptionStateActualHeaderName>
+			      <XTranscriptionActualHeaderName>X-Transcription</XTranscriptionActualHeaderName>
+			      <RootLevel>
+				        <XTranscriptionResultActualHeaderName>X-Transcription-result</XTranscriptionResultActualHeaderName>
+			      </RootLevel>
+			      <AttachmentLevel>
+				        <XTranscriptionResultActualHeaderName>X-Transcription-result</XTranscriptionResultActualHeaderName>
+			      </AttachmentLevel>
+		    </TranscriptionHeadersNameMapping>
+		    <folderResource>
+			      <GET>
+				<!-- List of supportedFolders seperated with ; -->
+				<supportedFolders>inbox</supportedFolders>
+			      </GET>
+		    </folderResource>
+		    <messagesResource>
+			      <GET>
+				<!-- List of additional headers seperated with ; -->
+				<additionalHeaders/>
+				        <!-- List of prohibited headers seperated with ; -->
+				<!-- Broide - Note that in case you change any of the following header values, you need to check whether the change headers exist also in the TranscriptionHeadersNameMapping section. In case they do exist, you MUST change it there as well (Case Sensitive)  -->
+				<prohibitedHeaders>X-CNS-CC-PARAM;X-CNS-MSU-MsgHdr</prohibitedHeaders>
+				        <!-- List of Restricted Subscriber Identifiers seperated with ; -->
+				<restrictedSubscriberIdentifierIS3>unknown</restrictedSubscriberIdentifierIS3>
+				        <restrictedSubscriberIdentifierIS4>******</restrictedSubscriberIdentifierIS4>
+				        <restrictedSubscriberSingleFormat>undisclosed-sender</restrictedSubscriberSingleFormat>
+			      </GET>
+		    </messagesResource>
+		    <incomingMessageResource> <!-- Retrieve a message -->
+			<GET>
+				        <defaultAudioAcceptedMediaType>audio/wav:g711a</defaultAudioAcceptedMediaType>
+				        <defaultVideoAcceptedMediaType>video/3gpp:h263_amr</defaultVideoAcceptedMediaType>
+				        <defaultFaxAcceptedMediaType>application/pdf</defaultFaxAcceptedMediaType>
+			      </GET>
+			      <Insight3> <!-- Future compatible -->
+				<Transcoding>
+					          <deposit>
+							<!-- Broide - In Insight3 deposit flow, the transcoging is done by the composer (jglue_config.xml)-->
+					</deposit>
+					          <retrieve>
+						            <Voice>
+							              <maxSize>4000000</maxSize>
+							              <num_of_types>10</num_of_types>
+							              <type1 bitrate="64000" codec="g711a" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/wav_g711a" outputType="audio/wav_g711a"/>
+							              <type2 bitrate="64000" codec="g711u" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/wav_g711u" outputType="audio/wav_g711u"/>
+							              <type3 bitrate="12200" codec="*" fileExtension="amr" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/amr" outputType="Audio/AMR"/>
+  							            <type4 bitrate="16000" codec="*" fileExtension="mp3" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/mpeg" outputType="audio/mpeg"/>
+							              <type5 bitrate="13300" codec="*" fileExtension="qcp" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/qcelp" outputType="Audio/QCELP"/>
+							              <type6 bitrate="128000" codec="pcm" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/pcmwav" outputType="audio/wav_pcm"/>
+  							            <type7 bitrate="0" codec="*" fileExtension="evc" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/evrc" outputType="audio/evrc"/>
+  							            <type8 bitrate="64000" codec="g729edtx" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/wav" outputType="audio/wav_g729edtx"/>
+  							            <type9 bitrate="8550" codec="*" fileExtension="evb" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/evrcb" outputType="audio/evrcb"/>
+							              <type10 bitrate="23850" codec="*" fileExtension="amr" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/amr-wb" outputType="Audio/amr-wb"/>
+						            </Voice>
+						            <Fax>
+							              <maxSize>4000000</maxSize>
+							              <num_of_types>2</num_of_types>
+							              <type1 codec="*" fileExtension="tif" inputType="Image/vnd.cns.inf2" outputMediaType="image/tiff" outputType="IMAGE/TIFF"/>
+							              <type2 codec="*" fileExtension="pdf" inputType="Image/vnd.cns.inf2" outputMediaType="application/pdf" outputType="APPLICATION/PDF"/>
+						            </Fax>
+						            <Video>
+							              <maxSize>4000000</maxSize>
+							              <num_of_types>1</num_of_types>
+							              <type1 codec="h263_amr" fileExtension="3gp" inputType="video/3gpp_h263_amr" outputMediaType="" outputType="video/3gpp_h263_amr"/>
+						            </Video>
+					          </retrieve>
+				        </Transcoding>
+			      </Insight3>
+			      <Insight4>
+				        <Transcoding>
+					          <deposit>
+						<!-- Broide - In Insight4 deposit flow, the transcoging is done by MR-->
+					</deposit>
+					          <retrieve>
+						            <Voice>
+							              <maxSize>4000000</maxSize>
+							              <num_of_types>19</num_of_types>
+							              <type1 bitrate="64000" codec="g711a" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/wav_g711a" outputType="audio/wav_g711a"/>
+							              <type2 bitrate="64000" codec="g711u" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/wav_g711u" outputType="audio/wav_g711u"/>
+							              <type3 bitrate="12200" codec="*" fileExtension="amr" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/amr" outputType="Audio/AMR"/>
+  							            <type4 bitrate="16000" codec="*" fileExtension="mp3" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/mpeg" outputType="audio/mpeg"/>
+							              <type5 bitrate="13300" codec="*" fileExtension="qcp" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/qcelp" outputType="Audio/QCELP"/>
+							              <type6 bitrate="128000" codec="pcm" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/pcmwav" outputType="audio/wav_pcm"/>
+  							            <type7 bitrate="0" codec="*" fileExtension="evc" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/evrc" outputType="audio/evrc"/>
+  							            <type8 bitrate="64000" codec="g729edtx" fileExtension="wav" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/wav" outputType="audio/wav_g729edtx"/>
+  							            <type9 bitrate="8550" codec="*" fileExtension="evb" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/evrcb" outputType="audio/evrcb"/>
+							              <type10 bitrate="23850" codec="*" fileExtension="awb" inputType="Audio/vnd.cns.inf1" outputMediaType="audio/amr-wb" outputType="Audio/amr-wb"/>
+							              <type11 bitrate="64000" codec="g711u" fileExtension="wav" inputType="audio/wav_g711a" outputMediaType="audio/wav_g711u" outputType="audio/wav_g711u"/>
+  							            <type12 bitrate="12200" codec="*" fileExtension="amr" inputType="audio/wav_g711a" outputMediaType="audio/amr" outputType="Audio/AMR"/>
+   							           <type13 bitrate="16000" codec="*" fileExtension="mp3" inputType="audio/wav_g711a" outputMediaType="audio/mpeg" outputType="audio/mpeg"/>
+   							           <type14 bitrate="13300" codec="*" fileExtension="qcp" inputType="audio/wav_g711a" outputMediaType="audio/qcelp" outputType="Audio/QCELP"/>
+   							           <type15 bitrate="128000" codec="pcm" fileExtension="wav" inputType="audio/wav_g711a" outputMediaType="audio/pcmwav" outputType="audio/wav_pcm"/>
+  							            <type16 bitrate="0" codec="*" fileExtension="evc" inputType="audio/wav_g711a" outputMediaType="audio/evrc" outputType="audio/evrc"/>
+  							            <type17 bitrate="64000" codec="g729edtx" fileExtension="wav" inputType="audio/wav_g711a" outputMediaType="audio/wav" outputType="audio/wav_g729edtx"/>
+  							            <type18 bitrate="8550" codec="*" fileExtension="evb" inputType="audio/wav_g711a" outputMediaType="audio/evrcb" outputType="audio/evrcb"/>
+  							            <type19 bitrate="23850" codec="*" fileExtension="awb" inputType="audio/wav_g711a" outputMediaType="audio/amr-wb" outputType="Audio/amr-wb"/>
+						            </Voice>
+						            <Fax>
+							              <maxSize>4000000</maxSize>
+							              <num_of_types>2</num_of_types>
+							              <type1 codec="*" fileExtension="tif" inputType="Image/vnd.cns.inf2" outputMediaType="image/tiff" outputType="IMAGE/TIFF"/>
+							              <type2 codec="*" fileExtension="pdf" inputType="Image/vnd.cns.inf2" outputMediaType="application/pdf" outputType="APPLICATION/PDF"/>
+						            </Fax>
+						            <Video>
+							              <maxSize>4000000</maxSize>
+							              <num_of_types>1</num_of_types>
+							              <type1 codec="h263_amr" fileExtension="3gp" inputType="video/3gpp_h263_amr" outputMediaType="" outputType="video/3gpp_h263_amr"/>
+						            </Video>
+					          </retrieve>
+				        </Transcoding>
+			      </Insight4>
+		    </incomingMessageResource>
+		    <serviceResource>
+			      <restrictions>
+				        <messageLengthLimitVoiceInSeconds>600</messageLengthLimitVoiceInSeconds>
+				        <messageLengthLimitVideoInSeconds>600</messageLengthLimitVideoInSeconds>
+				        <messageLengthLimitFaxInPages>50</messageLengthLimitFaxInPages>
+				        <nameRecordingDurationLimitInSeconds>30</nameRecordingDurationLimitInSeconds>
+				        <passwordLengthMinLengthLimit>4</passwordLengthMinLengthLimit>
+				        <passwordLengthMaxLengthLimit>10</passwordLengthMaxLengthLimit>
+			      </restrictions>
+		    </serviceResource>
+
+		    <outgoingMessageResource> <!-- post a message -->
+			<POST>
+				<!-- List of prohibited headers seperated with ; -->
+				<!-- Broide - Note that in case you change any of the following header values, you need to check whether the change headers exist also in the TranscriptionHeadersNameMapping section. In case they do exist, you MUST change it there as well (Case Sensitive)  -->
+				<prohibitedHeaders>X-Transcription-State;X-Transcription;X-Transcription-result;X-Transcription-Language;X-Partial-Transcription;X-CNS-Trans-Text;X-Original-Msg-UID</prohibitedHeaders>
+				        <!-- address delimiter characters the Reply-To header -->
+				<addressDelimiter>;\,</addressDelimiter>
+				        <smtpServerHostnameInsight4>MR</smtpServerHostnameInsight4>
+				        <smtpServerPortInsight4>50025</smtpServerPortInsight4>
+				        <mimeVersion>1.0</mimeVersion>
+				        <dynamicHeaders>
+					          <num_of_headers>4</num_of_headers>
+					          <header1 insightVersion="all" isEnabled="true" name="X-CNS-Message-Context" qualification="all" value="{Message-Context}"/>
+					          <header2 insightVersion="insight3" isEnabled="true" name="X-CNS-Notification" qualification="migration" value="disable"/>
+					          <header3 insightVersion="insight4" isEnabled="true" name="X-CNS-Notification" qualification="migration" value="user-notification-disable"/>
+					          <header4 insightVersion="all" isEnabled="true" name="X-CNS-Ignore-MediaQuota" qualification="migration" value=""/>
+					          <!--header5 name="MIME-Version" value="1.0" insightVersion="all" isEnabled ="true" qualification ="all"></header5 Broide future. need to use mimeMessage.writeTo(bos) with ignoreList in composer-->
+				</dynamicHeaders>
+			      </POST>
+		    </outgoingMessageResource>
+		    <greetingsResource>
+			<!-- Broide - List of supported greetings seperated with ; -->
+			<!-- Broide - Note that the supported greetings are common media (audio and video) except for CDG & VS that are audio only.	for example supporting Normal in configuration meaning supporting Normal and NormalVideo-->
+			<supportedGreetings>VoiceSignature;Normal;Busy;Special;Unreachable;CLI-Dependent-Greeting</supportedGreetings>
+		    </greetingsResource>
+		    <authorization>	
+			      <Insight3>
+				        <num_of_types>1</num_of_types>
+				        <type1 name="default"><!-- The appID (in this case the default) -->
+					<preferences>
+						            <authRequired>true</authRequired>						
+						            <applicableDomainIDs/>
+                  <!-- List of domains IDs seperated with ; -->						
+						<applicableCosIDs/>
+                  <!-- List of COS IDs seperated with ; -->
+						<authorizationFields>
+							              <num_of_types>1</num_of_types>	
+							              <type1 name="WpmEnabled" value="true"/>						
+						            </authorizationFields>
+					          </preferences>
+					          <mailbox>
+						            <authRequired>true</authRequired>						
+						            <applicableDomainIDs/>
+                  <!-- List of domains IDs seperated with ; -->
+						<applicableCosIDs/>
+                  <!-- List of COS IDs seperated with ; -->
+						<authorizationFields>
+							              <num_of_types>1</num_of_types>
+							              <type1 name="WebInboxEnabled" value="true"/>
+						            </authorizationFields>
+					          </mailbox>
+					          <!--qualification>migration</qualification-->
+				</type1>				
+			      </Insight3>
+			      <Insight4>
+				        <num_of_types>1</num_of_types>
+				        <type1 name="default"><!-- The appID (in this case the default) -->
+					<preferences>
+						            <authRequired>true</authRequired>						
+						            <applicableDomainIDs/>
+                  <!-- List of domains IDs seperated with ; -->						
+						<applicableCosIDs/>
+                  <!-- List of COS IDs seperated with ; -->
+						<authorizationFields>
+							              <num_of_types>1</num_of_types>	
+							              <type1 name="WpmEnabled" value="true"/>						
+						            </authorizationFields>
+					          </preferences>
+					          <mailbox>
+						            <authRequired>true</authRequired>						
+						            <applicableDomainIDs/>
+                  <!-- List of domains IDs seperated with ; -->
+						<applicableCosIDs/>
+                  <!-- List of COS IDs seperated with ; -->
+						<authorizationFields>
+							              <num_of_types>1</num_of_types>
+							              <type1 name="WebInboxEnabled" value="true"/>
+						            </authorizationFields>
+					          </mailbox>
+					          <!--qualification>migration</qualification-->
+				</type1>
+				        <!--    example
+				<type2 name="appID1">
+					<preferences>
+						<authRequired>true</authRequired>
+						<applicableDomainIDs>0;1;2</applicableDomainIDs>
+						<applicableCosIDs>4</applicableCosIDs>
+						<authorizationFields>
+							<num_of_types>1</num_of_types>	
+							<type1 name="WpmEnabled" value="true"/>						
+						</authorizationFields>
+					</preferences>
+					<mailbox>
+						<authRequired>true</authRequired>
+						<applicableDomainIDs>5</applicableDomainIDs>
+						<applicableCosIDs>6</applicableCosIDs>
+						<authorizationFields>
+							<num_of_types>1</num_of_types>
+							<type1 name="WebInboxEnabled" value="true"/>
+						</authorizationFields>
+					</mailbox>
+					<qualification>administration;migration</qualification>
+				</type2>
+				-->
+			</Insight4>
+		    </authorization>
+  </Vm2Web>
+  <Recorder>
+		    <encoding>PCM_SIGNED</encoding>
+		    <rate>8000</rate>
+		    <sample-size>16</sample-size>
+		    <channels>1</channels>
+		    <maxRecordTime>30</maxRecordTime>
+		    <maxGreetingRecordTime>30</maxGreetingRecordTime>
+		    <maxVSRecordTime>10</maxVSRecordTime>
+		    <maxMlNameRecordTime>30</maxMlNameRecordTime>
+  </Recorder>
+  <MobileEmail>
+  	   <me-mail-from-domain>me.com</me-mail-from-domain>
+		    <is-email-enabled>false</is-email-enabled>
+		    <me-smtp-server-hostname>imi.site1</me-smtp-server-hostname>
+		    <me-smtp-server-port>50025</me-smtp-server-port>
+		    <me-cos-values>1</me-cos-values>
+		    <messaging-domain>dummy.com</messaging-domain>
+		    <type-icon-mappings>
+		       <num_of_mappings>1</num_of_mappings>
+			      <mapping1 CONTENT-TYPE="" ICON-PATH=""/>
+		    </type-icon-mappings>
+  </MobileEmail>
+  <wpmFeaturesConfiguration>
+	<!-- Mailing list -->
+	<mailingList>
+		       <availableMailingListId>9,10,11,12,13</availableMailingListId>
+		       <maxMailingListId>99</maxMailingListId>
+		       <!--showOutOfRangeMailingLists: if set to true wpm will not show mailing lists with ID's different then the list in availableMailingListId-->
+		<showOutOfRangeMailingLists>false</showOutOfRangeMailingLists>
+		       <!--this parameter is overriden by the MAILING_LIST_LIMIT from the profile, if exists-->
+		<maxAllowedEntries>30</maxAllowedEntries>
+		       <!--performSubscriberLookup: do we perform ADRS for each added entry?-->
+		<performSubscriberLookup>true</performSubscriberLookup>
+	     </mailingList>
+	     <!-- OGM -->
+	<OGM>		
+		       <enableDepositGreetingFeature>true</enableDepositGreetingFeature>
+		       <enableDeleteGreetingFeature>true</enableDeleteGreetingFeature>
+		       <enableRetrieveGreetingFeature>true</enableRetrieveGreetingFeature>
+		       <enableGreetingStatusFeature>true</enableGreetingStatusFeature>
+		       <enableDepositBulletinFeature>true</enableDepositBulletinFeature>
+		
+		       <enableVoiceSignature>true</enableVoiceSignature>
+		       <enableOgmNormal>true</enableOgmNormal>
+		       <enableOgmBusy>true</enableOgmBusy>
+		       <enableOgmUnreachable>true</enableOgmUnreachable>
+		       <enableOgmSpecial>true</enableOgmSpecial>
+		       <enableVideoOgmNormal>true</enableVideoOgmNormal>
+		       <enableVideoOgmBusy>true</enableVideoOgmBusy>
+		       <enableVideoOgmUnreachable>true</enableVideoOgmUnreachable>		
+		       <enableVideoOgmSpecial>true</enableVideoOgmSpecial>
+		       <enableOgmCLI>true</enableOgmCLI>
+		
+		       <enableOgmNormalStatus>true</enableOgmNormalStatus>
+		       <enableOgmBusyStatus>true</enableOgmBusyStatus>
+		       <enableOgmUnreachableStatus>true</enableOgmUnreachableStatus>
+		       <enableOgmSpecialStatus>true</enableOgmSpecialStatus>
+
+		
+		       <!-- This is default part for external  greeting definition-->
+		<default>			   
+			         <allowedCodecs>G711Alaw,G711Mulaw,mp3,evrc</allowedCodecs>
+			         <allowedVideoCodecs>h263_amr</allowedVideoCodecs>
+			         <allowedTypeFormats>wav,mp3,evc</allowedTypeFormats>
+			         <allowedVideoTypeFormats>3gp</allowedVideoTypeFormats>
+			         <allowedAnnouncementModeValues>on,off</allowedAnnouncementModeValues>
+			         <!-- This part for file size per format and codec
+			   Each new format or codec may be added dynamically
+			   Need only add part with codec and codec to allowed
+			-->
+			<codecValidationRule>
+			            <evrc>
+				              <inputFormat>Audio/evrc</inputFormat>
+				              <bps>2048</bps>
+			            </evrc>
+			            <sbc>
+				              <inputFormat>Audio/vnd.cns.inf1</inputFormat>
+				              <bps>2048</bps>
+			            </sbc>
+			            <G711Alaw>
+				              <inputFormat>Audio/wav_g711a</inputFormat>
+				              <bps>8192</bps>
+			            </G711Alaw>			
+			            <G711Mulaw>
+				              <inputFormat>Audio/wav_g711u</inputFormat>
+				              <bps>8192</bps>
+			            </G711Mulaw>
+			            <threegp>
+				              <inputFormat>video/3gp</inputFormat>
+				              <bps>10240</bps>
+			            </threegp>
+			            <h263_amr>
+				              <inputFormat>video/3gp</inputFormat>
+				              <bps>10240</bps>
+			            </h263_amr>
+			            <mp3>
+				              <inputFormat>Audio/mpeg</inputFormat>
+				              <bps>16384</bps>
+			            </mp3>
+			         </codecValidationRule>
+		       </default>
+
+		       <!-- mapping for Insight4 - from greeting type to generic key at userSessionData-->
+		<Insight4GreetingMappingEnabled>
+			         <Normal>PersonalGreetingEnabled</Normal>
+			         <NormalVideo>PersonalVideoGreetingEnabled</NormalVideo>
+			         <Busy>NonWorkingTimeGreetingEnabled</Busy>
+			         <BusyVideo>VideoNonWorkingTimeGreetingEnabled</BusyVideo>
+			         <Special>SpecialGreetingEnabled</Special>
+			         <SpecialVideo>SpecialVideoGreetingEnabled</SpecialVideo>
+			         <voiceSignature>VSEnabled</voiceSignature>
+			         <CLI>CliGreetingEnabled</CLI>
+		       </Insight4GreetingMappingEnabled>
+
+		       <Insight4GreetingMappingDuration>
+			         <Normal>PersonalGreetingSizeLimit</Normal>
+			         <NormalVideo>PersonalVideoGreetingSizeLimit</NormalVideo>
+			         <Busy>NonWorkingTimeGreetingSizeLimit</Busy>
+			         <BusyVideo>VideoNonWorkingTimeGreetingSizeLimit</BusyVideo>
+			         <Special>SpecialGreetingSizeLimit</Special>
+			         <SpecialVideo>SpecialVideoGreetingSizeLimit</SpecialVideo>
+			         <voiceSignature>VSSizeLimit</voiceSignature>
+			         <CLI>CliGreetingSizeLimit</CLI>
+		       </Insight4GreetingMappingDuration>
+		
+		       <Bulletin>
+			         <AudioBulletinMaxDuration>60</AudioBulletinMaxDuration>
+			         <VideoBulletinMaxDuration>60</VideoBulletinMaxDuration>
+		       </Bulletin>
+	     </OGM>
+
+	     <!-- Password -->
+	<password>
+		       <adminExternalPassword>
+			         <enableResetPasswordFeature>true</enableResetPasswordFeature>
+			         <enableChangePasswordFeature>true</enableChangePasswordFeature>
+			         <enableSkipPasswordFeature>true</enableSkipPasswordFeature>
+			         <listOfAdminIPs/>
+		       </adminExternalPassword>
+	     </password>
+
+	     <!--
+		the supportedLanguages influence the main menu (if showLanguageSelection is set to true),
+			the language screen and the create subscriber screen.
+			it determines the list of languages to be shown.
+		to add a languge - copy-pase the lang element and set the proprties
+	-->
+	<supportedLanguages>
+		<!--
+			a language element.
+			@name - The language name as configured in the CAS
+			@SMS - should the sms selection in the language selection show this language
+			@TUI - should the TUI selection in the language selection show this language
+			@UI  - should this language be shown in the language links in the main menu
+			locale - Languge locale
+			supportedCOS - List of supported COS seperated with ;
+		-->
+		<lang GUEST="true" SMS="true" TUI="true" UI="false" WCC="true" name="English">
+			         <locale>en_US</locale>
+		       </lang>
+	     </supportedLanguages>
+	     <TimeZones>
+		       <supportedTimeZone>true</supportedTimeZone>
+		       <timeZone> 
+			         <name>Asia/Jerusalem</name>
+			         <IS3TimeZone>0</IS3TimeZone>
+			         <IS4TimeZone>Asia/Jerusalem</IS4TimeZone>
+		       </timeZone>
+			
+	     </TimeZones>
+
+	     <!--autoDeletion-->
+	<autoDeletion>
+		       <autoDeletionEnabled>false</autoDeletionEnabled>
+	     </autoDeletion>
+	     <createUser>
+			      <passwordVerificationNeeded>true</passwordVerificationNeeded>
+			      <DisplayResetPassword>true</DisplayResetPassword>
+			      <TRMList>25</TRMList>
+			      <SingleInsight4Domain>false</SingleInsight4Domain>
+			      <DefaultDomainName>Default domain</DefaultDomainName>
+			      <sleepBeforeLoadSubscriberMS>0</sleepBeforeLoadSubscriberMS>
+	     </createUser>
+	     <generateAutomaticPassword>
+		       <generateAutomaticPasswordTrigger>1111</generateAutomaticPasswordTrigger>
+	     </generateAutomaticPassword>		
+	
+
+	  </wpmFeaturesConfiguration>
+</wis-configuration>

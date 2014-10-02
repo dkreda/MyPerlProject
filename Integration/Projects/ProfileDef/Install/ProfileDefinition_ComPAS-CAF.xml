@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Component Platform="Linux" Name="ProfileDefinition_Compas" Version="Private">
+		<Install>
+			<Execute ExecutionOrder="100">
+				<Command>MamCMD stop WSA</Command>
+			</Execute>
+			<Execute ExecutionOrder="110">
+				<Command>MamCMD stop ComPAS</Command>
+			</Execute>
+			<Execute ExecutionOrder="130">
+				<Command>/tmp/ParamsManipulation.pl -Conf /tmp/ProfileDefinition_WHC_Install.Conf -Unit {UnitName}  -PVVMSystemName {PVVM System Name}</Command>
+			</Execute>
+			<Execute ExecutionOrder="120">
+				<Command>sleep 30 ;MamCMD start ComPAS</Command>
+			</Execute>
+			<Execute ExecutionOrder="140">
+				<Command>MamCMD start WSA</Command>
+			</Execute>
+			<Execute ExecutionOrder="120">
+				<Command>dos2unix /tmp/ProfileDefinition_WHC_Install.Conf</Command>
+			</Execute>
+			<Copy ExecutionOrder="60">
+				<Source>./configuration/ProfileDefinition_WHC_Install.Conf</Source>
+				<Target>/tmp/ProfileDefinition_WHC_Install.Conf</Target>
+			</Copy>
+			<Copy ExecutionOrder="60" ChmodFlags="+x">
+				<Source>./scripts/ParamsManipulation.pl</Source>
+				<Target>/tmp/ParamsManipulation.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="60" ChmodFlags="+x">
+				<Source>./scripts/CompasConfig.pl</Source>
+				<Target>/tmp/CompasConfig.pl</Target>
+			</Copy>
+			<SetParams ExecutionOrder="80">
+				<ExecutionGroup>ServiceConfig</ExecutionGroup>
+			</SetParams>
+		</Install>
+		<Parameters>
+			<Parameter Name="PVVM System Name" Level="System" ExecutionGroup="ServiceConfig">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Install Unit" Level="System" ExecutionGroup="ServiceConfig">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Value>[UnitGroup.xml://Physical[@GroupName="OMU_Group"]/UnitInstance[1]/@UnitName]</Value>
+				<Files>
+					<File ParameterPath="ExecUnit" Name="/tmp/ProfileDefinition_WHC_Install.Conf" Format="KeyValue"/>
+				</Files>
+			</Parameter>
+			<Parameter Name="Black White list" Level="System" ExecutionGroup="ServiceConfig">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Smart Call" Level="System" ExecutionGroup="ServiceConfig">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="Call Screening" Level="System" ExecutionGroup="ServiceConfig">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

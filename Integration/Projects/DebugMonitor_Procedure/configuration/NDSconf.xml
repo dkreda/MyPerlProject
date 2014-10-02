@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XmlPst xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/usr/cti/conf/nds/NDSconf.xsd">
+    <ComverseTechnology>
+        <PersistStorage Charset="UTF-8"/>
+        <Nds CurrentVersion="V3.1.0.0">
+            <V3.1.0.0>
+                <NdsTrace DebugLevel="Info" Enabled="1" Facility="local4" Level="debug" LocalUserLogsDir="/var/cti/logs/nds" LocalUserLogsEnabled="0" TraceDestination="FileAndSyslog" TraceFilePath="/var/cti/logs/nds/OwnerlessTrace.trc">
+                    <Custom>
+                        <NdsIfs Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="0"/>
+                        <Rbn Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="0"/>
+                        <Validator Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="0"/>
+                        <UtilityProvider Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="0"/>
+                        <Adapter Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="1" Warn="0"/>
+                        <Msbl Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="1"/>
+                        <Ndm Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="0"/>
+                        <Messenger Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="1" Warn="1"/>
+                        <Wsl Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="0"/>
+                        <Reqproc Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="1"/>
+                        <Command Concise="1" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="1" Warn="1"/>
+                        <ActivityLog Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="0" Warn="0"/>
+                        <Rmr Concise="0" Debug="0" Entry="0" Error="1" Exit="0" Fatal="1" Info="1" Warn="1"/>
+                    </Custom>
+                </NdsTrace>
+                <SystemMode IDSmode="false"/>
+                <SmscTemplateCode>
+                    <Default value="1"/>
+                </SmscTemplateCode>
+                <MOServicesDetails>
+                    <VVM DefaultTemplateId="10" RespondToNonSubscriberMo="TRUE" ServiceEnabled="TRUE" ServiceName="VVM" ServiceNumber="^\*1111$"/>
+                    <MoService1 ServiceEnabled="FALSE" ServiceName="MoService1" ServiceNumber="^\*2222$">
+                        <ServiceIdentificationPattern>
+                            <SeekStructure SeekStructure="[LanguageCode]\[MsgName]"/>
+                            <Templates>
+                                <en ServiceIdentificationPattern="[str\^A$|^$]"/>
+                            </Templates>
+                        </ServiceIdentificationPattern>
+                    </MoService1>
+                    <MoService2 ServiceEnabled="FALSE" ServiceName="MoService2" ServiceNumber="^\*3333$">
+                        <ServiceIdentificationPattern>
+                            <SeekStructure SeekStructure="[LanguageCode]\[MsgName]"/>
+                            <Templates>
+                                <en ServiceIdentificationPattern="[str\PASSWORD|Password|password]"/>
+                            </Templates>
+                        </ServiceIdentificationPattern>
+                    </MoService2>
+                </MOServicesDetails>
+                <Common GslStatus="BothUp"/>
+                <RDROperations>
+                    <RDROperationsList>
+                        <!--AcceptMode: The mode incoming RDR is checked. valid values:-->
+                        <!--Any: all incoming RDR are matched or No RDR is required. 
+Selected: check match according to a configurable list of possible 
+None: no request matches.-->
+                        <RDROperation1 AcceptMode="Any" Name="SMSDeliveryReport"/>
+                        <!--AcceptMode: The mode incoming RDR is checked. valid values:-->
+                        <!--Any: all incoming RDR are matched or No RDR is required. 
+Selected: check match according to a configurable list of possible 
+None: no request matches.-->
+                        <RDROperation2 AcceptMode="None" Name="OutcallDelay"/>
+                        <RDROperation7 AcceptMode="Any" Name="SMSDeliveryReportHlr"/>
+                    </RDROperationsList>
+                    <RDRList>
+                        <!--NA: empty value-->
+                        <RDRItem1 Value="2">
+                            <!--Value: Number of RDR we are referring to-->
+                            <!--Operation: Name of operation we wish to use. Legal values are: OutcallDelay, SMSDeliveryReport-->
+                            <Operation1 Name="OutcallDelay"/>
+                        </RDRItem1>
+                        <RDRItem2 Value="3">
+                            <Operation1 Name="SMSDeliveryReport"/>
+                        </RDRItem2>
+                        <RDRItem3 Value="4">
+                            <Operation1 Name="SMSDeliveryReport"/>
+                        </RDRItem3>
+                        <RDRItem4 Value="5">
+                            <Operation1 Name="OutcallDelay"/>
+                        </RDRItem4>
+                        <RDRItem5 Value="6">
+                            <Operation1 Name="SMSDeliveryReport"/>
+                        </RDRItem5>
+                        <RDRItem6 Value="7">
+                            <Operation1 Name="OutcallDelay"/>
+                        </RDRItem6>
+                        <RDRItem7 Value="8">
+                            <Operation1 Name="SMSDeliveryReport"/>
+                        </RDRItem7>
+                        <RDRItem8 Value="9">
+                            <Operation1 Name="OutcallDelay"/>
+                        </RDRItem8>
+                        <RDRItem9 Value="NA">
+                            <Operation1 Name="SMSDeliveryReport"/>
+                        </RDRItem9>
+                    </RDRList>
+                </RDROperations>
+                <OutcallDelay Enable="OFF">
+                    <DelayTime_Min>
+                        <MainPhone value="10"/>
+                        <AlternatePhone value="10"/>
+                        <AdditionalPhone value="10"/>
+                    </DelayTime_Min>
+                </OutcallDelay>
+                <BlockReasons Enable="ON">
+                    <!--Add or remove BlockReason elements to control subscriber blocking-->
+                    <BlockReason Value="Administrative"/>
+                    <BlockReason Value="Uninitialized"/>
+                </BlockReasons>
+                <ActivityLog>
+                    <!--Data_Size_Threshold is in % should be 0-100 -->
+                    <Default Data_Size="29999999" Data_Size_Threshold="80" Dump_Interval_Time_Min="1" Enable="1" FQDN_Backward_Compatibility_Enabled="0" File_Name_Prefix="NDS" File_Path="/var/cti/al/nds" File_Time_Stamp_Format="%Y%m%d%H%M%S%sss" SharedMemoryID="97" SharedMemoryName="/usr/cti/apps/NotifTools/ndsifs/libActivityLog.so"/>
+                    <Templates>
+                        <Incoming>
+                            <ExpungeMsg Enable="1"/>
+                            <ExpiredMsg Enable="1"/>
+                            <ReadMsg Enable="1"/>
+                            <DeleteMsg Enable="1"/>
+                            <MsgPurgeWarn Enable="1"/>
+                            <Logout Enable="1"/>
+                            <Login Enable="1"/>
+                            <RejectMsg Enable="1"/>
+                            <MailboxFull Enable="1"/>
+                            <UnnoticedMsg Enable="1"/>
+                            <NewMsg Enable="1"/>
+                            <CLI2Me Enable="1"/>
+                            <SubCreate Enable="1"/>
+                            <TuiNutSubModify Enable="1"/>
+                            <PasswordReminder Enable="1"/>
+                            <SubDelete Enable="1"/>
+                            <VVMSubDeprovisioning Enable="1"/>
+                            <VVMSubDelete Enable="1"/>
+                            <VVMSubModifyGreeting Enable="1"/>
+                            <VVMSubModifyProfile Enable="1"/>
+                            <NumberMsg Enable="1"/>
+                            <CannedMsg Enable="1"/>
+                            <MO-VVM Enable="1"/>
+                            <MO-Service Enable="1"/>
+                            <Alert Enable="1"/>
+                            <VM2MMSFailedMsg Enable="1"/>
+                            <OutcallStatus Enable="1"/>
+                        </Incoming>
+                        <Outgoing>
+                            <SmgAlertCVVM Enable="1"/>
+                            <SmgAlertRim Enable="1"/>
+                            <SmgAlertSMS Enable="1"/>
+                            <SmgAlertICON Enable="1"/>
+                            <Smtp Enable="1"/>
+                            <HLRI Enable="1"/>
+                            <SipSoap Enable="1"/>
+                            <Outdial Enable="1"/>
+                            <Scheduler Enable="1"/>
+                            <PrintFax Enable="1"/>
+                            <PrintFaxVxv Enable="1"/>
+                            <PersonalReminder Enable="1"/>
+                            <PersonalReminderVxv Enable="1"/>
+                            <SmgAlertSMSSpecial Enable="1"/>
+                            <msgtophone Enable="1"/>
+                            <msgtophonevxv Enable="1"/>
+                            <SmgAlertSMSPasswordReminder Enable="1"/>
+                            <SmgAlertSMSPrintFaxNotification Enable="1"/>
+                            <MwiByCall Enable="1"/>
+                            <SmgAlertSMSFUDReminder Enable="1"/>
+                            <SmgVvmSMS Enable="1"/>
+                            <SmgSMSLink Enable="1"/>
+                            <SmgUssd Enable="1"/>
+                            <TcapMwi Enable="1"/>
+                            <MwiSip Enable="1"/>
+                            <BinarySMS Enable="1"/>
+                            <WakeUp Enable="1"/>
+                            <WakeUpVxv Enable="1"/>
+                            <AdrmSnap Enable="1"/>
+                            <NdsSnap Enable="1"/>
+                            <MwiBySmdi Enable="1"/>
+                            <FullSipSoap Enable="1"/>
+                            <SmgSubDelete Enable="1"/>
+                        </Outgoing>
+                    </Templates>
+                    <Params>
+                        <!--This scope is used for configuration of SenderNumber value in the delivery AL record generated in case of SMS notification. Configuration of outcall AL is the same as MSG_FROM_PHONE_NUMBER configuration-->
+                        <SeekStructure SeekStructure="[MsblTemplateScope]\[ParamName]"/>
+                        <Templates>
+                            <!--To define SenderNumber which is different from the default for a specific type of SMS,  add the same elements as in the template scope and define SenderNumber attribute under . For example to define SenderNumber for UnnoticedMsg sms, add SMS\UnnoticedMsg elements and SenderAttribute as child attribute of UnnoticedMsg-->
+                            <Default SenderNumber="[Lookup_Originator\From,&quot;Unknown&quot;]"/>
+                        </Templates>
+                    </Params>
+                </ActivityLog>
+                <RetriesConfiguration>
+                    <RetriesEnable>
+                        <Templates FaxRetry="ON" MsgToPhoneRetry="ON" MwiByCallRetry="ON" MwiSipRetry="ON" OutcallRetry="ON" PersonalReminderRetry="ON" TcapMwi_Retry="ON" WakeUpRetry="ON"/>
+                    </RetriesEnable>
+                    <RetriesTables>
+                        <OutcallRetry>
+                            <SubCreate>
+                                <No..Answer MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Busy MaxRetriesAttempt="4" _1="10" _2="30" _3="60" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Incomplete MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            </SubCreate>
+                            <NumberMsg>
+                                <No..Answer MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Busy MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Incomplete MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            </NumberMsg>
+                            <NewMsg>
+                                <No..Answer MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Busy MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Incomplete MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            </NewMsg>
+                            <MoService1>
+                                <No..Answer MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Busy MaxRetriesAttempt="4" _1="1" _2="1" _3="1" _4="1" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Incomplete MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            </MoService1>
+                            <UnreadMsg>
+                                <No..Answer MaxRetriesAttempt="0" _1="0" _2="0" _3="0" _4="0" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Busy MaxRetriesAttempt="0" _1="0" _2="0" _3="0" _4="0" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Incomplete MaxRetriesAttempt="0" _1="0" _2="0" _3="0" _4="0" _5="0" _6="0" _7="0" _Next="0"/>
+                            </UnreadMsg>
+                            <MailboxFull>
+                                <No..Answer MaxRetriesAttempt="0" _1="0" _2="0" _3="0" _4="0" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Busy MaxRetriesAttempt="0" _1="0" _2="0" _3="0" _4="0" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Incomplete MaxRetriesAttempt="0" _1="0" _2="0" _3="0" _4="0" _5="0" _6="0" _7="0" _Next="0"/>
+                            </MailboxFull>
+                        </OutcallRetry>
+                        <MwiSipRetry>
+                            <NewMsg>
+                                <Busy MaxRetriesAttempt="4" _1="10" _2="20" _3="50" _4="90" _5="10" _6="10" _7="10" _Next="15"/>
+                                <Incomplete MaxRetriesAttempt="4" _1="10" _2="20" _3="50" _4="90" _5="30" _6="30" _7="60" _Next="60"/>
+                                <No..Answer MaxRetriesAttempt="4" _1="10" _2="20" _3="50" _4="90" _5="30" _6="30" _7="60" _Next="60"/>
+                            </NewMsg>
+                        </MwiSipRetry>
+                        <FaxRetry>
+                            <No..Answer MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            <Busy MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            <Incomplete MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                        </FaxRetry>
+                        <PersonalReminderRetry>
+                            <No..Answer MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            <Busy MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            <Incomplete MaxRetriesAttempt="4" _1="10" _2="30" _3="50" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                        </PersonalReminderRetry>
+                        <WakeUpRetry>
+                            <No..Answer MaxRetriesAttempt="8" _1="10" _2="30" _3="50" _4="90" _5="180" _6="300" _7="600" _Next="900"/>
+                            <Busy MaxRetriesAttempt="8" _1="10" _2="30" _3="50" _4="90" _5="180" _6="300" _7="600" _Next="900"/>
+                            <Incomplete MaxRetriesAttempt="8" _1="10" _2="30" _3="50" _4="90" _5="180" _6="300" _7="600" _Next="900"/>
+                        </WakeUpRetry>
+                        <MsgToPhoneRetry>
+                            <No..Answer MaxRetriesAttempt="8" _1="10" _2="30" _3="50" _4="90" _5="180" _6="300" _7="600" _Next="900"/>
+                            <Busy MaxRetriesAttempt="8" _1="10" _2="30" _3="50" _4="90" _5="180" _6="300" _7="600" _Next="900"/>
+                            <Incomplete MaxRetriesAttempt="8" _1="10" _2="30" _3="50" _4="90" _5="180" _6="300" _7="600" _Next="900"/>
+                        </MsgToPhoneRetry>
+                        <MwiByCallRetry>
+                            <NewMsg>
+                                <No..Answer MaxRetriesAttempt="4" _1="10" _2="20" _3="40" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Busy MaxRetriesAttempt="4" _1="10" _2="20" _3="40" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                                <Incomplete MaxRetriesAttempt="4" _1="10" _2="20" _3="40" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            </NewMsg>
+                        </MwiByCallRetry>
+                        <TcapMwi_Retry>
+                            <No..Answer MaxRetriesAttempt="4" _1="10" _2="20" _3="40" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            <Busy MaxRetriesAttempt="4" _1="10" _2="20" _3="40" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                            <Incomplete MaxRetriesAttempt="4" _1="10" _2="20" _3="40" _4="90" _5="0" _6="0" _7="0" _Next="0"/>
+                        </TcapMwi_Retry>
+                    </RetriesTables>
+                    <ImmRetry>
+                        <OutDial ImmediatExpired="Busy" MaxImmRetry="1"/>
+                        <Fax ImmediatExpired="Busy" MaxImmRetry="1"/>
+                        <PersonalReminder ImmediatExpired="Busy" MaxImmRetry="1"/>
+                        <MsgToPhone ImmediatExpired="Busy" MaxImmRetry="1"/>
+                        <MwiByCall ImmediatExpired="Busy" MaxImmRetry="1"/>
+                        <WakeUp ImmediatExpired="Busy" MaxImmRetry="1"/>
+                    </ImmRetry>
+                </RetriesConfiguration>
+                <ReachabilityConfiguration ReachabilityEnable="OFF">
+                    <NewMsg AdditionalPhone="NoReach" AlternatePhone="NoReach" MainPhone="NoReach"/>
+                    <UnreadMsg AdditionalPhone="NoReach" AlternatePhone="NoReach" MainPhone="NoReach"/>
+                    <MailboxFull AdditionalPhone="NoReach" AlternatePhone="NoReach" MainPhone="NoReach"/>
+                    <PersonalReminder MainPhone="NoReach"/>
+                    <MsgToPhone ExplicitPhone="NoReach"/>
+                    <SMS0 ResendSec="3600"/>
+                </ReachabilityConfiguration>
+                <Templates>
+                    <SmgUssd>
+                        <MO_USSD_UnrecognizedService>
+                            <Default HeaderTemplate="&amp;RequestId=15&amp;RequestType=NewMsg&amp;From=[rbn\ServiceNumber]&amp;Destination=[rbn\SubscriberId]&amp;ApplicationName=USSD&amp;MessageType=USSD&amp;UssdServiceOp=[rbn\UssdServiceOp]&amp;IsLastUssdMessage=1&amp;UssdSessionId=[rbn\UssdSessionId]&amp;LanguageCode=[rbn\LanguageCode]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]"/>
+                            <SeekStructure SeekStructure="[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <en-US>
+                                    <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit" SMSTemplate="[str\Service unrecognized]"/>
+                                    <_10 SMSTemplate="[str\Service unrecognized]"/>
+                                </en-US>
+                            </Templates>
+                        </MO_USSD_UnrecognizedService>
+                        <MO_USSD_ProfileModification>
+                            <Default HeaderTemplate="&amp;RequestId=15&amp;RequestType=NewMsg&amp;From=[rbn\ServiceNumber]&amp;Destination=[rbn\SubscriberId]&amp;ApplicationName=USSD&amp;MessageType=USSD&amp;UssdServiceOp=[rbn\UssdServiceOp]&amp;IsLastUssdMessage=1&amp;UssdSessionId=[rbn\UssdSessionId]&amp;LanguageCode=[rbn\LanguageCode]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]"/>
+                            <SeekStructure SeekStructure="[TextLanguage]\[SMSTemplateId]\[ServiceAvailable]\[MsgName]"/>
+                            <Templates>
+                                <en-US>
+                                    <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                                    <unknown>
+                                        <FALSE SMSTemplate="[str\Service unavailable]"/>
+                                    </unknown>
+                                    <_10>
+                                        <FALSE SMSTemplate="[str\Service unavailable]"/>
+                                        <TRUE SMSTemplate="Your password is now [examine\[rbn\SkipTuiPasswordOn], [NOT_EQUAL true][str\enabled], [EQUAL true][str\disabled]]"/>
+                                    </_10>
+                                </en-US>
+                            </Templates>
+                        </MO_USSD_ProfileModification>
+                    </SmgUssd>
+<!-- Replace in NDSconf.xml /XmlPst/ComverseTechnology/Nds/V3.1.0.0/Templates/Smtp with the following -->
+<Smtp>
+            <Default BodySuffix="" FromAddress="999@comverse.com" FromName="" TimeFormat="%a, %d %b %Y %H:%M:%S %z" SmtpContentType="text/plain" SmtpMimeVersion="1.0" SmtpServerIpAddress="{NPath:Nds:Hostname\SMTP_Server\name}" SmtpServerPort="{NPath:Nds:Hostname\SMTP_Server\port}" SmtpCharset="iso-8859-1" SmtpEncoding="" ToAddress="[TRIMMING\[EMAILUSERNAME\[rbn\EmailAddress]],10,Right][str\@Smith.Micro]" MimeHeaderFields="Content-Transfer-Encoding: 7bit[nl\]Date: [Time\MessageReceivedTime,false][nl\]X-CNS-Email-Notification-Reason: [GetAttr\Smtp,NotifReason][nl\]X-CNS-IMAP-UID: [IMAP-UID][nl\]Message-ID: [Message-ID][nl\]"/>
+            <SeekStructure SeekStructure="[RequestType]\[MsgName]"/>
+            <Templates>
+              <Default Subject="[str\1][TRIMMING\[EMAILUSERNAME\[rbn\EmailAddress]],10,Right][str\ ][IMAP-UID]"/>
+              <NewMsg BodyPrefix="[examine\[isSet\MsgSensitivity],[EQUAL true][str\The message is private],[EQUAL false][str\The message is not private]][nl\][examine\[rbn_optional\MsgPriority],[EQUAL Urgent][str\The message is urgent],[NOT_EQUAL Urgent][str\The message is not urgent]]" Subject="{NPath:Nds:Templates\Smtp\Templates\Default\Subject} NEW" FromAddress="[examine\[From],[CONTAINS non-mail-user][GetAttr\Smtp,FromAddress2],[NOT_CONTAINS non-mail-user][GetAttr\Smtp,FromAddress3]]" FromAddress2="[examine\[FromDisplay\Name],[EQUAL ******][str\unknown],[NOT_EQUAL ******][FromDisplay\Name]][CUT\[FromDisplay\Email],13,Left]" FromAddress3="[CUT\[CUT\[FromDisplay\Email],3,Left],1,Right]" NotifReason="NewMessage"/>
+              <ReadMsg BodyPrefix="" Subject="{NPath:Nds:Templates\Smtp\Templates\Default\Subject} READ" NotifReason="ReadMessage"/>
+              <ExpungeMsg BodyPrefix="" Subject="{NPath:Nds:Templates\Smtp\Templates\Default\Subject} DEL" FromAddress="{NPath:Nds:Templates\Smtp\Templates\NewMsg\FromAddress}" FromAddress2="{NPath:Nds:Templates\Smtp\Templates\NewMsg\FromAddress2}" FromAddress3="{NPath:Nds:Templates\Smtp\Templates\NewMsg\FromAddress3}" NotifReason="DeleteMessage"/>
+            </Templates>
+          </Smtp>
+                    <SMS>
+                        <NewMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Variables>
+                                <!--pay attention the define order should be from down to up-->
+                                <TextForTotal>[examine\[rbn_optional\MessageType], [EQUAL voice-message][str\voice ], [EQUAL x-reminder-message][str\voice ], [EQUAL fax-message][str\fax ], [EQUAL x-empty-call-capture-message][str\voice ], [EQUAL x-voice-infotainment-message][str\voice ], [EQUAL video-message][str\video ]][str\message from ][Lookup_Originator\From,"Anonymous"][str\ received at ][Time_Optional\MessageReceivedTime]</TextForTotal>
+                                <TextForVideo>[VideoDelimiter][SinglePlural\[Video_Counters],[str\1 new video message],[Video_Counters][str\ new video messages]]</TextForVideo>
+                                <VideoDelimiter>[examine\[Numeric_optional\Voice_Counters + Fax_Counters] ,[LARGER 0][examine\[rbn_optional\Video_Counters],[LARGER 0][str\, ]]]</VideoDelimiter>
+                                <TextForFax>[FaxDelimiter][SinglePlural\[Fax_Counters],[str\1 new fax message],[Fax_Counters][str\ new fax messages]]</TextForFax>
+                                <FaxDelimiter>[examine\[rbn_optional\Voice_Counters] ,[LARGER 0][examine\[rbn_optional\Fax_Counters],[LARGER 0][str\, ]]]</FaxDelimiter>
+                                <TextForVoice>[SinglePlural\[Voice_Counters],[str\1 new voice message],[Voice_Counters][str\ new voice messages]]</TextForVoice>
+                                <MailboxTotalNewMsgs>[numeric_optional\Voice_Counters + Fax_Counters + Video_Counters]</MailboxTotalNewMsgs>
+                                <Video_Counters>[rbn_optional\Total-New-video-message]</Video_Counters>
+                                <Fax_Counters>[rbn_optional\Total-New-fax-message]</Fax_Counters>
+                                <Voice_Counters>[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]</Voice_Counters>
+                            </Variables>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="1"/>
+                                <Submit>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWION&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\NewMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\NewMsg\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;CallbackNum=[Lookup_Originator\Callback,Originator,From]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <en-US>
+                                        <_10 SMSTemplate="[str\You have a new ][TextForTotal][str\. You have ][TextForVoice][TextForFax][TextForVideo]."/>
+                                        <!--We refer each sender together with its counters in aggregated info as AggrStruct. AggrXXX templates are evaluated at each struct and concatenated into AggrComposedInfo. The structs in AggrComposedInfo are delimited with AggrStructDelimiter-->
+                                        <_20 AggrManipulatedSender="[examine\[AggrSender], [EQUAL ******][str\Anonymous], [NOT_EQUAL ******][AggrSender]]" AggrStruct="[str\from ][AggrManipulatedSender][str\ (][AggrNewVoiceMsgs][str\/][AggrTotalNewMsgs][str\ voice messages, ][AggrNewFaxMsgs][str\/][AggrTotalNewMsgs][str\ fax messages, ][AggrNewVideoMsgs][str\/][AggrTotalNewMsgs][str\ video messages)]" AggrStructDelimiter="[nl\]" AggrTotalNewMsgs="[numeric_optional\AggrNewVoiceMsgs + AggrNewFaxMsgs + AggrNewVideoMsgs]" AggrTotalNewMsgsDeltaText="[examine\[Numeric_optional\MailboxTotalNewMsgs - AggrTotalNewMsgsForAllClis],[LARGER 0][str\ the latest]]" AggrTotalNewMsgsForAllClis="[numeric_optional\AggrTotalNewVoiceMsgs + AggrTotalNewFaxMsgs + AggrTotalNewVideoMsgs]" SMSTemplate="[str\You have a new ][TextForTotal][str\. You have ][TextForVoice][TextForFax][TextForVideo][str\.][examine\[IsSet\AggrComposedInfo], [EQUAL true][nl\][str\In addition, you have][AggrTotalNewMsgsDeltaText][str\ new messages:][nl\][AggrComposedInfo]]"/>
+                                    </en-US>
+                                </Submit>
+                                <Alert>
+                                    <Default HeaderTemplate="" SMSTemplate="&amp;RequestId=666&amp;RequestType=NewMsg&amp;MessageType=SMS0&amp;ApplicationName=RC&amp;Destination=[DestAddress]"/>
+                                </Alert>
+                            </Templates>
+                        </NewMsg>
+                        <NumberMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="[examine\[IsSet\OriginatorNumber],[EQUAL false]2235,[EQUAL true][rbn_optional\OriginatorNumber]]" ReplaceFlag="0"/>
+                                <Submit>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=NumberMsg&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13[str\&amp;Destination=][rbn\DestinationNumber]&amp;From={NPath:Nds:Templates\SMS\NumberMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\NumberMsg\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <en-US>
+                                        <_10 SMSTemplate="[examine\[IsSet\UserEnteredNumber],[EQUAL false][str\Missed call],[EQUAL true][str\Call to ][rbn_optional\UserEnteredNumber]]"/>
+                                    </en-US>
+                                </Submit>
+                            </Templates>
+                        </NumberMsg>
+                        <VM2MMSFailedMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Submit>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=VM2MMSMsg&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\VM2MMSFailedMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\VM2MMSFailedMsg\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;SmsRoutingRuleID=[rbn\SmsRoutingRuleID]" SMSTemplate="You have a new message in your mailbox" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <en-US>
+                                        <_10 SMSTemplate="You have a new [rbn_optional\MessageType] message deposited at [time\MessageReceivedTime] from [Lookup_Originator\From,&quot;Anonymous&quot;]. [examine\[rbn_optional\MessageType],[NOT_EQUAL fax-message][str\Message duration is ][rbn_optional\Content-Duration][str\ seconds],[EQUAL fax-message][str\Message contains ][rbn_optional\X-Content-Pages][str\ pages]]."/>
+                                    </en-US>
+                                </Submit>
+                            </Templates>
+                        </VM2MMSFailedMsg>
+                        <UnnoticedMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Variables>
+                                <!--pay attention the define order should be from down to up-->
+                                <TextForTotal>[SinglePlural\[Total_Counters],[str\1 unnoticed message],[Total_Counters][str\ unnoticed messages]]</TextForTotal>
+                                <TextForVideo>[VideoDelimiter][SinglePlural\[Video_Counters],[str\1 unseen video message],[Video_Counters][str\ unseen video messages]]</TextForVideo>
+                                <VideoDelimiter>[examine\[Numeric_optional\Voice_Counters + Fax_Counters] ,[LARGER 0][examine\[rbn_optional\Video_Counters],[LARGER 0][str\, ]]]</VideoDelimiter>
+                                <TextForFax>[FaxDelimiter][SinglePlural\[Fax_Counters],[str\1 unprinted fax message],[Fax_Counters][str\ unprinted fax messages]]</TextForFax>
+                                <FaxDelimiter>[examine\[rbn_optional\Voice_Counters] ,[LARGER 0][examine\[rbn_optional\Fax_Counters],[LARGER 0][str\, ]]]</FaxDelimiter>
+                                <TextForVoice>[SinglePlural\[Voice_Counters],[str\1 unheard voice message],[Voice_Counters][str\ unheard voice messages]]</TextForVoice>
+                                <Total_Counters>[Numeric_optional\Voice_Counters + Fax_Counters + Video_Counters]</Total_Counters>
+                                <Video_Counters>[rbn_optional\Total-Unnoticed-Video-Message]</Video_Counters>
+                                <Fax_Counters>[rbn_optional\Total-Unnoticed-Fax-Message]</Fax_Counters>
+                                <Voice_Counters>[Numeric_optional\Total-Unnoticed-Voice-Message + Total-Unnoticed-x-Empty-Call-Capture-Message + Total-Unnoticed-x-Voice-Infotainment-Message + Total-Unnoticed-x-Reminder-Message + Total-Unnoticed-x-Pending-Reminder-Message + Total-Unnoticed-Text-Message + Total-Unnoticed-x-Fud-Voice-Reminder-Message + Total-Unnoticed-x-Number-Message + Total-Unnoticed-x-wakeup]</Voice_Counters>
+                            </Variables>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="1"/>
+                                <Submit>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=UnreadMsg&amp;NotifyWhenDelivered=0&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\UnnoticedMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\UnnoticedMsg\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <en-US>
+                                        <_10 SMSTemplate="[str\You still have ][TextForTotal][str\ in your mailbox. You have ][TextForVoice][TextForFax][TextForVideo]."/>
+                                    </en-US>
+                                </Submit>
+                                <Alert>
+                                    <!--CounterName is used by StatisticsManager - don't change-->
+                                    <Default CounterName="SMS0" HeaderTemplate="" SMSTemplate="&amp;RequestId=666&amp;RequestType=NewMsg&amp;MessageType=SMS0&amp;ApplicationName=RC&amp;Destination=[DestAddress]"/>
+                                </Alert>
+                            </Templates>
+                        </UnnoticedMsg>
+                        <MailboxFull>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Variables>
+                                <!--pay attention the define order should be from down to up-->
+                                <MessageTypeValue>[examine\[rbn_optional\MessageType], [EQUAL voice-message][str\voice], [EQUAL x-empty-call-capture-message][str\voice], [EQUAL x-voice-infotainment-message][str\voice], [EQUAL fax-message][str\fax], [EQUAL x-reminder-message][str\voice], [EQUAL video-message][str\video], [EQUAL total][str\any]]</MessageTypeValue>
+                            </Variables>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Submit>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MailboxFull&amp;NotifyWhenDelivered=0&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\MailboxFull\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\MailboxFull\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <en-US>
+                                        <_10 SMSTemplate="[str\Your mailbox is full][examine\[rbn_optional\QuotaType], [EQUAL Soft][str\, additional][examine\[rbn_optional\MessageTypeValue], [NOT_EQUAL any][str\ ][rbn\MessageTypeValue]], [EQUAL Hard][str\. Additional]][str\ messages can't be received. Please delete some messages.]"/>
+                                        <_20 SMSTemplate="{NPath:Nds:Templates\SMS\MailboxFull\Templates\Submit\en-US\_10\SMSTemplate}"/>
+                                    </en-US>
+                                </Submit>
+                                <Alert>
+                                    <Default HeaderTemplate="" SMSTemplate="&amp;RequestId=666&amp;RequestType=NewMsg&amp;MessageType=SMS0&amp;ApplicationName=RC&amp;Destination=[DestAddress]"/>
+                                </Alert>
+                            </Templates>
+                        </MailboxFull>
+                        <Login>
+                            <Default SMSCharset="iso-8859-1"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <!--CounterName is used by StatisticsManager - don't change-->
+                                <Default CounterName="CancelSMS" HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWIOFF&amp;CancelServiceType=[rbn\CancelServiceType]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From=[rbn\OrigFromValue]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" SMSTemplate=""/>
+                            </Templates>
+                        </Login>
+                        <Logout>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Variables>
+                                <!--pay attention the define order should be from down to up-->
+                                <TextForTotal>You have [TotalCounters] new [Examine\[TotalCounters],[EQUAL 1]message,[NOT_EQUAL 1]messages]</TextForTotal>
+                                <TextForVideo>[rbn_optional\Total-New-Video-Message] new video [Examine\[rbn_optional\Total-New-Video-Message],[EQUAL 1]message,[NOT_EQUAL 1]messages]</TextForVideo>
+                                <TextForFax>[rbn_optional\Total-New-Fax-Message] new fax [Examine\[rbn_optional\Total-New-Fax-Message],[EQUAL 1]message,[NOT_EQUAL 1]messages]</TextForFax>
+                                <TextForVoice>You have [VoiceCounters] new voice [Examine\[VoiceCounters],[EQUAL 1]message,[NOT_EQUAL 1]messages]</TextForVoice>
+                                <TotalCounters>[numeric_optional\Total-New-Fax-Message + Total-New-Video-Message + VoiceCounters]</TotalCounters>
+                                <VoiceCounters>[numeric_optional\Total-New-Text-Message + Total-New-Voice-Message + Total-New-x-Empty-Call-Capture-Message + Total-New-x-Fud-Voice-Reminder-Message + Total-New-x-Number-Message + Total-New-x-Pending-Reminder-Message + Total-New-x-Reminder-Message + Total-New-x-wakeup + Total-New-x-Voice-Infotainment-Message]</VoiceCounters>
+                            </Variables>
+                            <Templates>
+                                <!--CounterName is used by StatisticsManager - don't change-->
+                                <CancelMsg>
+                                    <Default CounterName="CancelSMS" HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWIOFF&amp;CancelServiceType=[rbn\CancelServiceType]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From=[rbn\OrigFromValue]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" SMSTemplate=""/>
+                                </CancelMsg>
+                                <UpdateMsg>
+                                    <HeaderParm From="2235" ReplaceFlag="1"/>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=UpdateMsg&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\Logout\Templates\UpdateMsg\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\Logout\Templates\UpdateMsg\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <en-US>
+                                        <_10 SMSTemplate="[TextForTotal]. [TextForVoice], [TextForFax] and [TextForVideo]."/>
+                                    </en-US>
+                                </UpdateMsg>
+                            </Templates>
+                        </Logout>
+                        <ReadMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Variables>
+                                <!--pay attention the define order should be from down to up-->
+                                <MessageTypeValue>[examine\[rbn_optional\MessageType], [EQUAL voice-message][str\voice ], [EQUAL x-reminder-message][str\voice ], [EQUAL fax-message][str\fax ], [EQUAL x-empty-call-capture-message][str\voice ], [EQUAL x-voice-infotainment-message][str\voice ], [EQUAL video-message][str\video ]]</MessageTypeValue>
+                                <BPartyNumber>[examine\[rbn_optional\uid],[EQUAL NoSubscriber][X-CNS-Destination-Phone-Number],[NOT_EQUAL NoSubscriber][MainPhone]]</BPartyNumber>
+                            </Variables>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=ReadReceipt&amp;NotifyWhenDelivered=0&amp;RequestId=13&amp;Destination=[rbn\X-CNS-SMS-Disposition-Notification-To]&amp;From={NPath:Nds:Templates\SMS\ReadMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\ReadMsg\Templates\HeaderParm\ReplaceFlag}&amp;SmsBillingType=[rbn\SmsBillingType]&amp;SmsRoutingRuleID=[rbn\SmsRoutingRuleID]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]" TimeFormat="%H:%M %d/%m/%Y"/>
+                                <en-US>
+                                    <_10 SMSTemplate="Your [MessageTypeValue]message to [BPartyNumber] from [time\MessageReceivedTime] was heard at [time\RequestTime]."/>
+                                </en-US>
+                            </Templates>
+                        </ReadMsg>
+                        <DeleteMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[ChosenLanguage]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=ReadReceipt&amp;NotifyWhenDelivered=0&amp;RequestId=13&amp;Destination=[rbn\X-CNS-SMS-Disposition-Notification-To]&amp;From={NPath:Nds:Templates\SMS\DeleteMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\DeleteMsg\Templates\HeaderParm\ReplaceFlag}&amp;SmsBillingType=[rbn\SmsBillingType]&amp;SmsRoutingRuleID=[rbn\SmsRoutingRuleID]" TimeFormat="%H:%M %d/%m/%Y"/>
+                                <en-US SMSTemplate="Your message from [time\MessageReceivedTime] was deleted by [rbn_nick\To] at [time\MessageRetrievalTime]."/>
+                            </Templates>
+                        </DeleteMsg>
+                        <ExpiredMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[ChosenLanguage]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=ReadReceipt&amp;NotifyWhenDelivered=0&amp;RequestId=13&amp;Destination=[rbn\X-CNS-SMS-Disposition-Notification-To]&amp;From={NPath:Nds:Templates\SMS\ExpiredMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\ExpiredMsg\Templates\HeaderParm\ReplaceFlag}&amp;SmsBillingType=[rbn\SmsBillingType]&amp;SmsRoutingRuleID=[rbn\SmsRoutingRuleID]&amp;DelayedDeliveryTime=[rbn\DeliveryDelayTimeInSeconds]" TimeFormat="%H:%M %d/%m/%Y"/>
+                                <en-US SMSTemplate="Your message from [time\MessageReceivedTime] to [rbn_nick\To] was deleted by the system."/>
+                            </Templates>
+                        </ExpiredMsg>
+                        <CLI2Me>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SMSTemplateId]\[ChosenLanguage]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=CLI2Me&amp;NotifyWhenDelivered=0&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\CLI2Me\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\CLI2Me\Templates\HeaderParm\ReplaceFlag}&amp;SmsBillingType=[rbn\SmsBillingType]&amp;SmsRoutingRuleID=[rbn\SmsRoutingRuleID]" TimeFormat="%H:%M %d/%m/%Y"/>
+                                <_10>
+                                    <en-US SMSTemplate="You received a message from [Lookup_Originator\From,&quot;Anonymous&quot;] at [time\MessageReceivedTime]."/>
+                                </_10>
+                            </Templates>
+                        </CLI2Me>
+                        <PasswordReminder>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SMSTemplateId]\[TextLanguage]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=PasswordReminder&amp;NotifyWhenDelivered=0&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\PasswordReminder\Templates\HeaderParm\From}&amp;DelayedDeliveryTime=[rbn\DeliveryDelayTimeInSeconds]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%H:%M %d/%m/%Y"/>
+                                <_10>
+                                    <en-US SMSTemplate="Your Password is [X-CNS-Password]"/>
+                                </_10>
+                            </Templates>
+                        </PasswordReminder>
+                        <NewPasswordGenerated>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SMSTemplateId]\[TextLanguage]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=PasswordReminder&amp;NotifyWhenDelivered=0&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\NewPasswordGenerated\Templates\HeaderParm\From}&amp;DelayedDeliveryTime=[rbn\DeliveryDelayTimeInSeconds]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%H:%M %d/%m/%Y"/>
+                                <_10>
+                                    <en-US SMSTemplate="At [time\RequestTime] your Password was reset. The new password is [X-CNS-Password]"/>
+                                </_10>
+                            </Templates>
+                        </NewPasswordGenerated>
+                        <PasswordValidationFailed>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SMSTemplateId]\[TextLanguage]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=PasswordReminder&amp;NotifyWhenDelivered=0&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\NewPasswordGenerated\Templates\HeaderParm\From}&amp;DelayedDeliveryTime=[rbn\DeliveryDelayTimeInSeconds]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%H:%M %d/%m/%Y"/>
+                                <_10>
+                                    <en-US SMSTemplate="At [time\RequestTime] there was a failed attempt to logon to your account. Your correct password is [X-CNS-Password]"/>
+                                </_10>
+                            </Templates>
+                        </PasswordValidationFailed>
+                        <PrintFaxAutoTransfer>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SMSTemplateId]\[TextLanguage]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=FaxPrintNotification&amp;NotifyWhenDelivered=0&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\PrintFaxAutoTransfer\Templates\HeaderParm\From}&amp;DelayedDeliveryTime=[rbn\DeliveryDelayTimeInSeconds]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%H:%M %d/%m/%Y"/>
+                                <_10>
+                                    <en-US SMSTemplate="Fax was successfully auto-forwarded to [rbn\DN]"/>
+                                </_10>
+                            </Templates>
+                        </PrintFaxAutoTransfer>
+                        <FUDReminder>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[TextLanguage]\[MsgName]"/>
+                            <Variables>
+                                <!--pay attention the define order should be from down to up-->
+                                <TextForPlayedExpired>[PlayedDelimiter][SinglePlural\[PlayedExpired_Counters],[str\1 played expired Reminder],[PlayedExpired_Counters][str\ played expired Reminders]]</TextForPlayedExpired>
+                                <PlayedDelimiter>[examine\[PlayedExpired_Counters], [LARGER 0][examine\[numeric_optional\PlayedExpired_Counters], [LARGER 0][str\ and ]]]</PlayedDelimiter>
+                                <TextForExpired>[SinglePlural\[Expired_Counters],[str\1 new expired Reminder],[Expired_Counters][str\ new expired Reminders]]</TextForExpired>
+                                <PlayedExpired_Counters>[numeric_optional\Total-x-Fud-Voice-Reminder-Message - Total-New-x-Fud-Voice-Reminder-Message]</PlayedExpired_Counters>
+                                <Expired_Counters>[Total-New-x-Fud-Voice-Reminder-Message]</Expired_Counters>
+                            </Variables>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="1"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=FUDReminder&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\FUDReminder\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\FUDReminder\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                <en-US SMSTemplate="[str\Your Reminder has-been expired at  ][Time\MessageReceivedTime][str\. You have ][TextForExpired][TextForPlayedExpired][str\.]"/>
+                            </Templates>
+                        </FUDReminder>
+                        <WelcomeMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Submit>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=WelcomeMsg&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\WelcomeMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\WelcomeMsg\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <en-US>
+                                        <_10 SMSTemplate="New VM account was created "/>
+                                        <_20 SMSTemplate="{NPath:Nds:Templates\SMS\WelcomeMsg\Templates\Submit\en-US\_10\SMSTemplate}"/>
+                                    </en-US>
+                                </Submit>
+                            </Templates>
+                        </WelcomeMsg>
+                        <CannedMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[RequestSubType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Variables>
+                                <!--pay attention the define order should be from down to up-->
+                                <CustomFieldsText>[examine\[OR\[IsSet\CustomField1],[IsSet\CustomField2],[IsSet\CustomField3],[IsSet\CustomField4],[IsSet\CustomField5]],[EQUAL TRUE][str\Custom fields values are:]]</CustomFieldsText>
+                                <Field5>[examine\[IsSet\CustomField5],[EQUAL true][str\CustomField5=][CustomField5]]</Field5>
+                                <Field4>[examine\[IsSet\CustomField4],[EQUAL true][str\CustomField4=][CustomField4][str\ ]]</Field4>
+                                <Field3>[examine\[IsSet\CustomField3],[EQUAL true][str\CustomField3=][CustomField3][str\ ]]</Field3>
+                                <Field2>[examine\[IsSet\CustomField2],[EQUAL true][str\CustomField2=][CustomField2][str\ ]]</Field2>
+                                <Field1>[examine\[IsSet\CustomField1],[EQUAL true][str\CustomField1=][CustomField1][str\ ]]</Field1>
+                            </Variables>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Submit>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=CannedMsg&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\CannedMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\CannedMsg\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;CallbackNum=[Lookup_Originator\OriginatorNumber,&quot;Anonymous&quot;]&amp;SmsRoutingRuleID=[rbn\SmsRoutingRuleID]&amp;LoggingAccordingTo=[rbn_optional\LoggingAccordingTo]&amp;LoggingID=[rbn_optional\LoggingID]&amp;LoggingLevel=[rbn_optional\LoggingLevel]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <CustomEvent1>
+                                        <en-US>
+                                            <_10 SMSTemplate="This is a default message from [Lookup_Originator\OriginatorNumber,&quot;Anonymous&quot;].[CustomFieldsText] [Field1][Field2][Field3][Field4][Field5]"/>
+                                        </en-US>
+                                    </CustomEvent1>
+                                </Submit>
+                            </Templates>
+                        </CannedMsg>
+                        <MsgPurgeWarn>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="0"/>
+                                <Submit>
+                                    <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MsgPurgeWarn&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMS\MsgPurgeWarn\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMS\MsgPurgeWarn\Templates\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;CallbackNum=[Lookup_Originator\Callback,Originator,From]&amp;SmsRoutingRuleID=[rbn\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                    <en-US>
+                                        <_10 SMSTemplate="You have a new message from [Lookup_Originator\From,&quot;Anonymous&quot;][str\ received at ][Time\MessageReceivedTime]. The message is going to be deleted."/>
+                                    </en-US>
+                                </Submit>
+                            </Templates>
+                        </MsgPurgeWarn>
+                        <SmscTemplate>
+                            <Params CalcTemplateData="[GetAttr\SMS\SmscTemplate\[RequestType]\[PST\Nds\V3.1.0.0\SmscTemplateCode\Default,value],SmscTemplate]" CalcTemplateDataWithRouting="[GetAttr\SMS\SmscTemplate\[RequestType]\[PST\Nds\V3.1.0.0\SmscTemplateCode\[rbn\SmsRoutingRuleID],value],SmscTemplate]" CalcTemplateId="[GetAttr\SMS\SmscTemplate\[RequestType]\[PST\Nds\V3.1.0.0\SmscTemplateCode\Default,value],SmscTemplateId]" CalcTemplateIdWithRouting="[GetAttr\SMS\SmscTemplate\[RequestType]\[PST\Nds\V3.1.0.0\SmscTemplateCode\[rbn\SmsRoutingRuleID],value],SmscTemplateId]"/>
+                            <NewMsg>
+                                <_1>
+                                    <SeekStructure SeekStructure="[TextLanguage]\[examine\[From],[EQUAL NO_FROM_IN_SNAP]noFrom,[CONTAINS *****]noFrom,[NOT_EQUAL NO_FROM_IN_SNAP]From]\[NotifAction]\[examine\[rbn_optional\Total-New-fax-message],[EQUAL 0][str\zeroFax],[LARGER 0][str\manyFax]]\[examine\[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message],[EQUAL 0][str\zeroVoice],[LARGER 0][str\manyVoice]]\[MsgName]"/>
+                                    <Templates>
+                                        <Default TimeFormat="TIME%H%M$DATE%d%m%Y"/>
+                                        <en-US>
+                                            <From>
+                                                <ActivateFirst>
+                                                    <zeroFax>
+                                                        <manyVoice SmscTemplate="[Time\MessageReceivedTime]$CLI[rbn\From]$VOICE[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]" SmscTemplateId="7"/>
+                                                        <zeroVoice SmscTemplate="[Time\MessageReceivedTime]$CLI[rbn\From]" SmscTemplateId="11"/>
+                                                    </zeroFax>
+                                                    <manyFax>
+                                                        <manyVoice SmscTemplate="[Time\MessageReceivedTime]$CLI[rbn\From]$VOICE[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]$FAX[Total-New-fax-message]" SmscTemplateId="1"/>
+                                                        <zeroVoice SmscTemplate="[Time\MessageReceivedTime]$CLI[rbn\From]$FAX[Total-New-fax-message]" SmscTemplateId="9"/>
+                                                    </manyFax>
+                                                </ActivateFirst>
+                                                <ActivateEvery>
+                                                    <zeroFax>
+                                                        <manyVoice SmscTemplate="[Time\MessageReceivedTime]$CLI[rbn\From]$VOICE[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]" SmscTemplateId="7"/>
+                                                        <zeroVoice SmscTemplate="[Time\MessageReceivedTime]$CLI[rbn\From]" SmscTemplateId="11"/>
+                                                    </zeroFax>
+                                                    <manyFax>
+                                                        <manyVoice SmscTemplate="[Time\MessageReceivedTime]$CLI[rbn\From]$VOICE[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]$FAX[Total-New-fax-message]" SmscTemplateId="3"/>
+                                                        <zeroVoice SmscTemplate="[Time\MessageReceivedTime]$CLI[rbn\From]$FAX[Total-New-fax-message]" SmscTemplateId="9"/>
+                                                    </manyFax>
+                                                </ActivateEvery>
+                                            </From>
+                                            <noFrom>
+                                                <ActivateFirst>
+                                                    <zeroFax>
+                                                        <manyVoice SmscTemplate="[Time\MessageReceivedTime]$VOICE[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]" SmscTemplateId="8"/>
+                                                        <zeroVoice SmscTemplate="[Time\MessageReceivedTime]" SmscTemplateId="11"/>
+                                                    </zeroFax>
+                                                    <manyFax>
+                                                        <manyVoice SmscTemplate="[Time\MessageReceivedTime]$VOICE[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]$FAX[Total-New-fax-message]" SmscTemplateId="4"/>
+                                                        <zeroVoice SmscTemplate="[Time\MessageReceivedTime]$FAX[Total-New-fax-message]" SmscTemplateId="10"/>
+                                                    </manyFax>
+                                                </ActivateFirst>
+                                                <ActivateEvery>
+                                                    <zeroFax>
+                                                        <manyVoice SmscTemplate="[Time\MessageReceivedTime]$VOICE[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]" SmscTemplateId="8"/>
+                                                        <zeroVoice SmscTemplate="[Time\MessageReceivedTime]" SmscTemplateId="11"/>
+                                                    </zeroFax>
+                                                    <manyFax>
+                                                        <manyVoice SmscTemplate="[Time\MessageReceivedTime]$VOICE[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]$FAX[Total-New-fax-message]" SmscTemplateId="6"/>
+                                                        <zeroVoice SmscTemplate="[Time\MessageReceivedTime]$FAX[Total-New-fax-message]" SmscTemplateId="10"/>
+                                                    </manyFax>
+                                                </ActivateEvery>
+                                            </noFrom>
+                                        </en-US>
+                                    </Templates>
+                                </_1>
+                            </NewMsg>
+                            <NumberMsg>
+                                <_1>
+                                    <SeekStructure SeekStructure="[examine\[IsSet\OriginatorNumber],[EQUAL true]From,[EQUAL false]noFrom]\[MsgName]"/>
+                                    <Templates>
+                                        <Default TimeFormat="TIME%H%M$DATE%d%m%Y"/>
+                                        <From SmscTemplate="CLI[rbn\OriginatorNumber]$NUM[rbn\UserEnteredNumber]" SmscTemplateId="2"/>
+                                        <noFrom SmscTemplate="NUM[rbn\UserEnteredNumber]" SmscTemplateId="5"/>
+                                    </Templates>
+                                </_1>
+                            </NumberMsg>
+                        </SmscTemplate>
+                    </SMS>
+                    <SmsTextIcon>
+                        <NewMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Variables>
+                                <!--pay attention the define order should be from down to up-->
+                                <TextForTotal>[examine\[rbn_optional\MessageType], [EQUAL voice-message][str\voice ], [EQUAL x-reminder-message][str\voice ], [EQUAL fax-message][str\fax ], [EQUAL x-empty-call-capture-message][str\voice ], [EQUAL x-voice-infotainment-message][str\voice ], [EQUAL video-message][str\video ]][str\message from ][Lookup_Originator\From,"Anonymous"][str\ received at ][Time\MessageReceivedTime]</TextForTotal>
+                                <TextForVideo>[VideoDelimiter][SinglePlural\[Video_Counters],[str\1 new video message],[Video_Counters][str\ new video messages]]</TextForVideo>
+                                <VideoDelimiter>[examine\[Numeric_optional\Voice_Counters + Fax_Counters] ,[LARGER 0][examine\[rbn_optional\Video_Counters],[LARGER 0][str\, ]]]</VideoDelimiter>
+                                <TextForFax>[FaxDelimiter][SinglePlural\[Fax_Counters],[str\1 new fax message],[Fax_Counters][str\ new fax messages]]</TextForFax>
+                                <FaxDelimiter>[examine\[rbn_optional\Voice_Counters] ,[LARGER 0][examine\[rbn_optional\Fax_Counters],[LARGER 0][str\, ]]]</FaxDelimiter>
+                                <TextForVoice>[SinglePlural\[Voice_Counters],[str\1 new voice message],[Voice_Counters][str\ new voice messages]]</TextForVoice>
+                                <Video_Counters>[rbn_optional\Total-New-video-message]</Video_Counters>
+                                <Fax_Counters>[rbn_optional\Total-New-fax-message]</Fax_Counters>
+                                <Voice_Counters>[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-x-voice-infotainment-message + Total-New-x-reminder-message]</Voice_Counters>
+                            </Variables>
+                            <Templates>
+                                <HeaderParm From="2235" ReplaceFlag="1"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWION&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;From={NPath:Nds:Templates\Icon\HeaderParm\From}&amp;SmsType=TextIcon&amp;IconType=[rbn_optional\IconTypeMain]&amp;MediaType=[rbn\IconMediaType]&amp;ReplacePendingSms={NPath:Nds:Templates\Icon\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M"/>
+                                <en-US>
+                                    <_10 SMSTemplate="[str\You have a new ][TextForTotal][str\. You have ][TextForVoice][TextForFax][TextForVideo]."/>
+                                </en-US>
+                            </Templates>
+                        </NewMsg>
+                    </SmsTextIcon>
+                    <ICON>
+                        <HeaderParm From="2235" ReplaceFlag="1"/>
+                    </ICON>
+                    <OutCall>
+                        <OutDial>
+                            <MainPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]" RMR_INPUT1="[str\]" RMR_INPUT10="[str\]" RMR_INPUT2="[str\]" RMR_INPUT3="[str\]" RMR_INPUT4="[str\]" RMR_INPUT5="[str\]" RMR_INPUT6="[str\]" RMR_INPUT7="[str\]" RMR_INPUT8="[str\]" RMR_INPUT9="[str\]"/>
+                            <AlternatePhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]" RMR_INPUT1="[str\]" RMR_INPUT10="[str\]" RMR_INPUT2="[str\]" RMR_INPUT3="[str\]" RMR_INPUT4="[str\]" RMR_INPUT5="[str\]" RMR_INPUT6="[str\]" RMR_INPUT7="[str\]" RMR_INPUT8="[str\]" RMR_INPUT9="[str\]"/>
+                            <AdditionalPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]" RMR_INPUT1="[str\]" RMR_INPUT10="[str\]" RMR_INPUT2="[str\]" RMR_INPUT3="[str\]" RMR_INPUT4="[str\]" RMR_INPUT5="[str\]" RMR_INPUT6="[str\]" RMR_INPUT7="[str\]" RMR_INPUT8="[str\]" RMR_INPUT9="[str\]"/>
+                            <AccessPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                        </OutDial>
+                        <PrintFax>
+                            <Default MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]" RMR_INPUT1="[str\]" RMR_INPUT10="[str\]" RMR_INPUT2="[str\]" RMR_INPUT3="[str\]" RMR_INPUT4="[str\]" RMR_INPUT5="[str\]" RMR_INPUT6="[str\]" RMR_INPUT7="[str\]" RMR_INPUT8="[str\]" RMR_INPUT9="[str\]"/>
+                            <Explicit MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]" RMR_INPUT1="[str\]" RMR_INPUT10="[str\]" RMR_INPUT2="[str\]" RMR_INPUT3="[str\]" RMR_INPUT4="[str\]" RMR_INPUT5="[str\]" RMR_INPUT6="[str\]" RMR_INPUT7="[str\]" RMR_INPUT8="[str\]" RMR_INPUT9="[str\]"/>
+                            <AutoFwd MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]" RMR_INPUT1="[str\]" RMR_INPUT10="[str\]" RMR_INPUT2="[str\]" RMR_INPUT3="[str\]" RMR_INPUT4="[str\]" RMR_INPUT5="[str\]" RMR_INPUT6="[str\]" RMR_INPUT7="[str\]" RMR_INPUT8="[str\]" RMR_INPUT9="[str\]"/>
+                            <ID MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                        </PrintFax>
+                        <PersonalReminder>
+                            <MainPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                        </PersonalReminder>
+                        <MsgToPhone>
+                            <Explicit MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                        </MsgToPhone>
+                        <WakeUp>
+                            <Default MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                        </WakeUp>
+                        <MwiByCall>
+                            <MainPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                            <AlternatePhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                            <AdditionalPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                        </MwiByCall>
+                        <MwiBySip>
+                            <MainPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                            <AdditionalPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                        </MwiBySip>
+                        <ReadReceipt>
+                            <AccessPhone MSG_FROM_PHONE_NUMBER="[Lookup_Originator\From]"/>
+                        </ReadReceipt>
+                    </OutCall>
+                    <VVM>
+                        <ImapServerDetails ImapServerAddress="62.219.102.137" ImapServerPort="50025"/>
+                        <VVMSystemDetails SMSDestination="" VoicemailSystemNumber=""/>
+                        <NewMsg>
+                            <SeekStructure SeekStructure="[VVMDeviceType]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="[str\*1111]" ReplaceFlag="1"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=VVM&amp;MessageType=VVMMailboxUpdate&amp;NotifyWhenDelivered=0&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\VVM\NewMsg\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\VVM\NewMsg\Templates\HeaderParm\ReplaceFlag}&amp;AppOrigPort=257&amp;AppDestPort=5499&amp;OriginatorSiteId=[rbn\SiteId]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]"/>
+                                <_1>
+                                    <_10 SMSTemplate="//VVM:NM:t=[Examine\[MessageType], [EQUAL voice-message][str\v], [EQUAL video-message][str\o], [EQUAL fax-message][str\f], [EQUAL x-empty-call-capture-message][str\e], [EQUAL x-voice-infotainment-message][str\i]];p=[Examine\[MsgPriority], [EQUAL low][str\n], [EQUAL normal][str\n], [EQUAL urgent][str\u]][examine\[IsSet\X-CNS-Originator-Phone-Number],[EQUAL true];s=[X-CNS-Originator-Phone-Number]];tm=[Time\MessageReceivedTime, false,[str\%H:%M]];dt=[Time\MessageReceivedTime, false,[str\%d/%m/%Y]];"/>
+                                </_1>
+                                <_2>
+                                    <_10 SMSTemplate="//BREW:xxxxxxx:NM:t=[Examine\[MessageType], [EQUAL voice-message][str\v], [EQUAL video-message][str\o], [EQUAL fax-message][str\f], [EQUAL x-empty-call-capture-message][str\e], [EQUAL x-voice-infotainment-message][str\i]];p=[Examine\[MsgPriority], [EQUAL low][str\n], [EQUAL normal][str\n], [EQUAL urgent][str\u]][examine\[IsSet\X-CNS-Originator-Phone-Number],[EQUAL true];s=[X-CNS-Originator-Phone-Number]];tm=[Time\MessageReceivedTime, false,[str\%H:%M]];dt=[Time\MessageReceivedTime, false,[str\%d/%m/%Y]];"/>
+                                </_2>
+                                <_4>
+                                    <_10 SMSTemplate="MBOXUPDATE?m=[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-fax-message + Total-New-video-message + Total-New-x-voice-infotainment-message];server={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerAddress};port={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerPort};name=[EmailAddress];pw=[DECRYPT\MailAccountPassword]"/>
+                                </_4>
+                                <_5>
+                                    <_10 SMSTemplate="//VVM:SYNC:ev=NM;c=[numeric_optional\Total-New-voice-message + Total-New-x-empty-call-capture-message + Total-New-fax-message + Total-New-video-message + Total-New-x-voice-infotainment-message];t=[Examine\[MessageType], [EQUAL voice-message][str\v], [EQUAL video-message][str\o], [EQUAL fax-message][str\f], [EQUAL x-empty-call-capture-message][str\e], [EQUAL x-voice-infotainment-message][str\n]][examine\[IsSet\X-CNS-Originator-Phone-Number],[EQUAL true];s=[X-CNS-Originator-Phone-Number]];dt=[Time\MessageReceivedTime,false,[str\%d/%m/%Y %H:%M %z]][examine\[rbn_optional\MessageType], [EQUAL x-empty-call-capture-message][str\;l=0], [EQUAL fax-message][examine\[IsSet\X-Content-Pages],[EQUAL true];l=[X-Content-Pages]], [NOT_EQUAL fax-message][examine\[IsSet\Content-Duration],[EQUAL true];l=[Content-Duration]]]"/>
+                                </_5>
+                            </Templates>
+                        </NewMsg>
+                        <Logout>
+                            <SeekStructure SeekStructure="[VVMDeviceType]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="{NPath:Nds:Templates\VVM\NewMsg\Templates\HeaderParm\From}" ReplaceFlag="1"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=VVM&amp;MessageType=VVMMailboxUpdate&amp;NotifyWhenDelivered=0&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\VVM\Logout\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\VVM\Logout\Templates\HeaderParm\ReplaceFlag}&amp;AppOrigPort=257&amp;AppDestPort=5499&amp;OriginatorSiteId=[rbn\SiteId]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]"/>
+                                <_4>
+                                    <_10 SMSTemplate="MBOXUPDATE?server={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerAddress};port={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerPort};name=[EmailAddress];pw=[DECRYPT\MailAccountPassword]"/>
+                                </_4>
+                                <_5>
+                                    <_10 SMSTemplate="//VVM:SYNC:ev=MBU"/>
+                                </_5>
+                            </Templates>
+                        </Logout>
+                        <VVMSubModifyGreeting>
+                            <SeekStructure SeekStructure="[VVMDeviceType]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="{NPath:Nds:Templates\VVM\NewMsg\Templates\HeaderParm\From}" ReplaceFlag="1"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=VVM&amp;MessageType=VVMModifyGreeting&amp;NotifyWhenDelivered=0&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\VVM\VVMSubModifyGreeting\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\VVM\VVMSubModifyGreeting\Templates\HeaderParm\ReplaceFlag}&amp;AppOrigPort=257&amp;AppDestPort=5499&amp;OriginatorSiteId=[rbn\SiteId]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]"/>
+                                <_4>
+                                    <_10 SMSTemplate="GREETINGCHANGED?server={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerAddress};port={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerPort};name=[EmailAddress];pw=[DECRYPT\MailAccountPassword]"/>
+                                </_4>
+                                <_5>
+                                    <_10 SMSTemplate="//VVM:SYNC:ev=GU"/>
+                                </_5>
+                            </Templates>
+                        </VVMSubModifyGreeting>
+                        <Status>
+                            <SeekStructure SeekStructure="[VVMDeviceType]\[SMSTemplateId]\[VVMResponseMode]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="[str\*1111]" ReplaceFlag="1"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=VVM&amp;MessageType=[rbn\VVMMessageType]&amp;NotifyWhenDelivered=0&amp;RequestId=15[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\VVM\Status\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\VVM\Status\Templates\HeaderParm\ReplaceFlag}&amp;AppOrigPort=257&amp;AppDestPort=5499&amp;OriginatorSiteId=[rbn\SiteId]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]"/>
+                                <_1>
+                                    <_10>
+                                        <Positive SMSTemplate="//VVM:SE:t=[t];u=[MailAccountUsername];p=[DECRYPT\MailAccountPassword];ip={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerAddress};pt={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerPort};er=0;">
+                                            <!--Positive Response er=0-->
+                                        </Positive>
+                                        <Negative SMSTemplate="//VVM:SE:t=[t];er=[VVMResponseReturnCode];">
+                                            <!--VVM-104-285 - parameters are not relevant  if ‘er’ indicate an error-->
+                                            <!--Negative Response-->
+                                        </Negative>
+                                    </_10>
+                                </_1>
+                                <_2>
+                                    <_10>
+                                        <Positive SMSTemplate="//BREW:xxxxxxx:SE:t=[t];u=[MailAccountUsername];p=[DECRYPT\MailAccountPassword];ip={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerAddress};pt={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerPort};er=0;">
+                                            <!--Positive Response er=0-->
+                                        </Positive>
+                                        <Negative SMSTemplate="//BREW:xxxxxxx:SE:t=[t];er=[VVMResponseReturnCode];">
+                                            <!--VVM-104-285 - parameters are not relevant  if ‘er’ indicate an error-->
+                                            <!--Negative Response-->
+                                        </Negative>
+                                    </_10>
+                                </_2>
+                                <_4>
+                                    <_10>
+                                        <Positive SMSTemplate="STATE?state=[VVMResponseStatusiphone];server={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerAddress};port={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerPort};pw=[DECRYPT\MailAccountPassword];name=[MailAccountUsername]">
+                                            <!--state equal NewAcount & Activate-->
+                                        </Positive>
+                                        <Negative SMSTemplate="STATE?state=NotAvailable"/>
+                                    </_10>
+                                </_4>
+                                <_5>
+                                    <_10>
+                                        <Positive SMSTemplate="//VVM:STATUS:st=[VVMResponseStatusVVM3.0];rc=0;srv={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerAddress};ipt={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerPort};spt=25;u=[MailAccountUsername];pw=[DECRYPT\MailAccountPassword];lang=1;g_len=[PersonalGreetingSizeLimit];vs_len=[VSSizeLimit];pw_len=4;smtp_u=super_user@wirelesscarrier.com;smtp_pw=48769463we"/>
+                                        <Negative SMSTemplate="//VVM:STATUS:rc=[VVMResponseReturnCode];st=[VVMResponseStatusVVM3.0]">
+                                            <!--VVM-104-290 - parameters are not relevant in the following cases: st= U/B/P  and rc=1/2-->
+                                        </Negative>
+                                    </_10>
+                                </_5>
+                                <_30>
+                                    <_10>
+                                        <Positive SMSTemplate="//VVM:STATUS:st=[VVMResponseStatusVVM3.0];rc=0;srv={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerAddress};ipt={NPath:Nds:Templates\VVM\ImapServerDetails\ImapServerPort};spt=25;u=[MailAccountUsername];pw=[DECRYPT\MailAccountPassword];lang=1;g_len=[PersonalGreetingSizeLimit];vs_len=[VSSizeLimit];pw_len=4;smtp_u=super_user@wirelesscarrier.com;smtp_pw=48769463we"/>
+                                        <Negative SMSTemplate="//VVM:STATUS:rc=[VVMResponseReturnCode];st=[VVMResponseStatusVVM3.0]">
+                                            <!--VVM-104-290 - parameters are not relevant in the following cases: st= U/B/P  and rc=1/2-->
+                                        </Negative>
+                                    </_10>
+                                </_30>
+                            </Templates>
+                        </Status>
+                        <Unrecognized>
+                            <SeekStructure SeekStructure="[VVMDeviceType]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <HeaderParm From="[str\*1111]" ReplaceFlag="0"/>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=VVM&amp;MessageType=VVMUnrecognizedCmd&amp;NotifyWhenDelivered=0&amp;RequestId=15[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\VVM\Unrecognized\Templates\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\VVM\Unrecognized\Templates\HeaderParm\ReplaceFlag}&amp;AppOrigPort=257&amp;AppDestPort=5499&amp;OriginatorSiteId=[rbn\SiteId]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]"/>
+                                <_4>
+                                    <_10 SMSTemplate="UNRECOGNIZED?cmd=[UserData]"/>
+                                </_4>
+                            </Templates>
+                        </Unrecognized>
+                    </VVM>
+                    <MwiBySmdi>
+                        <Deactivate>
+                            <SeekStructure SeekStructure="[MsgName]"/>
+                            <Templates HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=SMDI&amp;MessageType=MwiOff&amp;Destination=[rbn\DestAddress]&amp;SmsRoutingRuleID=[SmsRoutingRuleID]&amp;RequestId=0"/>
+                        </Deactivate>
+                        <Activate>
+                            <SeekStructure SeekStructure="[MsgName]"/>
+                            <Templates HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=SMDI&amp;MessageType=MwiOn&amp;Destination=[rbn\DestAddress]&amp;SmsRoutingRuleID=[SmsRoutingRuleID]&amp;RequestId=0"/>
+                        </Activate>
+                    </MwiBySmdi>
+                    <SMSLink>
+                        <!--The scope HeaderParm and ServiceType are common for NewMsg and Cancel Msg-->
+                        <ServiceType DynamicServiceTypeEnabled="OFF" ServiceTypeLength="3"/>
+                        <HeaderParm From="*2223" ReplaceFlag="0"/>
+                        <NewMsg>
+                            <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                            <SeekStructure SeekStructure="[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <Default HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=SMSLink&amp;NotifyWhenDelivered=0&amp;RequestId=16[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMSLink\HeaderParm\From}&amp;ReplacePendingSms={NPath:Nds:Templates\SMSLink\HeaderParm\ReplaceFlag}[examine\[IsSet\DeliveryDelayTimeInSeconds],[EQUAL true]&amp;DelayedDeliveryTime=[rbn_optional\DeliveryDelayTimeInSeconds]]&amp;CallbackNum=[Lookup_Originator\X-CNS-SMS-Link-Callback-Number,Callback,Originator,From][examine\[IsSet\ServiceType],[EQUAL true]&amp;ServiceType=[rbn_optional\ServiceType]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" TimeFormat="%d/%m/%Y %H:%M">
+                                    <!--Insert to template ServiceType if it contains a value.-->
+                                </Default>
+                                <en-US>
+                                    <_10 SMSTemplate="[str\A ][examine\[rbn_optional\MessageType], [EQUAL voice-message][str\voice ], [EQUAL fax-message][str\fax ], [EQUAL x-empty-call-capture-message][str\voice ], [EQUAL FUDReminder][str\reminder ], [EQUAL video-message][str\video ]][str\message from ][Lookup_Originator\From,&quot;Anonymous&quot;][str\ received at ][Time\MessageReceivedTime]. To listen to the message dial [rbn\X-CNS-SMS-Link-Callback-Number]."/>
+                                </en-US>
+                            </Templates>
+                        </NewMsg>
+                        <Cancel>
+                            <SeekStructure SeekStructure="[SmsMsgType]\[TextLanguage]\[SMSTemplateId]\[MsgName]"/>
+                            <Templates>
+                                <!--Insert to template ServiceType if it contains a value.-->
+                                <!--CounterName is used by StatisticsManager - don't change-->
+                                <Default CounterName="CancelSMS" HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWIOFF&amp;CancelServiceType=[rbn\CancelServiceType]&amp;RequestId=13[str\&amp;Destination=][rbn\DestAddress]&amp;From={NPath:Nds:Templates\SMSLink\HeaderParm\From}[examine\[IsSet\ServiceType],[EQUAL true]&amp;ServiceType=[rbn_optional\ServiceType]]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" SMSTemplate=""/>
+                            </Templates>
+                        </Cancel>
+                    </SMSLink>
+                    <BinarySMS>
+                        <HeaderParm From="2235" ReplaceFlag="0"/>
+                        <BodyParm Address="[SWAP\[rbn\DestAddress]]" AddressLength="0C" AppletID="3030303046303030" MessageID="03" TimeStamp="00000000" TypeOfAddress="91"/>
+                    </BinarySMS>
+                    <SmgAlertICON>
+                        <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                        <SeekStructure SeekStructure="RequestType\Language\MsgName"/>
+                        <Templates>
+                            <Login>
+                                <Default CounterName="CancelICON" HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWIOFF&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;SmsType=Icon&amp;IconType=[rbn\IconTypeMain][examine\[rbn\IconTypeMain],[EQUAL CPHSspecial]&amp;CphsIconIndicator=[rbn\CphsIconIndicator]]&amp;MediaType=[rbn\IconMediaType]&amp;ReplacePendingSms=1&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]&amp;From={NPath:Nds:Templates\Icon\HeaderParm\From}" SMSTemplate=""/>
+                            </Login>
+                            <VVMSubModifyProfile>
+                                <Default CounterName="CancelICON" HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWIOFF&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;SmsType=Icon&amp;IconType=[rbn\IconTypeMain][examine\[rbn\IconTypeMain],[EQUAL CPHSspecial]&amp;CphsIconIndicator=[rbn\CphsIconIndicator]]&amp;MediaType=[rbn\IconMediaType]&amp;ReplacePendingSms=1&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]&amp;From={NPath:Nds:Templates\Icon\HeaderParm\From}" SMSTemplate=""/>
+                            </VVMSubModifyProfile>
+                            <Logout>
+                                <Default CounterName="CancelICON" HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWIOFF&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;SmsType=Icon&amp;IconType=[rbn\IconTypeMain][examine\[rbn\IconTypeMain],[EQUAL CPHSspecial]&amp;CphsIconIndicator=[rbn\CphsIconIndicator]]&amp;MediaType=[rbn\IconMediaType]&amp;ReplacePendingSms=1&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]&amp;From={NPath:Nds:Templates\Icon\HeaderParm\From}" SMSTemplate=""/>
+                            </Logout>
+                            <NewMsg>
+                                <Default CounterName="SmgAlertNewMsgIcon" HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWION&amp;RequestId=13&amp;From={NPath:Nds:Templates\Icon\HeaderParm\From}&amp;Destination=[rbn\DestAddress]&amp;SmsType=Icon&amp;IconType=[rbn\IconTypeMain][examine\[rbn\IconTypeMain],[EQUAL CPHSspecial]&amp;CphsIconIndicator=[rbn\CphsIconIndicator]]&amp;MediaType=[rbn\IconMediaType]&amp;ReplacePendingSms={NPath:Nds:Templates\Icon\HeaderParm\ReplaceFlag}&amp;NotifyWhenDelivered=[rbn\NotifyWhenDelivered]&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" SMSTemplate=""/>
+                            </NewMsg>
+                            <SubDelete>
+                                <Default CounterName="CancelICON" HeaderTemplate="&amp;RequestType=NewMsg&amp;ApplicationName=RN&amp;MessageType=MWIOFF&amp;RequestId=13&amp;Destination=[rbn\DestAddress]&amp;SmsType=Icon&amp;IconType=[rbn\IconTypeMain][examine\[rbn\IconTypeMain],[EQUAL CPHSspecial]&amp;CphsIconIndicator=[rbn\CphsIconIndicator]]&amp;MediaType=[rbn\IconMediaType]&amp;ReplacePendingSms=1&amp;SmsRoutingRuleID=[rbn_optional\SmsRoutingRuleID]" SMSTemplate=""/>
+                            </SubDelete>
+                        </Templates>
+                    </SmgAlertICON>
+                    <SmgSubDelete>
+                        <Default SMSCharset="iso-8859-1" SMSDataCoding="7-bit"/>
+                        <SeekStructure SeekStructure="MsgName"/>
+                        <Templates HeaderTemplate="&amp;RequestType=DbExec&amp;ApplicationName=SD&amp;MessageType=SubDelete&amp;Destination=1111&amp;PhoneListToDelete=[rbn\MainPhone][examine\[IsSet\AlternatePhone],[EQUAL true][str\,][rbn\AlternatePhone]][examine\[IsSet\AdditionalPhone1],[EQUAL true][str\,][rbn\AdditionalPhone1]][examine\[IsSet\AdditionalPhone2],[EQUAL true][str\,][rbn\AdditionalPhone2]][examine\[IsSet\AdditionalPhone3],[EQUAL true][str\,][rbn\AdditionalPhone3]][examine\[IsSet\AdditionalPhone4],[EQUAL true][str\,][rbn\AdditionalPhone4]][examine\[IsSet\AdditionalPhone5],[EQUAL true][str\,][rbn\AdditionalPhone5]]" SMSTemplate=""/>
+                    </SmgSubDelete>
+                </Templates>
+                <OutDial NumRetry="1" ReadTimeOut="40"/>
+                <MwiByCall NumRetry="1" ReadTimeOut="40"/>
+                <PrintFax NumRetry="1" PrintFaxNotificationEnable="Off" ReadTimeOut="40"/>
+                <VXV NumRetry="1" ReadTimeOut="40"/>
+                <SipSoap MRid="10" NumRetry="1" RRid="10" ReadTimeOut="40" SrvAddr="Sca" SrvPort="1540"/>
+                <FullSipSoap NumRetry="3" ReadTimeOut="2" SrvAddr="Nss" SrvPort="59999"/>
+                <Hlri NumRetry="1" ReadTimeOut="40"/>
+                <AlarmsMessenger NumRetry="1" ReadTimeOut="5"/>
+                <Scheduler NumRetry="1" ReadTimeOut="40"/>
+                <LDAP Password="PzhH1crxahBJb+zyOWYGGw==" UserName="nds_app_user"/>
+                <ProfileSearchScope>
+                    <MO_VVMProfileLocation GlobalScope="Insight" SearchScope="LocalThenGlobalInfo"/>
+                    <MO_OutdialProfileLocation GlobalScope="Insight" SearchScope="LocalThenGlobalInfo"/>
+                    <MO_VVM_FROM_REMOTE GlobalScope="Insight4" SearchScope="Local"/>
+                    <OutcallTriggeredByMO_FromRemote GlobalScope="Insight4" SearchScope="Local"/>
+                    <MO_USSD_UnrecognizedService GlobalScope="Insight4" SearchScope="Local"/>
+                    <MO_USSD_ProfileModification GlobalScope="Insight4" SearchScope="Local"/>
+                </ProfileSearchScope>
+                <MO_USSD_ProfileModification>
+                    <Read>
+                        <MO_USSD_ProfileModification_Sub>
+                            <MoService2Enabled DSName="cnsMoService2Enabled" NameInRbn="MoService2Enabled" Type="string"/>
+                            <SkipTuiPasswordEnabled DSName="cnsSkipTuiPasswordEnabled" NameInRbn="SkipTuiPasswordEnabled" Type="String"/>
+                            <SkipTuiPasswordOn DSName="cnsSkipTuiPasswordOn" NameInRbn="SkipTuiPasswordOn" Type="String"/>
+                        </MO_USSD_ProfileModification_Sub>
+                        <MO_USSD_ProfileModification_Rule/>
+                        <MO_USSD_ProfileModification_Type/>
+                    </Read>
+                    <Write Name="SkipTuiPasswordOn" Value="[examine\[SkipTuiPasswordOn], [EQUAL false][str\true], [NOT_EQUAL false][str\false]]"/>
+                </MO_USSD_ProfileModification>
+                <SPM NumRetry="3" Password="dc2e452f962e7d646bbd4fd017337a90" ReadTimeOut="3" URL="compas/ProvisionServlet" UserName="nds_app_user"/>
+                <NDS NumRetry="3" ReadTimeOut="1" URL="/cgi-bin/nds.fcgi"/>
+                <ADRM NumRetry="3" ReadTimeOut="3" URL="cgi-bin/MoaGateway.fcgi"/>
+                <DODB DataSource="NDS_DB" Password="PzhH1crxahBJb+zyOWYGGw==" TableName="DEA" UserName="NDS_APP_USER"/>
+                <Tcp>
+                    <Smg NumRetry="1" ReadTimeOut="5" RetriesInterval="1"/>
+                    <SmgSmdi NumRetry="1" ReadTimeOut="5" RetriesInterval="1"/>
+                    <Smtp NumRetry="3" RetriesIntervalMsec="500"/>
+                </Tcp>
+                <LocaleInfo>
+                    <LanguageCode Default="en"/>
+                    <CountryCode Default="US"/>
+                </LocaleInfo>
+                <Rbn>
+                    <Pap-Dtd-Version Default="2.0"/>
+                </Rbn>
+                <Validator>
+                    <WakeUp>
+                        <InitialURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <CallbackURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <ConnectTimeout Template="50000ms"/>
+                    </WakeUp>
+                    <MsgToPhone>
+                        <InitialURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <CallbackURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <ConnectTimeout Template="50000ms"/>
+                    </MsgToPhone>
+                    <OutDial>
+                        <InitialURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <CallbackURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <ConnectTimeout Template="50000ms"/>
+                    </OutDial>
+                    <PrintFax>
+                        <InitialURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <CallbackURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <ConnectTimeout Template="50000ms"/>
+                    </PrintFax>
+                    <IconNotification>
+                        <Parameters SpaceInTextForIcon="0"/>
+                    </IconNotification>
+                    <MwiByCall>
+                        <InitialURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <CallbackURI Template="http://[rbn\VxVHostname]:59123/aeservlet/ae?appId=vxv&amp;module=CFAccess"/>
+                        <ConnectTimeout Template="50000ms"/>
+                    </MwiByCall>
+                </Validator>
+                <TimeWindow PersonalTimeWindowActive="ON">
+                    <SMS>
+                        <NewMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <MailBoxFull Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <UnnoticedMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <PasswordReminder Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <PrintFaxNotification Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <WelcomeMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <ReadMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <ExpungeMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <CannedMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <MsgPurgeWarn Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <UpdateMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                    </SMS>
+                    <OutDial>
+                        <SubCreate Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <NumberMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <NewMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <UnreadMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <MailboxFull Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <MO-Service Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                    </OutDial>
+                    <SMSSpecial>
+                        <ExpiredMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                    </SMSSpecial>
+                    <SMSLink>
+                        <NewMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                    </SMSLink>
+                    <BinarySMS>
+                        <NewMsg Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                        <Logout Enable="OFF" WindowCloseTime="0000" WindowOpenTime="0000"/>
+                    </BinarySMS>
+                </TimeWindow>
+                <ReadReceipt SmsBillingType="DefaultBillingType" SmsRoutingRuleID="DefaultRoutingRuleID" SystemLanguage="en-US"/>
+                <CLI2Me LangSystemOrProfile="Profile" SystemLanguage="DefaultLanguage"/>
+                <DB_Timer Active="1">
+                    <Operations>
+                        <LDAP_SEARCH MaxTime="200" isActive="1"/>
+                        <ORACLE_ACCESS MaxTime="200" isActive="1"/>
+                    </Operations>
+                </DB_Timer>
+                <Monitoring>
+                    <Alarms isActive="1"/>
+                    <Statistics IsActive="1">
+                        <Records>
+                            <SMS.Start IsActive="1"/>
+                            <SMS.Receipt.System.Start IsActive="0"/>
+                            <SMS.Receipt.User.Start IsActive="0"/>
+                            <SMS.CLI2Me.Start IsActive="0"/>
+                            <ActivateIcon.Start IsActive="1"/>
+                            <DeactivateIcon.Start IsActive="1"/>
+                            <OutCall.Start IsActive="1"/>
+                            <ActivateSipMwi.Start IsActive="1"/>
+                            <DeactivateSipMwi.Start IsActive="1"/>
+                            <ActivateFullMWIbySIP.Start IsActive="0"/>
+                            <DeactivateFullMWIbySIP.Start IsActive="0"/>
+                            <SMS.PasswordReminder.Start IsActive="0"/>
+                            <SMS.AutoFwdFax.Start IsActive="0"/>
+                            <OutCall.LeadTime IsActive="1"/>
+                            <SMS.LeadTime IsActive="1"/>
+                            <ActivateIcon.LeadTime IsActive="1"/>
+                            <DeactivateIcon.LeadTime IsActive="1"/>
+                            <ActivateSipMwi.LeadTime IsActive="1"/>
+                            <DeactivateSipMwi.LeadTime IsActive="1"/>
+                            <ActivateFullMWIbySIP.LeadTime IsActive="0"/>
+                            <DeactivateFullMWIbySIP.LeadTime IsActive="0"/>
+                            <OutCall.End.Failure IsActive="1"/>
+                            <OutCall.End.Failure.Busy IsActive="0"/>
+                            <OutCall.End.Failure.NoAnswer IsActive="0"/>
+                            <OutCall.End.Failure.NotComplete IsActive="0"/>
+                            <OutCall.End.Failure.Fatal IsActive="0"/>
+                            <OutCall.End.Failure.NoResource IsActive="0"/>
+                            <OutCall.End.LastRetry.Failure IsActive="0"/>
+                            <OutCall.Voice.End.LastRetry.Failure IsActive="0"/>
+                            <OutCall.Video.End.LastRetry.Failure IsActive="0"/>
+                            <OutCall.Fax.End.LastRetry.Failure IsActive="0"/>
+                            <OutCall.FudReminder.End.LastRetry.Failure IsActive="0"/>
+                            <SMS.End.Failure IsActive="1"/>
+                            <SMS.Receipt.System.End.Failure IsActive="0"/>
+                            <SMS.Receipt.User.End.Failure IsActive="0"/>
+                            <SMS.CLI2Me.End.Failure IsActive="0"/>
+                            <SMS.VM2MMS.Fallback.Notification.Start IsActive="0"/>
+                            <SMS.VM2MMS.Fallback.Notification.End.Success IsActive="0"/>
+                            <SMS.VM2MMS.Fallback.Notification.End.Failure IsActive="0"/>
+                            <ActivateIcon.End.Failure IsActive="1"/>
+                            <DeactivateIcon.End.Failure IsActive="1"/>
+                            <ActivateSipMwi.End.Failure IsActive="1"/>
+                            <DeactivateSipMwi.End.Failure IsActive="1"/>
+                            <ActivateFullMWIbySIP.End.Failure IsActive="0"/>
+                            <DeactivateFullMWIbySIP.End.Failure IsActive="0"/>
+                            <SMS.PasswordReminder.End.Failure IsActive="0"/>
+                            <SMS.AutoFwdFax.End.Failure IsActive="0"/>
+                            <OutCall.End.Success IsActive="1"/>
+                            <SMS.End.Success IsActive="1"/>
+                            <SMS.Receipt.System.End.Success IsActive="0"/>
+                            <SMS.Receipt.User.End.Success IsActive="0"/>
+                            <SMS.CLI2Me.End.Success IsActive="0"/>
+                            <ActivateIcon.End.Success IsActive="1"/>
+                            <DeactivateIcon.End.Success IsActive="1"/>
+                            <ActivateSipMwi.End.Success IsActive="1"/>
+                            <DeactivateSipMwi.End.Success IsActive="1"/>
+                            <ActivateFullMWIbySIP.End.Success IsActive="0"/>
+                            <DeactivateFullMWIbySIP.End.Success IsActive="0"/>
+                            <SMS.PasswordReminder.End.Success IsActive="0"/>
+                            <SMS.AutoFwdFax.End.Success IsActive="0"/>
+                            <MwiByCall_On.Start IsActive="1"/>
+                            <MwiByCall_On.End.Success IsActive="1"/>
+                            <MwiByCall_On.End.Failure IsActive="1"/>
+                            <MwiByCall_On.End.Failure.Busy IsActive="0"/>
+                            <MwiByCall_On.End.Failure.NoAnswer IsActive="0"/>
+                            <MwiByCall_On.End.Failure.Incomplete IsActive="0"/>
+                            <MwiByCall_On.End.Failure.Fatal IsActive="0"/>
+                            <MwiByCall_On.End.Failure.ImmediateRetry IsActive="0"/>
+                            <MwiByCall_Off.Start IsActive="1"/>
+                            <MwiByCall_Off.End.Success IsActive="1"/>
+                            <MwiByCall_Off.End.Failure IsActive="1"/>
+                            <MwiByCall_Off.End.Failure.Busy IsActive="0"/>
+                            <MwiByCall_Off.End.Failure.NoAnswer IsActive="0"/>
+                            <MwiByCall_Off.End.Failure.Incomplete IsActive="0"/>
+                            <MwiByCall_Off.End.Failure.Fatal IsActive="0"/>
+                            <MwiByCall_Off.End.Failure.ImmediateRetry IsActive="0"/>
+                            <OutCall.NewSubscriberReminder.End.LastRetry.Failure IsActive="1"/>
+                            <NDS.ActivateTcapMwi.End.Success IsActive="1"/>
+                            <NDS.ActivateTcapMwi.End.Failure IsActive="1"/>
+                            <NDS.DeactivateTcapMwi.End.Success IsActive="1"/>
+                            <NDS.DeactivateTcapMwi.End.Failure IsActive="1"/>
+                            <NDS.SMS.VVM.MO.Status.Request.Failure.UnknownDevice IsActive="0"/>
+                            <SMS.VVM.MO.Status.Request.Start IsActive="0"/>
+                            <SMS.VVM.MO.Status.Request.End.Success IsActive="1"/>
+                            <SMS.VVM.MO.Status.Request.End.Failure IsActive="0"/>
+                            <SMS.VVM.MO.Activation.Request.Start IsActive="0"/>
+                            <SMS.VVM.MO.Activation.Request.End.Success IsActive="0"/>
+                            <SMS.VVM.MO.Activation.Request.End.Failure IsActive="0"/>
+                            <SMS.VVM.MO.Deactivation.Request.Start IsActive="0"/>
+                            <SMS.VVM.MO.Deactivation.Request.End.Success IsActive="0"/>
+                            <SMS.VVM.MO.Deactivation.Request.End.Failure IsActive="0"/>
+                            <SMS.VVM.MO.Error IsActive="0"/>
+                            <SMS.Unrecognized.MO.Service IsActive="0"/>
+                            <MO.Service1.Received IsActive="0"/>
+                            <MO.Service2.Received IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Provisioning.Notification.Start IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Provisioning.Notification.End.Success IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Provisioning.Notification.End.Failure IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Provisioning.Notification.End.Failure.UnknownDevice IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Greeting.Notification.Start IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Greeting.Notification.End.Success IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Greeting.Notification.End.Failure IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Mailbox.Notification.Start IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Mailbox.Notification.End.Success IsActive="0"/>
+                            <NDS.SMS.VVM.MT.Mailbox.Notification.End.Failure IsActive="0"/>
+                            <NDS.ActivateMwiSmdi.Start IsActive="0"/>
+                            <NDS.ActivateMwiSmdi.End.Success IsActive="0"/>
+                            <NDS.ActivateMwiSmdi.End.Failure IsActive="0"/>
+                            <NDS.ActivateMwiSmdi.LeadTime IsActive="0"/>
+                            <NDS.DeactivateMwiSmdi.Start IsActive="0"/>
+                            <NDS.DeactivateMwiSmdi.End.Success IsActive="0"/>
+                            <NDS.DeactivateMwiSmdi.End.Failure IsActive="0"/>
+                            <NDS.DeactivateMwiSmdi.LeadTime IsActive="0"/>
+                            <NDS.SMSLink.Start IsActive="0"/>
+                            <NDS.SMSLink.End.Success IsActive="0"/>
+                            <NDS.SMSLink.End.Failure IsActive="0"/>
+                            <NDS.ActivateTextIcon.Start IsActive="0"/>
+                            <NDS.ActivateTextIcon.End.Failure IsActive="0"/>
+                            <NDS.ActivateTextIcon.End.Success IsActive="0"/>
+                            <NDS.SMS.UnreadMsg.Start IsActive="0"/>
+                            <NDS.SMS.UnreadMsg.End.Success IsActive="0"/>
+                            <NDS.SMS.UnreadMsg.End.Failure IsActive="0"/>
+                            <NDS.SMS.MsgPurgeWarn.Start IsActive="0"/>
+                            <NDS.SMS.MsgPurgeWarn.End.Success IsActive="0"/>
+                            <NDS.SMS.MsgPurgeWarn.End.Failure IsActive="0"/>
+                            <SMS.Logout.Update.Start IsActive="0"/>
+                            <SMS.Logout.Update.End.Success IsActive="0"/>
+                            <SMS.Logout.Update.End.Failure IsActive="0"/>
+                        </Records>
+                    </Statistics>
+                    <CosDomain CosConfig="CosName" DomainConfig="DomainName"/>
+                </Monitoring>
+                <Hostname>
+                    <CMS name="CmsTg[rbn_optional\MR_TG]" port="21121"/>
+                    <VXV name="[rbn\VxVHostname]" port="59123"/>
+                    <HLRS name="Hlrs" port="1081"/>
+                    <SPM name="spm" port="51445"/>
+                    <NDS name="nds" port="58910"/>
+                    <ADRM name="adrm" port="80"/>
+                    <SMG name="Smg" port="52510"/>
+                    <SMGSMDI name="{NPath:Nds:Hostname\SMG\name}" port="{NPath:Nds:Hostname\SMG\port}"/>
+                    <Scheduler name="Srh" port="58080"/>
+                    <SMTP_Server name="Proxy-IC" port="50025"/>
+                    <SIP_Server name="Sca" port="1540"/>
+                    <CMS_MwiByCall name="CmsTg[rbn_optional\MR_TG]" port="21121"/>
+                    <ITCP name="MTA_LI" port="50025"/>
+                </Hostname>
+                <Encryption>
+                    <Encryptors>
+                        <DES3 EncryptionMode="CBC" EncryptionPadding="PKCS5Padding" EncryptionParameter="12345678" EncryptionSecretParameter="t+F6b+pGzzhTwMAhh1GZgbR6FtFevT7kiqGXx2FzF0Y="/>
+                    </Encryptors>
+                    <Fields>
+                        <MailAccountPassword algorithm="3DES"/>
+                        <TuiPassword algorithm="MD5"/>
+                        <InternetPassword algorithm="3DES"/>
+                    </Fields>
+                </Encryption>
+                <OMTP_Mapping>
+                    <!--Map "pv" to OMTP release version (in version 1.1 only one version exists, next release will require adding "OMTP_version" element here)-->
+                    <!--Version_name is an optional parameter for convenience-->
+                    <Other_OMTP Version_name="OMTP 1.1">
+                        <Client_types>
+                            <Other_ct>
+                                <Result dt="30"/>
+                            </Other_ct>
+                        </Client_types>
+                    </Other_OMTP>
+                </OMTP_Mapping>
+                <SecondMessageSMS SecondMsgEnabled="FALSE"/>
+                <MboxPool DataSource="{NPath:Nds:DODB\DataSource}" MboxIdPrefix="p" Password="{NPath:Nds:DODB\Password}" UserName="{NPath:Nds:DODB\UserName}" VPCosName="VoicePush" VPDomainName="Default domain"/>
+                <SubDeleteSmg Enabled="FALSE"/>
+                <ITCP SERVICE_ENABLED_ITCP="N">
+                    <EventsEnabled>
+                        <MwiByCall NewMsg="Y"/>
+                        <TcapMwi NewMsg="Y"/>
+                        <FullMWIbySIP NewMsg="Y"/>
+                        <Sip NewMsg="Y"/>
+                        <Email NewMsg="Y"/>
+                        <VVM NewMsg="Y"/>
+                        <OutDial NewMsg="Y"/>
+                        <SmsTextIcon NewMsg="Y"/>
+                        <SmsIcon NewMsg="Y"/>
+                        <SmsText CannedMsg="Y" NewMsg="Y" NumberMsg="Y" UpdateMsg="Y"/>
+                    </EventsEnabled>
+                    <EncryptionLogDetails ITCPLogEnabled="Y" ITCPLogPath="/var/cti/logs/nds/NdsItcpLog.trc"/>
+                    <ServerDetails ConnectionMaxRetryAttempts="3" ConnectionRetryIntervalMsec="20" Password="pF3Zql85mXsJ6sIHeTFziQ==" Username="GY64+MfQvOgnav2TylHBng=="/>
+                    <AlarmDetails NumFailedReportsForAlarm="10"/>
+                </ITCP>
+            </V3.1.0.0>
+        </Nds>
+    </ComverseTechnology>
+</XmlPst>

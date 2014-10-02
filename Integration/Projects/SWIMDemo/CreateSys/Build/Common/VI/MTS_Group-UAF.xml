@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="MTS_Group" Platform="Linux">
+    <Install>
+      <Component Name="mts" ExecutionOrder="170">
+<!--This Component has Product Name MTS with ExecutionPhass 170-->
+      </Component>
+<Component Name="vi_j2sdk" ExecutionOrder="100">
+                                <!--This Component has Product Name JRE_Gen_32bits with ExecutionPhass 100-->
+                        </Component>
+      <Component Name="VI_AUDIT" ExecutionOrder="4990">
+<!--This Component has Product Name swp-CSPbase-Services with ExecutionPhass 4990-->
+<!--This Component has Product Name change_traceability_params with ExecutionPhass 160-->
+<!--This Component has Product Name enable_disable_traceability with ExecutionPhass 170-->
+      </Component>
+      <Component Name="VI_CSP-Base_Customization_MTS-U" ExecutionOrder="110">
+<!--This Component has Product Name VI_CSP-Base_Customization with ExecutionPhass 110-->
+      </Component>
+      <Component Name="CSP_Base_Linux" ExecutionOrder="70">
+<!--This Component has Product Name CSPbase_Post_Reboot with ExecutionPhass 70-->
+<!--This Component has Product Name CSPbase with ExecutionPhass 60-->
+      </Component>
+      <Component Name="Babysitter" ExecutionOrder="150">
+<!--This Component has Product Name Babysitter with ExecutionPhass 150-->
+      </Component>
+      <Component Name="service-kit-vi_suite_MTS-U" ExecutionOrder="3150">
+<!--This Component has Product Name Merge_Tool with ExecutionPhass 150-->
+<!--This Component has Product Name Platform_Config with ExecutionPhass 2154-->
+<!--This Component has Product Name Maintanenc_Product with ExecutionPhass 150-->
+<!--This Component has Product Name GEN_Customization with ExecutionPhass 2156-->
+<!--This Component has Product Name MTS_Customization_Not_Per_HW with ExecutionPhass 3150-->
+      </Component>
+	<Component Name="Reboot" ExecutionOrder="200000">
+      </Component>
+      <Component Name="Linux_Hkit" ExecutionOrder="150000">
+<!--This Component has Product Name SEC_AS5_HKIT with ExecutionPhass 150-->
+      </Component>
+      <Component Name="VI_SiteBook_MTS" ExecutionOrder="200">
+<!--This Component has Product Name SiteBook MetaData Files with ExecutionPhass 150-->
+<!--This Component has Product Name SiteBook User with ExecutionPhass 150-->
+      </Component>
+    </Install>
+    <Uninstall>
+      <Component Name="mts"/>
+      <Component Name="VI_SiteBook_MTS"/>
+    </Uninstall>
+    <Parameters>
+      <Parameter Name="UnitType" ComponentName="VI_SiteBook" Display="false">
+            <Value>MTS</Value>
+      </Parameter>
+	<Parameter Name="Unit_Type" ComponentName="Babysitter" Display="false">
+            <Value>MTS</Value>
+        </Parameter>
+	<Parameter ComponentName="VI_SiteBook" Name="SiteBook Unit Type" Display="false">
+  <Value>MTS-U</Value> 
+  </Parameter>
+    </Parameters>
+  </UnitType>
+</SWIM>

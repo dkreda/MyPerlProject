@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM>
+	<UnitType Name="SMU_Group" Platform="Linux">
+		<!--This UAF is implementation of Marimba ServerGroup SMU-->
+		<Install>
+			<Component Name="Config_SMU_Deployments" ExecutionOrder="10"/>
+			<Component Name="AddUnits_ToSCDB" ExecutionOrder="3"/>
+			<Component Name="UpdateTopology" ExecutionOrder="15"/>
+		</Install>
+		<Parameters>
+			<Parameter Name="UnitRun" ComponentName="Config_SMU_Deployments" Display="false">
+				<Value>SMU</Value>
+			</Parameter>
+      <Parameter Name="RunUnit" ComponentName="UpdateTopology" Display="false">
+        <Value>SMU</Value>
+      </Parameter>
+		</Parameters>
+	</UnitType>
+</SWIM>

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<System>
+		<Install>
+			<UnitType Name="DSU_Group"/>
+			<UnitType Name="LVU_Group"/>
+			<UnitType Name="OMU_Group"/>
+			<UnitType Name="SMU_Group"/>
+			<UnitType Name="VM_ASU_Group"/>
+		</Install>
+		<Parameters>
+			<Alias DisplayName="MIPS Password">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="MIPS Password" ComponentName="MMG_AddService_DSU"/>
+				<Parameter Name="MIPS Password" ComponentName="MMG_AddService_VM-ASU"/>
+			</Alias>
+			<Alias DisplayName="Insight Type">
+				<Value>Insight4</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Insight4"/>
+						<Item Value="Insight3"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Insight Type" ComponentName="MMG_AddService_SMU"/>
+			</Alias>
+			<Alias DisplayName="Installation Type">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="MainSite" Display="Main Site"/>
+						<Item Value="NonMain" Display="Non Main Site"/>
+						<Item Value="DCSite" Display="DataCenter Site"/>
+						<Item Value="Embeded" Display="MMG and PVVM Embeded"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Installation Type" ComponentName="MMG_AddService_OMU"/>
+				<Parameter Name="Installation Type" ComponentName="MMG_AddService_SMU"/>
+			</Alias>
+			<Alias DisplayName="System Name">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="PVVM System Name" ComponentName="ProfileDefinition_MMG"/>
+				<Parameter Name="System Name" ComponentName="MMG_AddService_SMU"/>
+				<Parameter Name="System Name" ComponentName="MMG_CCM_CCMServersList"/>
+				<Parameter Name="System Name" ComponentName="MMG_SiteBook_SMU"/>
+			</Alias>
+			<Parameter Name="SWIM System Name" ComponentName="MMG_SiteBook_SMU" Display="false">
+				<Value/>
+			</Parameter>
+			<Parameter Name="SWIM System Name" ComponentName="MMG_CCM_CCMServersList" Display="false">
+				<Value/>
+			</Parameter>
+			<Parameter Name="SWIM System Name" ComponentName="MMG_AddService_SMU" Display="false">
+				<Value/>
+			</Parameter>
+		</Parameters>
+		<Dependencies>
+			<Component UnitName="*" Name="ProfileDefinition_Compas">
+				<DependsOn>
+					<Component UnitName="dsu*" Name="ProfileDefinition_MMG"/>
+				</DependsOn>
+			</Component>
+			<Component UnitName="*" Name="UpdateTopology">
+				<DependsOn>
+					<Component UnitName="smu*" Name="AddUnits_ToSCDB"/>
+				</DependsOn>
+			</Component>
+		</Dependencies>
+	</System>
+</SWIM>

@@ -1,0 +1,364 @@
+<UnitGroup>
+   <Identification>
+      <ComponentName>scdb</ComponentName>
+      <FileFormatVersion>1.0</FileFormatVersion>
+      <ComponentRelease>6.1.1.0</ComponentRelease>
+      <ComponentBuild>02</ComponentBuild>
+   </Identification>
+   <Physical GroupName='CMS_SIP_Group'>
+      <UnitInstance DataIp='1.1.1.1' Hostname='cms-sip.default.comverse.com' MngIp='1.1.1.2' Mngname='cms-sip.default.comverse.com' UnitName='cms-sip'>
+         <Connection Hostname='cms-sip.default.comverse.com' IP='1.1.1.1' Type='Data'/>
+         <Connection Hostname='cms-sip.default.comverse.com' IP='1.1.1.2' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='CMS_SS7_Group'>
+      <UnitInstance DataIp='1.1.1.3' Hostname='cms.default.comverse.com' MngIp='1.1.1.4' Mngname='cms.default.comverse.com' UnitName='cms'>
+         <Connection Hostname='cms.default.comverse.com' IP='1.1.1.3' Type='Data'/>
+         <Connection Hostname='cms.default.comverse.com' IP='1.1.1.4' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='CCS_Group'>
+      <UnitInstance DataIp='1.1.1.5' Hostname='ccs1a.default.comverse.com' MngIp='1.1.1.6' Mngname='ccs1a.default.comverse.com' UnitName='ccs1a'>
+         <Connection Hostname='ccs1a.default.comverse.com' IP='1.1.1.5' Type='Data'/>
+         <Connection Hostname='ccs1a.default.comverse.com' IP='1.1.1.6' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.7' Hostname='ccs1b.default.comverse.com' MngIp='1.1.1.8' Mngname='ccs1b.default.comverse.com' UnitName='ccs1b'>
+         <Connection Hostname='ccs1b.default.comverse.com' IP='1.1.1.7' Type='Data'/>
+         <Connection Hostname='ccs1b.default.comverse.com' IP='1.1.1.8' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='IPAccess_Group'>
+      <UnitInstance DataIp='1.1.1.9' Hostname='ipaccess.default.comverse.com' MngIp='1.1.1.10' Mngname='ipaccess.default.comverse.com' UnitName='ipaccess'>
+         <Connection Hostname='ipaccess.default.comverse.com' IP='1.1.1.9' Type='Data'/>
+         <Connection Hostname='ipaccess.default.comverse.com' IP='1.1.1.10' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='App_Group'>
+      <UnitInstance DataIp='1.1.1.11' Hostname='app.default.comverse.com' MngIp='1.1.1.12' Mngname='app.default.comverse.com' UnitName='app'>
+         <Connection Hostname='app.default.comverse.com' IP='1.1.1.11' Type='Data'/>
+         <Connection Hostname='app.default.comverse.com' IP='1.1.1.12' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='DSU_Group'>
+      <UnitInstance DataIp='1.1.1.13' Hostname='dsu1a.default.comverse.com' MngIp='1.1.1.14' Mngname='dsu1a.default.comverse.com' UnitName='dsu1a'>
+         <Connection Hostname='dsu1a.default.comverse.com' IP='1.1.1.13' Type='Data'/>
+         <Connection Hostname='dsu1a.default.comverse.com' IP='1.1.1.14' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.15' Hostname='dsu1b.default.comverse.com' MngIp='1.1.1.16' Mngname='dsu1b.default.comverse.com' UnitName='dsu1b'>
+         <Connection Hostname='dsu1b.default.comverse.com' IP='1.1.1.15' Type='Data'/>
+         <Connection Hostname='dsu1b.default.comverse.com' IP='1.1.1.16' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='EMC_Storage_Group_n'>
+      <UnitInstance DataIp='1.1.1.17' Hostname='cxsp1a.default.comverse.com' MngIp='1.1.1.18' Mngname='cxsp1a.default.comverse.com' UnitName='cxsp1a'>
+         <Connection Hostname='cxsp1a.default.comverse.com' IP='1.1.1.17' Type='Data'/>
+         <Connection Hostname='cxsp1a.default.comverse.com' IP='1.1.1.18' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.19' Hostname='cxsp1b.default.comverse.com' MngIp='1.1.1.20' Mngname='cxsp1b.default.comverse.com' UnitName='cxsp1b'>
+         <Connection Hostname='cxsp1b.default.comverse.com' IP='1.1.1.19' Type='Data'/>
+         <Connection Hostname='cxsp1b.default.comverse.com' IP='1.1.1.20' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='FC_Switch_Group'>
+      <UnitInstance DataIp='1.1.1.21' Hostname='fcsw1a.default.comverse.com' MngIp='1.1.1.22' Mngname='fcsw1a.default.comverse.com' UnitName='fcsw1a'>
+         <Connection Hostname='fcsw1a.default.comverse.com' IP='1.1.1.21' Type='Data'/>
+         <Connection Hostname='fcsw1a.default.comverse.com' IP='1.1.1.22' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.23' Hostname='fcsw1b.default.comverse.com' MngIp='1.1.1.24' Mngname='fcsw1b.default.comverse.com' UnitName='fcsw1b'>
+         <Connection Hostname='fcsw1b.default.comverse.com' IP='1.1.1.23' Type='Data'/>
+         <Connection Hostname='fcsw1b.default.comverse.com' IP='1.1.1.24' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='BLU_Group'>
+      <UnitInstance DataIp='1.1.1.25' Hostname='fcsw.default.comverse.com' MngIp='1.1.1.26' Mngname='fcsw.default.comverse.com' UnitName='fcsw'>
+         <Connection Hostname='fcsw.default.comverse.com' IP='1.1.1.25' Type='Data'/>
+         <Connection Hostname='fcsw.default.comverse.com' IP='1.1.1.26' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='SMU_Group'>
+      <UnitInstance DataIp='10.10.10.20' Hostname='smu1a.default.comverse.com' MngIp='10.10.10.10' Mngname='smu1a_admin.default.comverse.com' UnitName='smu1a'>
+         <Connection Hostname='smu1a_admin.default.comverse.com' IP='10.10.10.10' Type='Admin'/>
+         <Connection Hostname='smu1a.default.comverse.com' IP='10.10.10.20' Type='Data'/>
+      </UnitInstance>
+      <UnitInstance DataIp='10.10.10.40' Hostname='smu1b.default.comverse.com' MngIp='10.10.10.30' Mngname='smu1b_admin.default.comverse.com' UnitName='smu1b'>
+         <Connection Hostname='smu1b_admin.default.comverse.com' IP='10.10.10.30' Type='Admin'/>
+         <Connection Hostname='smu1b.default.comverse.com' IP='10.10.10.40' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='EMC_Storage_Group_smu'>
+      <UnitInstance DataIp='1.1.1.77' Hostname='cxsp2a.default.comverse.com' MngIp='1.1.1.78' Mngname='cxsp2a.default.comverse.com' UnitName='cxsp2a'>
+         <Connection Hostname='cxsp2a.default.comverse.com' IP='1.1.1.77' Type='Data'/>
+         <Connection Hostname='cxsp2a.default.comverse.com' IP='1.1.1.78' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.79' Hostname='cxsp2b.default.comverse.com' MngIp='1.1.1.80' Mngname='cxsp2b.default.comverse.com' UnitName='cxsp2b'>
+         <Connection Hostname='cxsp2b.default.comverse.com' IP='1.1.1.79' Type='Data'/>
+         <Connection Hostname='cxsp2b.default.comverse.com' IP='1.1.1.80' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='OSS_BSS_Layer'>
+      <UnitInstance DataIp='1.1.1.31' Hostname='mau1.default.comverse.com' MngIp='1.1.1.32' Mngname='mau1.default.comverse.com' UnitName='mau1'>
+         <Connection Hostname='mau1.default.comverse.com' IP='1.1.1.31' Type='Data'/>
+         <Connection Hostname='mau1.default.comverse.com' IP='1.1.1.32' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.35' Hostname='rkvm.default.comverse.com' MngIp='1.1.1.36' Mngname='rkvm.default.comverse.com' UnitName='rkvm'>
+         <Connection Hostname='rkvm.default.comverse.com' IP='1.1.1.35' Type='Data'/>
+         <Connection Hostname='rkvm.default.comverse.com' IP='1.1.1.36' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='OMU_Group'>
+      <UnitInstance DataIp='1.1.1.33' Hostname='omu1.default.comverse.com' MngIp='1.1.1.34' Mngname='omu1.default.comverse.com' UnitName='omu1'>
+         <Connection Hostname='omu1.default.comverse.com' IP='1.1.1.33' Type='Data'/>
+         <Connection Hostname='omu1.default.comverse.com' IP='1.1.1.34' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='LBA_Group'>
+      <UnitInstance DataIp='1.1.1.37' Hostname='lba1a.default.comverse.com' MngIp='1.1.1.38' Mngname='lba1a.default.comverse.com' UnitName='lba1a'>
+         <Connection Hostname='lba1a.default.comverse.com' IP='1.1.1.37' Type='Data'/>
+         <Connection Hostname='lba1a.default.comverse.com' IP='1.1.1.38' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.39' Hostname='lba1b.default.comverse.com' MngIp='1.1.1.40' Mngname='lba1b.default.comverse.com' UnitName='lba1b'>
+         <Connection Hostname='lba1b.default.comverse.com' IP='1.1.1.39' Type='Data'/>
+         <Connection Hostname='lba1b.default.comverse.com' IP='1.1.1.40' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='HSBA_Group'>
+      <UnitInstance DataIp='1.1.1.41' Hostname='dmz-hsbu1a.default.comverse.com' MngIp='1.1.1.42' Mngname='dmz-hsbu1a.default.comverse.com' UnitName='dmz-hsbu1a'>
+         <Connection Hostname='dmz-hsbu1a.default.comverse.com' IP='1.1.1.41' Type='Data'/>
+         <Connection Hostname='dmz-hsbu1a.default.comverse.com' IP='1.1.1.42' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.43' Hostname='dmz-hsbu1b.default.comverse.com' MngIp='1.1.1.44' Mngname='dmz-hsbu1b.default.comverse.com' UnitName='dmz-hsbu1b'>
+         <Connection Hostname='dmz-hsbu1b.default.comverse.com' IP='1.1.1.43' Type='Data'/>
+         <Connection Hostname='dmz-hsbu1b.default.comverse.com' IP='1.1.1.44' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='SZ_HSBU_Group'>
+      <UnitInstance DataIp='1.1.1.45' Hostname='sz-hsbu-cpu1a.default.comverse.com' MngIp='1.1.1.46' Mngname='sz-hsbu-cpu1a.default.comverse.com' UnitName='sz-hsbu-cpu1a'>
+         <Connection Hostname='sz-hsbu-cpu1a.default.comverse.com' IP='1.1.1.45' Type='Data'/>
+         <Connection Hostname='sz-hsbu-cpu1a.default.comverse.com' IP='1.1.1.46' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.47' Hostname='sz-hsbu-cpu1b.default.comverse.com' MngIp='1.1.1.48' Mngname='sz-hsbu-cpu1b.default.comverse.com' UnitName='sz-hsbu-cpu1b'>
+         <Connection Hostname='sz-hsbu-cpu1b.default.comverse.com' IP='1.1.1.47' Type='Data'/>
+         <Connection Hostname='sz-hsbu-cpu1b.default.comverse.com' IP='1.1.1.48' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='1.1.1.49' Hostname='sz-hsbu-vip.default.comverse.com' MngIp='1.1.1.50' Mngname='sz-hsbu-vip.default.comverse.com' UnitName='sz-hsbu-vip'>
+         <Connection Hostname='sz-hsbu-vip.default.comverse.com' IP='1.1.1.49' Type='Data'/>
+         <Connection Hostname='sz-hsbu-vip.default.comverse.com' IP='1.1.1.50' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='IBM-BC_Group'>
+      <UnitInstance DataIp='172.17.7.113' Hostname='ibm-bc1.default.comverse.com' MngIp='172.17.7.113' Mngname='ibm-bc1.default.comverse.com' UnitName='ibm-bc1'>
+         <Connection Hostname='ibm-bc1.default.comverse.com' IP='172.17.7.113' Type='Admin'/>
+      </UnitInstance>
+      <UnitInstance DataIp='172.17.7.114' Hostname='IBM-BC1-SW1.default.comverse.com' MngIp='172.17.7.114' Mngname='IBM-BC1-SW1.default.comverse.com' UnitName='IBM-BC1-SW1'>
+         <Connection Hostname='IBM-BC1-SW1.default.comverse.com' IP='172.17.7.114' Type='Admin'/>
+      </UnitInstance>
+      <UnitInstance DataIp='172.17.7.109' Hostname='IBM-BC1-SW2.default.comverse.com' MngIp='172.17.7.109' Mngname='IBM-BC1-SW2.default.comverse.com' UnitName='IBM-BC1-SW2'>
+         <Connection Hostname='IBM-BC1-SW2.default.comverse.com' IP='172.17.7.109' Type='Admin'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='FWU_Group'>
+      <UnitInstance DataIp='192.168.3.66' Hostname='fwu1a.default.comverse.com' MngIp='192.168.3.67' Mngname='fwu1a.default.comverse.com' UnitName='fwu1a'>
+         <Connection Hostname='fwu1a.default.comverse.com' IP='192.168.3.66' Type='Data'/>
+         <Connection Hostname='fwu1a.default.comverse.com' IP='192.168.3.67' Type='Management'/>
+      </UnitInstance>
+      <UnitInstance DataIp='192.168.4.66' Hostname='fwu1b.default.comverse.com' MngIp='192.168.4.67' Mngname='fwu1b.default.comverse.com' UnitName='fwu1b'>
+         <Connection Hostname='fwu1b.default.comverse.com' IP='192.168.4.66' Type='Data'/>
+         <Connection Hostname='fwu1b.default.comverse.com' IP='192.168.4.67' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Logical>
+      <Application ApplicationLabel='Process Control' ApplicationName='MAM.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.2' Appname='cms-sip' DataIp='1.1.1.1' Hostname='cms-sip' MngIp='1.1.1.2' Mngname='cms-sip' ParentGroup='CMS_SIP_Unit' Precedence='Primary' UnitName='cms-sip'/>
+         <UnitInstance AppIP='1.1.1.4' Appname='cms' DataIp='1.1.1.3' Hostname='cms' MngIp='1.1.1.4' Mngname='cms' ParentGroup='CMS_SS7_Unit' Precedence='Primary' UnitName='cms'/>
+         <UnitInstance AppIP='1.1.1.6' Appname='ccs1a' DataIp='1.1.1.5' Hostname='ccs1a' MngIp='1.1.1.6' Mngname='ccs1a' ParentGroup='CCS_Unit' Precedence='Primary' UnitName='ccs1a'/>
+         <UnitInstance AppIP='1.1.1.8' Appname='ccs1b' DataIp='1.1.1.7' Hostname='ccs1b' MngIp='1.1.1.8' Mngname='ccs1b' ParentGroup='CCS_Unit' Precedence='Primary' UnitName='ccs1b'/>
+         <UnitInstance AppIP='1.1.1.10' Appname='ipaccess' DataIp='1.1.1.9' Hostname='ipaccess' MngIp='1.1.1.10' Mngname='ipaccess' ParentGroup='IPAccess_Unit' Precedence='Primary' UnitName='ipaccess'/>
+         <UnitInstance AppIP='1.1.1.12' Appname='app' DataIp='1.1.1.11' Hostname='app' MngIp='1.1.1.12' Mngname='app' ParentGroup='App_Unit' Precedence='Primary' UnitName='app'/>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='Media Server' ApplicationName='CMS.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.1' Appname='cms-sip' DataIp='1.1.1.1' Hostname='cms-sip' MngIp='1.1.1.2' Mngname='cms-sip' ParentGroup='CMS_SIP_Unit' Precedence='Primary' UnitName='cms-sip'/>
+         <UnitInstance AppIP='1.1.1.3' Appname='cms' DataIp='1.1.1.3' Hostname='cms' MngIp='1.1.1.4' Mngname='cms' ParentGroup='CMS_SS7_Unit' Precedence='Primary' UnitName='cms'/>
+      </Application>
+      <Application ApplicationLabel='SCA' ApplicationName='SCA.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.1' Appname='cms-sip' DataIp='1.1.1.1' Hostname='cms-sip' MngIp='1.1.1.2' Mngname='cms-sip' ParentGroup='CMS_SIP_Unit' Precedence='Primary' UnitName='cms-sip'/>
+      </Application>
+      <Application ApplicationLabel='N/A' ApplicationName='CMSTG1.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.1' Appname='cms-sip' DataIp='1.1.1.1' Hostname='cms-sip' MngIp='1.1.1.2' Mngname='cms-sip' ParentGroup='CMS_SIP_Unit' Precedence='Primary' UnitName='cms-sip'/>
+         <UnitInstance AppIP='1.1.1.3' Appname='cms' DataIp='1.1.1.3' Hostname='cms' MngIp='1.1.1.4' Mngname='cms' ParentGroup='CMS_SS7_Unit' Precedence='Primary' UnitName='cms'/>
+      </Application>
+      <Application ApplicationLabel='CCM Agent' ApplicationName='ccm-agent.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.2' Appname='cms-sip' DataIp='1.1.1.1' Hostname='cms-sip' MngIp='1.1.1.2' Mngname='cms-sip' ParentGroup='CMS_SIP_Unit' Precedence='Primary' UnitName='cms-sip'/>
+         <UnitInstance AppIP='1.1.1.4' Appname='cms' DataIp='1.1.1.3' Hostname='cms' MngIp='1.1.1.4' Mngname='cms' ParentGroup='CMS_SS7_Unit' Precedence='Primary' UnitName='cms'/>
+         <UnitInstance AppIP='1.1.1.6' Appname='ccs1a' DataIp='1.1.1.5' Hostname='ccs1a' MngIp='1.1.1.6' Mngname='ccs1a' ParentGroup='CCS_Unit' Precedence='Primary' UnitName='ccs1a'/>
+         <UnitInstance AppIP='1.1.1.8' Appname='ccs1b' DataIp='1.1.1.7' Hostname='ccs1b' MngIp='1.1.1.8' Mngname='ccs1b' ParentGroup='CCS_Unit' Precedence='Primary' UnitName='ccs1b'/>
+         <UnitInstance AppIP='1.1.1.10' Appname='ipaccess' DataIp='1.1.1.9' Hostname='ipaccess' MngIp='1.1.1.10' Mngname='ipaccess' ParentGroup='IPAccess_Unit' Precedence='Primary' UnitName='ipaccess'/>
+         <UnitInstance AppIP='1.1.1.12' Appname='app' DataIp='1.1.1.11' Hostname='app' MngIp='1.1.1.12' Mngname='app' ParentGroup='App_Unit' Precedence='Primary' UnitName='app'/>
+         <UnitInstance AppIP='1.1.1.14' Appname='dsu1a' DataIp='1.1.1.13' Hostname='dsu1a' MngIp='1.1.1.14' Mngname='dsu1a' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1a'/>
+         <UnitInstance AppIP='1.1.1.16' Appname='dsu1b' DataIp='1.1.1.15' Hostname='dsu1b' MngIp='1.1.1.16' Mngname='dsu1b' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1b'/>
+         <UnitInstance AppIP='10.10.10.10' Appname='smu1a_admin' DataIp='10.10.10.20' Hostname='smu1a' MngIp='10.10.10.10' Mngname='smu1a_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.10.10.30' Appname='smu1b_admin' DataIp='10.10.10.40' Hostname='smu1b' MngIp='10.10.10.30' Mngname='smu1b_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1b'/>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='Call Control' ApplicationName='CCS.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.5' Appname='ccs1a' DataIp='1.1.1.5' Hostname='ccs1a' MngIp='1.1.1.6' Mngname='ccs1a' ParentGroup='CCS_Unit' Precedence='Primary' UnitName='ccs1a'/>
+         <UnitInstance AppIP='1.1.1.7' Appname='ccs1b' DataIp='1.1.1.7' Hostname='ccs1b' MngIp='1.1.1.8' Mngname='ccs1b' ParentGroup='CCS_Unit' Precedence='Primary' UnitName='ccs1b'/>
+      </Application>
+      <Application ApplicationLabel='N/A' ApplicationName='ISUP.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.5' Appname='ccs1a' DataIp='1.1.1.5' Hostname='ccs1a' MngIp='1.1.1.6' Mngname='ccs1a' ParentGroup='CCS_Unit' Precedence='Primary' UnitName='ccs1a'/>
+         <UnitInstance AppIP='1.1.1.7' Appname='ccs1b' DataIp='1.1.1.7' Hostname='ccs1b' MngIp='1.1.1.8' Mngname='ccs1b' ParentGroup='CCS_Unit' Precedence='Primary' UnitName='ccs1b'/>
+      </Application>
+      <Application ApplicationLabel='IP Access' ApplicationName='IPACCESS.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.9' Appname='ipaccess' DataIp='1.1.1.9' Hostname='ipaccess' MngIp='1.1.1.10' Mngname='ipaccess' ParentGroup='IPAccess_Unit' Precedence='Primary' UnitName='ipaccess'/>
+      </Application>
+      <Application ApplicationLabel='Application 1' ApplicationName='App1.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.11' Appname='app' DataIp='1.1.1.11' Hostname='app' MngIp='1.1.1.12' Mngname='app' ParentGroup='App_Unit' Precedence='Primary' UnitName='app'/>
+      </Application>
+      <Application ApplicationLabel='Application 2' ApplicationName='App2.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.11' Appname='app' DataIp='1.1.1.11' Hostname='app' MngIp='1.1.1.12' Mngname='app' ParentGroup='App_Unit' Precedence='Primary' UnitName='app'/>
+      </Application>
+      <Application ApplicationLabel='Profile API' ApplicationName='DSV.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.13' Appname='dsu1a' DataIp='1.1.1.13' Hostname='dsu1a' MngIp='1.1.1.14' Mngname='dsu1a' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1a'/>
+         <UnitInstance AppIP='1.1.1.15' Appname='dsu1b' DataIp='1.1.1.15' Hostname='dsu1b' MngIp='1.1.1.16' Mngname='dsu1b' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1b'/>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='DDS' ApplicationName='DDS.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.14' Appname='dsu1a' DataIp='1.1.1.13' Hostname='dsu1a' MngIp='1.1.1.14' Mngname='dsu1a' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1a'/>
+         <UnitInstance AppIP='1.1.1.16' Appname='dsu1b' DataIp='1.1.1.15' Hostname='dsu1b' MngIp='1.1.1.16' Mngname='dsu1b' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1b'/>
+      </Application>
+      <Application ApplicationLabel='PGWAgent' ApplicationName='PGWAgent.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.14' Appname='dsu1a' DataIp='1.1.1.13' Hostname='dsu1a' MngIp='1.1.1.14' Mngname='dsu1a' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1a'/>
+         <UnitInstance AppIP='1.1.1.16' Appname='dsu1b' DataIp='1.1.1.15' Hostname='dsu1b' MngIp='1.1.1.16' Mngname='dsu1b' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1b'/>
+      </Application>
+      <Application ApplicationLabel='N/A' ApplicationName='LDAPADMIN.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.14' Appname='dsu1a' DataIp='1.1.1.13' Hostname='dsu1a' MngIp='1.1.1.14' Mngname='dsu1a' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1a'/>
+         <UnitInstance AppIP='1.1.1.16' Appname='dsu1b' DataIp='1.1.1.15' Hostname='dsu1b' MngIp='1.1.1.16' Mngname='dsu1b' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1b'/>
+      </Application>
+      <Application ApplicationLabel='Profile1' ApplicationName='Profile1.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.13' Appname='dsu1a' DataIp='1.1.1.13' Hostname='dsu1a' MngIp='1.1.1.14' Mngname='dsu1a' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1a'/>
+         <UnitInstance AppIP='1.1.1.15' Appname='dsu1b' DataIp='1.1.1.15' Hostname='dsu1b' MngIp='1.1.1.16' Mngname='dsu1b' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1b'/>
+      </Application>
+      <Application ApplicationLabel='OSS-Portal' ApplicationName='OSS-Portal-Setup.default.comverse.com'>
+         <UnitInstance AppIP='10.10.10.10' Appname='smu1a_admin' DataIp='10.10.10.20' Hostname='smu1a' MngIp='10.10.10.10' Mngname='smu1a_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.10.10.30' Appname='smu1b_admin' DataIp='10.10.10.40' Hostname='smu1b' MngIp='10.10.10.30' Mngname='smu1b_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1b'/>
+      </Application>
+      <Application ApplicationLabel='System Topology' ApplicationName='SCDB.default.comverse.com'>
+         <UnitInstance AppIP='10.10.10.10' Appname='smu1a_admin' DataIp='10.10.10.20' Hostname='smu1a' MngIp='10.10.10.10' Mngname='smu1a_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.10.10.30' Appname='smu1b_admin' DataIp='10.10.10.40' Hostname='smu1b' MngIp='10.10.10.30' Mngname='smu1b_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1b'/>
+      </Application>
+      <Application ApplicationLabel='CCM' ApplicationName='CCM.default.comverse.com'>
+         <UnitInstance AppIP='10.10.10.10' Appname='smu1a_admin' DataIp='10.10.10.20' Hostname='smu1a' MngIp='10.10.10.10' Mngname='smu1a_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.10.10.30' Appname='smu1b_admin' DataIp='10.10.10.40' Hostname='smu1b' MngIp='10.10.10.30' Mngname='smu1b_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1b'/>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='PerformanceManager' ApplicationName='PerformanceManager.default.comverse.com'>
+         <UnitInstance AppIP='10.10.10.10' Appname='smu1a_admin' DataIp='10.10.10.20' Hostname='smu1a' MngIp='10.10.10.10' Mngname='smu1a_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.10.10.30' Appname='smu1b_admin' DataIp='10.10.10.40' Hostname='smu1b' MngIp='10.10.10.30' Mngname='smu1b_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1b'/>
+      </Application>
+      <Application ApplicationLabel='SWIM' ApplicationName='SWIM.default.comverse.com'>
+         <UnitInstance AppIP='10.10.10.10' Appname='smu1a_admin' DataIp='10.10.10.20' Hostname='smu1a' MngIp='10.10.10.10' Mngname='smu1a_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.10.10.30' Appname='smu1b_admin' DataIp='10.10.10.40' Hostname='smu1b' MngIp='10.10.10.30' Mngname='smu1b_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1b'/>
+      </Application>
+      <Application ApplicationLabel='N/A' ApplicationName='NTPSERVER1.default.comverse.com'>
+         <UnitInstance AppIP='10.10.10.10' Appname='smu1a_admin' DataIp='10.10.10.20' Hostname='smu1a' MngIp='10.10.10.10' Mngname='smu1a_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='N/A' ApplicationName='NTPSERVER2.default.comverse.com'>
+         <UnitInstance AppIP='10.10.10.30' Appname='smu1b_admin' DataIp='10.10.10.40' Hostname='smu1b' MngIp='10.10.10.30' Mngname='smu1b_admin' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1b'/>
+      </Application>
+      <Application ApplicationLabel='Provisioning Mediator' ApplicationName='SPM.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='Web Service Administration' ApplicationName='WSA.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='N/A' ApplicationName='WSA_Admin.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='Transaction Charging Mediator' ApplicationName='TCM.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='TCM Adapter' ApplicationName='TCMAdapter.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='File Transfer Mediator' ApplicationName='FTM.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='Statistics and Activity Mediator' ApplicationName='SAM.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='PGW' ApplicationName='PGW.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='Linux Virtual Server' ApplicationName='LVS.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='N/A' ApplicationName='TCMMANAGER.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+      <Application ApplicationLabel='N/A' ApplicationName='TCMSERVER.default.comverse.com'>
+         <UnitInstance AppIP='1.1.1.34' Appname='omu1' DataIp='1.1.1.33' Hostname='omu1' MngIp='1.1.1.34' Mngname='omu1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu1'/>
+      </Application>
+   </Logical>
+   <Virtual>
+      <Vapplication ApplicationLabel='MIPS' ApplicationName='MIPS1.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.29.5.22'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Profile DB' ApplicationName='ODS.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.29.5.36'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Profile Counter' ApplicationName='ProfileCounter.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.29.5.89'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SPM Agent' ApplicationName='SPMAgent.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.17.5.55'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='N/A' ApplicationName='BACKUPSERVER.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.17.5.70'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='N/A' ApplicationName='OSS-Portal.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.17.5.15'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='N/A' ApplicationName='AAS.default.comverse.com'>
+         <VUnitInstance VirtualIp='222.17.5.15'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Alarm Correlation' ApplicationName='AC.default.comverse.com'>
+         <VUnitInstance VirtualIp='2.1.1.1'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='HeartBeat' ApplicationName='ICC4J.default.comverse.com'>
+         <VUnitInstance VirtualIp='2.1.1.2'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='CMA' ApplicationName='CMA.default.comverse.com'>
+         <VUnitInstance VirtualIp='2.1.1.3'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='ICC' ApplicationName='Core_SPI.default.comverse.com'>
+         <VUnitInstance VirtualIp='10.10.10.50'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SUI' ApplicationName='SUI.default.comverse.com'>
+         <VUnitInstance VirtualIp='2.1.1.6'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='N/A' ApplicationName='SNMPMANAGER.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.17.5.17'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='PMC' ApplicationName='PMC.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.17.5.77'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='N/A' ApplicationName='syslogServer.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.17.5.21'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SiteBook' ApplicationName='SiteBook.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.11.1.18'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='N/A' ApplicationName='MarimbaTX.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.17.5.18'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='N/A' ApplicationName='ADMINDB.default.comverse.com'>
+         <VUnitInstance VirtualIp='172.17.5.20'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Central SCDB' ApplicationName='CentralSCDB.default.comverse.com'>
+         <VUnitInstance VirtualIp='1.1.1.98'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='DRS SCDB' ApplicationName='DRSSCDB.default.comverse.com'>
+         <VUnitInstance VirtualIp='1.1.1.99'/>
+      </Vapplication>
+   </Virtual>
+</UnitGroup>

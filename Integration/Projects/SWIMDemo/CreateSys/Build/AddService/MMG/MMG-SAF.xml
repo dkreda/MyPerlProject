@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\SAF.xsd">
+	<System>
+		<Install>
+			<UnitType Name="DSU_Group"/>
+			<UnitType Name="IS3_CMD_Unit"/>
+			<UnitType Name="LVU_Unit"/>
+			<UnitType Name="NDU-IS3_Group"/>
+			<UnitType Name="OMU_Group"/>
+			<UnitType Name="SMU_Group"/>
+			<UnitType Name="TRM_Group"/>
+			<UnitType Name="VM_ASU_Group"/>
+		</Install>
+		<Parameters>
+			<Alias DisplayName="MIPS Password">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="MIPS Password" ComponentName="AddService"/>
+				<Parameter Name="MIPS Password" ComponentName="AddService_01"/>
+				<Parameter Name="MIPS Password" ComponentName="AddService_03"/>
+				<Parameter Name="MIPS Password" ComponentName="AddService_VM-ASU"/>
+			</Alias>
+			<Alias DisplayName="Insight Type">
+				<Value>insight4</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="insight4"/>
+						<Item Value="insight3"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Insight Type" ComponentName="AddService"/>
+				<Parameter Name="Insight Type" ComponentName="AddService_01"/>
+				<Parameter Name="Insight Type" ComponentName="AddService_02"/>
+				<Parameter Name="Insight Type" ComponentName="AddService_03"/>
+			</Alias>
+			<Alias DisplayName="Installation Type">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="MainSite" Display="&quot;Main Site&quot;"/>
+						<Item Value="NonMain" Display="&quot;Non Main Site&quot;"/>
+						<Item Value="DCSite" Display="&quot;DataCenter Site&quot;"/>
+						<Item Value="Embeded" Display="&quot;MMG and PVVM Embeded&quot;"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Installation Type" ComponentName="AddService_02"/>
+				<Parameter Name="Installation Type" ComponentName="AddService_03"/>
+				<Parameter Name="Installation Type" ComponentName="AddService_OMU"/>
+			</Alias>
+			<Parameter Name="MZ Balancers IP List" ComponentName="AddService_OMU" Display="true">
+				<Value/>
+			</Parameter>
+			<Parameter Name="Swim System Name" ComponentName="AddService_02" Display="true">
+				<Value/>
+			</Parameter>
+			<Parameter Name="PVVM System Name" ComponentName="AddService_02" Display="true">
+				<Value/>
+			</Parameter>
+		</Parameters>
+		<Dependencies>
+			<Component UnitName="*" Name="ProfileDefinition_Compas">
+				<DependsOn>
+					<Component UnitName="dsu*" Name="ProfileDefinition_MMG"/>
+				</DependsOn>
+			</Component>
+		</Dependencies>
+	</System>
+</SWIM>

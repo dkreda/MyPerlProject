@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<InputApplicationList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Application ApplicationName="GSL.MASTER" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="GSL.SECONDARY" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="CMS.SITE1" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="21121">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="NDS-WHC.SITE1" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" ReturnAllActiveIPs="1" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="8910">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="NDSVAN.SITE1" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="8911">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="NTPSERVER1" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="NTPSERVER2" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="AASDB" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="FTMDB" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="SpmAgent" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="SPM" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="51445">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="WSA" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="51452">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="AAS" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="50450">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="FTM" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="61504">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="AdminDB" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="ODS_PROFILE" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+		<Application ApplicationName="ODS_CALL_SCREEN" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="ODS_CALLS" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="PROFILE1" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="DSUSFTP" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="BACKUPSERVER" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="SNMPMANAGER" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+	<Application ApplicationName="SYSLOGSERVER" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+		<ConnectivityCheck Type="Port">
+			<Port PortNumber="0">
+				<Greeting GreatingEnabled="No"/>
+			</Port>
+		</ConnectivityCheck>
+	</Application>
+    <Application ApplicationName="TCMMANAGER" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+        <ConnectivityCheck Type="Port">
+            <Port PortNumber="51446">
+                <Greeting GreatingEnabled="No"/>
+            </Port>
+        </ConnectivityCheck>
+    </Application>
+    <Application ApplicationName="TCMSERVER" Network="Data" NumFailuresBeforeStatus="1" PollingIntervalCounter="6" TTL="0">
+        <ConnectivityCheck Type="Port">
+            <Port PortNumber="51446">
+                <Greeting GreatingEnabled="No"/>
+            </Port>
+        </ConnectivityCheck>
+	</Application>
+</InputApplicationList>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\galcohe\Desktop\CAF.xsd">
+	<Component Name="Config_OMU_Deployments" Version="5.0.0.0" Platform="Linux">
+		<!--This CAF File is implementation of /VI_Procedures/Add_VVM_Service/Deployments/Config_MIPS.MIPS_TG-->
+		<Install>
+			<Copy ExecutionOrder="100">
+				<Source>./configuration/FTMTemplates/*_FTMTask.xml</Source>
+				<Target>/var/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="775">
+				<Source>./configuration/AAS/users_VVM_app.xml</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="+x">
+				<Source>./scripts/AddTaskToFTM.pl</Source>
+				<Target>/var/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100">
+				<Source>./configuration/SysParamCustomization_VVM.xml</Source>
+				<Target>/var/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="+x">
+				<Source>./scripts/OctParamsManipulation.pl</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100">
+				<Source>./configuration/AddService_Conf.txt</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="775">
+				<Source>./configuration/roles_WIC_app.xml</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="775">
+				<Source>./configuration/AAS/users_WIC_app.xml</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="775">
+				<Source>./configuration/AAS/privileges_wcc.xml</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Copy ExecutionOrder="100" ChmodFlags="775">
+				<Source>./configuration/roles_up_4.3.7.xml</Source>
+				<Target>/tmp/</Target>
+			</Copy>
+			<Execute ExecutionOrder="150">
+				<Command>/tmp/OctParamsManipulation.pl -Conf /tmp/AddService_Conf.txt -Unit {UnitRun}   -WebServices "{.WebInbox}:{.WCC}"  -VVmService "{.VVM}:{.Direct Retrieval}:{.Direct Deposit}" -MTE "{.MTE}:{AMTE Enabled}"</Command>
+			</Execute>
+			<Execute ExecutionOrder="160">
+				<Command>MamCMD restart compas;MamCMD restart AAS</Command>
+			</Execute>
+			<SetParams ExecutionOrder="120">
+				<ExecutionGroup>Base</ExecutionGroup>
+			</SetParams>
+		</Install>
+		<Parameters>
+			<Parameter Name="UnitRun" ExecutionGroup="Base" Level="UnitType">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".Direct Deposit" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".Direct Retrieval" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".MTE" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".VVM" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".WCC" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name=".WebInbox" ExecutionGroup="Base" Level="System">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+			</Parameter>
+			<Parameter Name="AMTE Enabled" ExecutionGroup="Base" Level="System">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="true"/>
+						<Item Value="false"/>
+					</Enum>
+				</Restrictions>
+				<Files>
+					<File ParameterPath="#AMTEEnabled#" Name="/tmp/AddService_Conf.txt" Format="Text"/>
+				</Files>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

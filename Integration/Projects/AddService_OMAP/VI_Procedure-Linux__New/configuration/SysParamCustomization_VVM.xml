@@ -1,0 +1,91 @@
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by Galit (Comvers) -->
+<Provisioning>
+	<ComponentParameters>
+		<ComponentName>Common</ComponentName>
+		<General>
+			<Parameter Action="Add">
+				<Name>PaPluginsList</Name>
+				<Value>
+					<Item Value="CustomizationLogics"/>
+					<Item Value="IPhoneLogics"/>
+				</Value>
+			</Parameter>
+		</General>
+		<MaFieldsLogic>
+			<Parameter>
+				<Name>SupportMaPasswordInLdapSchema</Name>
+				<Value>
+					<Item Value="true"/>
+				</Value>
+			</Parameter>
+		</MaFieldsLogic>
+	</ComponentParameters>
+	<ComponentParameters>
+		<ComponentName>Shared</ComponentName>
+		<ProvisioningLogic>
+			<Parameter>
+				<Name>SendMailAccountPasswordToEms</Name>
+				<Value>
+					<Item Value="false"/>
+				</Value>
+			</Parameter>
+			<Parameter>
+				<Name>InternetPasswordDefaultSource</Name>
+				<Value>
+					<Item Value="Random"/>
+				</Value>
+			</Parameter>
+		</ProvisioningLogic>
+	</ComponentParameters>
+	<ComponentParameters>
+		<ComponentName>GenericSnap</ComponentName>
+		<SnapMessage1>
+			<Parameter>
+				<Name>SnapEnabled</Name>
+				<Value>
+					<Item Value="true"/>
+				</Value>
+			</Parameter>
+		</SnapMessage1>
+		<SnapMessage3>
+			<Parameter>
+				<Name>SnapEnabled</Name>
+				<Value>
+					<Item Value="true"/>
+				</Value>
+			</Parameter>
+		</SnapMessage3>
+		<SnapMessage4>
+			<Parameter>
+				<Name>SnapEnabled</Name>
+				<Value>
+					<Item Value="true"/>
+				</Value>
+			</Parameter>
+		</SnapMessage4>
+		<SnapMessage6>
+			<Parameter>
+				<Name>SnapEnabled</Name>
+				<Value>
+					<Item Value="true"/>
+				</Value>
+			</Parameter>
+		</SnapMessage6>
+		<SnapMessage7>
+			<Parameter>
+				<Name>SnapEnabled</Name>
+				<Value>
+					<Item Value="true"/>
+				</Value>
+			</Parameter>
+		</SnapMessage7>
+		<SnapMessage8>
+			<Parameter>
+				<Name>SnapEnabled</Name>
+				<Value>
+					<Item Value="true"/>
+				</Value>
+			</Parameter>
+		</SnapMessage8>
+	</ComponentParameters>
+</Provisioning>

@@ -1,0 +1,685 @@
+<Configuration>
+   <Parameters>
+      <Component Name='scdb'>
+         <Group Name='DataFiles'>
+            <Parameter Name='AppHomePath'>
+               <Description>Location where the application installed.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/usr/cti/apps/scdb/'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='SCDBFileLocation'>
+               <Description>Location of SCDB data file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/usr/cti/apps/omap_maint/scdb/data'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='SCDBFileName'>
+               <Description>Name of SCDB data file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='scdb.xml'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='SCDBSchemaName'>
+               <Description>Name of SCDB schema file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='scdb.xsd'/>
+               </Value>
+            </Parameter>
+            <!-- Syslog File Parameters -->
+            <Parameter Name='SysLogEventsFile'>
+               <Description>Location where syslog events is written.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/usr/cti/conf/scdb/syslog_events.xml'/>
+               </Value>
+            </Parameter>
+            <!-- Snmp Config File Parameters -->
+            <Parameter Name='SnmpConfigFile'>
+               <Description>Location where syslog events is written.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/usr/cti/conf/scdb/snmp-config.xml'/>
+               </Value>
+            </Parameter>
+            <!-- Filter configuration file path -->
+            <Parameter Name='FilterConfigFile'>
+               <Description>Path to filter.xml file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/usr/cti/apps/scdb/catalinaBase/webapps/scdb/config/filter.xml'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='UnitGroupFileName'>
+               <Description>Name of SCDB data file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='UnitGroup.xml'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='UnitGroupSchemaName'>
+               <Description>Name of UnitGroup schema file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='UnitGroup.xsd'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='SystemListFileName'>
+               <Description>Name of SystemList data file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='SystemList.xml'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='SystemListSchemaName'>
+               <Description>Name of SystemList schema file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='SystemList.xsd'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='EmsFileNameTemplate'>
+               <Description>Regular Expration which matches EMS file names.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='^ems[^;]*.xml$'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='DefaultEmsFileName'>
+               <Description>Default name of the EMS xml file.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='ems-omap.xml'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='EmsFileLocation'>
+               <Description>Name of EMS location.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/opt/CMVT/ems'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='LoggersFilesLocation'>
+               <Description>Location (folder) of loggers</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/var/cti/logs/scdb'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='GenConfFilesLocation'>
+               <Description>Location general configuration files.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/usr/cti/conf/scdb'/>
+               </Value>
+            </Parameter>
+         </Group>
+         <Group Name='Inventory'>
+            <Parameter Name='AutomaticInventorySync'>
+               <Description>Parameter which determines whether to Marimba Inventory is installed and the application can perform update from inventory.</Description>
+               <Type>Boolean</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength/>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value="true"/>
+               </Value>
+            </Parameter>
+            <Parameter Name='InventoryUserName'>
+               <Description>UserName which is used to connect to inventory DB.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>false</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='inventory'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='InventoryPassword'>
+               <Description>Password which is used to connect to inventory DB.</Description>
+               <Type>Password</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='eVZYfLOr6Tg2G/icYYEwkg=='/>
+               </Value>
+            </Parameter>
+            <Parameter Name='InventoryDbUrl'>
+               <Description>Url which is used to connect to inventory DB.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=OFF)(ADDRESS=(PROTOCOL=TCP)(HOST=snmpmanager)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=openview)))'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='InventoryDbDriver'>
+               <Description>Driver which is used to connect to inventory DB.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='oracle.jdbc.driver.OracleDriver'/>
+               </Value>
+            </Parameter>
+         </Group>
+         <Group Name='SNMP'>
+            <Parameter Name='SnmpHost'>
+               <Description>IP address or hostname of the SNMP traps handler (SNMP manager)</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='icc'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='SnmpCommunity'>
+               <Description>SNMP trap comminuty.</Description>
+               <Type>Password</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='/T+1mxo2E/KZ5xFYquIG7w=='/>
+               </Value>
+            </Parameter>
+            <Parameter Name='SnmpDestinationPort'>
+               <Description>Destination port number of the SNMP manager.</Description>
+               <Type>Integer</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal>1</MinVal>
+                  <MaxVal>60000</MaxVal>
+                  <MaxLength/>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='162'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='RebuildMsg'>
+               <Description>Warning message to ICC regarding the scdb changes</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='System Configuration (SCDB) has been changed. Please initiate Service Topology Population activity.'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='RebuildMsgSeverity'>
+               <Description>Indicates the severity of the rebuild topology  trap</Description>
+               <Type>Enum</Type>
+               <Restriction>
+                  <RequiresRestart>true</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength/>
+                  <Mandatory>true</Mandatory>
+                  <Lov>
+                     <Val>INDETERMINATE</Val>
+                     <Val>CRITICAL</Val>
+                     <Val>MAJOR</Val>
+                     <Val>MINOR</Val>
+                     <Val>WARNING</Val>
+                  </Lov>
+               </Restriction>
+               <Value>
+                  <Item Value='WARNING'/>
+               </Value>
+            </Parameter>
+         </Group>
+         <Group Name='FileTransfer'>
+            <Parameter Name='ConnectionTimeout'>
+               <Description>File distribution connection timeout in msec.</Description>
+               <Type>Integer</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal>0</MinVal>
+                  <MaxVal>30000</MaxVal>
+                  <MaxLength/>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='3000'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='RegFileName'>
+               <Description>Name of the registration file</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='registrations_OMAP.xml'/>
+               </Value>
+            </Parameter>
+         </Group>
+         <Group Name='Upgrade'>
+            <Parameter Name='migrFileName'>
+               <Description>Name of the migration file from v1 to v2 of the scdb file format.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='migrationParams.xml'/>
+               </Value>
+            </Parameter>
+         </Group>
+         <Group Name='UnitGroupGeneration'>
+            <Parameter Name='PhysicalDataAccessOrder'>
+               <Description>This parameter define the priority of which IP to use for DataIp in the Physical section of UnitGroup.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='Data,Management,Admin'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='PhysicalMngAccessOrder'>
+               <Description>This parameter define the priority of which IP to use for MngIp in the Physical section of UnitGroup.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='Management,Admin,Data'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='VirtualAccessOrder'>
+               <Description>This parameter define the priority of which IP to use for virtualIp in the Virtual section of UnitGroup.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='Management,Data,Admin'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='LogicalDataAccessOrder'>
+               <Description>This parameter define the priority of which IP to use for DataIp in the logical section of UnitGroup.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='Data,Management,Admin'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='LogicalMngAccessOrder'>
+               <Description>This parameter define the priority of which IP to use for MngIp in the logical section of UnitGroup.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='Management,Admin,Data'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='LogicalAppMultipleAccessOrder'>
+               <Description>This parameter define the priority of which IP to use for AppIp in the logical section of UnitGroup.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='Admin:Admin,Management,Data,*|Management:Management,Admin,Data,*|Data:Data,Management,Admin,*'/>
+               </Value>
+            </Parameter>
+         </Group>
+         <Group Name='Login'>
+            <Parameter Name='StandaloneAuthentication'>
+               <Description>If true authentication will be performed via username and password defined below.</Description>
+               <Type>Boolean</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>false</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength/>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='false'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='UserName'>
+               <Description>Username for the login page.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='XikZO2bPGZs='/>
+               </Value>
+            </Parameter>
+            <Parameter Name='Password'>
+               <Description>Password for the login page.</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='aDmkS1Kl06Mncf7Jxou28Q=='/>
+               </Value>
+            </Parameter>
+            <Parameter Name='AASLoginURL'>
+               <Description>AAS Domain name. (http://10.119.50.42:50450/aas/api | https://10.119.50.42:50451/aas/api)</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='https://aas:50451/aas/api'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='AASLoginAppUser'>
+               <Description>SCDB application user</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='scdb_app_user'/>
+               </Value>
+            </Parameter>
+            <Parameter Name='AASLoginAppPassword'>
+               <Description>SCDB application password encrypted</Description>
+               <Type>String</Type>
+               <Restriction>
+                  <RequiresRestart>false</RequiresRestart>
+                  <Internal>true</Internal>
+                  <MinVal/>
+                  <MaxVal/>
+                  <MaxLength>255</MaxLength>
+                  <Mandatory>true</Mandatory>
+                  <Lov/>
+               </Restriction>
+               <Value>
+                  <Item Value='dTX1AUSFu7ZmOYKPhchTrw=='/>
+               </Value>
+            </Parameter>
+         </Group>
+      </Component>
+   </Parameters>
+</Configuration>

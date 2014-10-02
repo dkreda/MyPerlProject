@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+	<Component Platform="Linux" Name="ProfileDefinition_Compas" Version="Private" Type="Procedure">
+		<Install>
+			<Execute ExecutionOrder="100">
+				<Command>MamCMD stop WSA</Command>
+			</Execute>
+			<Execute ExecutionOrder="110">
+				<Command>MamCMD restart ComPAS</Command>
+			</Execute>
+			<Execute ExecutionOrder="140">
+				<Command>sleep 30 ; MamCMD start WSA</Command>
+			</Execute>
+		</Install>
+	</Component>
+</SWIM>

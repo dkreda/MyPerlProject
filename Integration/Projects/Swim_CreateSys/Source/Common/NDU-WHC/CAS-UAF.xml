@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="CAS" Platform="Linux">
+    <Install>
+      <Component Name="Balancer_CAS" ExecutionOrder="152">
+<!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+<!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+      </Component>
+      <Component Name="Balancer_FirstMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_FirstDMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondDMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="VI_j2sdk_CAS" ExecutionOrder="150">
+<!--This Component has Product Name JRE_Gen with ExecutionPhass 150-->
+      </Component>
+      <Component Name="um_utils_CAS" ExecutionOrder="150">
+<!--This Component has Product Name UM_UTILS with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

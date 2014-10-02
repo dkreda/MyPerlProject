@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="CAS" Platform="Linux">
+    <Install>
+      <Component Name="Demo_Install_CAS" ExecutionOrder="150">
+<!--This Component has Product Name Demo_Install with ExecutionPhass 150-->
+      </Component>
+    </Install>
+    <Uninstall>
+      <Component Name="Demo_Install_CAS"/>
+    </Uninstall>
+  </UnitType>
+</SWIM>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="OMU" Platform="Linux">
+    <Install>
+      <Component Name="WHC_Service_OMU" ExecutionOrder="210">
+<!--This Component has Product Name WHC_FTM_Config_2 with ExecutionPhass 162-->
+<!--This Component has Product Name WHC_Compas_Config with ExecutionPhass 210-->
+<!--This Component has Product Name WHC_Balancer_Config_OMU with ExecutionPhass 150-->
+<!--This Component has Product Name WHC_Fixes with ExecutionPhass 150-->
+<!--This Component has Product Name WHC_TCM_Config with ExecutionPhass 150-->
+<!--This Component has Product Name Uninstall_Marimba with ExecutionPhass 150-->
+<!--This Component has Product Name WHC_FTM_Config_1 with ExecutionPhass 160-->
+      </Component>
+      <Component Name="SmartCall_profile_definition_OMU" ExecutionOrder="190">
+<!--This Component has Product Name SmartCall_profile_definition with ExecutionPhass 190-->
+      </Component>
+      <Component Name="WhoCalled_profile_definition_OMU" ExecutionOrder="150">
+<!--This Component has Product Name WhoCalled_profile_definition with ExecutionPhass 150-->
+      </Component>
+      <Component Name="Compas_OMU" ExecutionOrder="212">
+<!--This Component has Product Name Compas_Install with ExecutionPhass 170-->
+<!--This Component has Product Name Compas_Restart with ExecutionPhass 180-->
+<!--This Component has Product Name AAS_Install with ExecutionPhass 210-->
+<!--This Component has Product Name Compas_Provisioning with ExecutionPhass 200-->
+<!--This Component has Product Name SPM_Install with ExecutionPhass 172-->
+<!--This Component has Product Name Compas_Config with ExecutionPhass 202-->
+<!--This Component has Product Name WSA_Install with ExecutionPhass 210-->
+<!--This Component has Product Name AAS_Config with ExecutionPhass 212-->
+<!--This Component has Product Name Compas_Profile_Definition with ExecutionPhass 190-->
+      </Component>
+      <Component Name="Compas_IPAddressoffirstOMUunit">
+        <OnlyOn>
+          <UnitName>{IPAddressoffirstOMUunit}</UnitName>
+        </OnlyOn>
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

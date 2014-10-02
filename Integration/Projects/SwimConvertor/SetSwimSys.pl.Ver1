@@ -1,0 +1,792 @@
+#!/usr/cti/apps/CSPbase/Perl/bin/perl
+
+##############################################################################
+# This Sript reoganize the SWIm system folder - it set Aliases at SAF
+# for use at solaris replace the first line with:
+# #!/usr/local/bin/perl
+#
+# for use before CSPBase Installation (at Linux) change the first line to:
+# #!/usr/bin/perl
+##############################################################################
+
+use strict;
+use XML::LibXML;
+#########################################################
+#  Global variables
+#########################################################
+
+my $G_ErrorCounter=0;
+my %G_CLIParams=(  LogFile  => "-" ,
+				   Sys		=> "." );
+my @G_FileHandle=();
+
+sub usage
+{
+    print "$0 -Conf Configuratin File -Kits Kits folder -Saf SafFile (Target) [-Sys system folder where the UAF File] [-Join] [-LogFile FileName]\n";
+    print "$0 -help\n";
+}
+
+sub WrLog 
+###############################################################################
+#
+# Input:	@Lines
+#	@Lines - List of Lines to write to Log
+#
+# Return:	nothing
+#
+# Description: Write to log files ($G_CLIParams{LogFile}) if the file is close
+#		it opens the file for write.
+#
+###############################################################################
+{
+    my @Lines=@_;
+    if ( $#G_FileHandle < 0 )
+    {
+    	my @FilesList=split(/,/,$G_CLIParams{LogFile});
+    	my $Counter=1;
+    	foreach my $fn (@FilesList)
+    	{
+    		push (@G_FileHandle,eval("\\*LOGFILE$Counter"));
+    		open $G_FileHandle[-1],">> $fn" or die "Fatal Error !  Fail to open LogFile \"$fn\"" ;
+    		$Counter++;
+    	}
+    	PrnTitle("Start $0","at " . `date`);
+    }
+    foreach (@Lines)
+    {
+    	chomp $_;
+    	foreach my $fh (@G_FileHandle)
+    	{
+    	    print $fh "$_\n";
+    	}
+    }
+}
+
+sub PrnTitle
+###############################################################################
+#
+# Input:	$Text1[$Text2 ...]
+#		The text to print at the Title.
+#
+# Return:	Nothing
+#
+# Description: print Title to the LogFile.
+#
+###############################################################################
+{
+   my $TSize=70;
+   my $Ch_Title="*";
+   my $Border=$Ch_Title x ($TSize + 4);
+   
+   WrLog($Border);
+   foreach (@_)
+   {
+       chomp $_;
+       $_ =~ s/\t/  /g ;
+       WrLog(sprintf ("$Ch_Title %-${TSize}s $Ch_Title\n",$_));
+   }
+   WrLog($Border);
+}
+
+sub EndProg
+###############################################################################
+#
+# Input:	ExitCode[,@Lines]
+#		ExitCode - integer. The exit code the program will exit.
+#		@Lines - Text to print to the Log file.
+#
+# Return:	Nothing
+#
+# Description: Exit the program and close the log file.
+#
+###############################################################################
+{
+     my $ExitCode=shift;
+     WrLog(@_);
+     foreach my $fh (@G_FileHandle)
+     {
+     	defined fileno($fh) or next ;
+     	close $fh ;
+     }
+     exit $ExitCode;
+}
+
+sub RunCmds # @list of commands
+###############################################################################
+#
+# Input:	command1[,comand2,command3 ....]
+#	    	List of command to execute.
+#
+# Return:	exit code of ALL commands (O.K should be 0).
+#
+# Description:  Execute commands. it would NOT stop by failure of single command.
+#		but it will return the amount of failure ( if there were ...)
+#
+###############################################################################
+{
+    my ($Err,$Cmd);
+    my $ErrCounter=0;
+    my @Commands=@_;
+    my @OutPut=();
+    
+    foreach $Cmd (@Commands)
+    {
+	WrLog("Execute: $Cmd");
+	@OutPut=`$Cmd 2>&1`;
+	$Err=$?;
+	foreach (@OutPut)
+	{
+	    WrLog("\t$_");
+	}
+    	$ErrCounter += $Err;
+    	if ( $Err )
+    	{
+    		WrLog("- Error Last Command \"$Cmd\" Finish with exit code $Err");
+    	}
+    }
+    return $ErrCounter != 0 ? 1 : 0;
+}
+
+sub ReadFile
+###############################################################################
+#
+# Input:	$FileName
+#
+# Return:	@Lines - Content of the file
+#
+# Description: Read the file and return the array @lines - each line is 
+#		a record at the array. if an error occurred @lines will be
+#		empty. and G_ErrorCounter will be increment
+#
+###############################################################################
+{
+   my $File=shift;
+   my $Err=0;
+   my $Line;
+   my @Result=();
+   unless ( -e $File )
+   {
+   	WrLog("Error - File $File not exist !");
+   	$G_ErrorCounter++;
+   	return;
+   }
+   WrLog("Info\tReading File $File");
+   open INPUT,"< $File";
+   $Err=$?;
+   while ( <INPUT> )
+   {
+   	$Err += $?;
+   	$Line=$_;
+   	chomp $Line;
+   	push(@Result,$Line);
+   }
+   close INPUT ;
+   $Err += $?;
+   if ( $Err )
+   {
+   	WrLog("Error\tduring File reading error occurred.");
+   	$G_ErrorCounter++;
+   	return ;
+   }
+   return @Result;
+}
+
+sub ReadSection 
+###############################################################################
+#
+# Input:	$Line1[,$Line2...]
+#	   each $Line format must be "param=Val" there may multi params at each
+#	   Line - "param1=val1;param2=val2" , "param3=val3" , "param4 ...."
+#
+# Return:  %Hash - contain all the key->val
+#
+# Description: transform from Line "param=val" to hash.
+#
+###############################################################################
+{
+    my @Input=@_;
+    my (@Lines,$Iter,$Definition);
+    my %Result=();
+    
+    foreach $Iter (@Input)
+    {
+    	@Lines=split(/;/,$Iter);
+    	foreach $Definition (@Lines)
+    	{
+    	      if ( $Definition =~ m/([^=]+)=(.+)/ )
+    	      {
+    	      	  $Result{$1}=$2;
+    	      }
+    	}
+    }
+    return %Result;
+}
+
+sub ReadConfig
+###############################################################################
+#
+# Input:	$FileName
+#
+# Return:	%ConfigRec
+#		 	%ConfigRec   -  {UAF} = \@List Pointer to List of Parameters names to set
+#										Alias at UAF File
+#						 -  {SAF} = \@List Pointer o List of Parameters names to set
+#										Alias at UAF File
+#
+# Description:  ReadConfiguration File
+#
+###############################################################################
+{
+    my $FileName=shift;
+    my @Content=ReadFile($FileName);
+	@Content or WrLog("Error - Empty configuration File \"$FileName\"") , $G_ErrorCounter++ , return;
+	my $KeyName;
+	my %Result;
+    foreach my $Line (@Content)
+	{
+		if ( $Line =~ /^\s*\[(.+)\]$/ )
+		{
+			$KeyName=$1 ;
+			exists $Result{$KeyName} or $Result{$KeyName}={} ;
+			next;
+		} elsif ( $Line =~ /,/ )
+		{
+			my @ParamList=split(/,/,$Line);
+			foreach my $PName (@ParamList)
+			{
+				$Result{$KeyName}->{$PName}=$ParamList[0];
+			}
+			## push(@{$Result{$KeyName}},split(/,/,$Line));
+		} else
+		{
+			$Result{$KeyName}->{$Line}=$Line;
+			#push(@{$Result{$KeyName}},$Line);
+		}
+    }
+    return %Result;
+}
+
+
+sub BackupFile
+###############################################################################
+#
+# Input:	$FilePath
+#		$FilePath - full path of the file to backup
+#		[$BackupFolder] - optional
+#
+# Return:	Backup File name or "" if fail to backup.
+#
+# Description:  Generate backup file . the file will be copy to the same
+#		directory with new name.
+#
+###############################################################################
+{
+   my ($OrigFile,$BackFile)=@_;
+   my $Suffix="Backup_";
+   my @DArr=localtime();
+   my $JustFile=$OrigFile ;
+   
+   unless ( -e $OrigFile )
+   {
+   	WrLog("Error\tFail to backup file $OrigFile. file Not exists.");
+   	$G_ErrorCounter++;
+   	return ;
+   }
+   my $Counter=1;
+   $JustFile =~ s/^.*\/// ;
+   $BackFile = $BackFile ? "$BackFile/$JustFile" : 
+   	sprintf("$OrigFile.$Suffix%4d_%02d_%02d_%02d%02d%02d",$DArr[5]+1900,$DArr[4]+1,$DArr[3],$DArr[2],$DArr[1],$DArr[0]);
+   ### Make sure there is no duplicate backup Files ####
+   while ( -e $BackFile )
+   {
+   	$BackFile .= "$Counter" ;
+   	$Counter++;
+   }
+   
+   WrLog ("Info\tBackup File $JustFile ...");
+   if ( RunCmds("cp -p $OrigFile $BackFile") )
+   {
+   	$G_ErrorCounter++;
+   	WrLog("Eroor\tFail to Backup File $OrigFile");
+   	return ;
+   }
+   return $BackFile;
+}
+
+sub WriteFile #FileName @Lines  # return 0 O.K 1 Error
+###############################################################################
+#
+# Input:	$FileName,@Content
+#
+# Return:	0 - for O.K , != for errors
+#
+# Description: Write the @Content Lines into $FileName (overwrite the file).
+#
+###############################################################################
+{
+   my $FileName=shift;
+   my @Lines=@_;
+   my $Err=0;
+   my $Single;
+   
+   WrLog("Info\tWriting file $FileName.");
+   open (INOUT,"> $FileName");
+   if ( $? )
+   {  
+   	WrLog("Error\tFail to write to File $FileName");
+   	return 1;
+   }
+   foreach $Single (@Lines)
+   {
+        chomp $Single;
+        print INOUT "$Single\n";
+        $Err += $?;
+   }
+   close INOUT;
+   $Err += $?;
+   return $Err;
+}
+
+sub UpdateFile #FileName @Lines  # return 0 O.K 1 Error
+###############################################################################
+#
+# Input:	$FileName,@Content
+#
+#		Note - If File name syntax is "Name,Name2" then Name2 is the 
+#			backup Folder ...."
+# Return:	0 - for O.K , != for errors
+#
+# Description: Write the @Content Lines into $FileName Don't Overwrite.
+#
+###############################################################################
+{
+   my @TmpArray=split(/,/,shift);
+   my @Lines=@_;
+   my $Backup=BackupFile(@TmpArray);
+   
+   unless ( $Backup )
+   {
+       	WrLog("Error\tFail to Backup $TmpArray[0] .");
+ 	return 1;  	    
+   }
+   WrLog("Info\tRewriting file $TmpArray[0].");
+   if ( WriteFile($TmpArray[0],@Lines) )
+   {
+   	WrLog("Error\tFail to write file $TmpArray[0]");
+   	if ( -e $Backup )
+   	{
+   	    WrLog("Info\tRestoring the Original file $TmpArray[0]");
+   	    $G_ErrorCounter += RunCmds("mv -f $Backup $TmpArray[0]");
+   	    return 1;
+   	}
+   } else
+   {
+   	WrLog("Note:\tTo restore the file use $Backup\n");
+   }
+   return 0;
+}
+
+sub SameCaf
+###############################################################################
+#
+# Input:	$XmlObj1,$XmlObj2
+#		$XmlObj1 and $XmlObj2 are XML::LibXML::Documnet obj that 
+#		contain CAF content
+# Return:	1 / true - same , 0 / false - Not same
+#
+# Description:  Compare beteen 2 CAF Files if the CAF are same (except the
+#		component Name) it return true if not it return false.
+#	    	
+#
+###############################################################################
+{
+    my ($XmlObj1,$XmlObj2)=@_;
+    my $Val1=$XmlObj1->findvalue("//Component/\@Platform");
+    $Val1 eq $XmlObj2->findvalue("//Component/\@Platform") or return 0;
+    $Val1=$XmlObj1->findvalue("//Component/\@Version");
+    $Val1 eq $XmlObj2->findvalue("//Component/\@Version") or return 0;
+    #### Compare Content  ###
+    my (@NodeList1,@NodeList2);
+    foreach my $XpathCheck ("//Install","//Parameters")
+    {
+    	@NodeList1 = $XmlObj1->findnodes($XpathCheck);
+    	@NodeList2 = $XmlObj2->findnodes($XpathCheck);
+    	$Val1 = $#NodeList1 ;
+		## WrLog("Debug Find $Val1 Instances of $XpathCheck");
+    	$Val1 == $#NodeList2 or return 0;
+    	for ( my $Indx=$Val1 ; $Indx >= 0 ;$Indx--)
+    	{
+			## WrLog("Debug - $XpathCheck Content:",$NodeList1[$Indx]->toString,"","",$NodeList2[$Indx]->toString);
+			$NodeList1[$Indx]->toString eq $NodeList2[$Indx]->toString or return 0 ;
+    		## $NodeList1[$Indx]->isSameNode($NodeList2[$Indx]) or return 0 ;
+    	}
+    }
+    return 1;
+}
+
+sub JoinCafs #\@CafFilesNames,@UAfList
+{
+	my $CafListPointer=shift;
+	my @UAFList=@_;
+	my (@CafXmlList,@MatchList);
+	my $Err=0;
+    foreach my $XmlFile (@$CafListPointer)
+    {
+    	WrLog("Info - Read $XmlFile");
+    	push(@CafXmlList,[XML::LibXML->new()->parse_file($XmlFile),"No"]);
+    }
+    my $RefFile=0;
+    ## my $MtchIndx=0;
+    while ( $RefFile < @CafXmlList )
+    {
+    	$CafXmlList[$RefFile]->[1]="Match";
+    	my @MatchingFiles=([$RefFile,$CafXmlList[$RefFile]->[0]->findvalue("//Component/\@Name")]);
+		my $NextRef=$RefFile;
+    	for ( my $Indx=$RefFile + 1  ; $Indx < @CafXmlList ; $Indx++ )
+    	{
+    	    $CafXmlList[$Indx]->[1] eq "Match" and next;
+			##  WrLog("Debug - Check if Equal $CafListPointer->[$RefFile] Match to $CafListPointer->[$Indx]");
+    	    if ( SameCaf($CafXmlList[$RefFile]->[0],$CafXmlList[$Indx]->[0]) )
+    	    {
+    	    	WrLog("Debug - File $CafListPointer->[$RefFile] Match to $CafListPointer->[$Indx]");
+    	    	$CafXmlList[$Indx]->[1]="Match";
+    	    	push(@MatchingFiles,[$Indx,$CafXmlList[$Indx]->[0]->findvalue("//Component/\@Name")]);
+    	    } else
+    	    {
+    	    	$NextRef > $RefFile or $NextRef=$Indx;
+    	    }
+    	}
+    	$RefFile = $RefFile < $NextRef ? $NextRef : @CafXmlList + 1;
+    	@MatchingFiles > 1 and push(@MatchList,\@MatchingFiles)
+    }
+    foreach my $ListPointer (@MatchList)
+    {
+    	my $CafName=$CafListPointer->[$ListPointer->[0]->[0]];
+		my $CafXmlObj=XML::LibXML->new()->parse_file($CafName);
+		my $CompName=$ListPointer->[0]->[1];
+		for ( my $Counter=0 ; -e $CafName ; $Counter++ )
+		{
+			my $TmpStr=$Counter ? sprintf("_%02d",$Counter) : "" ;
+			$CompName =~ s/_[^_]+$/$TmpStr/ or ( $CompName .= $TmpStr );
+			$CafName =~ s/[^\/]+$/$CompName-CAF.xml/;
+		}
+		my @TmpNode = $CafXmlObj->findnodes("//Component");
+		$TmpNode[0]->setAttribute("Name",$CompName);
+		WrLog("Debug- New CompName \"$CompName\" ==> $CafName");
+		WrLog("Info - The following Files Should be joined:",
+			  sprintf("%-20s %s","Component Name","Caf File Name"),
+			  '-' x 90 );
+		my @DelList=();
+    	foreach my $Indx (@$ListPointer)
+    	{
+			WrLog(sprintf("%-20s $CafListPointer->[$Indx->[0]]",$Indx->[1]));
+    	    ##WrLog("Debug -\t\t$CafListPointer->[$Indx->[0]] ($Indx->[1])...");
+			foreach my $UAfObj  (@UAFList)
+			{
+				my @CompNode=$UAfObj->{Xml}->findnodes("//Component[\@Name=\"$Indx->[1]\"]");
+				if ( @CompNode )
+				{
+					foreach my $NewComp (@CompNode)
+					{
+						$NewComp->setAttribute("Name",$CompName);
+					}
+				}
+				@CompNode=$UAfObj->{Xml}->findnodes("//Parameter[\@ComponentName=\"$Indx->[1]\"]");
+				if ( @CompNode )
+				{
+					foreach my $NewComp (@CompNode)
+					{
+						$NewComp->setAttribute("ComponentName",$CompName);
+					}
+				}
+				#WrLog("","","Debug - Uaf after Change:",$UAfObj->{Xml}->toString);
+			}
+			push(@DelList,$CafListPointer->[$Indx->[0]]);
+			unshift(@UAFList,{ "Xml" => $CafXmlObj , "FileName" => $CafName });
+    	}
+		WrLog("");
+		###   Save Uafs and delete unrelevant Cafs ...
+	    my @MatchFiles=();
+		foreach my $UAfObj  (@UAFList)
+		{
+			#### Delete duplicate Components ...
+			foreach my $CompNode ( $UAfObj->{Xml}->findnodes("//Install/Component") )
+			{
+				my $TmpCompName=$CompNode->getAttribute("Name");
+				my @TmpList=$UAfObj->{Xml}->findnodes("//Install/Component[\@Name=\"$TmpCompName\"]");
+				my $SaveNode=shift(@TmpList);
+				foreach my $DelComp (@TmpList)
+				{
+					$SaveNode=$DelComp->parentNode();
+					$SaveNode->removeChild($DelComp);
+				}
+			}
+			my $TmpStr=$UAfObj->{Xml}->toString();
+			$TmpStr =~ s/>\s+</></g ;
+			my $TmpXml=XML::LibXML->new()->parse_string($TmpStr);
+			$Err += $TmpXml->toFile($UAfObj->{FileName},1) ? 0 : 1;
+			WrLog("Info - File $UAfObj->{FileName} was updated.");
+			push(@MatchFiles,$UAfObj->{FileName});
+		}
+		$Err or $Err += RunCmds(sprintf("chown --reference=$DelList[0] %s",join(" ",@MatchFiles)),
+								sprintf("rm -f %s",join(" ",@DelList))); 
+    }
+	return $Err;
+}
+
+
+sub InsertAlias #$XmlObj,$AliasName,$ParamName,$CompName,$ParentTag,$RestNode,$ValNode
+{
+	my ($XmlObj,$AliasName,$ParamName,$CompName,$ParentTag,$RestNode,$ValNode)=@_;
+	my @TmpList=$XmlObj->findnodes("//Parameters");
+	my $PNode= @TmpList ? $TmpList[0] : $XmlObj->findnodes("//$ParentTag")->[0]->addChild(XML::LibXML::Element->new("Parameters")) ;
+	@TmpList=$PNode->findnodes("//Alias[\@DisplayName=\"$AliasName\"]") ;
+	my $AliasNode=$TmpList[0];
+	unless ( @TmpList )
+	{
+			$AliasNode=$PNode->addChild(XML::LibXML::Element->new("Alias"));
+			$AliasNode->setAttribute("DisplayName",$AliasName);
+			## my $TmpVal=$ParamNode->findvalue("//Parameter[\@Name=\"$PName\"]/Value");
+			$ValNode and $AliasNode->appendChild($ValNode);
+			$AliasNode->appendChild($RestNode);
+	}
+	$PNode=$AliasNode->appendChild(XML::LibXML::Element->new("Parameter"));
+	$PNode->setAttribute("Name",$ParamName);
+	$PNode->setAttribute("ComponentName",$CompName);
+}
+
+sub SetAlias #\@CafFilesNames,\%Conf,$SafXmlObj,@UAfList
+{
+	my $CafFiles=shift;
+	my $Conf=shift;
+	my $SafXmlObj=shift;
+	my @UAfRecList=@_;
+	foreach my $CafFile (@$CafFiles)
+	{
+		my $CafXmlObj=XML::LibXML->new()->parse_file($CafFile);
+		$CafXmlObj or WrLog("Error - Caf File $CafFile is not Valid ! Skip alias check"), return 1;
+		####  Check which UAF Files relevant for this component.
+		my $CompName=$CafXmlObj->findvalue("//Component/\@Name");
+		my @TmpUafList=();
+		WrLog("Debug - Analyze $CompName ....");
+		foreach my $Tmp (@UAfRecList)
+		{
+			##  WrLog("Debuuuug  -          Checking $Tmp->{FileName} ..........");
+			$Tmp->{Xml}->findnodes("//Component[\@Name=\"$CompName\"]") or next;
+			push(@TmpUafList,$Tmp->{Xml});
+			WrLog("Debug - Componnet $CompName is relevant for $Tmp->{FileName}");
+		}
+		#### Start Search Relevant Parameters ....
+		foreach my $ParamNode ( $CafXmlObj->findnodes("//Parameter") )
+		{
+			my $PName=$ParamNode->getAttribute("Name");
+			
+			my %AliasName=();
+			my $Flag=0;
+			exists $Conf->{UAF}->{$PName} and $AliasName{UAF}=$Conf->{UAF}->{$PName} , $Flag++ ;
+			exists $Conf->{SAF}->{$PName} and $AliasName{SAF}=$Conf->{SAF}->{$PName} , $Flag++ ;
+			$Flag or next;
+			
+			my @TmpList=$ParamNode->getChildrenByTagName("Value");
+			my $TmpVal= @TmpList ? $TmpList[0]->cloneNode(1) : undef ;
+			@TmpList=$ParamNode->getChildrenByTagName("Restrictions");
+			my $RestNode=@TmpList ? $TmpList[0]->cloneNode(1) : undef ;
+			### Start to update aliases at UAF Files
+			if ( exists $AliasName{UAF} )
+			{
+				foreach my $UAFXmlObj (@TmpUafList)
+				{
+					InsertAlias($UAFXmlObj,$AliasName{UAF},$PName,$CompName,"UnitType",$RestNode,$TmpVal);
+				}
+			}
+			if ( exists $AliasName{SAF} )
+			{
+				InsertAlias($SafXmlObj,$AliasName{SAF},$PName,$CompName,"System",$RestNode,$TmpVal);
+			}
+		}
+	}
+}
+
+sub CheckFolder # $Folder , \&SubRutin , @ExtraParams
+{
+    my $Folder=shift;
+	my $SubRutin=shift;
+    my @ExtraParams=@_;
+    my $ErrFlag=0;
+    opendir (CAFDIR,$Folder) or WrLog("Error - Fail to Read Folder \"$Folder\"") ,return 1; 
+    my @FileList = grep(/-CAF.xml$/i,readdir CAFDIR );
+    $ErrFlag += $?;
+    close CAFDIR ;
+    $ErrFlag += $?;
+    $ErrFlag and WrLog("Error - During Read / close Folder \"$Folder\"") , return 1;
+	foreach ( @FileList ) { $_="$Folder/$_"; }
+	$SubRutin->(\@FileList,@ExtraParams) and return 1;
+	## WrLog("Debug - Check folder Finish successsfully subroutin ................");
+	#####   Start To Read Recorsivly .... #
+    opendir (CAFDIR,$Folder) or WrLog("Error - Fail to Read Folder \"$Folder\"") ,return 1; 
+    @FileList = readdir CAFDIR ;
+    $ErrFlag += $?;
+    close CAFDIR ;
+    foreach my $Dir (@FileList)
+    {
+    	$Dir =~ /^[\.]+$/ and next ;
+    	-d "$Folder/$Dir" and $ErrFlag += CheckFolder("$Folder/$Dir",$SubRutin,@ExtraParams);
+		## WrLog("Debug return from  $Folder/$Dir");
+    }
+	
+	return $ErrFlag;
+}
+
+sub ReadUAF
+###############################################################################
+#
+# Input:	$Folder
+#
+# Return:	@ListOfUAFRec - UAF is XML Object of UAF File
+#						UAFRec - {FilName} = FullPath of UAF.
+#							   - {Xml}		= XmlObj
+#
+# Description:  Read all UAF Files from the input Folder.
+#
+###############################################################################
+{
+	my $Folder=shift;
+	opendir (UAFDIR,$Folder) or WrLog("Error - Fail to Read Folder \"$Folder\"") ,return 1; 
+    my @FileList = grep(/-UAF.xml$/i,readdir UAFDIR );
+    my $ErrFlag += $?;
+    close UAFDIR ;
+    $ErrFlag += $?;
+	$ErrFlag and WrLog("Error - Fail to read / close UAF Folder $Folder");
+	my @Result;
+	foreach my $FileName (@FileList) 
+	{
+		my %UAFRec= ( FileName	=>	"$Folder/$FileName" ,
+					  Xml		=>  XML::LibXML->new()->parse_file("$Folder/$FileName") );
+		push(@Result,\%UAFRec);
+	}
+	return @Result;
+}
+sub ReadCLI
+###############################################################################
+#
+# Input:	None
+#
+# Return:	0 - for O.K != for Errors
+#
+# Description:  update the global hash %G_CLIParams with the command line params.
+#	    	The command line must be at format -param val ...
+#
+###############################################################################
+{
+    my $Err=0;
+    my ($ParamName,@ParamValue,$Iter);
+    @ParamValue=();
+    while ( $#ARGV >= 0 )
+    {
+    	$Iter = shift(@ARGV);
+    	if ( $Iter =~ m/^-(.+)$/ )
+    	{
+    	    defined $ParamName and $G_CLIParams{$ParamName}=join(',',@ParamValue);
+    	    $ParamName=$1;
+    	    @ParamValue=();
+    	    if ( $ParamName =~ /Help/i )
+    	    {
+    	    	usage();
+    	    	EndProg();
+    	    }
+    	} else
+    	{
+    	    push(@ParamValue,$Iter);
+    	}
+    }
+    defined $ParamName and $G_CLIParams{$ParamName}=join(',',@ParamValue);
+
+    return $Err;
+}
+
+############################################################################################
+#
+#   					M A I N
+#
+############################################################################################
+
+if ( ReadCLI() )
+{
+    usage();
+    EndProg(1);
+}
+my @DebugMessages=("$0 Input Parameters:");
+while ( my ($PName,$PVal ) = each(%G_CLIParams) )
+{
+     push(@DebugMessages,sprintf("\t-%-20s = $PVal",$PName));
+}
+WrLog(@DebugMessages);
+my %Conf=ReadConfig($G_CLIParams{Conf});
+my @UAFs= keys(%Conf) ? ReadUAF($G_CLIParams{Sys}) : () ;
+exists $G_CLIParams{Saf} or WrLog("Error Missing commad Parameter \"-Saf\" see Usage"),$G_ErrorCounter++,@UAFs=();
+my $SafFileName = $G_CLIParams{Saf} =~ /-SAF.xml/ ? $G_CLIParams{Saf} : "$G_CLIParams{Saf}-SAF.xml";
+my $SafXmlObj;
+
+if ( @UAFs )
+{
+	if ( exists $G_CLIParams{Join} )
+	{
+		$G_ErrorCounter += CheckFolder($G_CLIParams{Kits},\&JoinCafs,@UAFs);
+		$G_ErrorCounter and EndProg(1,"Fatal - Fail to join Cafs see Log ...");
+	}
+	### Creat SAF  ###
+	unless ( -e $SafFileName )
+	{
+		$SafXmlObj=XML::LibXML::Document->createDocument("1.0","UTF-8");
+		$SafXmlObj->setDocumentElement(XML::LibXML::Element->new("SWIM"));
+	} else
+	{
+		$SafXmlObj=XML::LibXML->new()->parse_file($SafFileName);
+	}
+	$SafXmlObj or EndProg(1,"Fatal - Fail to create / Read Saf File ($SafFileName)");
+	my @TmpList=$SafXmlObj->findnodes("/SWIM/System");
+	my $SafRoot= @TmpList ? $TmpList[0] : $SafXmlObj->documentElement()->appendChild(XML::LibXML::Element->new("System"));
+	$SafRoot->getChildrenByTagName("Install") or $SafRoot->appendChild(XML::LibXML::Element->new("Install"));
+	foreach my $UAFRec ( @UAFs )
+	{
+		my $UnitType=$UAFRec->{Xml}->findvalue("//UnitType/\@Name");
+		unless ( $SafXmlObj->findnodes("//UnitType[\@Name=\"$UnitType\"]") )
+		{
+			my @TmpList=$SafXmlObj->findnodes("//Install");
+			my $Node=$TmpList[0]->appendChild(XML::LibXML::Element->new("UnitType"));
+			$Node->setAttribute("Name",$UnitType);
+			## WrLog("Debug - Add $UnitType to Saf File", $SafXmlObj->toString ,"");
+		}
+	}
+	
+	### Update Aliases
+	## SetAlias #\@CafFilesNames,\%Conf,$SafXmlObj,@UAfList
+	WrLog("Debug - Search for Alias ...");
+	$G_ErrorCounter += CheckFolder($G_CLIParams{Kits},\&SetAlias,\%Conf,$SafXmlObj,@UAFs);
+	unless ( $G_ErrorCounter )
+	{
+		push(@UAFs,{ Xml => $SafXmlObj , FileName => $SafFileName});
+		foreach my $UAFRec ( @UAFs )
+		{
+			####  Find aliases with less than one parameter:
+			foreach my $AliasObj ($UAFRec->{Xml}->findnodes("//Alias"))
+			{
+				my @ListNum=$AliasObj->getChildrenByTagName("Parameter");
+				 @ListNum > 1 and next;
+				WrLog(sprintf("Info - remove alias %s. less than 2 parameters", $AliasObj->getAttribute("DisplayName")));
+				$AliasObj->parentNode()->removeChild($AliasObj);
+			}
+			my $TmpStr=$UAFRec->{Xml}->toString;
+			$TmpStr =~ s/>\s+</></g ;
+			my $TmpXmlObj=XML::LibXML->new()->parse_string($TmpStr);
+			my $State=$TmpXmlObj->toFile($UAFRec->{FileName},1);
+			## WrLog("Debug Last Save State: $State ....");
+		}
+	} else { WrLog("Error - due to error during alias analyze , UAF Files won't be update ! - see log file for details"); }
+} else
+{
+	WrLog("Warnning - There are No UAF Files at Folder $G_CLIParams{Sys}. skip Procedure - No SAF will be create.");
+}
+my $ErrMessage= $G_ErrorCounter ? "Finish with ERRORS see Log File $G_CLIParams{LogFile}" :
+		"Finish Successfully :-)";
+EndProg($G_ErrorCounter,$ErrMessage);

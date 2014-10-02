@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="IS3_CMD_Unit" Platform="SunOS">
+    <Install>
+      <Component Name="PVVM_Config_MIPS" ExecutionOrder="650">
+<!--This Component has Product Name IS3_PVVM_Conf with ExecutionPhass 550-->
+<!--This Component has Product Name PVVM_Conf with ExecutionPhass 650-->
+      </Component>
+      <Component Name="PVVM_Config_MZBalancersIPList">
+        <OnlyOn>
+          <UnitName>MZBalancersIPList</UnitName>
+        </OnlyOn>
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

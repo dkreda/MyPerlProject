@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="DSU_Group" Platform="Linux">
+<!--This UAF is implementation of Marimba ServerGroup DSU-->
+    <Install>
+      <Component Name="Config_DSU_Deployments" ExecutionOrder="10"/>
+      <Component Name="VIProfileDefinition" ExecutionOrder="10"/>
+    </Install>
+    <Parameters>
+      <Parameter Name="UnitRun" ComponentName="Config_DSU_Deployments" Display="false">
+        <Value>DSU</Value>
+      </Parameter>
+    </Parameters>
+  </UnitType>
+</SWIM>

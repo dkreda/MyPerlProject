@@ -1,0 +1,31 @@
+####################################################################
+#
+# Octpus Parameters manipulation configuration File
+#
+####################################################################
+
+[Octopus.Parameters.Mapping]
+ServiceMode=WebVIXml1,WebVIXML2,Aumsi1,Aumsi2,Menu
+
+###############################################################################
+
+[RealName.Parameters.Def]
+WebVIXml1=CAS,xml://webvi.xml///wis-configuration/general/baseUrl
+WebVIXML2=CAS,xml://webvi.xml///wis-configuration/general/baseWccUrl
+Aumsi1=PROXY,ini://aumsi.conf/[HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Listener\ProxyDemo]ServerFarmName
+Aumsi2=PROXY,ini://aumsi.conf/[HKEY_LOCAL_MACHINE\SOFTWARE\Comverse Technology\NuMSI\Listener\ProxyDemo]ServerPortNumber
+Menu=SMU,xml://menu_is4.xml///OSSP/Menu/Category/SubCategory/SSOLink[@Name="Portal"]/URL
+
+Spooky=%$MachineFilter%,xml://menu_is4.xml///OSSP/Menu/Category/SubCategory/SSOLink[@Name="Portal"]/URL
+
+[Octopus.Parameters.Def.ServiceMode]
+##### WebVIXml1,WebVIXML2,Aumsi1,Aumsi2,Menu
+Local==Local,Local,127.0.0.1,80,Error
+https:\/\/((\d+\.){3}\d+):(\d+)=~https://$1:8443/webvi,https://$1:8443/webvi/LoginAdmin.jsp,CAS.SITE1,$3,https://CAS.SITE1:443/Menu
+https:\/\/(.+?):(\d+)=~https://$1:8443/webvi,https://$1:8443/webvi/LoginAdmin.jsp,$1,$2,https://$1:443/Menu
+
+[Values]
+ServiceMode=
+
+[Macros]
+MachineFilter=1.1.1.1,3.3.3.3,4.4.4.4

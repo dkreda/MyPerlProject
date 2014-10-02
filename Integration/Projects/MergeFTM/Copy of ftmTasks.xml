@@ -1,0 +1,1419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File-Transfer-Configuration GET_THREADS="3" UPDATEINTERVAL="PT0H02M00S" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ftmTasks.xsd">
+  <Transfer>
+    <!-- Copy CMS Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>CMS</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/cms</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy CCS Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>ISUP</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/ccs</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy VxV Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>VxV</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/vxv</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy CAS Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>CAS_Platform</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/usr/cti/genesis/JGlue/al/</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy Notification Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>NDS</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/nds</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy SMG Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>SMG</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/smg</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy SPM Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>SPM</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/compas</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy MIPS Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>MIPS1</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>P1D</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/opt/criticalpath/global/statistics/</RemotePath>
+        <Include>MIPS_.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy MIPSD Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>MIPS1</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/opt/criticalpath/global/statistics/</RemotePath>
+        <Include>MIPSD_.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Alarm (ICC) copy Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>SNMPMANAGER</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>P1D</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/opt/CMVT/ICC/tools/statistics/logs/</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- copy Profile Counters Statistics to OMU -->
+    <Connection>
+      <HostOrGroupName>ProfileCounter</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>P1D</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/pc/</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>999</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- PMC Statistics Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>SNMPMANAGER</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/db/sdt/stat/Measurements_Results/</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Transfer Statistics Counters with no domain info to DSU repository -->
+    <Connection>
+      <HostOrGroupName>DsuSftp</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/data/stat1/AllDomains</RemotePath>
+        <Include>(CMS|CCS|PMC|SMG|MIPSD|OVO|Genesis|SCA|MTAPluginOnProxy).+\.stat\..+[0-9].done$</Include> 
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Transfer Statistics Counters with domain info to DSU repository -->
+    <Connection>
+      <HostOrGroupName>DsuSftp</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/data/stat1/AllDomains</RemotePath>
+        <Include>(VxV|SPM|MIPS_|Profile|MR|NDS).+\.stat\..+[0-9].done$</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- VxV Activity Log to OMU -->
+    <Connection>
+      <HostOrGroupName>VxV</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/vxv</RemotePath>
+        <Include>.+\.AL\..+[0-9]</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!--CAS Activity Log to OMU -->
+    <Connection>
+      <HostOrGroupName>CAS_Platform</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/usr/cti/genesis/JGlue/al/</RemotePath>
+        <Include>.+\.AL\..+[0-9]</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- NDS Activity Log to OMU -->
+    <Connection>
+      <HostOrGroupName>NDS</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/nds</RemotePath>
+        <Include>.+\.AL\..+[0-9]</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- SPM Activity Log to OMU -->
+    <Connection>
+      <HostOrGroupName>SPM</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/compas</RemotePath>
+        <Include>.+\.AL\..+[0-9]</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- MR Activity Log to OMU -->
+    <Connection>
+      <HostOrGroupName>MR</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/mr</RemotePath>
+        <Include>.+\.AL\..+[0-9]</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Transfer Activity Log to DSU repository -->
+    <Connection>
+      <HostOrGroupName>DsuSftp</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/data/act_logs1/AllDomains</RemotePath>
+        <Include>(Genesis|VxV|MR|SPM|NDS|MMSGW|WHCNDS|WHCSMG|NDU|SMG).+\.AL\..+[0-9]</Include>
+        <Source action="Rename" suffix=".done"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>Y</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Transfer Activity Log to LVU repository -->
+    <Connection>
+      <HostOrGroupName>lvu1</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/db/lgw/proc</RemotePath>
+        <Include>.+\.AL\..+[0-9]+.done</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Copy All Linux units Configuration to OMU  -->
+    <Connection>
+      <HostOrGroupName>MAM</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>P7D</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/usr/cti/conf/backup/</RemotePath>
+        <Include>conf_.+\.tgz$</Include>
+        <Source action="Keep"/>
+        <Destination action="Keep"/>
+        <IfExist action="Replace"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H60M</RetryInterval>
+        <MaxRetry>5</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>5</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>1</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Copy all DSU1a units Configuration to OMU  -->
+    <Connection>
+      <HostOrGroupName>DSU1a</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T20:00:00</StartTime>
+      <RepeatInterval>P7D</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/usr/cti/conf/backup/</RemotePath>
+        <Include>conf_.+\.tgz$</Include>
+        <Source action="Keep"/>
+        <Destination action="Keep"/>
+        <IfExist action="Replace"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H60M</RetryInterval>
+        <MaxRetry>5</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>5</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>1</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Copy all DSU1b units Configuration to OMU  -->
+    <Connection>
+      <HostOrGroupName>DSU1b</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T20:00:00</StartTime>
+      <RepeatInterval>P7D</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/usr/cti/conf/backup/</RemotePath>
+        <Include>conf_.+\.tgz$</Include>
+        <Source action="Keep"/>
+        <Destination action="Keep"/>
+        <IfExist action="Replace"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H60M</RetryInterval>
+        <MaxRetry>5</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>5</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>1</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <Connection>
+      <HostOrGroupName>Auditd</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:10:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/audit</LocalPath>
+        <RemotePath>/var/cti/logs/os-services/audit/</RemotePath>
+        <Include>.*\.gz$</Include>
+        <Source action="Rename" suffix=".xfrd"/>
+        <Destination action="Keep"/>
+        <IfExist action="Replace"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H0M15S</RetryInterval>
+        <MaxRetry>2</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M05S</Timeout>
+        <RetryInterval>PT0H0M05S</RetryInterval>
+        <MaxRetry>2</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>50</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <Connection>
+      <HostOrGroupName>MAU_Platform</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:10:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>sftpsecuser</UserName>
+      <Password>4BH9Ijn+HcO8xCHlc8WnjQ==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/audit</LocalPath>
+        <RemotePath>/</RemotePath>
+        <Include>.+\.+MSWinEventLog.+\.log$</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Replace"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H0M15S</RetryInterval>
+        <MaxRetry>2</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M05S</Timeout>
+        <RetryInterval>PT0H0M05S</RetryInterval>
+        <MaxRetry>2</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>50</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <Connection>
+      <HostOrGroupName>SYSLOGSERVER</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T06:10:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/audit</LocalPath>
+        <RemotePath>/var/log/central/</RemotePath>
+        <Include>.*\.(gz|log)$</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Replace"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H0M15S</RetryInterval>
+        <MaxRetry>2</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M05S</Timeout>
+        <RetryInterval>PT0H0M05S</RetryInterval>
+        <MaxRetry>2</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>50</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Transfer all Configuration files ( Except MAU configuration ) to DSU -->
+    <Connection>
+      <HostOrGroupName>DsuSftp</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T23:30:00</StartTime>
+      <RepeatInterval>P7D</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/data/sw_cfg/</RemotePath>
+        <Include>conf_.+\.tgz$</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="TimeStamped"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H60M</RetryInterval>
+        <MaxRetry>5</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>5</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>1</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Transfer VMOD CDRs to DSU repository -->
+    <Connection>
+      <HostOrGroupName>DsuSftp</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT1H</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/tcm/</LocalPath>
+        <RemotePath>/data/cdr1/AllDomains</RemotePath>
+        <Include>VMODCOM_.+\.dat</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Transfer CLG CDRs to DSU repository -->
+    <Connection>
+      <HostOrGroupName>DsuSftp</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT1H</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/tcm/</LocalPath>
+        <RemotePath>/data/cdr1/AllDomains</RemotePath>
+        <Include>.+\_OMU.+\.CL</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Transfer GCDRs to DSU repository -->
+    <Connection>
+      <HostOrGroupName>DsuSftp</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="PUT">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT1H</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/tcm/</LocalPath>
+        <RemotePath>/data/cdr1/AllDomains</RemotePath>
+        <Include>.+\.cdr[\.\-].+[0-9]</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="N"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!--SMG Activity Log to OMU-->
+    <Connection>
+      <HostOrGroupName>SMG</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/smg</RemotePath>
+        <Include>.+\.AL\..+[0-9]</Include>
+        <Source action="Delete"/>
+        <Destination action="Keep"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+  <Transfer>
+    <!-- Copy SCA Statistics and Counters to OMU -->
+    <Connection>
+      <HostOrGroupName>CMS</HostOrGroupName>
+      <Port>22</Port>
+      <Transport type="SecureFTP"/>
+    </Connection>
+    <Operation type="GET">
+      <StartTime>2006-01-01T06:00:00</StartTime>
+      <RepeatInterval>PT0H15M</RepeatInterval>
+      <UserName>ftm</UserName>
+      <Password>mwwzKS4njTQJY38khGjo8Q==</Password>
+      <FileSpecification>
+        <LocalPath>/var/cti/db/ftm/</LocalPath>
+        <RemotePath>/var/cti/al/sca</RemotePath>
+        <Include>.+\.stat\..+[0-9]$</Include>
+        <Source action="Delete"/>
+        <Destination action="Rename" suffix=".done"/>
+        <IfExist action="Skip"/>
+        <ZIPCompression>N</ZIPCompression>
+      </FileSpecification>
+    </Operation>
+    <Errors>
+      <Login>
+        <RetryInterval>PT0H05M</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </Login>
+      <FileTransfer>
+        <Timeout>PT0H0M30S</Timeout>
+        <RetryInterval>PT0H0M30S</RetryInterval>
+        <MaxRetry>3</MaxRetry>
+        <Alarm enable="Y"/>
+      </FileTransfer>
+      <NoActivity>
+        <MaxIntervals>10</MaxIntervals>
+        <Alarm enable="Y"/>
+      </NoActivity>
+      <TrnsNotDone>
+        <Alarm enable="Y"/>
+      </TrnsNotDone>
+    </Errors>
+  </Transfer>
+</File-Transfer-Configuration>

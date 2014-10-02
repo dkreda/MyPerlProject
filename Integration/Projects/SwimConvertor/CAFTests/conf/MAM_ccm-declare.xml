@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ccmDeclare version="1.00">
+   <config	
+            name="MAM" 
+			version="4.2.1.1"
+			osOwner="bsuser:bsgroup" 
+			reconfigureMethod="script"
+			reconfigurePath="/usr/cti/apps/babysitter/restart_via_ccm"
+			isInSharedStorage="false"
+			isManagedPerUnitType="true"
+	>
+	<file 
+	        name="/usr/cti/conf/babysitter/Babysitter.ini" 
+			format="ini" 
+			isUnitSpecific="false"
+			permissionLevel="5"
+	/>      
+   </config>
+</ccmDeclare>
+

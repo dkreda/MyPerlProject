@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="MMSGW" Platform="Linux">
+    <Install>
+      <Component Name="Balancer_MMSGW" ExecutionOrder="152">
+        <!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+        <!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+      </Component>
+      <Component Name="Balancer_FirstMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_FirstDMZunitIP">
+        <OnlyOn>
+          <UnitName>{FirstDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Balancer_SecondDMZunitIP">
+        <OnlyOn>
+          <UnitName>{SecondDMZunitIP}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="Compas_MMSGW" ExecutionOrder="190">
+        <!--This Component has Product Name Compas_Profile_Definition with ExecutionPhass 190-->
+        <!--This Component has Product Name Uninstall_Common with ExecutionPhass 150-->
+      </Component>
+      <Component Name="MMG_CSP-Base_Customization_MMSGW" ExecutionOrder="152">
+        <!--This Component has Product Name CC_CSP-Base_Customization_2 with ExecutionPhass 152-->
+        <!--This Component has Product Name CC_CSP-Base_Customization_1 with ExecutionPhass 150-->
+      </Component>
+      <Component Name="MMG_MTA_MMSGW" ExecutionOrder="250">
+        <!--This Component has Product Name MTA_MMSGW with ExecutionPhass 250-->
+        <!--This Component has Product Name MTA_BASE with ExecutionPhass 240-->
+      </Component>
+      <Component Name="MMG_Customization_MMSGW" ExecutionOrder="1150">
+        <!--This Component has Product Name Customization_MMG with ExecutionPhass 650-->
+        <!--This Component has Product Name IS3_MIPS_Config_for_VW with ExecutionPhass 650-->
+        <!--This Component has Product Name Customization_SYS with ExecutionPhass 700-->
+        <!--This Component has Product Name Uninstall_Marimba with ExecutionPhass 650-->
+        <!--This Component has Product Name Restart_Babysitter with ExecutionPhass 1150-->
+        <!--This Component has Product Name CSP_BASE_4.3.0.0-11_WAFix with ExecutionPhass 150-->
+      </Component>
+      <Component Name="MMG_ServiceKit_MMSGW" ExecutionOrder="1150">
+        <!--This Component has Product Name SK_System with ExecutionPhass 900-->
+        <!--This Component has Product Name SK_SystemAndMTS with ExecutionPhass 900-->
+        <!--This Component has Product Name SK_MMG with ExecutionPhass 850-->
+        <!--This Component has Product Name Uninstall_Marimba with ExecutionPhass 650-->
+        <!--This Component has Product Name SK_Farms with ExecutionPhass 850-->
+        <!--This Component has Product Name Restart_Babysitter with ExecutionPhass 1150-->
+        <!--This Component has Product Name IS4_SDC with ExecutionPhass 950-->
+      </Component>
+      <Component Name="MMG_ServiceKit_ProxyBalancerList">
+        <OnlyOn>
+          <UnitName>{ProxyBalancerList}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="PVVM_Config_MMSGW" ExecutionOrder="650">
+        <!--This Component has Product Name PVVM_Conf with ExecutionPhass 650-->
+      </Component>
+      <Component Name="PVVM_Config_MZBalancersIPList">
+        <OnlyOn>
+          <UnitName>{MZBalancersIPList}</UnitName>
+        </OnlyOn>
+      </Component>
+      <Component Name="MMSGW_MMSGW" ExecutionOrder="350">
+        <!--This Component has Product Name UPGRADE_Merge_MMSGW_Appl with ExecutionPhass 200-->
+        <!--This Component has Product Name MMSGW_MessageStorageType with ExecutionPhass 180-->
+        <!--This Component has Product Name UPGRADE_Install_MMSGW_Appl with ExecutionPhass 180-->
+        <!--This Component has Product Name MMSGW_Appl with ExecutionPhass 190-->
+        <!--This Component has Product Name UPGRADE_Copy_MMSGW_Appl with ExecutionPhass 190-->
+        <!--This Component has Product Name CMD_inst_VM2MMS with ExecutionPhass 170-->
+        <!--This Component has Product Name UPGRADE_execute_procedure with ExecutionPhass 150-->
+        <!--This Component has Product Name UPGRADE_backup_old_config_MMSGW_Appl with ExecutionPhass 160-->
+        <!--This Component has Product Name MMSGW_Common_Config with ExecutionPhass 250-->
+        <!--This Component has Product Name CCM with ExecutionPhass 350-->
+        <!--This Component has Product Name CMD_config_VM2MMS with ExecutionPhass 160-->
+        <!--This Component has Product Name UPGRADE_Uninstall_MMSGW_Appl with ExecutionPhass 170-->
+      </Component>
+      <Component Name="MTA_Plugin_MMSGW" ExecutionOrder="550">
+        <!--This Component has Product Name MTA_Plugin_CAS with ExecutionPhass 550-->
+        <!--This Component has Product Name MTA_Plugin with ExecutionPhass 250-->
+      </Component>
+      <Component Name="VI_Audit_MMSGW" ExecutionOrder="4990">
+        <!--This Component has Product Name change_traceability_params with ExecutionPhass 160-->
+        <!--This Component has Product Name enable_disable_traceability with ExecutionPhass 170-->
+        <!--This Component has Product Name swp-CSPbase-Services with ExecutionPhass 4990-->
+      </Component>
+      <Component Name="Babysitter_MMSGW" ExecutionOrder="150">
+        <!--This Component has Product Name Babysitter with ExecutionPhass 150-->
+      </Component>
+      <Component Name="CCMAgent_MMSGW" ExecutionOrder="210">
+        <!--This Component has Product Name CCM Agent  Installation with ExecutionPhass 210-->
+      </Component>
+      <Component Name="CSPbase_MMSGW" ExecutionOrder="70">
+        <!--This Component has Product Name CSPbase_post with ExecutionPhass 70-->
+        <!--This Component has Product Name CSPbase with ExecutionPhass 60-->
+      </Component>
+      <Component Name="Linux_Hkit_MMSGW" ExecutionOrder="150">
+        <!--This Component has Product Name SEC_AS5_HKIT with ExecutionPhass 150-->
+      </Component>
+      <Component Name="VI_j2sdk_MMSGW" ExecutionOrder="100">
+        <!--This Component has Product Name JRE_Gen_64bits with ExecutionPhass 100-->
+      </Component>
+      <Component Name="MergeTool_MMSGW" ExecutionOrder="150">
+        <!--This Component has Product Name Merge_Tool with ExecutionPhass 150-->
+      </Component>
+      <Component Name="VI_SiteBook_MMSGW" ExecutionOrder="150">
+        <!--This Component has Product Name SiteBook MetaData Files with ExecutionPhass 150-->
+        <!--This Component has Product Name SiteBook User with ExecutionPhass 150-->
+      </Component>
+      <Component Name="Tomcat_Octopus_MMSGW" ExecutionOrder="150">
+        <!--This Component has Product Name Tomcat_Octopus with ExecutionPhass 150-->
+      </Component>
+    </Install>
+    <Uninstall>
+      <Component Name="Balancer_MMSGW"/>
+      <Component Name="MMG_MTA_MMSGW"/>
+      <Component Name="MMSGW_MMSGW"/>
+      <Component Name="MTA_Plugin_MMSGW"/>
+      <Component Name="CSPbase_MMSGW"/>
+      <Component Name="Tomcat_Octopus_MMSGW"/>
+    </Uninstall>
+  </UnitType>
+</SWIM>

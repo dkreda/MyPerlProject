@@ -1,0 +1,9 @@
+<UnitGroup>
+        <Physical DashboardLayer="Data Store" GroupName="CAS_Group">
+                <UnitInstance DataIp="10.106.50.187" Hostname="cas-au187" MngIp="10.106.50.187" Mngname="cas-au187" UnitName="cas-au187"/>
+        </Physical>
+        <Physical DashboardLayer="Data Store" GroupName="OMU_Group">
+                <UnitInstance DataIp="10.106.50.186" Hostname="omu-au186" MngIp="10.106.50.186" Mngname2="omu-au186" UnitName="omu-au186"/>
+        </Physical>
+</UnitGroup>
+

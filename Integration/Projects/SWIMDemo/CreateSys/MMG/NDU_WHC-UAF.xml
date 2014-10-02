@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="NDU-WHC-MMG_Group" Platform="Linux">
+    <Install>
+		<Component Name="SMG" ExecutionOrder="150">
+			<!--This Component has Product Name SMG with ExecutionPhass 150-->
+		</Component>
+		<Component Name="NDS_WHC" ExecutionOrder="150">
+			<!--This Component has Product Name NDS_WHC with ExecutionPhass 150-->
+		</Component>
+		<Component Name="WHC_Service_Balancer" ExecutionOrder="160">
+			<!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+			<!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+			<!--This Component has Product Name UnitGroup with ExecutionPhass 154-->
+			<OnlyOn>
+				<UnitName>Balancer</UnitName>
+			</OnlyOn>
+		</Component>
+		<Component Name="WHC_Service" ExecutionOrder="245">
+			<!--This Component has Product Name WHC_Fixes with ExecutionPhass 150-->
+			<!--This Component has Product Name WHC_SMG_Config with ExecutionPhass 210-->
+			<!--This Component has Product Name WHC_Balancer_Config with ExecutionPhass 150-->
+			<!--This Component has Product Name Uninstall_Marimba with ExecutionPhass 150-->
+			<!--This Component has Product Name WHC_Fixes_Last with ExecutionPhass 9150-->
+			<!--This Component has Product Name WHC_IS4_Config with ExecutionPhass 150-->
+			<!--This Component has Product Name WHC_DB_Config with ExecutionPhass 150-->
+		</Component>
+      	<Component Name="Infra_WHC" ExecutionOrder="142">
+			<!--This Component has Product Name SWP-Apache with ExecutionPhass 150-->
+			<!--This Component has Product Name SWIFT_GEM with ExecutionPhass 154-->
+			<!--This Component has Product Name SWIFT_DSV with ExecutionPhass 154-->
+			<!--This Component has Product Name SWIFT_Platform with ExecutionPhass 152-->
+			<!--This Component has Product Name Oracle_Client with ExecutionPhass 150-->
+		</Component>
+		<Component Name="swp_apache2_2" ExecutionOrder="140">
+			<!--This Component replace SWP-Apache at Infra_WHC_NDU 150-->
+		</Component>
+      	<Component Name="CSP_Base_Linux" ExecutionOrder="70">
+		<!-- <Component Name="CSPbase_NDU" ExecutionOrder="70">  -->
+			<!--This Component has Product Name CSPbase_Post_Reboot with ExecutionPhass 70-->
+			<!--This Component has Product Name CSPbase with ExecutionPhass 60-->
+		</Component>
+		<Component Name="SmartCall_profile_definition" ExecutionOrder="190">
+			<!--This Component has Product Name SmartCall_profile_definition with ExecutionPhass 190-->
+		</Component>
+		<Component Name="CC_CSP-Base_Customization" ExecutionOrder="100">
+			<!--This Component has Product Name CC_CSP-Base_Customization_2 with ExecutionPhass 152-->
+			<!--This Component has Product Name CC_CSP-Base_Customization_1 with ExecutionPhass 150-->
+		</Component>
+		<Component Name="Web_UI_Infrastracture" ExecutionOrder="160">
+			<!--This Component has Product Name Web_UI_Infra_Install with ExecutionPhass 160-->
+		</Component>
+		<Component Name="NOTIFICATION_TOOLS" ExecutionOrder="240">
+			<!--This Component has Product Name NOTIFICATION_TOOLS with ExecutionPhass 250-->
+		</Component>
+		<Component Name="swp_jre_1.6" ExecutionOrder="140">
+			<!-- Manual update kit from Platform -->
+		</Component>
+		<Component Name="swp_tomcat6_0" ExecutionOrder="143">
+			<!-- Manual update kit from Platform -->
+		</Component>
+		<Component Name="VI_SiteBook" ExecutionOrder="330">
+			<!--This Component has Product Name create_sitebook_user with ExecutionPhass 330-->
+		</Component>
+		<Component Name="WhoCalled_profile_definition_NDU" ExecutionOrder="160">
+			<!--This Component has Product Name WhoCalled_profile_definition with ExecutionPhass 150-->
+		</Component>
+		<Component Name="ProfileDefinitions_Common" ExecutionOrder="190">
+			<!--This Component has Product Name Compas_Profile_Definition with ExecutionPhass 190-->
+		</Component>
+		<Component Name="Babysitter-IC" ExecutionOrder="145">
+			<!--Manual insertion By Kreda The relevant kit-->
+		</Component>
+		<Component Name="VAN" ExecutionOrder="150">
+			<!--This Component has Product Name VAN with ExecutionPhass 150-->
+		</Component>
+		<Component Name="um_utils" ExecutionOrder="145">
+			<!--This Component has Product Name UM_UTILS with ExecutionPhass 150-->
+		</Component>
+      	<Component Name="swp-csp-Services-Linux" ExecutionOrder="400">
+			<!--This Component has Product Name change_traceability_params with ExecutionPhass 160-->
+			<!--This Component has Product Name enable_disable_traceability with ExecutionPhass 170-->
+			<!--This Component has Product Name swp-CSPbase-Services with ExecutionPhass 4990-->
+		</Component>
+		<Component Name="NDU_WEB" ExecutionOrder="150">
+			<!--This Component has Product Name NDU_WEB with ExecutionPhass 150-->
+		</Component>
+		<Component Name="CCMAgent" ExecutionOrder="210">
+			<!--This Component has Product Name CCM Agent  Installation with ExecutionPhass 210-->
+			<!--This Component has Product Name Tomcat 6.6.0.32 Installation with ExecutionPhass 200-->
+		</Component>
+		<Component Name="Balancer" ExecutionOrder="154">
+			<!--This Component has Product Name BALANCER_AS3 with ExecutionPhass 152-->
+			<!--This Component has Product Name BALANCER_BASE with ExecutionPhass 150-->
+			<!--This Component has Product Name UnitGroup with ExecutionPhass 154-->
+			<OnlyOn>
+				<UnitName>Balancer</UnitName>
+			</OnlyOn>
+		</Component>
+		<Component Name="Linux_AS5_Hkit" ExecutionOrder="500">
+			<!--Added Manually The Hkit is platform kit and not generated via mdb convertor-->
+		</Component>
+		
+		<!--   MMG Service Kit Section   -->
+		
+		<Component Name="MMG_ServiceKit_NDU" ExecutionOrder="3250">
+			<!--This Component has Product Name SK_System with ExecutionPhass 900-->
+			<!--This Component has Product Name SK_NDU with ExecutionPhass 850-->
+			<!--This Component has Product Name SK_SystemAndMTS with ExecutionPhass 900-->
+			<!--This Component has Product Name Restart_Babysitter with ExecutionPhass 1150-->
+			<!--This Component has Product Name IS4_SDC with ExecutionPhass 950-->
+		</Component>
+		<Component Name="PVVM_Config_NDU" ExecutionOrder="3250">
+			<!--This Component has Product Name PVVM_Conf with ExecutionPhass 650-->
+			<!--This Component has Product Name PVVM_Conf_NDU with ExecutionPhass 650-->
+		</Component>
+	</Install>
+    <Parameters>
+		<Parameter ComponentName="CSP_Base_Linux" Name="Legacy_Cleanup" Display="false"/>
+		<Parameter ComponentName="Babysitter-IC" Name="AgentXPortNumber" Display="false"/>
+		<Parameter ComponentName="swp_apache2_2" Name="fastcgiEnabled" Display="false">
+			<Value>yes</Value>
+		</Parameter>
+		<Parameter ComponentName="Babysitter-IC" Name="JAVA_PATH" Display="false">
+			<Value>/usr/local/jre1-6/bin/java</Value>
+		</Parameter>
+		<Parameter Display="false" Name="AgentXServiceName" ComponentName="Babysitter-IC">
+            <Value>NONE</Value>
+        </Parameter>
+		<Parameter ComponentName="VI_SiteBook" Name="SiteBook Unit Type" Display="false">
+            <Value>NDU-WHC</Value>
+        </Parameter>
+		<Alias DisplayName="Network Domain">
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+			<Parameter ComponentName="CC_CSP-Base_Customization" Name="DNS Domain Name"/>
+			<Parameter ComponentName="WHC_Service_Balancer" Name="DNS Domain Name"/>
+		</Alias>
+		<Alias DisplayName="Primary DNS IP">
+			<Value>#BalancerIP1#</Value>
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+			<Parameter ComponentName="CC_CSP-Base_Customization" Name="Primary DNS IP Address"/>
+			<Parameter ComponentName="WHC_Service_Balancer" Name="Primary DNS IP Address"/>
+			<Parameter ComponentName="Balancer" Name="First MZ unit IP"/>
+		</Alias>
+		<Alias DisplayName="Secondary DNS IP Address">
+			<Value>#BalancerIP2#</Value>
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+			<Parameter ComponentName="CC_CSP-Base_Customization" Name="Secondary DNS IP Address"/>
+			<Parameter ComponentName="WHC_Service_Balancer" Name="Secondary DNS IP Address"/>
+			<Parameter ComponentName="Balancer" Name="Second MZ unit IP"/>
+		</Alias>
+		<Alias DisplayName="SMU VIP">
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+			<Parameter ComponentName="CC_CSP-Base_Customization" Name="SMU_VIP"/>
+			<Parameter ComponentName="WHC_Service_Balancer" Name="SMU_VIP"/>
+			<!-- <Parameter ComponentName="Babysitter_NDU" Name="SNMP TrapDestination"/>  -->
+		</Alias>
+		<Alias DisplayName="DSU Calls DB VIP">
+			<Restrictions>
+				<Type>String</Type>
+			</Restrictions>
+			<Parameter ComponentName="WHC_Service" Name="DSU Calls DB VIP"/>
+			<Parameter ComponentName="WHC_Service_Balancer" Name="DSU Calls DB VIP"/>
+		</Alias>
+		<Alias DisplayName="Platform Type">
+			<Value>InSight4</Value>
+			<Restrictions>
+       			<Type>Enum</Type>
+       			<Enum>
+       				<Item Value="StandAlone"/>
+       				<Item Value="InSight4"/>
+       			</Enum>
+       		</Restrictions>
+			<Parameter ComponentName="WHC_Service" Name="WHC Platform Type"/>
+			<Parameter ComponentName="WhoCalled_profile_definition_NDU" Name="WHC Platform Type"/>
+		</Alias>
+	</Parameters>
+  </UnitType>
+</SWIM>

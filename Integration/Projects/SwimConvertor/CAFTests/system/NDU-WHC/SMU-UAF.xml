@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="SMU_Group" Platform="SunOS">
+    <Install>
+      <Component Name="scdb-util_SMU" ExecutionOrder="150">
+        <!--This Component has Product Name SCDB_Util with ExecutionPhass 150-->
+      </Component>
+      <Component Name="WHC_Service_SMU" ExecutionOrder="150">
+        <!--This Component has Product Name WHC_SCDB_Config with ExecutionPhass 150-->
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

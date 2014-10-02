@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by XMLSpy 2007 Professional Ed., Installed for 43 users (Comvers) -->
+<SWIM xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\DOCUME~1\dkreda\Desktop\SAF.xsd">
+	<System>
+		<Install>
+			<UnitType Name="MTS_Group"/>
+			<UnitType Name="MMSGW_Group"/>
+			<!-- <UnitType Name="NDU-WHC-MMG_Group"/>  -->
+			<UnitType Name="IS3_CMD_Unit"/>
+			<UnitType Name="Proxy_AU_Group"/>
+		</Install>
+		<Parameters>
+			<Parameter Name="Application Additional Information" ComponentName="Babysitter" Display="false"/>
+			<Parameter Name="Application Requirements Version" ComponentName="Babysitter" Display="false"/>
+			<Parameter Name="Application Support Contact" ComponentName="Babysitter" Display="false"/>
+			<Parameter Name="Application Version Date" ComponentName="Babysitter" Display="false"/>
+			<Parameter Name="DefaultMipsDomain" ComponentName="genesis" Display="true"/>
+			<Parameter Name="GSL IP List" ComponentName="service-kit-vi_suite_Balancer" Display="true"/>
+			<Parameter Name="LBA IP" ComponentName="service-kit-vi_suite_Balancer" Display="true"/>
+			<Parameter Name="MipsServerIp" ComponentName="genesis" Display="true"/>
+			<Parameter Name="MSU IP List" ComponentName="service-kit-vi_suite_Balancer" Display="false"/>
+			<Parameter Name="ResolveRecipientsMips_MipsIp" ComponentName="MTA_Plugin_MMSGW" Display="false"/>
+			<Parameter Name="ResolveRecipientsMips_MsuTrmList" ComponentName="MTA_Plugin_MMSGW" Display="false"/>
+			<Parameter Name="TRM Number" ComponentName="MTA_Plugin_PROXY" Display="true"/>
+			<Alias DisplayName="Network Domain">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Network Domain" ComponentName="MMG_CSP-Base_Customization_MMSGW"/>
+				<Parameter Name="Network Domain" ComponentName="VI_CSP-Base_Customization_MTS-U"/>
+				<Parameter Name="Network Domain" ComponentName="VI_CSP-Base_Customization_CAS"/>
+				<Parameter Name="Network Domain" ComponentName="VI_CSP-Base_Customization_PROXY"/>
+				<Parameter Name="Network Domain" ComponentName="MMG_MTA_MMSGW"/>
+				<Parameter Name="MTAsysDomainName" ComponentName="vi_mta_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Manager_Password">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Manager_Password" ComponentName="MMG_ServiceKit_PROXY"/>
+				<Parameter Name="Manager_Password" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Manager_Password" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="Manager_Password" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name="Manager_Password" ComponentName="service-kit-vi_suite_CAS"/>
+				<Parameter Name="Manager_Password" ComponentName="service-kit-vi_suite_MTS-U"/>
+				<Parameter Name="Manager_Password" ComponentName="MMG_MTA_MMSGW"/>
+				<Parameter Name="ManagerPass" ComponentName="vi_mta_CAS"/>
+				<Parameter Name="ManagerPass" ComponentName="vi_mta_PROXY"/>
+			</Alias>
+			<Alias DisplayName="FromAddress">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="FromAddress" ComponentName="MTA_Plugin_MMSGW"/>
+				<Parameter Name="FromAddress" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Balancer - Second MZ unit" Display="true">
+				<Value>#BalancerIP2#</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<!-- <Parameter Name="Second MZ unit IP" ComponentName="Balancer"/>  -->
+				<Parameter Name="Second MZ unit IP" ComponentName="MMG_CSP-Base_Customization_MMSGW"/>
+				<Parameter Name="Second MZ unit IP" ComponentName="balancer_DMZ"/>
+				<Parameter Name="Second MZ unit IP" ComponentName="VI_CSP-Base_Customization_MTS-U"/>
+				<Parameter Name="Second MZ unit IP" ComponentName="VI_CSP-Base_Customization_CAS"/>
+				<Parameter Name="Second MZ unit IP" ComponentName="balancer_MZ"/>
+			</Alias>
+			<Alias DisplayName="Balancer - Second DMZ unit" Display="true">
+				<Value>#DMZIP2#</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Second DMZ unit IP" ComponentName="balancer_DMZ"/>
+				<Parameter Name="Second DMZ unit IP" ComponentName="VI_CSP-Base_Customization_PROXY"/>
+				<Parameter Name="Second DMZ unit IP" ComponentName="balancer_MZ"/>
+			</Alias>
+			<Alias DisplayName="Balancer - First DMZ unit" Display="true">
+				<Value>#DMZIP1#</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="First DMZ unit IP" ComponentName="balancer_DMZ"/>
+				<Parameter Name="First DMZ unit IP" ComponentName="VI_CSP-Base_Customization_PROXY"/>
+				<Parameter Name="First DMZ unit IP" ComponentName="balancer_MZ"/>
+			</Alias>
+			<Alias DisplayName="Balancer IP Override" Display="true">
+				<Value>#AllBalacersIP#</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Babysitter - BalancerIPOverride" ComponentName="MMG_ServiceKit_MTS-U"/>
+				<Parameter Name="Babysitter - BalancerIPOverride" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="Babysitter - BalancerIPOverride" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Babysitter - BalancerIPOverride" ComponentName="MMG_ServiceKit_PROXY"/>
+				<Parameter Name="Balancer IP Override" ComponentName="Babysitter"/>
+			</Alias>
+			<Alias DisplayName="Balancers IP List (MMG Zone)" Display="true">
+				<Value>#BalancerIP#</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="MZ Balancers IP List" ComponentName="MMG_ServiceKit_MTS-U"/>
+				<Parameter Name="MZ Balancers IP List" ComponentName="MMG_ServiceKit_NDU"/>
+				<!-- <Parameter Name="MZ Balancers IP List" ComponentName="MMG_ServiceKit_ProxyBalancerList"/> -->
+				<Parameter Name="MZ Balancers IP List" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="MZ Balancers IP List" ComponentName="MMG_ServiceKit_MZBalancersIPList"/>
+				<!-- <Parameter Name="MZ Balancers IP List" ComponentName="MMG_ServiceKit_MZBalancersIPList"/> -->
+				<Parameter Name="MZ Balancers IP List" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Balancers IP List (Proxy Zone)" Display="true">
+				<Value>#DMZIP#</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Proxy Balancer List" ComponentName="MMG_ServiceKit_MTS-U"/>
+				<Parameter Name="Proxy Balancer List" ComponentName="MMG_ServiceKit_NDU"/>
+				<!-- <Parameter Name="Proxy Balancer List" ComponentName="MMG_ServiceKit_ProxyBalancerList"/>  -->
+				<!-- <Parameter Name="Proxy Balancer List" ComponentName="MMG_Customization_ProxyBalancerList"/> -->
+				<Parameter Name="Proxy Balancer List" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Proxy Balancer List" ComponentName="MMG_ServiceKit_MZBalancersIPList"/>
+				<Parameter Name="Proxy Balancer List" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Converged Msg Domain">
+				<Value>None</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Converged Msg Domain" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="Converged Msg Domain" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Converged Msg Domain" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Delivery_Method_Email">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="True"/>
+						<Item Value="No" Display="False"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Delivery_Method_Email" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="Delivery_Method_Email" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Delivery_Method_Email" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Delivery_Method_MailBox">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="True"/>
+						<Item Value="No" Display="False"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Delivery_Method_MailBox" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="Delivery_Method_MailBox" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Delivery_Method_MailBox" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Delivery Method Multi Value">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="No" Display="Disable"/>
+						<Item Value="Yes" Display="Enable"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Delivery Method Multi Value" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="Delivery Method Multi Value" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Delivery Method Multi Value" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="MMSC URL">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="MMSC URL" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="MMSC URL" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<!-- <Parameter Name="MMSC URL" ComponentName="MMG_Customization_MMSGW"/> -->
+				<Parameter Name="MMSC URL" ComponentName="MMG_ServiceKit_PROXY"/>
+				<!-- <Parameter Name="MMSC URL" ComponentName="MMG_Customization_PROXY"/> -->
+				<!-- <Parameter Name="MMSC URL" ComponentName="MMG_Customization_NDU"/> -->
+			</Alias>
+			<Alias DisplayName="PVVMPlatform">
+				<Value>Insight4</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Insight3"/>
+						<Item Value="Insight4"/>
+						<Item Value="HyBrid"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="PVVMPlatform" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="PVVMPlatform" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="PVVMPlatform" ComponentName="PVVM_Config_NDU"/>
+				<Parameter Name="PVVMPlatform" ComponentName="MMG_ServiceKit_MZBalancersIPList"/>
+				<!-- <Parameter Name="PVVMPlatform" ComponentName="MMG_Customization_MMSGW"/>  -->
+				<Parameter Name="PVVMPlatform" ComponentName="MMG_ServiceKit_PROXY"/>
+				<!-- <Parameter Name="PVVMPlatform" ComponentName="MMG_Customization_PROXY"/> -->
+				<!-- <Parameter Name="PVVMPlatform" ComponentName="MMG_Customization_NDU"/> -->
+				<!-- <Parameter Name="PVVMPlatform" ComponentName="PVVM_Config"/> -->
+				<Parameter Name="PVVMPlatform" ComponentName="PVVM_Config_MIPS"/>
+				<Parameter Name="..Insight Platform" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name="..Insight Platform" ComponentName="service-kit-vi_suite_CAS"/>
+				<Parameter Name="..Insight Platform" ComponentName="service-kit-vi_suite_Balancer"/>
+				<Parameter Name="..Insight Platform" ComponentName="service-kit-vi_suite_MTS-U"/>
+			</Alias>
+			<Alias DisplayName="Service Mode - VM2MMS">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes" Display="True"/>
+						<Item Value="No" Display="False"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Service_Mode_VM2MMS" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="Service_Mode_VM2MMS" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<!-- <Parameter Name="Service_Mode_VM2MMS" ComponentName="MMG_Customization_MMSGW"/> -->
+				<Parameter Name="Service_Mode_VM2MMS" ComponentName="MMG_ServiceKit_PROXY"/>
+				<!-- <Parameter Name="Service_Mode_VM2MMS" ComponentName="MMG_Customization_PROXY"/> -->
+				<!-- <Parameter Name="Service_Mode_VM2MMS" ComponentName="MMG_Customization_NDU"/> -->
+			</Alias>
+			<Alias DisplayName="Service Mode - Voice2Text">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Full Mode"/>
+						<Item Value="GateWay"/>
+						<Item Value="None"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Service_Mode_Voice2Text" ComponentName="MMG_ServiceKit_NDU"/>
+				<Parameter Name="Service_Mode_Voice2Text" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<!-- <Parameter Name="Service_Mode_Voice2Text" ComponentName="MMG_Customization_MMSGW"/>  -->
+				<Parameter Name="Service_Mode_Voice2Text" ComponentName="MMG_ServiceKit_PROXY"/>
+				<!-- <Parameter Name="Service_Mode_Voice2Text" ComponentName="MMG_Customization_PROXY"/> -->
+				<!-- <Parameter Name="Service_Mode_Voice2Text" ComponentName="MMG_Customization_NDU"/> -->
+			</Alias>
+			<Alias DisplayName="SMSC IP">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="SMSC IP" ComponentName="MMG_ServiceKit_PROXY"/>
+				<Parameter Name="SMSC IP" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="SMSC IP" ComponentName="MMG_ServiceKit_NDU"/>
+			</Alias>
+			<Alias DisplayName="SMSDeliveryReportInd">
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="false"/>
+						<Item Value="true"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="SMSDeliveryReportInd" ComponentName="MMG_ServiceKit_NDU"/>
+				<!-- <Parameter Name="SMSDeliveryReportInd OnMMG" ComponentName="MMG_ServiceKit_MMSGW"/> -->
+				<Parameter Name="SMSDeliveryReportInd" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="SMSDeliveryReportInd" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Converged Msg Ips">
+				<Value>None</Value>
+				<Restrictions>
+					<Type>String</Type>
+					<Pattern>(None|(\d+(\.\d+){3}))</Pattern>
+				</Restrictions>
+				<Parameter Name="Converged Msg Ips" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Converged Msg Ips" ComponentName="MMG_ServiceKit_PROXY"/>
+			</Alias>
+			<Alias DisplayName="IS4 Balancers list">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="IS4 Balancers list" ComponentName="MMG_ServiceKit_MZBalancersIPList"/>
+				<Parameter Name="IS4 Balancers list" ComponentName="PVVM_Config_NDU"/>
+				<Parameter Name="IS4 Balancers list" ComponentName="service-kit-vi_suite_Balancer"/>
+			</Alias>
+			<Alias DisplayName="Engine Return Mail account">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Engine Return Mail account" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<!-- <Parameter Name="Engine Return Mail account" ComponentName="MMG_Customization_MMSGW"/> -->
+				<Parameter Name="Engine Return Mail account" ComponentName="MMG_ServiceKit_PROXY"/>
+				<Parameter Name="Engine Return Mail account" ComponentName="MMG_ServiceKit_NDU"/>
+			</Alias>
+			<Alias DisplayName="Engine Regular Mail Account">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Engine Regular Mail Account" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Engine Regular Mail Account" ComponentName="MMG_ServiceKit_PROXY"/>
+				<Parameter Name="Engine Regular Mail Account" ComponentName="MMG_ServiceKit_NDU"/>
+			</Alias>
+			<Parameter Name="SMU A Physical IP" ComponentName="MMG_CSP-Base_Customization_MMSGW" Display="true"/>
+			<Parameter Name="SMU B Physical IP" ComponentName="MMG_CSP-Base_Customization_MMSGW" Display="true"/>
+			<Alias DisplayName="MMSGW Machine list">
+				<Value>[UnitGroup.xml:string-join(//Physical[@GroupName="MMSGW_Group"]/UnitInstance/@DataIp,",")]</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="MMSGW Machine list" ComponentName="MMG_ServiceKit_ProxyBalancerList"/>
+				<Parameter Name="MMSGW Machine list" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="MMSGW Machine list" ComponentName="MMG_ServiceKit_MZBalancersIPList"/>
+			</Alias>
+			<Alias DisplayName="NDU Machine list">
+				<Value>[UnitGroup.xml:string-join(//Physical[@GroupName="NDU-WHC-MMG_Group"]/UnitInstance/@DataIp,",")]</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="NDU Machine list" ComponentName="MMG_ServiceKit_ProxyBalancerList"/>
+				<Parameter Name="NDU Machine list" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="NDU Machine list" ComponentName="MMG_ServiceKit_MZBalancersIPList"/>
+			</Alias>
+			<Alias DisplayName="Proxy Machine list">
+				<Value>[UnitGroup.xml:string-join(//Physical[@GroupName="Proxy_AU_Group"]/UnitInstance/@DataIp,",")]</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Proxy Machine list" ComponentName="MMG_ServiceKit_ProxyBalancerList"/>
+				<Parameter Name="Proxy Machine list" ComponentName="MMG_ServiceKit_MMSGW"/>
+				<Parameter Name="Proxy Machine list" ComponentName="MMG_ServiceKit_MZBalancersIPList"/>
+				<Parameter Name="PROXY-units" ComponentName="service-kit-vi_suite_Balancer"/>
+			</Alias>
+			<Alias DisplayName="Subscriber Locator Method">
+				<Value>PL</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="PL"/>
+						<Item Value="GSL"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name="Subscriber Locator Method" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name="Subscriber Locator Method" ComponentName="service-kit-vi_suite_CAS"/>
+				<Parameter Name="Subscriber Locator Method" ComponentName="service-kit-vi_suite_MTS-U"/>
+			</Alias>
+			<Alias DisplayName="SMU VIP">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="SMU_VIP" ComponentName="MMG_CSP-Base_Customization_MMSGW"/>
+				<Parameter Name="SMU VIP" ComponentName="VI_CSP-Base_Customization_MTS-U"/>
+				<Parameter Name="SMU VIP" ComponentName="VI_CSP-Base_Customization_CAS"/>
+				<Parameter Name="SMU VIP" ComponentName="VI_CSP-Base_Customization_PROXY"/>
+			</Alias>
+			<Alias DisplayName="TRM ID">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="TRM_ID" ComponentName="MTA_Plugin_MMSGW"/>
+				<Parameter Name="TRM_ID" ComponentName="MTA_Plugin_PROXY"/>
+				<Parameter Name="TRM_ID" ComponentName="MTA_Plugin_CAS"/>
+				<Parameter Name="TRM_ID" ComponentName="service-kit-vi_suite_CAS"/>
+				<Parameter Name="TRM ID" ComponentName="um23log"/>
+				<Parameter Name="TrmServerId" ComponentName="genesis"/>
+				<Parameter Name="TRM Number" ComponentName="MTA_Plugin_PROXY"/>
+				<Parameter Name="TRM Number" ComponentName="MTA_Plugin_CAS"/>
+			</Alias>
+			<Alias DisplayName="ESU_IP">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="ESU_IP" ComponentName="MTA_Plugin_MMSGW"/>
+				<Parameter Name="ESU_IP" ComponentName="service-kit-vi_suite_Balancer"/>
+			</Alias>
+			<Alias DisplayName="SMU Physical IP List">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="SMU Physical IP List" ComponentName="VI_CSP-Base_Customization_MTS-U"/>
+				<Parameter Name="SMU Physical IP List" ComponentName="VI_CSP-Base_Customization_CAS"/>
+				<Parameter Name="SMU Physical IP List" ComponentName="VI_CSP-Base_Customization_PROXY"/>
+			</Alias>
+			<Alias DisplayName="Main Domain">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Main Domain" ComponentName="MTA_Plugin_PROXY"/>
+				<Parameter Name="Main_Domain" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name="Main_Domain" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Alias DisplayName="IS4_Email_Domain">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="IS4_Email_Domain" ComponentName="MTA_Plugin_PROXY"/>
+				<Parameter Name="IS4_Email_Domain" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name="EmailDomainName" ComponentName="vi_mta_PROXY"/>
+			</Alias>
+			<Alias DisplayName="ESU_PASSWORD">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="ESU_PASSWORD" ComponentName="service-kit-vi_suite_Balancer"/>
+				<Parameter Name="ESU_PASSWORD" ComponentName="service-kit-vi_suite_MTS-U"/>
+				<Parameter Name="MIPSAdminPass" ComponentName="vi_mta_CAS"/>
+				<Parameter Name="MIPSAdminPass" ComponentName="vi_mta_PROXY"/>
+			</Alias>
+			<Alias DisplayName="IS4 Network Domain">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="IS4 Network Domain" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name="IS4 Network Domain" ComponentName="service-kit-vi_suite_CAS"/>
+				<Parameter Name="IS4 Network Domain" ComponentName="service-kit-vi_suite_MTS-U"/>
+			</Alias>
+			<Alias DisplayName="Range of MZ IP">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="Range of MZ IP" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name="MIPS_IP_Range" ComponentName="vi_mta_CAS"/>
+				<Parameter Name="MTA_IP_Range" ComponentName="vi_mta_CAS"/>
+				<Parameter Name="MIPS_IP_Range" ComponentName="vi_mta_PROXY"/>
+				<Parameter Name="MTA_IP_Range" ComponentName="vi_mta_PROXY"/>
+			</Alias>
+			<Parameter Name="SMSC Port" ComponentName="MMG_ServiceKit_NDU" Display="true"/>
+			<Alias DisplayName="First MZ unit IP">
+				<Value>#BalancerIP1#</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="First MZ unit IP" ComponentName="VI_CSP-Base_Customization_MTS-U"/>
+				<Parameter Name="First MZ unit IP" ComponentName="VI_CSP-Base_Customization_CAS"/>
+				<Parameter Name="First MZ unit IP" ComponentName="service-kit-vi_suite_Balancer"/>
+				<Parameter Name="First MZ unit IP" ComponentName="balancer_MZ"/>
+				<Parameter Name="First MZ unit IP" ComponentName="balancer_DMZ"/>
+				<Parameter Name="First MZ unit IP" ComponentName="MMG_CSP-Base_Customization_MMSGW"/>
+			</Alias>
+			<Alias DisplayName=".Direct Deposit" Display="false">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".Direct Deposit" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name=".Direct Deposit" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Alias DisplayName=".Direct Retrieval" Display="false">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".Direct Retrieval" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name=".Direct Retrieval" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Alias DisplayName=".MTE">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".MTE" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name=".MTE" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Alias DisplayName=".Voice Open API" Display="false">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".Voice Open API" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name=".Voice Open API" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Alias DisplayName=".VVM" Display="false">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".VVM" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name=".VVM" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Alias DisplayName=".WCC" Display="false">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".WCC" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name=".WCC" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Alias DisplayName=".WPM" Display="false">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>Enum</Type>
+					<Enum>
+						<Item Value="Yes"/>
+						<Item Value="No"/>
+					</Enum>
+				</Restrictions>
+				<Parameter Name=".WPM" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name=".WPM" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Alias DisplayName=".WebInbox" Display="false">
+				<Value>No</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name=".WebInbox" ComponentName="service-kit-vi_suite_PROXY"/>
+				<Parameter Name=".WebInbox" ComponentName="service-kit-vi_suite_CAS"/>
+			</Alias>
+			<Parameter Name="CAS-units" ComponentName="service-kit-vi_suite_Balancer" Display="false"/>
+			<Parameter Name="Informix Ip" ComponentName="genesis" Display="false"/>
+			<Parameter Name="MTS-U-units" ComponentName="service-kit-vi_suite_Balancer" Display="true">
+				<Value>[UnitGroup.xml:string-join(//Physical[@GroupName="MTS_Group"]/UnitInstance/@DataIp,",")]</Value>
+			</Parameter>
+			<Alias DisplayName="MTS Machine list">
+				<Value>[UnitGroup.xml:string-join(//Physical[@GroupName="MTS_Group"]/UnitInstance/@DataIp,",")]</Value>
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+				<Parameter Name="MTS Machine list" ComponentName="MMG_ServiceKit_MZBalancersIPList"/>
+				<Parameter Name="MTS-U-units" ComponentName="service-kit-vi_suite_Balancer"/>
+			</Alias>
+		</Parameters>
+	</System>
+</SWIM>

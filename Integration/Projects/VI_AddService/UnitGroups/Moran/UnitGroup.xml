@@ -1,0 +1,241 @@
+<UnitGroup>
+   <Identification>
+      <ComponentName>scdb</ComponentName>
+      <FileFormatVersion>1.0</FileFormatVersion>
+      <ComponentRelease>6.1.1.0</ComponentRelease>
+      <ComponentBuild>05</ComponentBuild>
+   </Identification>
+   <Physical GroupName='VM_ASU_Group'>
+      <UnitInstance DataIp='10.107.113.165' Hostname='vm-asu1.Moran.is433.com' MngIp='10.107.113.165' Mngname='vm-asu1.Moran.is433.com' UnitName='vm-asu1'>
+         <Connection Hostname='vm-asu1.Moran.is433.com' IP='10.107.113.165' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='DSU_Group'>
+      <UnitInstance DataIp='10.107.113.170' Hostname='dsu1.Moran.is433.com' MngIp='10.107.113.170' Mngname='dsu1.Moran.is433.com' UnitName='dsu1'>
+         <Connection Hostname='dsu1.Moran.is433.com' IP='10.107.113.170' Type='Data'/>
+         <Connection Hostname='dsu1.Moran.is433.com' IP='10.107.113.160' Type='RAC_Con'/>
+      </UnitInstance>
+      <UnitInstance DataIp='10.107.113.171' Hostname='dsu2.Moran.is433.com' MngIp='10.107.113.171' Mngname='dsu2.Moran.is433.com' UnitName='dsu2'>
+         <Connection Hostname='dsu2.Moran.is433.com' IP='10.107.113.171' Type='Data'/>
+         <Connection Hostname='dsu2.Moran.is433.com' IP='10.107.113.161' Type='RAC_Con'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='SMU_Group'>
+      <UnitInstance DataIp='10.107.113.159' Hostname='smu1a.Moran.is433.com' MngIp='10.107.113.159' Mngname='smu1a.Moran.is433.com' UnitName='smu1a'>
+         <Connection Hostname='smu1a.Moran.is433.com' IP='10.107.113.159' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='MAU_Group'>
+      <UnitInstance DataIp='10.106.134.249' Hostname='mau1.Moran.is433.com' MngIp='10.106.134.249' Mngname='mau1.Moran.is433.com' UnitName='mau1'>
+         <Connection Hostname='mau1.Moran.is433.com' IP='10.106.134.249' Type='Management'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='OMU_Group'>
+      <UnitInstance DataIp='10.107.113.164' Hostname='omu-au1.Moran.is433.com' MngIp='10.107.113.164' Mngname='omu-au1.Moran.is433.com' UnitName='omu-au1'>
+         <Connection Hostname='omu-au1.Moran.is433.com' IP='10.107.113.164' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Physical GroupName='LVU_Group'>
+      <UnitInstance DataIp='10.107.113.166' Hostname='lvu1.Moran.is433.com' MngIp='10.107.113.166' Mngname='lvu1.Moran.is433.com' UnitName='lvu1'>
+         <Connection Hostname='lvu1.Moran.is433.com' IP='10.107.113.166' Type='Data'/>
+      </UnitInstance>
+   </Physical>
+   <Logical>
+      <Application ApplicationLabel='Process Control' ApplicationName='MAM.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.107.113.166' Appname='lvu1' DataIp='10.107.113.166' Hostname='lvu1' MngIp='10.107.113.166' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+      <Application ApplicationLabel='Auditd' ApplicationName='Auditd.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.107.113.170' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.171' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+         <UnitInstance AppIP='10.107.113.159' Appname='smu1a' DataIp='10.107.113.159' Hostname='smu1a' MngIp='10.107.113.159' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.107.113.166' Appname='lvu1' DataIp='10.107.113.166' Hostname='lvu1' MngIp='10.107.113.166' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+      <Application ApplicationLabel='Rules and Restrictions' ApplicationName='RMR.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='Message Relay' ApplicationName='MR.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='MTA' ApplicationName='MTA.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='MTS' ApplicationName='MTS.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='VM-ASU_Platform.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='IVE-APP VoiceXML VoiceMail' ApplicationName='VxV.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='Notification Server' ApplicationName='NDS.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='SMS Gateway' ApplicationName='SMG.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='HLR Service' ApplicationName='HLRS.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+      </Application>
+      <Application ApplicationLabel='CCM Agent' ApplicationName='ccm-agent.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.165' Appname='vm-asu1' DataIp='10.107.113.165' Hostname='vm-asu1' MngIp='10.107.113.165' Mngname='vm-asu1' ParentGroup='VM_ASU_Unit' Precedence='Primary' UnitName='vm-asu1'/>
+         <UnitInstance AppIP='10.107.113.170' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.171' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+         <UnitInstance AppIP='10.107.113.159' Appname='smu1a' DataIp='10.107.113.159' Hostname='smu1a' MngIp='10.107.113.159' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+         <UnitInstance AppIP='10.107.113.166' Appname='lvu1' DataIp='10.107.113.166' Hostname='lvu1' MngIp='10.107.113.166' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='DSU_Platform.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.170' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.171' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='DDS' ApplicationName='DDS.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.170' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.171' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='Oracle' ApplicationName='ODS.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.160' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.161' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='AASDB.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.160' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.161' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='Profile1' ApplicationName='PROFILE1.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.160' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.161' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='GSL.MASTER' ApplicationName='GSL.MASTER'>
+         <UnitInstance AppIP='10.107.113.160' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.161' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='GSL.SECONDARY' ApplicationName='GSL.SECONDARY'>
+         <UnitInstance AppIP='10.107.113.160' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.161' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='ProfileCounter' ApplicationName='ProfileCounter.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.160' Appname='dsu1' DataIp='10.107.113.170' Hostname='dsu1' MngIp='10.107.113.170' Mngname='dsu1' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu1'/>
+         <UnitInstance AppIP='10.107.113.161' Appname='dsu2' DataIp='10.107.113.171' Hostname='dsu2' MngIp='10.107.113.171' Mngname='dsu2' ParentGroup='DSU_Unit' Precedence='Primary' UnitName='dsu2'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='SMU_Platform.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.159' Appname='smu1a' DataIp='10.107.113.159' Hostname='smu1a' MngIp='10.107.113.159' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='PM' ApplicationName='PM.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.159' Appname='smu1a' DataIp='10.107.113.159' Hostname='smu1a' MngIp='10.107.113.159' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='NTPSERVER1.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.159' Appname='smu1a' DataIp='10.107.113.159' Hostname='smu1a' MngIp='10.107.113.159' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='NTPSERVER2.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.159' Appname='smu1a' DataIp='10.107.113.159' Hostname='smu1a' MngIp='10.107.113.159' Mngname='smu1a' ParentGroup='SMU_Unit' Precedence='Primary' UnitName='smu1a'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='MAU_Platform.Moran.is433.com'>
+         <UnitInstance AppIP='10.106.134.249' Appname='mau1' DataIp='10.106.134.249' Hostname='mau1' MngIp='10.106.134.249' Mngname='mau1' ParentGroup='mau' Precedence='Primary' UnitName='mau1'/>
+      </Application>
+      <Application ApplicationLabel='Provisioning Mediator' ApplicationName='SPM.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Web Service Administration' ApplicationName='WSA.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Linux Virtual Server' ApplicationName='LVS.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='OMU_Platform.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='File Transfer Mediator' ApplicationName='FTM.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Transaction Charging Mediator' ApplicationName='TCM.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='TCM Adapter' ApplicationName='TCMAdapter.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='TCMMANAGER.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='' ApplicationName='TCMSERVER.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='AAS' ApplicationName='AAS.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='PMT' ApplicationName='PMT.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Load Balancer' ApplicationName='Balancer-IC.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='CCM' ApplicationName='CCM.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.164' Appname='omu-au1' DataIp='10.107.113.164' Hostname='omu-au1' MngIp='10.107.113.164' Mngname='omu-au1' ParentGroup='OMU_Unit' Precedence='Primary' UnitName='omu-au1'/>
+      </Application>
+      <Application ApplicationLabel='Platform Configuration' ApplicationName='LVU_Platform.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.166' Appname='lvu1' DataIp='10.107.113.166' Hostname='lvu1' MngIp='10.107.113.166' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+      <Application ApplicationLabel='Log Viewer' ApplicationName='LGW.Moran.is433.com'>
+         <UnitInstance AppIP='10.107.113.166' Appname='lvu1' DataIp='10.107.113.166' Hostname='lvu1' MngIp='10.107.113.166' Mngname='lvu1' ParentGroup='LVU_Unit' Precedence='Primary' UnitName='lvu1'/>
+      </Application>
+   </Logical>
+   <Virtual>
+      <Vapplication ApplicationLabel='MIPS1' ApplicationName='MIPS1.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.172'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='DSUSFTP' ApplicationName='DSUSFTP.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.175'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='DSUHTTP1' ApplicationName='DSUHTTP1.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.178'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Notification Scheduling' ApplicationName='SRH.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.176'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SPMAgent' ApplicationName='SPMAgent.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.177'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Data Consistency' ApplicationName='data_const.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.10.10.10'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='ProfileLocator' ApplicationName='ProfileLocator.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.174'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='OSS-Portal' ApplicationName='OSS-Portal.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SNMP Status UI' ApplicationName='SUI.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='System Configuration' ApplicationName='SCDB.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='Comverse SNMP Agent' ApplicationName='CMA.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='ICC' ApplicationName='Core_SPI.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='SNMPMANAGER.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='MARIMBASDM.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='SiteBook' ApplicationName='SiteBook.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.106.134.208'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='MARIMBATX' ApplicationName='MARIMBATX.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='' ApplicationName='SYSLOGSERVER.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+      <Vapplication ApplicationLabel='admin_vip_smu' ApplicationName='admin_vip_smu.Moran.is433.com'>
+         <VUnitInstance VirtualIp='10.107.113.159'/>
+      </Vapplication>
+   </Virtual>
+</UnitGroup>

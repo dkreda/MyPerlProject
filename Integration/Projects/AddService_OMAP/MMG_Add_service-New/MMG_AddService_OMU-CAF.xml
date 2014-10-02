@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+	<Component Name="MMG_AddService_OMU" Version="5.0.0.0_02" Platform="Linux">
+		<Install>
+			<Execute ExecutionOrder="14970">
+				<Command>sh -c "if [ -d /usr/cti/conf/ftm/ActualSystemName2 ];then rm -rf /usr/cti/conf/ftm/ActualSystemName2;  fi"</Command>
+			</Execute>
+			<Copy ExecutionOrder="15000" ChmodFlags="+x">
+				<Source>./scripts/BalancerConf.pl</Source>
+				<Target>/tmp/BalancerConf.pl</Target>
+			</Copy>
+			<Copy ExecutionOrder="15000">
+				<Source>./ftmTemplates/VW_Transfer_Task_IS4.xml</Source>
+				<Target>/tmp/ftmTemplates/VW_Transfer_Task_template.xml</Target>
+			</Copy>
+			<Copy ExecutionOrder="15002" ChmodFlags="+x">
+				<Source>./scripts/MergeFtm.pl</Source>
+				<Target>/tmp/MergeFtm.pl</Target>
+			</Copy>
+			<Execute ExecutionOrder="15020">
+				<Command>/tmp/BalancerConf.pl</Command>
+			</Execute>
+			<Execute ExecutionOrder="15022">
+				<Command>/tmp/MergeFtm.pl -Merge /tmp/ftmTemplates/VW_Transfer_Task_template.xml -Dest /usr/cti/conf/ftm/ftmTasks.xml -InstallationType {Installation Type}</Command>
+			</Execute>
+			<Execute ExecutionOrder="15030">
+				<Command>/usr/cti/babysitter/MamCMD restart ftm</Command>
+			</Execute>
+			<Execute ExecutionOrder="15031">
+				<Command>sleep 120</Command>
+			</Execute>
+		</Install>
+		<Parameters>
+			<Parameter Name="Installation Type" Level="System" ExecutionGroup="FTM Update">
+				<Restrictions>
+					<Type>String</Type>
+				</Restrictions>
+			</Parameter>
+		</Parameters>
+	</Component>
+</SWIM>

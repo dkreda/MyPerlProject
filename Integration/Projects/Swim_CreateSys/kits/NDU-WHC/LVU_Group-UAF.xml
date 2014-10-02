@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SWIM>
+  <UnitType Name="LVU_Group" Platform="Linux">
+    <Install>
+      <Component Name="WHC_Service_LVU">
+      </Component>
+    </Install>
+  </UnitType>
+</SWIM>

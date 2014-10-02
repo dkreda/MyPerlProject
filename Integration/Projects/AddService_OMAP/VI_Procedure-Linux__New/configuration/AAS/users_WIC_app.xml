@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AAS>
+	<Users>
+		<User>
+			<Name>wic_app_user</Name>
+			<FullName>WCC application user</FullName>
+			<Type>Application</Type>
+			<Password>BdRaANsUYwBCfRZ3EkW/+A==</Password>
+			<DefaultDomainId>System domain</DefaultDomainId>
+			<AdminBlocked>false</AdminBlocked>
+			<ReadOnly>false</ReadOnly>
+			<Roles>
+				<Role Name="wic_app"/>
+			</Roles>
+			<Domains>
+				<Domain Id="#all"/>
+			</Domains>
+			<Systems>
+				<System Id="#all"/>
+			</Systems>
+		</User>
+	</Users>
+</AAS>

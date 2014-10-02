@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<AAS>
+  <Users>
+    <User>
+      <Name>vvm_app_user</Name>
+      <FullName>VVM application user</FullName>
+      <Type>Application</Type>
+      <Password>U1lMYW56cm1hn55DG5Vr+Q==</Password>
+      <DefaultDomainId>System domain</DefaultDomainId>
+      <AdminBlocked>false</AdminBlocked>
+      <ReadOnly>false</ReadOnly>
+      <Roles>
+        <Role Name="vxv_app"/>
+      </Roles>
+      <Domains>
+        <Domain Id="#all"/>
+      </Domains>
+      <Systems>
+        <System Id="#all"/>
+      </Systems>
+    </User>
+  </Users>
+</AAS>

@@ -1,0 +1,8 @@
+[RealName.Parameters.Def]
+Name=%$UnitType%,cmd://cd /var/tmp/SWIMUtilDemo;./SwimVerify.pl -Text Congratulations_! `perl -e '$ARGV[-1] =~ s/\s/_/g ; print $ARGV[-1]' "{Name}"` You_are SWIM_exper
+
+[Macros]
+UnitType=Ignore
+
+[Values]
+Name=$NULL
