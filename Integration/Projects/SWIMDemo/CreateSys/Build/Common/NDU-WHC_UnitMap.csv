@@ -1,0 +1,14 @@
+Octopus Unit Type,GroupName at UnitGroup,Network
+ALL,AllLinux,Ignore
+CAS,CAS_Group,MZ
+All,MAMLinux,Ignore
+MMG_UNIT,MMSGW_Group,MZ
+MMSGW,MMSGW_Group,MZ
+MTS,MTS_Group,MZ
+MTS-U,MTS_Group,MZ
+NDU,NDU-WHC_Group,MZ
+NDU-WHC,NDU-WHC_Group,MZ
+PROXY,Proxy_AU_Group,DMZ
+SMU,SMU_Group,MZ
+SMU_A,SMU_Group,MZ
+SMU_B,SMU_Group,MZ

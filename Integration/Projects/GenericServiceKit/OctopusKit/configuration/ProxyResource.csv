@@ -1,0 +1,16 @@
+ResourceName,Type,Operand,VVM,DR,WEBVI,WCC,WPM,VmApi,DD ,MTE,VM2MMS,Voice2Text
+ApplicationsAumsiLINUX.xml,Application,disable,NO,NO,NO,NO,NO,NO,N/A,N/A,NO,NO
+ApplicationsUM23LOG.xml,Application,enable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ApplicationsMTA.xml,Application,disable,N/A,N/A,NO,NO,NO,NO,NO,NO,N/A,NO
+Applications_MTA_Plugin.xml,Application,disable,N/A,N/A,NO,NO,NO,NO,NO,NO,N/A,N/A
+ApplicationsMTS.xml,Application,disable,N/A,N/A,NO,N/A,N/A,N/A,N/A,NO,N/A,N/A
+ApplicationsGenesis.xml,Application,enable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,YES,N/A,N/A
+MTS.DMZ.SITE1,farm,disable,N/A,N/A,NO,N/A,N/A,N/A,N/A,NO,N/A,N/A
+CASIMAP.SITE1,farm,disable,NO,NO,N/A,N/A,N/A,N/A,N/A,NO,N/A,N/A
+CASMTA.SITE1,farm,disable,NO,N/A,NO,NO,NO,NO,NO,N/A,N/A,N/A
+PROXYOSS.SITE1,farm,enable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,YES,N/A,N/A
+CASHTTP.SITE1,farm,disable,N/A,N/A,NO,NO,NO,NO,N/A,N/A,N/A,N/A
+MMSGW.SITE1,farm,disable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,NO,NO
+RemoteEngine.VOICEWRITER,farm,enable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,YES
+MMSGW.VOICEWRITER,farm,enable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,YES
+MMSGW.CGM,farm,enable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,YES

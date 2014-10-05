@@ -1,0 +1,12 @@
+ResourceName,Type,Operand,VVM,DR,WEBVI,WCC,WPM,VmApi,DD ,MTE,VM2MMS,Voice2Text
+/usr/cti/conf/ServiceKit/FirstPhassConfig.ini:SMTPDeposit,Param,disable,NO,N/A,N/A,N/A,N/A,N/A,NO,N/A,N/A,N/A
+/usr/cti/conf/ServiceKit/FirstPhassConfig.ini:WebEnable,Param,disable,N/A,N/A,NO,NO,NO,NO,N/A,N/A,N/A,N/A
+/usr/cti/conf/ServiceKit/FirstPhassConfig.ini:MTEEnable,Param,enable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,YES,N/A,N/A
+/usr/cti/conf/ServiceKit/FirstPhassConfig.ini:ImapEnable,Param,disable,NO,NO,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+/usr/cti/conf/ServiceKit/FirstPhassConfig.ini:MMGEnable,Param,disable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,NO,NO
+ApplicationsAumsiLINUX.xml,Application,enable,*,*,*,*,*,*,*,*,*,*
+ApplicationsUM23LOG.xml,Application,enable,*,*,*,*,*,*,*,*,*,*
+ApplicationsMTA.xml,Application,enable,*,*,*,*,*,*,*,*,*,*
+Applications_MTA_Plugin.xml,Application,enable,*,*,*,*,*,*,*,*,*,*
+ApplicationsMTS.xml,Application,enable,*,*,*,*,*,*,*,*,*,*
+ApplicationsGenesis.xml,Application,enable,*,*,*,*,*,*,*,*,*,*

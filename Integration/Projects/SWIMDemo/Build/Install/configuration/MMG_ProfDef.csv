@@ -1,0 +1,3 @@
+ResourceName,operand,Type,VM2Text,VM2MMS
+ProfileDefinitions_VM2MMS_IS4.xml,Enable,File,*,Yes
+ProfileDefinitions_VW_IS4.xml,Enable,File,Yes,*

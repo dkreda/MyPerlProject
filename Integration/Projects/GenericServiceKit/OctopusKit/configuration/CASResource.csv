@@ -1,0 +1,21 @@
+ResourceName,Type,Operand,VVM,Direct Retrieval,Web Inbox,WCC,WPM,Voice Open API,Direct Diposite,MTE
+ApplicationsAumsiLINUX.xml,Application,disable,NO,NO,N/A,N/A,N/A,N/A,N/A,NO
+ApplicationsUM23LOG.xml,Application,disable,NO,NO,NO,NO,NO,NO,NO,N/A
+ApplicationsGenesis.xml,Application,disable,NO,NO,N/A,N/A,N/A,N/A,NO,NO
+ApplicationsMTA.xml,Application,disable,N/A,N/A,NO,N/A,N/A,NO,NO,N/A
+Applications_MTA_Plugin.xml,Application,disable,N/A,N/A,NO,N/A,N/A,NO,NO,N/A
+ApplicationsMTS.xml,Application,disable,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+ApplicationsWebInbox.xml,Application,disable,N/A,N/A,NO,NO,NO,NO,N/A,N/A
+jglue,farm,disable,NO,NO,N/A,N/A,N/A,N/A,NO,NO
+ncili,farm,disable,NO,NO,NO,NO,NO,NO,NO,N/A
+msu,farm,disable,NO,NO,NO,NO,NO,NO,NO,NO
+mts.mz,farm,disable,NO,NO,NO,NO,NO,NO,NO,N/A
+PROXYMTA,farm,disable,N/A,N/A,NO,N/A,N/A,NO,N/A,N/A
+CASMTA,farm,disable,N/A,N/A,NO,N/A,N/A,NO,NO,N/A
+ApplicationsMarimba.xml,Application,enabled,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+/usr/cti/conf/ServiceKit/FirstPhassConfig.ini:ImapSession,Param,enabled,NO,NO,N/A,N/A,N/A,N/A,N/A,N/A
+WCC.SITE1,farm,enabled,N/A,N/A,N/A,YES,N/A,N/A,N/A,N/A
+VoiceOpenAPi and WebInbox,Check,disable,N/A,N/A,Yes,N/A,N/A,YES,N/A,N/A
+VoiceOpenAPi and WCC,Check,disable,N/A,N/A,N/A,YES,N/A,YES,N/A,N/A
+VoiceOpenAPi and WPM,Check,disable,N/A,N/A,N/A,N/A,Yes,YES,N/A,N/A
+VVM and DirectRetrival,Check,disable,YES,YES,N/A,N/A,N/A,N/A,N/A,N/A

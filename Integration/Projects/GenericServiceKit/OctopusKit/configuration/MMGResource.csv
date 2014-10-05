@@ -1,0 +1,15 @@
+ResourceName,operand,Type,VM2MMS,Voice writer,Method SMS,Method MMS,Method Mail,IS4 Platform,IS3 Platform,Multi Delivery
+VM2MMS,Enable,Check,Yes,*,*,Yes,*,*,*,*
+VM2MMS.IS3.AUTO,Enable,Check,Yes,No,*,*,*,*,Yes,*
+..\configuration\ThirdPhass.ini:MMGService,Enable,Param,Yes,No,*,*,*,*,Yes,*
+VM2MMS.IS4.AUTO,Enable,Check,Yes,*,*,*,*,Yes,*,*
+VM2MMS.IS4.OD,Enable,Check,Yes,*,*,*,*,Yes,*,*
+MMSGW.SITE1,Enable,farm,*,*,Yes,*,*,*,*,*
+CC.NDU,Enable,farm,*,*,Yes,*,*,*,*,*
+PROXY.VOICEWRITER,Enable,farm,*,Yes,*,*,*,*,*,*
+NULL.SITE1,Disable,farm,No,*,*,No,*,*,*,*
+GSL.MULTISITE,Enable,farm,*,*,*,*,*,Yes,*,*
+..\configuration\ThirdPhass.ini:UnitStam,Enable,Param,*,Yes,Yes,*,*,*,Yes,*
+VOICE-WRITER.IS3.REUSED.MMS,Enable,Param,*,Yes,*,Yes,*,*,Yes,*
+ApplicationsMarimba.xml,Disable,Application,*,*,*,*,*,No,*,*
+/etc/marimba.conf,Disable,File,*,*,*,*,*,No,*,*

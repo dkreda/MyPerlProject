@@ -1,0 +1,5 @@
+ResourceName,Type,operand,Insight3,Insight4
+ApplicationsUM23LOG.xml,Application,disable,NO,N/A
+ApplicationsMarimba.xml,Application,disable,N/A,NO
+ncili.site1,farm,disable,NO,N/A
+msu.site1,farm,disable,NO,N/A

@@ -1,0 +1,5 @@
+ResourceName,operand,Type,Call Screening,Smart Call,Black White list
+ProfileDefinitions_CallScreening.xml,Enable,File,Yes,*,*
+ProfileDefinitions_SmartCall.xml,Enable,File,*,Yes,*
+ProfileDefinitions_WHC.xml,Enable,File,*,*,*
+ProfileDefinitions_WHC-BWList.xml,Enable,File,*,*,Yes

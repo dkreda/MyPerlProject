@@ -1,0 +1,11 @@
+PKG=SwimInteg
+NAME=SwimInteg-CreateSystem
+ARCH=sparc
+VERSION=New-Ver
+MAXINST=1
+DESC=Swim Applivation: Create System Utility - This Utilit creates UnitGroup and copy the relevant UAF/SAF Files
+VENDOR=Comverse
+CATEGORY=SWIM
+CLASSES=none
+PSTAMP=Packager Name
+BASEDIR=/var/cti/data/swim/kits
